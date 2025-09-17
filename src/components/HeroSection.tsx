@@ -1,12 +1,25 @@
 import { ChevronRight } from "lucide-react";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <section className="py-32 pb-0 bg-[#0B3D91]">
-      <div className="relative container max-w-7xl mx-auto min-h-[100vh]">
+    <section className="relative py-32 pb-0 bg-[#0B3D91] min-h-screen">
+      {/* Full-bleed galaxy-esque backdrop (CSS-only to avoid broken image) */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none select-none border-0 outline-none"
+        style={{
+          backgroundColor: "#062a67",
+          background:
+            "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.02) 60%, transparent 100%), radial-gradient(80% 80% at 70% 20%, rgba(255,255,255,0.06), transparent 60%), radial-gradient(100% 100% at 20% 80%, rgba(255,255,255,0.04), transparent 70%)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+        aria-hidden
+      />
+
+      <div className="relative z-10 container max-w-7xl mx-auto min-h-[100vh]">
         <div className="absolute bottom-45 z-10 lg:max-w-2xl w-2xl">
           <h2 className="absolute -top-110 z-0 text-left font-extralight text-5xl tracking-tight lg:text-7xl text-white">
             A Very Serious Company
@@ -31,37 +44,6 @@ const HeroSection = () => {
               <ChevronRight className="size-4 mt-1 transition-all ease-out group-hover:rotate-0" />
             </Button>
           </div>
-        </div>
-        <div
-          className="absolute inset-0 h-full z-0 pointer-events-none select-none rounded-2xl overflow-hidden"
-          style={{
-            backgroundImage: "url('/galaxy-ascii.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-          aria-hidden
-        >
-          <Image
-            src="/galaxy-ascii.png"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 rounded-2xl"
-            style={{
-              background:
-                "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.02) 60%, transparent 100%)",
-            }}
-          />
-          {/* noscript fallback to ensure image shows if JS or styles fail */}
-          <noscript>
-            <img src="/galaxy-ascii.png" alt="Galaxy backdrop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-          </noscript>
         </div>
       </div>
     </section>
