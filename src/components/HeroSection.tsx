@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -34,13 +35,22 @@ const HeroSection = () => {
         <div
           className="absolute inset-0 h-full z-0 pointer-events-none select-none rounded-2xl overflow-hidden"
           style={{
-            backgroundImage: "url('galaxy-ascii.png')",
+            backgroundImage: "url('/galaxy-ascii.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
           aria-hidden
         >
+          <Image
+            src="/galaxy-ascii.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden
+          />
           <div
             className="absolute inset-0 rounded-2xl"
             style={{
@@ -50,7 +60,7 @@ const HeroSection = () => {
           />
           {/* noscript fallback to ensure image shows if JS or styles fail */}
           <noscript>
-            <img src="galaxy-ascii.png" alt="Galaxy backdrop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src="/galaxy-ascii.png" alt="Galaxy backdrop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </noscript>
         </div>
       </div>
