@@ -4,6 +4,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Star twinkle animation */
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.9; }
+}
+
 h2,
 h3,
 h4 {

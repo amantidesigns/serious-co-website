@@ -212,35 +212,35 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto px-4 ">
         <NavigationMenu className="min-w-full">
           <div className="flex w-full items-center justify-between gap-8 py-4">
-            <a href="/" className="flex items-center gap-2 text-white whitespace-nowrap hover:text-white hover:no-underline">
-              <Asterisk />
-              <span className="text-xl font-semibold tracking-tighter">
+            <a href="/" className="flex items-center gap-2 text-white whitespace-nowrap hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group">
+              <Asterisk className="animate-fade-in animate-pulse text-white brightness-150 group-hover:brightness-200 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
+              <span className="text-xl font-semibold tracking-tighter group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">
                 A Very Serious Company
               </span>
             </a>
             <NavigationMenuList className="hidden lg:flex gap-6">
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="/company-values" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline">
-                    <Asterisk className="size-4" />
-                    Company Values
+                  <a href="/company-values" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/company-values">
+                    <Asterisk className="size-4 animate-fade-in animate-pulse text-white brightness-150 group-hover/company-values:brightness-200 group-hover/company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
+                    <span className="group-hover/company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Company Values</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="/case-studies" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline">
-                    <Asterisk className="size-4" />
-                    Case Studies
+                  <a href="/case-studies" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/case-studies">
+                    <Asterisk className="size-4 animate-fade-in animate-pulse text-white brightness-150 group-hover/case-studies:brightness-200 group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
+                    <span className="group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Case Studies</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="/our-approach" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline">
-                    <Asterisk className="size-4" />
-                    Our Approach
+                  <a href="/our-approach" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/our-approach">
+                    <Asterisk className="size-4 animate-fade-in animate-pulse text-white brightness-150 group-hover/our-approach:brightness-200 group-hover/our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
+                    <span className="group-hover/our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Our Approach</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -272,25 +272,25 @@ const Navbar = () => {
                 <a
                   href="/company-values"
                   type="button"
-                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline"
+                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/mobile-company-values"
                 >
-                  <span className="flex-1"><Asterisk className="mr-2 inline-block size-4 align-[-2px]" />Company Values</span>
+                  <span className="flex-1 group-hover/mobile-company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-company-values:brightness-200 group-hover/mobile-company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Company Values</span>
                   <span className="shrink-0"></span>
                 </a>
                 <a
                   href="/case-studies"
                   type="button"
-                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline"
+                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/mobile-case-studies"
                 >
-                  <span className="flex-1"><Asterisk className="mr-2 inline-block size-4 align-[-2px]" />Case Studies</span>
+                  <span className="flex-1 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-case-studies:brightness-200 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Case Studies</span>
                   <span className="shrink-0"></span>
                 </a>
                 <a
                   href="/our-approach"
                   type="button"
-                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline"
+                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/mobile-our-approach"
                 >
-                  <span className="flex-1"><Asterisk className="mr-2 inline-block size-4 align-[-2px]" />Our Approach</span>
+                  <span className="flex-1 group-hover/mobile-our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-our-approach:brightness-200 group-hover/mobile-our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Our Approach</span>
                   <span className="shrink-0"></span>
                 </a>
               </div>
