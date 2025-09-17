@@ -13,17 +13,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Disable turbopack in production for better Vercel compatibility
-  experimental: {
-    turbo: {
-      rules: {
-        "*.{jsx,tsx}": {
-          loaders: ['babel-loader'],
-          as: '*.js',
-        },
-      },
-    },
-  },
 };
 
 export default nextConfig;
