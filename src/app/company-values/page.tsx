@@ -129,8 +129,6 @@ export default function CompanyValuesPage() {
         <div className="absolute top-8 right-8 z-20">
           <a 
             href="/faq" 
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-white text-sm font-thin rounded-full border border-white bg-transparent hover:bg-[#F2F2F2] hover:text-[#0B3D91] px-4 py-2 tracking-tight transition-all duration-200"
           >
             Questions? We have answers.
