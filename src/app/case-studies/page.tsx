@@ -92,7 +92,7 @@ export default function CaseStudiesPage() {
           </p>
         </div>
 
-        <h2 className="relative z-20 text-white text-5xl lg:text-7xl tracking-tight font-playfair mb-6">Work</h2>
+        <h2 className="relative z-20 text-white text-5xl lg:text-7xl tracking-tight font-playfair mb-6">Case Studies</h2>
         <div className="relative z-20 max-w-2xl text-lg leading-relaxed space-y-6 text-white">
           <p>We take simple ideas <em>seriously.</em></p>
           <p>Our case studies will be available soon.</p>

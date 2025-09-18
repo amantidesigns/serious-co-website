@@ -232,7 +232,7 @@ const Navbar = () => {
                 <NavigationMenuLink asChild>
                   <a href="/case-studies" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/case-studies">
                     <Asterisk className="size-4 animate-fade-in animate-pulse text-white brightness-150 group-hover/case-studies:brightness-200 group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
-                    <span className="group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Work</span>
+                    <span className="group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Case Studies</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -282,7 +282,7 @@ const Navbar = () => {
                   type="button"
                   className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/mobile-case-studies"
                 >
-                  <span className="flex-1 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-case-studies:brightness-200 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Work</span>
+                  <span className="flex-1 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-case-studies:brightness-200 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Case Studies</span>
                   <span className="shrink-0"></span>
                 </a>
                 <a
