@@ -1,5 +1,8 @@
+"use client";
+
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { theme } from "@/lib/theme";
 
 interface list {
   title: string;
@@ -46,35 +49,53 @@ const LIST: Array<list> = [
 
 const FeatureSectionTwo = () => {
   return (
-    <section className="bg-[#0B3D91] text-white py-16">
-      <div className="container max-w-7xl mx-auto">
-        <div className="mx-auto mb-8 flex flex-col items-start justify-between gap-6 md:mb-20">
-          <h1 className="text-left text-5xl max-w-4xl lg:text-6xl font-bold">
+    <section className={`py-16`} style={{ backgroundColor: theme.colors.primary.blue, color: theme.colors.primary.white }}>
+      <div className={`container ${theme.sizing.maxWidth.xxl} mx-auto`}>
+        <div className={`mx-auto ${theme.spacing.margin.bottom} flex flex-col items-start justify-between ${theme.spacing.gap.md} md:${theme.spacing.margin.bottomXLarge}`}>
+          <h1 className={`text-left ${theme.typography.fontSize.huge} ${theme.sizing.maxWidth.lg} lg:${theme.typography.fontSize.massive} ${theme.typography.fontWeight.bold}`} style={{ color: theme.colors.primary.white }}>
             A Very Serious Company
           </h1>
-          <div className="text-lg max-w-2xl leading-relaxed">
-            <p className="mb-4">A Very Serious Company is a creative agency.</p>
-            <p className="mb-4">We build websites, create advertisements, and solve specific business problems.</p>
-            <p className="mb-8">We take simple ideas seriously.</p>
+          <div className={`${theme.typography.fontSize.md} ${theme.sizing.maxWidth.sm} ${theme.typography.lineHeight.relaxed}`}>
+            <p className={theme.spacing.margin.xs} style={{ color: theme.colors.primary.white }}>A Very Serious Company is a creative agency.</p>
+            <p className={theme.spacing.margin.xs} style={{ color: theme.colors.primary.white }}>We build websites, create advertisements, and solve specific business problems.</p>
+            <p className={theme.spacing.margin.bottom} style={{ color: theme.colors.primary.white }}>We take simple ideas seriously.</p>
             <a 
               href="mailto:hello@averyseriouscompany.com" 
-              className="text-white hover:text-[#F2F2F2] underline transition-colors"
+              className={`underline ${theme.transition.colors}`}
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               hello@averyseriouscompany.com
             </a>
           </div>
         </div>
         <div>
-          <Tabs defaultValue={LIST[0].value} className="gap-14 xl:flex-row">
+          <Tabs defaultValue={LIST[0].value} className={`${theme.spacing.gap.xxl} xl:flex-row`}>
             <TabsList className="h-fit w-fit flex-col gap-2.5 bg-transparent p-0">
               {LIST.map((item, i) => (
                 <TabsTrigger
-                  className="flex-col items-start rounded-none p-5 text-left shadow-none border border-[#FFFFFF33] whitespace-normal data-[state=active]:bg-[#FFFFFF33] data-[state=active]:outline cursor-pointer xl:max-w-[34.0625rem] text-white hover:bg-[#FFFFFF1A]"
+                  className={`flex-col items-start rounded-none p-5 text-left shadow-none border whitespace-normal data-[state=active]:outline cursor-pointer xl:max-w-[34.0625rem]`}
+                  style={{ 
+                    borderColor: theme.colors.border.white20,
+                    color: theme.colors.primary.white,
+                    backgroundColor: 'transparent'
+                  }}
                   key={`tab-trigger-${i}`}
                   value={item.value}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = theme.colors.border.white10;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
                 >
-                  <div className="leading-normal font-bold text-white">{item.title}</div>
-                  <div className="leading-normal text-[#F2F2F2]">
+                  <div className={`leading-normal ${theme.typography.fontWeight.bold}`} style={{ color: theme.colors.primary.white }}>{item.title}</div>
+                  <div className={`leading-normal`} style={{ color: theme.colors.primary.lightGray }}>
                     {item.summary}
                   </div>
                 </TabsTrigger>

@@ -1,50 +1,68 @@
+"use client";
+
 import { Logo } from "@/components/logo";
 import { Asterisk } from "lucide-react";
 import Link from "next/link";
+import { theme } from "@/lib/theme";
 
 export default function FooterSection() {
   return (
-    <footer className="bg-[#0B3D91] pt-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <footer className="pt-8 pb-6" style={{ backgroundColor: theme.colors.primary.blue }}>
+      <div className={`mx-auto ${theme.sizing.maxWidth.xxl} ${theme.spacing.padding.sm}`}>
         <div className="text-center">
           <Link
             href="/"
             aria-label="go home"
-            className="inline-flex items-center gap-2 text-white text-2xl font-bold mb-8"
+            className={`inline-flex items-center ${theme.spacing.gap.xs} ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.bold} mb-6`}
+            style={{ color: theme.colors.primary.white }}
           >
-            <Asterisk className="text-white" />
+            <Asterisk style={{ color: theme.colors.primary.white }} />
             A Very Serious Company
           </Link>
           
-          <div className="max-w-2xl mx-auto mb-12">
-            <p className="text-white text-lg leading-relaxed mb-6">
+          <div className={`${theme.sizing.maxWidth.md} mx-auto mb-8`}>
+            <p className={`${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} mb-4`} style={{ color: theme.colors.primary.white }}>
               A Very Serious Company is a creative agency.<br />
               We build websites, create advertisements, and solve specific business problems.
             </p>
-            <p className="text-white text-lg font-medium mb-8">
+            <p className={`${theme.typography.fontSize.md} ${theme.typography.fontWeight.normal} mb-4`} style={{ color: theme.colors.primary.white }}>
               We take simple ideas seriously.
             </p>
             
             <Link
               href="mailto:hello@averyseriouscompany.com"
-              className="inline-block text-white text-lg hover:text-[#F2F2F2] transition-colors duration-150 underline"
+              className={`inline-block ${theme.typography.fontSize.md} ${theme.transition.colors} ${theme.transition.duration.fast} underline break-all`}
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               hello@averyseriouscompany.com
             </Link>
           </div>
         </div>
         
-        <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-[#FFFFFF33] py-6">
-          <span className="order-last block text-center text-sm md:order-first text-white">
+        <div className={`mt-8 flex flex-col md:flex-row items-center justify-between ${theme.spacing.gap.md} border-t py-4`} style={{ borderColor: theme.colors.border.white20 }}>
+          <span className={`text-center ${theme.typography.fontSize.xs} order-2 md:order-1`} style={{ color: theme.colors.primary.white }}>
             © {new Date().getFullYear()} A Very Serious Company
           </span>
-          <div className="order-first flex flex-wrap justify-center gap-6 text-sm md:order-last">
+          <div className={`flex flex-wrap justify-center ${theme.spacing.gap.md} ${theme.typography.fontSize.xs} order-1 md:order-2`}>
             <Link
               href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X/Twitter"
-              className="text-white hover:text-[#F2F2F2] block"
+              className="block"
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               <svg
                 className="size-6"
@@ -64,7 +82,14 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-white hover:text-[#F2F2F2] block"
+              className="block"
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               <svg
                 className="size-6"
@@ -84,7 +109,14 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="text-white hover:text-[#F2F2F2] block"
+              className="block"
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               <svg
                 className="size-6"
@@ -104,7 +136,14 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Threads"
-              className="text-white hover:text-[#F2F2F2] block"
+              className="block"
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               <svg
                 className="size-6"
@@ -129,7 +168,14 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-white hover:text-[#F2F2F2] block"
+              className="block"
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               <svg
                 className="size-6"
@@ -149,7 +195,14 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
-              className="text-white hover:text-[#F2F2F2] block"
+              className="block"
+              style={{ color: theme.colors.primary.white }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.lightGray;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.colors.primary.white;
+              }}
             >
               <svg
                 className="size-6"

@@ -39,6 +39,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { theme } from "@/lib/theme";
 
 interface Solution {
   title: string;
@@ -208,49 +209,50 @@ const DATA_RESOURCES: Resource[] = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <section className="fixed inset-x-0 top-0 z-20" style={{backgroundColor: '#0B3D91'}}>
-      <div className="container max-w-7xl mx-auto px-4 ">
+    <section className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay}`} style={{backgroundColor: theme.colors.primary.blue}}>
+      <div className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6`}>
         <NavigationMenu className="min-w-full">
-          <div className="flex w-full items-center justify-between gap-8 py-4">
-            <a href="/" className="flex items-center gap-2 text-white whitespace-nowrap hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group">
-              <Asterisk className="animate-fade-in animate-pulse text-white brightness-150 group-hover:brightness-200 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
-              <span className="text-xl font-semibold tracking-tighter group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">
+          <div className={`flex w-full items-center justify-between ${theme.spacing.gap.lg} py-4`}>
+            <a href="/" className={`flex items-center ${theme.spacing.gap.xs} whitespace-nowrap hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`} style={{ color: theme.colors.primary.white }}>
+              <Asterisk className={`animate-fade-in animate-pulse brightness-150 group-hover:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
+              <span className={`${theme.typography.fontSize.lg} font-semibold ${theme.typography.letterSpacing.tighter} group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>
                 A Very Serious Company
               </span>
             </a>
-            <NavigationMenuList className="hidden lg:flex gap-6">
+            <NavigationMenuList className={`hidden lg:flex ${theme.spacing.gap.md}`}>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="/company-values" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/company-values">
-                    <Asterisk className="size-4 animate-fade-in animate-pulse text-white brightness-150 group-hover/company-values:brightness-200 group-hover/company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
-                    <span className="group-hover/company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Company Values</span>
+                  <a href="/company-values" className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/company-values`} style={{ color: theme.colors.primary.white }}>
+                    <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/company-values:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
+                    <span className={`group-hover/company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>Company Values</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="/case-studies" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/case-studies">
-                    <Asterisk className="size-4 animate-fade-in animate-pulse text-white brightness-150 group-hover/case-studies:brightness-200 group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
-                    <span className="group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Case Studies</span>
+                  <a href="/case-studies" className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/case-studies`} style={{ color: theme.colors.primary.white }}>
+                    <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/case-studies:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
+                    <span className={`group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>Case Studies</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="/our-approach" className="inline-flex items-center gap-2 px-3 py-2 text-white text-base lg:text-lg font-medium tracking-tight whitespace-nowrap hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/our-approach">
-                    <Asterisk className="size-4 animate-fade-in animate-pulse text-white brightness-150 group-hover/our-approach:brightness-200 group-hover/our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />
-                    <span className="group-hover/our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300">Our Approach</span>
+                  <a href="/our-approach" className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/our-approach`} style={{ color: theme.colors.primary.white }}>
+                    <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/our-approach:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
+                    <span className={`group-hover/our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>Our Approach</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
-            <div className="flex items-center gap-4 lg:hidden">
+            <div className={`flex items-center ${theme.spacing.gap.xs} lg:hidden`}>
               <Button
                 variant="outline"
                 size="icon"
                 aria-label="Main Menu"
-                className="border-white text-white hover:bg-transparent hover:text-white"
+                className={`border-white hover:bg-transparent hover:text-white`}
+                style={{ color: theme.colors.primary.white, borderColor: theme.colors.primary.white }}
                 onClick={() => {
                   if (open) {
                     setOpen(false);
@@ -267,30 +269,33 @@ const Navbar = () => {
 
           {/* Mobile Menu (Root) */}
           {open && (
-            <div className="absolute inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-hidden border-t border-white/20 lg:hidden" style={{backgroundColor: '#0B3D91'}}>
+            <div className={`absolute inset-0 ${theme.position.absolute.topLarge} flex h-[calc(100vh-72px)] w-full flex-col overflow-hidden border-t lg:hidden`} style={{backgroundColor: theme.colors.primary.blue, borderColor: 'rgba(255,255,255,0.2)'}}>
               <div>
                 <a
                   href="/company-values"
                   type="button"
-                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/mobile-company-values"
+                  className={`flex w-full items-center border-b-2 border-dashed ${theme.spacing.padding.lg} ${theme.spacing.padding.xl} text-left ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/mobile-company-values`}
+                  style={{ color: theme.colors.primary.white, borderColor: 'rgba(255,255,255,0.2)' }}
                 >
-                  <span className="flex-1 group-hover/mobile-company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-company-values:brightness-200 group-hover/mobile-company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Company Values</span>
+                  <span className={`flex-1 group-hover/mobile-company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}><Asterisk className={`mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse brightness-150 group-hover/mobile-company-values:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />Company Values</span>
                   <span className="shrink-0"></span>
                 </a>
                 <a
                   href="/case-studies"
                   type="button"
-                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/mobile-case-studies"
+                  className={`flex w-full items-center border-b-2 border-dashed ${theme.spacing.padding.lg} ${theme.spacing.padding.xl} text-left ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/mobile-case-studies`}
+                  style={{ color: theme.colors.primary.white, borderColor: 'rgba(255,255,255,0.2)' }}
                 >
-                  <span className="flex-1 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-case-studies:brightness-200 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Case Studies</span>
+                  <span className={`flex-1 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}><Asterisk className={`mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse brightness-150 group-hover/mobile-case-studies:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />Case Studies</span>
                   <span className="shrink-0"></span>
                 </a>
                 <a
                   href="/our-approach"
                   type="button"
-                  className="flex w-full items-center border-b-2 border-dashed border-white/20 px-8 py-4 text-left text-white text-lg font-medium tracking-tight hover:bg-transparent hover:text-white hover:no-underline focus:bg-transparent focus:text-white focus:no-underline active:bg-transparent active:text-white active:no-underline group/mobile-our-approach"
+                  className={`flex w-full items-center border-b-2 border-dashed ${theme.spacing.padding.lg} ${theme.spacing.padding.xl} text-left ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/mobile-our-approach`}
+                  style={{ color: theme.colors.primary.white, borderColor: 'rgba(255,255,255,0.2)' }}
                 >
-                  <span className="flex-1 group-hover/mobile-our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-300"><Asterisk className="mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse text-white brightness-150 group-hover/mobile-our-approach:brightness-200 group-hover/mobile-our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" />Our Approach</span>
+                  <span className={`flex-1 group-hover/mobile-our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}><Asterisk className={`mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse brightness-150 group-hover/mobile-our-approach:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />Our Approach</span>
                   <span className="shrink-0"></span>
                 </a>
               </div>

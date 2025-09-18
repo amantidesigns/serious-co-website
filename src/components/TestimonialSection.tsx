@@ -1,5 +1,8 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import { theme } from "@/lib/theme";
 
 type Testimonial = {
   name: string;
@@ -113,30 +116,43 @@ const testimonialChunks = chunkArray(
 
 export default function TestimonialSection() {
   return (
-    <section className="min-h-screen" style={{ backgroundColor: '#0B3D91' }}>
-      <div className="py-16 md:py-32">
-        <div className="mx-auto max-w-4xl px-6">
+    <section className={theme.sizing.height.xl} style={{ backgroundColor: theme.colors.primary.blue }}>
+      <div className={`${theme.spacing.padding.sectionSmall} md:${theme.spacing.padding.section}`}>
+        <div className={`mx-auto ${theme.sizing.maxWidth.lg} ${theme.spacing.padding.sm}`}>
           <div className="text-center">
-            <h1 className="text-6xl font-bold mb-8" style={{ color: '#FFFFFF' }}>
+            <h1 className={`${theme.typography.fontSize.massive} ${theme.typography.fontWeight.bold} ${theme.spacing.margin.bottom}`} style={{ color: theme.colors.primary.white }}>
               A Very Serious Company
             </h1>
             
-            <div className="space-y-6 text-xl leading-relaxed mb-12" style={{ color: '#FFFFFF' }}>
+            <div className={`${theme.spacing.space.md} ${theme.typography.fontSize.lg} ${theme.typography.lineHeight.relaxed} ${theme.spacing.margin.bottomLarge}`} style={{ color: theme.colors.primary.white }}>
               <p>
                 A Very Serious Company is a creative agency.
               </p>
               <p>
                 We build websites, create advertisements, and solve specific business problems.
               </p>
-              <p className="font-medium">
+              <p className={theme.typography.fontWeight.normal}>
                 We take simple ideas seriously.
               </p>
             </div>
 
-            <div className="mt-16">
+            <div className={`${theme.spacing.margin.xxl}`}>
               <a 
                 href="mailto:hello@averyseriouscompany.com"
-                className="inline-block text-xl font-medium px-8 py-4 border rounded-lg transition-colors duration-200 text-white border-white/20 hover:bg-[#F2F2F2] hover:text-[#0B3D91]"
+                className={`inline-block ${theme.typography.fontSize.lg} ${theme.typography.fontWeight.normal} px-8 py-4 border ${theme.borderRadius.md} ${theme.transition.colors} ${theme.transition.duration.normal}`}
+                style={{ 
+                  color: theme.colors.primary.white, 
+                  borderColor: 'rgba(255,255,255,0.2)',
+                  backgroundColor: 'transparent'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = theme.colors.primary.lightGray;
+                  e.currentTarget.style.color = theme.colors.primary.blue;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = theme.colors.primary.white;
+                }}
               >
                 hello@averyseriouscompany.com
               </a>

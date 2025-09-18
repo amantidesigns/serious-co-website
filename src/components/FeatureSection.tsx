@@ -2,6 +2,7 @@ import { PocketKnife } from "lucide-react";
 import React from "react";
 
 import { Badge } from "@/components/ui/badge";
+import { theme } from "@/lib/theme";
 
 const DATA = [
   {
@@ -32,21 +33,22 @@ const DATA = [
 
 const FeatureSection = () => {
   return (
-    <section className="py-32 max-w-7xl mx-auto bg-[#0B3D91] text-white">
-      <div className="border-y border-[#FFFFFF33]">
-        <div className="container flex flex-col gap-6 border-x border-[#FFFFFF33] py-4 max-lg:border-x lg:py-8 px-7">
-          <h1 className="text-3xl leading-tight tracking-tight font-extralight md:text-4xl lg:text-6xl">
+    <section className={`${theme.spacing.padding.section} ${theme.sizing.maxWidth.xxl} mx-auto`} style={{ backgroundColor: theme.colors.primary.blue, color: theme.colors.primary.white }}>
+      <div className={`border-y`} style={{ borderColor: theme.colors.border.white20 }}>
+        <div className={`container flex flex-col ${theme.spacing.gap.md} border-x max-lg:border-x ${theme.spacing.padding.xl} lg:${theme.spacing.padding.xxl} ${theme.spacing.padding.md}`} style={{ borderColor: theme.colors.border.white20 }}>
+          <h1 className={`${theme.typography.fontSize.xxl} ${theme.typography.lineHeight.tight} ${theme.typography.letterSpacing.tight} ${theme.typography.fontWeight.extralight} md:${theme.typography.fontSize.xxxl} lg:${theme.typography.fontSize.massive}`}>
             A Very Serious Company
           </h1>
-          <div className="max-w-[600px] tracking-[-0.32px] space-y-4">
+          <div className={`max-w-[600px] ${theme.spacing.space.xs}`} style={{ letterSpacing: '-0.32px' }}>
             <p>A Very Serious Company is a creative agency.</p>
             <p>We build websites, create advertisements, and solve specific business problems.</p>
-            <p className="font-medium">We take simple ideas seriously.</p>
+            <p className={theme.typography.fontWeight.normal}>We take simple ideas seriously.</p>
           </div>
-          <div className="mt-4">
+          <div className={theme.spacing.margin.xs}>
             <a 
               href="mailto:hello@averyseriouscompany.com" 
-              className="text-white hover:text-[#F2F2F2] transition-colors underline"
+              className={`${theme.colors.primary.white} hover:${theme.colors.primary.lightGray} ${theme.transition.colors} underline`}
+              style={{ color: theme.colors.primary.white }}
             >
               hello@averyseriouscompany.com
             </a>
@@ -54,21 +56,21 @@ const FeatureSection = () => {
         </div>
       </div>
 
-      <div className="lg:px-0! container border-x border-[#FFFFFF33]">
+      <div className="lg:px-0! container border-x" style={{ borderColor: theme.colors.border.white20 }}>
         <div className="items-center">
-          <div className="grid flex-1 max-lg:divide-y max-lg:divide-[#FFFFFF33] max-lg:border-x max-lg:border-[#FFFFFF33] lg:grid-cols-3 lg:divide-x lg:divide-[#FFFFFF33]">
+          <div className={`grid flex-1 max-lg:divide-y max-lg:border-x lg:grid-cols-3 lg:divide-x`} style={{ borderColor: theme.colors.border.white20 }}>
             {DATA.map((item, index) => (
               <div
                 key={index}
-                className="relative isolate pt-5 text-start lg:pt-20"
+                className={`relative isolate pt-5 text-start lg:pt-20`}
               >
-                <h3 className="mt-2 px-4 text-lg tracking-tight lg:px-8">
+                <h3 className={`mt-2 px-4 ${theme.typography.fontSize.md} ${theme.typography.letterSpacing.tight} lg:px-8`}>
                   {item.title}
                 </h3>
-                <p className="text-[#F2F2F2] pb-6 pt-2 lg:px-8">
+                <p className={`pb-6 pt-2 lg:px-8`} style={{ color: theme.colors.primary.lightGray }}>
                   {item.description}
                 </p>
-                <div className="border-t border-[#FFFFFF33]">
+                <div className="border-t" style={{ borderColor: theme.colors.border.white20 }}>
                   <img
                     src={item.image}
                     alt={item.title}
@@ -81,8 +83,8 @@ const FeatureSection = () => {
         </div>
       </div>
 
-      <div className="h-8 w-full border-y border-[#FFFFFF33] md:h-12 lg:h-[112px]">
-        <div className="container h-full w-full border-x border-[#FFFFFF33]"></div>
+      <div className={`${theme.sizing.height.sm} w-full border-y md:${theme.sizing.height.md} lg:${theme.sizing.height.lg}`} style={{ borderColor: theme.colors.border.white20 }}>
+        <div className={`container ${theme.sizing.height.full} w-full border-x`} style={{ borderColor: theme.colors.border.white20 }}></div>
       </div>
     </section>
   );
