@@ -3,7 +3,7 @@ import StarryPageLayout from "@/components/StarryPageLayout";
 export default function OurApproachPage() {
   return (
     <StarryPageLayout title="Our Approach">
-      <div className="relative z-20 text-lg leading-relaxed max-w-3xl space-y-6 text-white">
+      <div className="relative z-20 text-base sm:text-lg leading-relaxed max-w-3xl space-y-4 sm:space-y-6 text-white">
         <p>We take simple ideas <em>seriously.</em></p>
         <p>Our approach is somewhat unconventional.</p>
         <p>Most teams present elaborate processes and proprietary frameworks.</p>

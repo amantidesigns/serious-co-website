@@ -3,7 +3,7 @@ import StarryPageLayout from "@/components/StarryPageLayout";
 export default function CompanyValuesPage() {
   return (
     <StarryPageLayout title="Company Values">
-      <div className="relative z-20 mt-12 max-w-3xl space-y-8 text-lg leading-relaxed text-white">
+      <div className="relative z-20 mt-8 sm:mt-12 max-w-3xl space-y-6 sm:space-y-8 text-base sm:text-lg leading-relaxed text-white">
         <p>We take simple ideas <em>seriously.</em></p>
 
         <p>Simple ideas don't get the attention they deserve.</p>
