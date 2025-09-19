@@ -5,17 +5,17 @@ import PageFooter from "./PageFooter";
 import FAQButton from "./FAQButton";
 import { theme } from "@/lib/theme";
 
-interface StarryPageLayoutProps {
+interface ContentPageLayoutProps {
   children: React.ReactNode;
   title?: string;
   className?: string;
 }
 
-export default function StarryPageLayout({ 
+export default function ContentPageLayout({ 
   children, 
   title,
   className = "" 
-}: StarryPageLayoutProps) {
+}: ContentPageLayoutProps) {
   return (
     <section className={`${theme.spacing.padding.section} pb-0 ${theme.sizing.height.xl} ${className}`} style={{ backgroundColor: theme.colors.primary.blue }}>
       <StarryBackground />
@@ -24,7 +24,7 @@ export default function StarryPageLayout({
         <GalaxyBackground />
         
         {title && (
-          <h2 className={`relative ${theme.zIndex.overlay} text-5xl sm:text-4xl md:text-5xl lg:${theme.typography.fontSize.massive} xl:${theme.typography.fontSize.gigantic} ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none`} style={{ color: theme.colors.primary.white }}>
+          <h2 className={`relative ${theme.zIndex.overlay} text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none -mt-8`} style={{ color: theme.colors.primary.white }}>
             {title}
           </h2>
         )}

@@ -1,8 +1,8 @@
-import StarryPageLayout from "@/components/StarryPageLayout";
+import ContentPageLayout from "@/components/ContentPageLayout";
 
 export default function OurApproachPage() {
   return (
-    <StarryPageLayout title="Our Approach">
+    <ContentPageLayout title="Our Approach">
       <div className="relative z-20 text-base sm:text-lg leading-relaxed max-w-3xl space-y-4 sm:space-y-6 text-white">
         <p>We take simple ideas <em>seriously.</em></p>
         <p>Our approach is somewhat unconventional.</p>
@@ -12,6 +12,6 @@ export default function OurApproachPage() {
         <p>This is what we mean by taking simple ideas seriously: understand what matters, then execute it properly.</p>
         <p>Every project starts the same way. Just clear thinking applied consistently.</p>
       </div>
-    </StarryPageLayout>
+    </ContentPageLayout>
   );
 }

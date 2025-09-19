@@ -1,8 +1,8 @@
-import StarryPageLayout from "@/components/StarryPageLayout";
+import ContentPageLayout from "@/components/ContentPageLayout";
 
 export default function CompanyValuesPage() {
   return (
-    <StarryPageLayout title="Company Values">
+    <ContentPageLayout title="Company Values">
       <div className="relative z-20 mt-8 sm:mt-12 max-w-3xl space-y-6 sm:space-y-8 text-base sm:text-lg leading-relaxed text-white">
         <p>We take simple ideas <em>seriously.</em></p>
 
@@ -18,6 +18,6 @@ export default function CompanyValuesPage() {
 
         <p>That's why we exist.</p>
       </div>
-    </StarryPageLayout>
+    </ContentPageLayout>
   );
 }

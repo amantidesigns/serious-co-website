@@ -6,7 +6,7 @@ import PageFooter from "./PageFooter";
 import FAQButton from "./FAQButton";
 import { theme } from "@/lib/theme";
 
-const HeroSection = () => {
+const HomePageLayout = () => {
   return (
     <section className={`relative ${theme.spacing.padding.section} pb-0 ${theme.sizing.height.xl}`} style={{ backgroundColor: theme.colors.primary.blue }}>
       <StarryBackground />
@@ -30,4 +30,4 @@ const HeroSection = () => {
   );
 };
 
-export { HeroSection };
+export { HomePageLayout };
