@@ -205,6 +205,15 @@ export const theme = {
       star: 'opacity-80',
     },
   },
+  
+  // Responsive breakpoints
+  breakpoints: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
+  },
 } as const;
 
 // Helper function to get CSS custom properties

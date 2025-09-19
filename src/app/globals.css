@@ -357,11 +357,20 @@ h4 {
     @apply bg-background text-foreground;
   }
 
-  /* Prevent any page scrolling */
+  /* Responsive page scrolling */
   html, body {
     height: 100dvh;
-    overflow: hidden;
+    overflow-x: hidden;
     overscroll-behavior: none;
+  }
+  
+  /* Allow vertical scrolling on mobile */
+  @media (max-width: 768px) {
+    html, body {
+      overflow-y: auto;
+      height: auto;
+      min-height: 100dvh;
+    }
   }
 
   /* Responsive improvements */
@@ -372,11 +381,37 @@ h4 {
   }
 
   h2 {
-    @apply text-5xl tracking-tight lg:text-7xl;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight;
+  }
+  
+  /* Responsive text scaling */
+  @media (max-width: 640px) {
+    h2 {
+      line-height: 1.1;
+    }
   }
 }
 
 /* Hide Next.js error overlay portal */
 nextjs-portal {
   display: none !important;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  .group:hover .group-hover\:scale-105 {
+    transform: none;
+  }
 }
