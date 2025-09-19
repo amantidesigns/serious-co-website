@@ -9,26 +9,26 @@ interface HamburgerIconProps {
 
 export const HamburgerIcon = ({ isOpen, className }: HamburgerIconProps) => {
   return (
-    <div className={cn("relative w-6 h-6", className)}>
+    <div className={cn("relative w-6 h-6 flex items-center justify-center", className)}>
       {/* Top line */}
       <span
         className={cn(
-          "absolute top-0 left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-in-out rounded-full",
-          isOpen ? "rotate-45 translate-y-2.5" : "translate-y-0"
+          "absolute w-6 h-0.5 bg-white transition-all duration-300 ease-in-out rounded-full origin-center",
+          isOpen ? "rotate-45" : "rotate-0 translate-y-[-6px]"
         )}
       />
       {/* Middle line */}
       <span
         className={cn(
-          "absolute top-1/2 left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-in-out -translate-y-1/2 rounded-full",
+          "absolute w-6 h-0.5 bg-white transition-all duration-300 ease-in-out rounded-full origin-center",
           isOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
         )}
       />
       {/* Bottom line */}
       <span
         className={cn(
-          "absolute bottom-0 left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-in-out rounded-full",
-          isOpen ? "-rotate-45 -translate-y-2.5" : "translate-y-0"
+          "absolute w-6 h-0.5 bg-white transition-all duration-300 ease-in-out rounded-full origin-center",
+          isOpen ? "-rotate-45" : "rotate-0 translate-y-[6px]"
         )}
       />
     </div>

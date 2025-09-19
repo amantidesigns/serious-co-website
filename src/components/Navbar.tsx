@@ -308,13 +308,63 @@ const Navbar = () => {
         <div 
           className={`fixed inset-0 top-16 z-40 lg:hidden animate-cascade-down`}
           style={{ 
-            backgroundColor: theme.colors.primary.blue,
-            backdropFilter: 'blur(20px)',
+            background: `linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(30, 41, 59, 0.65) 25%, rgba(51, 65, 85, 0.55) 50%, rgba(71, 85, 105, 0.45) 75%, rgba(100, 116, 139, 0.35) 100%)`,
+            backdropFilter: 'blur(30px) saturate(1.1)',
             borderTop: '1px solid rgba(255,255,255,0.15)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
+            boxShadow: '0 25px 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08)'
           }}
         >
-          <div className="px-6 py-8 h-full flex flex-col">
+          {/* Breathing Animated Sparkles Background */}
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `
+                radial-gradient(1px 1px at 15px 25px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 45px 85px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 75px 15px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 105px 65px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 135px 35px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 165px 95px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 195px 55px, rgba(255,255,255,0.9), transparent),
+                radial-gradient(1px 1px at 225px 25px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 255px 75px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 285px 45px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 315px 15px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 345px 85px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 375px 35px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 405px 65px, rgba(255,255,255,0.9), transparent),
+                radial-gradient(1px 1px at 435px 25px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 465px 75px, rgba(255,255,255,0.6), transparent)
+              `,
+              backgroundRepeat: 'repeat',
+              backgroundSize: '480px 100px',
+              opacity: 0.8,
+              animation: 'twinkle 4s ease-in-out infinite alternate, pulse 8s ease-in-out infinite'
+            }}
+          />
+          
+          {/* Additional breathing layer */}
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `
+                radial-gradient(2px 2px at 35px 45px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 95px 25px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(2px 2px at 155px 75px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(2px 2px at 215px 15px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(2px 2px at 275px 55px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 335px 35px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(2px 2px at 395px 65px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(2px 2px at 455px 25px, rgba(255,255,255,0.5), transparent)
+              `,
+              backgroundRepeat: 'repeat',
+              backgroundSize: '480px 100px',
+              opacity: 0.6,
+              animation: 'twinkle 6s ease-in-out infinite alternate, breathe 12s ease-in-out infinite'
+            }}
+          />
+          
+          <div className="px-6 py-8 h-full flex flex-col relative z-10">
             {/* Typography-Focused Navigation Links */}
             <nav className="flex-1 space-y-1">
               {navigationLinks.map((link, index) => (
@@ -329,11 +379,13 @@ const Navbar = () => {
                   }}
                 >
                   <div className="relative py-8 px-6 hover:bg-white/5 transition-all duration-700 ease-out group-hover:translate-x-2">
-                    <div className="flex items-center gap-6">
-                      <Asterisk 
-                        className="w-4 h-4 text-white/60 group-hover:text-white group-hover:animate-pulse transition-all duration-500" 
-                        style={{ filter: `drop-shadow(0 0 4px ${theme.colors.shadow.white80})` }} 
-                      />
+                    <div className="flex items-start gap-6">
+                      <div className="flex-shrink-0 pt-1">
+                        <Asterisk 
+                          className="w-8 h-8 text-white/60 group-hover:text-white group-hover:animate-pulse transition-all duration-500" 
+                          style={{ filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} 
+                        />
+                      </div>
                       <div className="flex-1">
                         <span className="text-3xl sm:text-4xl font-light tracking-wide text-white group-hover:text-white/95 transition-all duration-500 leading-tight">
                           {link.label}
@@ -348,19 +400,9 @@ const Navbar = () => {
             </nav>
             
             {/* Clean Contact Information */}
-            <div className="mt-auto pt-12 border-t border-white/20 animate-contact-slide-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+            <div className="mt-auto pt-12 animate-contact-slide-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
               <div className="space-y-8">
                 <div className="space-y-6">
-                  <div className="group">
-                    <a 
-                      href="tel:952-215-7878" 
-                      className="block text-center hover:translate-y-[-1px] transition-all duration-300 ease-out"
-                    >
-                      <span className="text-white text-lg font-light tracking-wide group-hover:text-white/80 transition-colors duration-300">
-                        952-215-7878
-                      </span>
-                    </a>
-                  </div>
                   <div className="group">
                     <a 
                       href="mailto:info@seriouscompany.com" 
@@ -372,7 +414,7 @@ const Navbar = () => {
                     </a>
                   </div>
                 </div>
-                <div className="pt-6 border-t border-white/10">
+                <div className="pt-6">
                   <p className="text-xs text-white/30 font-light tracking-[0.2em] uppercase text-center">
                     A Very Serious Company
                   </p>
