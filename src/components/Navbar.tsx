@@ -226,23 +226,7 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  // Expose navbar height via CSS var --nav-h
-  useEffect(() => {
-    const updateNavHeight = () => {
-      const el = navRef.current;
-      if (!el) return;
-      const h = el.getBoundingClientRect().height;
-      document.documentElement.style.setProperty('--nav-h', `${Math.round(h)}px`);
-    };
-    updateNavHeight();
-    const ro = new ResizeObserver(updateNavHeight);
-    if (navRef.current) ro.observe(navRef.current);
-    window.addEventListener('resize', updateNavHeight);
-    return () => {
-      window.removeEventListener('resize', updateNavHeight);
-      ro.disconnect();
-    };
-  }, []);
+  // Fixed nav height to avoid layout shift between SSR and client
 
   const handleToggleMenu = () => {
     if (isAnimating) return;
@@ -292,7 +276,7 @@ const Navbar = () => {
   return (
     <>
     <section id="app-navbar" className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay} z-50`} style={{ backgroundColor: 'transparent' }}>
-      <div ref={navRef} className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6`}>
+      <div ref={navRef} className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6 h-16`}>
         <NavigationMenu className="min-w-full">
           <div className={`flex w-full items-center justify-between ${theme.spacing.gap.lg} py-4`}>
               {/* Logo */}
@@ -463,6 +447,22 @@ const Navbar = () => {
               ))}
             </nav>
             
+            {/* FAQ CTA on mobile */}
+            <div className="mt-8 flex justify-center lg:hidden">
+              <a 
+                href="/faq" 
+                className={`text-sm font-medium ${theme.borderRadius.full} border ${theme.spacing.padding.xs} py-2 tracking-normal ${theme.transition.all} ${theme.transition.duration.normal} whitespace-nowrap`}
+                style={{ 
+                  color: theme.colors.primary.white, 
+                  borderColor: theme.colors.primary.white,
+                  backgroundColor: 'transparent'
+                }}
+                onClick={handleLinkClick}
+              >
+                Questions? We have answers.
+              </a>
+            </div>
+
             {/* Clean Contact Information */}
             <div className="mt-auto pt-12 animate-contact-slide-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
               <div className="space-y-8">

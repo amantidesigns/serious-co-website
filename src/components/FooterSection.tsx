@@ -31,14 +31,8 @@ export default function FooterSection() {
             
             <Link
               href="mailto:hello@averyseriouscompany.com"
-              className={`inline-block ${theme.typography.fontSize.md} ${theme.transition.colors} ${theme.transition.duration.fast} underline break-all`}
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
+              className={`inline-block ${theme.typography.fontSize.md} ${theme.transition.colors} ${theme.transition.duration.fast} break-all`}
+              style={{ color: theme.colors.primary.white, textDecorationColor: theme.colors.primary.white, textDecorationThickness: '2px' }}
             >
               hello@averyseriouscompany.com
             </Link>
