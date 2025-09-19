@@ -290,15 +290,39 @@ const Navbar = () => {
               
               {/* Desktop Navigation */}
             <NavigationMenuList className={`hidden lg:flex ${theme.spacing.gap.md}`}>
-                {navigationLinks.map((link) => (
+                {navigationLinks.map((link, index) => (
                   <NavigationMenuItem key={link.href}>
-                <NavigationMenuLink asChild>
-                      <a href={link.href} className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/${link.href.replace('/', '')}`} style={{ color: theme.colors.primary.white }}>
-                        <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/${link.href.replace('/', '')}:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
-                        <span className={`group-hover/${link.href.replace('/', '')}:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>{link.label}</span>
-                  </a>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <a 
+                        href={link.href} 
+                        className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`} 
+                        style={{ color: theme.colors.primary.white }}
+                        onMouseEnter={(e) => {
+                          const asterisk = e.currentTarget.querySelector('svg');
+                          const span = e.currentTarget.querySelector('span');
+                          if (asterisk) {
+                            asterisk.style.filter = `brightness(200%) drop-shadow(0 0 8px ${theme.colors.shadow.white80})`;
+                          }
+                          if (span) {
+                            span.style.filter = 'drop-shadow(0 0 8px rgba(255,255,255,0.6))';
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          const asterisk = e.currentTarget.querySelector('svg');
+                          const span = e.currentTarget.querySelector('span');
+                          if (asterisk) {
+                            asterisk.style.filter = `brightness(150%) drop-shadow(0 0 8px ${theme.colors.shadow.white80})`;
+                          }
+                          if (span) {
+                            span.style.filter = 'none';
+                          }
+                        }}
+                      >
+                        <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
+                        <span className={`${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>{link.label}</span>
+                      </a>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
                 ))}
             </NavigationMenuList>
 

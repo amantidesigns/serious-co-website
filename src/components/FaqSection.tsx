@@ -85,7 +85,7 @@ export default function FAQs() {
         </div>
 
 
-        <h2 className={`relative ${theme.zIndex.overlay} text-3xl sm:text-4xl md:text-5xl lg:${theme.typography.fontSize.massive} xl:${theme.typography.fontSize.gigantic} ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottom} leading-tight`} style={{ color: theme.colors.primary.white }}>The Questions People Actually Ask</h2>
+        <h2 className={`relative ${theme.zIndex.overlay} text-3xl sm:text-4xl md:text-5xl lg:${theme.typography.fontSize.massive} xl:${theme.typography.fontSize.gigantic} ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottom} leading-tight pt-[var(--nav-h,64px)]`} style={{ color: theme.colors.primary.white }}>The Questions People Actually Ask</h2>
         
         <div className={`relative ${theme.zIndex.overlay} max-w-3xl ${theme.spacing.space.lg} text-sm sm:${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed}`} style={{ color: theme.colors.primary.white }}>
           <p>

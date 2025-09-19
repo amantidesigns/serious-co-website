@@ -24,7 +24,7 @@ export default function ContentPageLayout({
         <GalaxyBackground />
         
         {title && (
-          <h1 className={`relative ${theme.zIndex.overlay} text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none`} style={{ color: theme.colors.primary.white }}>
+          <h1 className={`relative ${theme.zIndex.overlay} text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none pt-8`} style={{ color: theme.colors.primary.white }}>
             {title}
           </h1>
         )}
