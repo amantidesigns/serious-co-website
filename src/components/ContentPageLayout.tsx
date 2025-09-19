@@ -2,7 +2,6 @@ import React from "react";
 import StarryBackground from "./StarryBackground";
 import GalaxyBackground from "./GalaxyBackground";
 import PageFooter from "./PageFooter";
-import FAQButton from "./FAQButton";
 import { theme } from "@/lib/theme";
 
 interface ContentPageLayoutProps {
@@ -34,7 +33,6 @@ export default function ContentPageLayout({
         </div>
         
         <PageFooter />
-        <FAQButton />
       </div>
     </section>
   );
