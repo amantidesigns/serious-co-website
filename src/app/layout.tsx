@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth-enhanced">
       <head>
         <meta name="theme-color" content="var(--theme-color)" />
         <meta name="msapplication-navbutton-color" content="var(--theme-color)" />

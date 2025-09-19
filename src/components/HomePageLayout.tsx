@@ -18,12 +18,12 @@ const HomePageLayout = () => {
 
       <div className={`relative ${theme.zIndex.overlay} container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[1fr_auto] grid-areas-[title_footer]`}> 
         {/* Title Area */}
-        <div className={`grid-area-title flex items-center ${theme.zIndex.base} lg:${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto`}>
+        <div className={`grid-area-title flex items-center ${theme.zIndex.base} lg:${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto -mt-32 lg:mt-0`}>
           <h1 
             className={`text-left font-playfair ${theme.typography.fontWeight.extralight} ${theme.typography.letterSpacing.tight} leading-tight`} 
             style={{ 
               color: theme.colors.primary.white,
-              fontSize: 'clamp(1.875rem, 4vw + 1rem, 4.5rem)',
+              fontSize: 'clamp(2.371875rem, 5.06vw + 1.265rem, 4.5rem)',
               lineHeight: '1.1'
             }}
           >

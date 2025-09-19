@@ -369,17 +369,44 @@
     background-color: var(--theme-color);
   }
 
+  /* Modern smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed navbar */
+  }
+
   /* Responsive page scrolling */
   html, body {
     min-height: 100svh;
     overflow-x: hidden;
     overscroll-behavior: none;
+    /* Enhanced smooth scrolling for all devices */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
-  /* Responsive improvements */
+  /* Mobile scroll optimizations */
   @media (max-width: 640px) {
     html, body {
       overflow-x: hidden;
+      /* Enhanced mobile scrolling */
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      /* Reduce scroll momentum for better control */
+      overscroll-behavior-y: contain;
+    }
+    
+    /* Touch-friendly scroll areas */
+    * {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  /* iOS Safari specific optimizations */
+  @supports (-webkit-touch-callout: none) {
+    html, body {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
   }
 
@@ -431,5 +458,62 @@ nextjs-portal {
   
   .group:hover .group-hover\:scale-105 {
     transform: none;
+  }
+}
+
+/* Enhanced scroll performance utilities */
+.scroll-smooth-enhanced {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Custom scrollbar styling for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Prevent scroll chaining on mobile */
+.no-scroll-chain {
+  overscroll-behavior: contain;
+}
+
+/* Smooth scroll for anchor links */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
