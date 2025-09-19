@@ -10,28 +10,22 @@ interface PageFooterProps {
 
 export default function PageFooter({ className = "" }: PageFooterProps) {
   return (
-    <div className={`absolute ${theme.position.absolute.bottomLarge} left-0 right-0 ${theme.zIndex.base} ${className}`}>
+    <div className={`relative ${theme.zIndex.base} ${className}`}>
       <div className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6`}>
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 lg:gap-8">
           {/* Left side - Company Description */}
-          <div className={`${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto`}>
+          <div className={`max-w-sm w-full lg:w-auto`}>
             <p className={`${theme.spacing.margin.lg} ${theme.sizing.maxWidth.sm} ${theme.typography.fontWeight.normal} ${theme.typography.lineHeight.normal} text-sm sm:text-base lg:text-lg`} style={{ color: theme.colors.primary.white }}>
-              <span className="pr-2" style={{ color: theme.colors.primary.white }}>
-                A <em>Very</em> Serious Company is a creative agency.
-              </span>{" "}
-              <br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>
-              We build websites, create advertisements, and solve{" "}
-              <br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>
-              specific business problems.
+              A <em>Very</em> Serious Company is a creative agency.
+              <br />
+              We build websites, create advertisements, and solve specific business problems.
             </p>
           </div>
 
           {/* Right side - Tagline and Contact */}
-          <div className={`flex flex-col items-start lg:items-end ${theme.sizing.maxWidth.xs} w-full lg:w-auto`}>
+          <div className={`flex flex-col items-start lg:items-end max-w-md w-full lg:w-auto`}>
             <h2 className={`text-left lg:text-right font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${theme.typography.letterSpacing.tighter} mb-4 leading-tight`} style={{ color: theme.colors.primary.white }}>
-              We take simple ideas <em>seriously.</em>
+              We take simple ideas <br className="hidden lg:block" /><em>seriously.</em>
             </h2>
             <div className={`flex ${theme.spacing.gap.xs}`}>
               <a 
@@ -51,8 +45,7 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
                   e.currentTarget.style.color = theme.colors.primary.white;
                 }}
               >
-                <span className="hidden sm:inline">hello@averyseriouscompany.com</span>
-                <span className="sm:hidden">Contact Us</span>
+                hello@averyseriouscompany.com
                 <ChevronRight className={`size-3 sm:size-4 mt-1 ${theme.transition.all} ease-out group-hover:rotate-0`} />
               </a>
             </div>

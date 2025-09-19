@@ -8,7 +8,7 @@ import { theme } from "@/lib/theme";
 
 const HomePageLayout = () => {
   return (
-    <section className={`relative ${theme.spacing.padding.section} pb-0 ${theme.sizing.height.xl}`} style={{ backgroundColor: theme.colors.primary.blue }}>
+    <section className={`relative ${theme.spacing.padding.section} pb-0 overflow-hidden`} style={{ backgroundColor: theme.colors.primary.blue }}>
       <StarryBackground />
 
       {/* Galaxy background layer (more visible) */}
@@ -16,8 +16,9 @@ const HomePageLayout = () => {
         <img src="/galaxy-ascii.png" className={`w-full h-full object-cover ${theme.effects.opacity.star} animate-fade-in animate-pulse ${theme.borderRadius.lg}`} alt="" />
       </div>
 
-      <div className={`relative ${theme.zIndex.overlay} container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 ${theme.sizing.height.viewport}`}>
-        <div className={`absolute top-1/2 -translate-y-1/2 sm:top-1/4 sm:translate-y-0 ${theme.zIndex.base} lg:${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto`}>
+      <div className={`relative ${theme.zIndex.overlay} container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 min-h-[100svh] grid grid-rows-[1fr_auto] grid-areas-[title_footer] pb-8`}> 
+        {/* Title Area */}
+        <div className={`grid-area-title flex items-center ${theme.zIndex.base} lg:${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto`}>
           <h2 
             className={`text-left ${theme.typography.fontWeight.extralight} ${theme.typography.letterSpacing.tight} leading-tight`} 
             style={{ 
@@ -30,7 +31,11 @@ const HomePageLayout = () => {
           </h2>
         </div>
         
-        <PageFooter />
+        {/* Footer Area */}
+        <div className="grid-area-footer">
+          <PageFooter />
+        </div>
+        
         <FAQButton />
       </div>
     </section>

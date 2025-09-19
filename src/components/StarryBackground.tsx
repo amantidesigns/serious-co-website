@@ -5,7 +5,7 @@ export default function StarryBackground() {
     <>
       {/* Background stars layer */}
       <div 
-        className="fixed inset-0 w-screen h-screen pointer-events-none select-none z-0"
+        className="fixed inset-0 pointer-events-none select-none z-0"
         style={{
           backgroundImage: `
             radial-gradient(1px 1px at 15px 25px, rgba(255,255,255,0.6), transparent),
@@ -49,7 +49,7 @@ export default function StarryBackground() {
 
       {/* Bright pulsing stars layer */}
       <div 
-        className="fixed inset-0 w-screen h-screen pointer-events-none select-none z-5"
+        className="fixed inset-0 pointer-events-none select-none z-10"
         style={{
           backgroundImage: `
             radial-gradient(1px 1px at 25px 35px, rgba(255,255,255,0.9), transparent),

@@ -7,6 +7,7 @@ import {
   BarChart,
   BookOpen,
   Brain,
+  ChevronRight,
   Cloud,
   Code,
   CreditCard,
@@ -26,7 +27,7 @@ import {
   Truck,
   Users,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -208,7 +209,9 @@ const DATA_RESOURCES: Resource[] = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [showPulse, setShowPulse] = useState(false);
+  const navRef = useRef<HTMLDivElement | null>(null);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -223,6 +226,24 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  // Expose navbar height via CSS var --nav-h
+  useEffect(() => {
+    const updateNavHeight = () => {
+      const el = navRef.current;
+      if (!el) return;
+      const h = el.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--nav-h', `${Math.round(h)}px`);
+    };
+    updateNavHeight();
+    const ro = new ResizeObserver(updateNavHeight);
+    if (navRef.current) ro.observe(navRef.current);
+    window.addEventListener('resize', updateNavHeight);
+    return () => {
+      window.removeEventListener('resize', updateNavHeight);
+      ro.disconnect();
+    };
+  }, []);
+
   const handleToggleMenu = () => {
     if (isAnimating) return;
     
@@ -232,23 +253,34 @@ const Navbar = () => {
     
     if (isOpen) {
       // Closing animation
+      setIsClosing(true);
       setIsAnimating(true);
       setTimeout(() => {
         setIsOpen(false);
+        setIsClosing(false);
         setIsAnimating(false);
-      }, 300);
+      }, 500); // Match the CSS animation duration (0.5s)
     } else {
       // Opening animation
       setIsOpen(true);
       setIsAnimating(true);
       setTimeout(() => {
         setIsAnimating(false);
-      }, 400);
+      }, 500); // Match the CSS animation duration
     }
   };
 
   const handleLinkClick = () => {
-    setIsOpen(false);
+    if (isAnimating) return;
+    
+    // Closing animation
+    setIsClosing(true);
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+      setIsAnimating(false);
+    }, 500); // Match the CSS animation duration (0.5s)
   };
 
   const navigationLinks = [
@@ -259,8 +291,8 @@ const Navbar = () => {
 
   return (
     <>
-    <section className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay}`} style={{backgroundColor: theme.colors.primary.blue}}>
-      <div className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6`}>
+    <section id="app-navbar" className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay} z-50`} style={{ backgroundColor: 'transparent' }}>
+      <div ref={navRef} className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6`}>
         <NavigationMenu className="min-w-full">
           <div className={`flex w-full items-center justify-between ${theme.spacing.gap.lg} py-4`}>
               {/* Logo */}
@@ -306,62 +338,95 @@ const Navbar = () => {
       {/* Modern Cascading Mobile Navigation */}
       {isOpen && (
         <div 
-          className={`fixed inset-0 top-16 z-40 lg:hidden animate-cascade-down`}
+          className={`fixed inset-0 top-16 z-40 lg:hidden ${isClosing ? 'animate-cascade-up' : 'animate-cascade-down'}`}
           style={{ 
-            background: `linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(30, 41, 59, 0.65) 25%, rgba(51, 65, 85, 0.55) 50%, rgba(71, 85, 105, 0.45) 75%, rgba(100, 116, 139, 0.35) 100%)`,
-            backdropFilter: 'blur(30px) saturate(1.1)',
-            borderTop: '1px solid rgba(255,255,255,0.15)',
-            boxShadow: '0 25px 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08)'
+            backgroundColor: theme.colors.primary.blue,
+            backdropFilter: 'blur(20px) saturate(1.2)',
+            borderTop: '1px solid rgba(255,255,255,0.2)',
+            boxShadow: '0 25px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1)'
           }}
         >
-          {/* Breathing Animated Sparkles Background */}
+          {/* Dark overlay for menu distinction */}
           <div 
             className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: `
-                radial-gradient(1px 1px at 15px 25px, rgba(255,255,255,0.6), transparent),
-                radial-gradient(1px 1px at 45px 85px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(1px 1px at 75px 15px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 105px 65px, rgba(255,255,255,0.5), transparent),
-                radial-gradient(1px 1px at 135px 35px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(1px 1px at 165px 95px, rgba(255,255,255,0.3), transparent),
-                radial-gradient(1px 1px at 195px 55px, rgba(255,255,255,0.9), transparent),
-                radial-gradient(1px 1px at 225px 25px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(1px 1px at 255px 75px, rgba(255,255,255,0.6), transparent),
-                radial-gradient(1px 1px at 285px 45px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 315px 15px, rgba(255,255,255,0.5), transparent),
-                radial-gradient(1px 1px at 345px 85px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(1px 1px at 375px 35px, rgba(255,255,255,0.3), transparent),
-                radial-gradient(1px 1px at 405px 65px, rgba(255,255,255,0.9), transparent),
-                radial-gradient(1px 1px at 435px 25px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(1px 1px at 465px 75px, rgba(255,255,255,0.6), transparent)
-              `,
-              backgroundRepeat: 'repeat',
-              backgroundSize: '480px 100px',
-              opacity: 0.8,
-              animation: 'twinkle 4s ease-in-out infinite alternate, pulse 8s ease-in-out infinite'
+              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              backdropFilter: 'blur(10px)'
             }}
           />
-          
-          {/* Additional breathing layer */}
+          {/* Galaxy background layer */}
+          <div className={`absolute top-0 left-0 w-full h-full ${theme.zIndex.base}`}>
+            <img src="/galaxy-ascii.png" className={`w-full h-full object-cover opacity-60 animate-fade-in animate-pulse ${theme.borderRadius.lg}`} alt="" />
+          </div>
+
+          {/* Background stars layer */}
           <div 
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none select-none z-0"
             style={{
               backgroundImage: `
-                radial-gradient(2px 2px at 35px 45px, rgba(255,255,255,0.3), transparent),
-                radial-gradient(2px 2px at 95px 25px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(2px 2px at 155px 75px, rgba(255,255,255,0.2), transparent),
-                radial-gradient(2px 2px at 215px 15px, rgba(255,255,255,0.5), transparent),
-                radial-gradient(2px 2px at 275px 55px, rgba(255,255,255,0.3), transparent),
-                radial-gradient(2px 2px at 335px 35px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(2px 2px at 395px 65px, rgba(255,255,255,0.2), transparent),
-                radial-gradient(2px 2px at 455px 25px, rgba(255,255,255,0.5), transparent)
+                radial-gradient(1px 1px at 15px 25px, ${theme.colors.star.opacity60}, transparent),
+                radial-gradient(1px 1px at 45px 85px, ${theme.colors.star.opacity40}, transparent),
+                radial-gradient(1px 1px at 75px 15px, ${theme.colors.star.opacity80}, transparent),
+                radial-gradient(1px 1px at 105px 65px, ${theme.colors.star.opacity50}, transparent),
+                radial-gradient(1px 1px at 135px 35px, ${theme.colors.star.opacity70}, transparent),
+                radial-gradient(1px 1px at 165px 95px, ${theme.colors.star.opacity30}, transparent),
+                radial-gradient(1px 1px at 195px 55px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 225px 25px, ${theme.colors.star.opacity40}, transparent),
+                radial-gradient(1px 1px at 255px 75px, ${theme.colors.star.opacity60}, transparent),
+                radial-gradient(1px 1px at 285px 45px, ${theme.colors.star.opacity80}, transparent),
+                radial-gradient(1px 1px at 315px 15px, ${theme.colors.star.opacity50}, transparent),
+                radial-gradient(1px 1px at 345px 85px, ${theme.colors.star.opacity70}, transparent),
+                radial-gradient(1px 1px at 375px 35px, ${theme.colors.star.opacity30}, transparent),
+                radial-gradient(1px 1px at 405px 65px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 435px 25px, ${theme.colors.star.opacity40}, transparent),
+                radial-gradient(1px 1px at 465px 75px, ${theme.colors.star.opacity60}, transparent),
+                radial-gradient(1px 1px at 495px 45px, ${theme.colors.star.opacity80}, transparent),
+                radial-gradient(1px 1px at 525px 15px, ${theme.colors.star.opacity50}, transparent),
+                radial-gradient(1px 1px at 555px 85px, ${theme.colors.star.opacity70}, transparent),
+                radial-gradient(1px 1px at 585px 35px, ${theme.colors.star.opacity30}, transparent),
+                radial-gradient(1px 1px at 615px 65px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 645px 25px, ${theme.colors.star.opacity40}, transparent),
+                radial-gradient(1px 1px at 675px 75px, ${theme.colors.star.opacity60}, transparent),
+                radial-gradient(1px 1px at 705px 45px, ${theme.colors.star.opacity80}, transparent),
+                radial-gradient(1px 1px at 735px 15px, ${theme.colors.star.opacity50}, transparent),
+                radial-gradient(1px 1px at 765px 85px, ${theme.colors.star.opacity70}, transparent),
+                radial-gradient(1px 1px at 795px 35px, ${theme.colors.star.opacity30}, transparent),
+                radial-gradient(1px 1px at 825px 65px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 855px 25px, ${theme.colors.star.opacity40}, transparent),
+                radial-gradient(1px 1px at 885px 75px, ${theme.colors.star.opacity60}, transparent)
               `,
               backgroundRepeat: 'repeat',
-              backgroundSize: '480px 100px',
-              opacity: 0.6,
-              animation: 'twinkle 6s ease-in-out infinite alternate, breathe 12s ease-in-out infinite'
+              backgroundSize: '900px 100px',
+              opacity: 0.5,
+              animation: 'twinkle 4s ease-in-out infinite alternate, pulse 8s ease-in-out infinite'
             }}
+            aria-hidden
+          />
+
+          {/* Bright pulsing stars layer */}
+          <div 
+            className="absolute inset-0 pointer-events-none select-none z-5"
+            style={{
+              backgroundImage: `
+                radial-gradient(1px 1px at 25px 35px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 85px 75px, ${theme.colors.star.opacity80}, transparent),
+                radial-gradient(1px 1px at 155px 25px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 225px 85px, ${theme.colors.star.opacity70}, transparent),
+                radial-gradient(1px 1px at 295px 45px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 365px 15px, ${theme.colors.star.opacity80}, transparent),
+                radial-gradient(1px 1px at 435px 65px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 505px 35px, ${theme.colors.star.opacity70}, transparent),
+                radial-gradient(1px 1px at 575px 85px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 645px 25px, ${theme.colors.star.opacity80}, transparent),
+                radial-gradient(1px 1px at 715px 55px, ${theme.colors.star.opacity90}, transparent),
+                radial-gradient(1px 1px at 785px 15px, ${theme.colors.star.opacity70}, transparent)
+              `,
+              backgroundRepeat: 'repeat',
+              backgroundSize: '800px 100px',
+              opacity: 0.4,
+              animation: 'twinkle 2s ease-in-out infinite alternate, pulse 2s ease-in-out infinite'
+            }}
+            aria-hidden
           />
           
           <div className="px-6 py-8 h-full flex flex-col relative z-10">
@@ -372,13 +437,13 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={handleLinkClick}
-                  className="block group animate-link-cascade"
+                  className="block group animate-link-cascade focus:outline-none focus:ring-0"
                   style={{ 
                     animationDelay: `${index * 0.08}s`,
                     animationFillMode: 'both'
                   }}
                 >
-                  <div className="relative py-8 px-6 hover:bg-white/5 transition-all duration-700 ease-out group-hover:translate-x-2">
+                  <div className="relative py-8 px-6 transition-all duration-700 ease-out group-hover:translate-x-2">
                     <div className="flex items-start gap-6">
                       <div className="flex-shrink-0 pt-1">
                         <Asterisk 
@@ -393,7 +458,6 @@ const Navbar = () => {
                         <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-3"></div>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   </div>
                 </a>
               ))}
@@ -403,14 +467,26 @@ const Navbar = () => {
             <div className="mt-auto pt-12 animate-contact-slide-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
               <div className="space-y-8">
                 <div className="space-y-6">
-                  <div className="group">
+                  <div className="flex justify-center">
                     <a 
-                      href="mailto:info@seriouscompany.com" 
-                      className="block text-center hover:translate-y-[-1px] transition-all duration-300 ease-out"
+                      href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
+                      className={`group flex cursor-pointer ${theme.effects.hover.scale} items-center justify-center ${theme.spacing.gap.xs} ${theme.typography.fontWeight.thin} ${theme.borderRadius.full} border bg-transparent ${theme.spacing.padding.xs} py-2 ${theme.typography.letterSpacing.tight} ${theme.transition.all} ${theme.transition.duration.normal}`}
+                      style={{ 
+                        color: theme.colors.primary.white, 
+                        borderColor: theme.colors.primary.white,
+                        backgroundColor: 'transparent'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = theme.colors.primary.lightGray;
+                        e.currentTarget.style.color = theme.colors.primary.blue;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = theme.colors.primary.white;
+                      }}
                     >
-                      <span className="text-white text-lg font-light tracking-wide group-hover:text-white/80 transition-colors duration-300">
-                        info@seriouscompany.com
-                      </span>
+                      hello@averyseriouscompany.com
+                      <ChevronRight className={`size-4 mt-1 ${theme.transition.all} ease-out group-hover:rotate-0`} />
                     </a>
                   </div>
                 </div>

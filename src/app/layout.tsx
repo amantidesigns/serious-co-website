@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   description: "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.",
 };
 
+export const viewport = {
+  themeColor: "var(--theme-color)",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="theme-color" content="var(--theme-color)" />
+        <meta name="msapplication-navbutton-color" content="var(--theme-color)" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="A Very Serious Company" />
+        <meta name="format-detection" content="telephone=no" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -42,7 +54,9 @@ export default function RootLayout({
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
         <Navbar />
-        {children}
+        <main className="min-h-[100svh]">
+          {children}
+        </main>
       </body>
     </html>
   );
