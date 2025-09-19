@@ -9,10 +9,10 @@ interface FAQButtonProps {
 
 export default function FAQButton({ className = "" }: FAQButtonProps) {
   return (
-    <div className={`absolute ${theme.position.absolute.top} right-8 ${theme.zIndex.overlay} ${className}`}>
+    <div className={`absolute ${theme.position.absolute.top} right-4 sm:right-6 lg:right-8 ${theme.zIndex.overlay} ${className}`}>
       <a 
         href="/faq" 
-        className={`${theme.typography.fontSize.xs} ${theme.typography.fontWeight.thin} ${theme.borderRadius.full} border bg-transparent ${theme.spacing.padding.xs} py-2 ${theme.typography.letterSpacing.tight} ${theme.transition.all} ${theme.transition.duration.normal}`}
+        className={`text-xs sm:text-sm ${theme.typography.fontWeight.thin} ${theme.borderRadius.full} border bg-transparent ${theme.spacing.padding.xs} py-1 sm:py-2 ${theme.typography.letterSpacing.tight} ${theme.transition.all} ${theme.transition.duration.normal} whitespace-nowrap`}
         style={{ 
           color: theme.colors.primary.white, 
           borderColor: theme.colors.primary.white,
@@ -27,7 +27,8 @@ export default function FAQButton({ className = "" }: FAQButtonProps) {
           e.currentTarget.style.color = theme.colors.primary.white;
         }}
       >
-        Questions? We have answers.
+        <span className="hidden sm:inline">Questions? We have answers.</span>
+        <span className="sm:hidden">FAQ</span>
       </a>
     </div>
   );
