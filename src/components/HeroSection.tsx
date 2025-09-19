@@ -18,7 +18,7 @@ const HeroSection = () => {
 
       <div className={`relative ${theme.zIndex.overlay} container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 ${theme.sizing.height.viewport}`}>
         <div className={`absolute ${theme.position.absolute.bottomLarge} ${theme.zIndex.base} lg:${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto`}>
-          <h2 className={`absolute ${theme.position.absolute.topNegativeLarge} ${theme.zIndex.base} text-left ${theme.typography.fontWeight.extralight} text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl ${theme.typography.letterSpacing.tight} leading-tight px-4 sm:px-0`} style={{ color: theme.colors.primary.white }}>
+          <h2 className={`absolute ${theme.position.absolute.topNegativeLarge} ${theme.zIndex.base} text-left ${theme.typography.fontWeight.extralight} text-6xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl ${theme.typography.letterSpacing.tight} leading-none px-4 sm:px-0`} style={{ color: theme.colors.primary.white }}>
             A Very Serious Company
           </h2>
         </div>

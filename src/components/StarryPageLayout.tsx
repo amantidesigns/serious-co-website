@@ -24,7 +24,7 @@ export default function StarryPageLayout({
         <GalaxyBackground />
         
         {title && (
-          <h2 className={`relative ${theme.zIndex.overlay} text-3xl sm:text-4xl md:text-5xl lg:${theme.typography.fontSize.massive} xl:${theme.typography.fontSize.gigantic} ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-tight`} style={{ color: theme.colors.primary.white }}>
+          <h2 className={`relative ${theme.zIndex.overlay} text-5xl sm:text-4xl md:text-5xl lg:${theme.typography.fontSize.massive} xl:${theme.typography.fontSize.gigantic} ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none`} style={{ color: theme.colors.primary.white }}>
             {title}
           </h2>
         )}
