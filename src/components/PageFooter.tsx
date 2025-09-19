@@ -25,14 +25,14 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
           {/* Right side - Tagline and Contact */}
           <div className={`flex flex-col items-start lg:items-end max-w-md w-full lg:w-auto`}>
             <h2 className={`text-left lg:text-right font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${theme.typography.letterSpacing.tighter} mb-4 leading-tight`} style={{ color: theme.colors.primary.white }}>
-              We take simple ideas <br className="hidden lg:block" /><em>seriously.</em>
+              We&nbsp;take simple&nbsp;ideas <em>seriously.</em>
             </h2>
             <div className={`flex ${theme.spacing.gap.xs}`}>
               <a 
                 href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
-                className={`group self-start lg:self-end ${theme.spacing.margin.lg} ${theme.sizing.height.xs} ${theme.sizing.width.xs} flex cursor-pointer ${theme.effects.hover.scale} items-center justify-center ${theme.spacing.gap.xs} ${theme.typography.fontWeight.thin} ${theme.borderRadius.full} border bg-transparent ${theme.spacing.padding.xs} py-1 text-xs sm:text-sm ${theme.typography.letterSpacing.tight} ${theme.transition.all} ${theme.transition.duration.normal}`}
+                className={`group self-start lg:self-end ${theme.spacing.margin.lg} ${theme.sizing.height.xs} ${theme.sizing.width.xs} flex cursor-pointer ${theme.effects.hover.scale} items-center justify-center ${theme.spacing.gap.xs} font-medium ${theme.borderRadius.full} border ${theme.spacing.padding.xs} py-1 text-xs sm:text-sm tracking-normal ${theme.transition.all} ${theme.transition.duration.normal}`}
                 style={{ 
-                  color: theme.colors.primary.white, 
+                  color: theme.colors.primary.white,
                   borderColor: theme.colors.primary.white,
                   backgroundColor: 'transparent'
                 }}
