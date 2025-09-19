@@ -17,9 +17,16 @@ const HomePageLayout = () => {
       </div>
 
       <div className={`relative ${theme.zIndex.overlay} container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 ${theme.sizing.height.viewport}`}>
-        <div className={`absolute ${theme.position.absolute.bottomLarge} ${theme.zIndex.base} lg:${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto`}>
-          <h2 className={`absolute ${theme.position.absolute.topNegativeLarge} ${theme.zIndex.base} text-left ${theme.typography.fontWeight.extralight} text-6xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl ${theme.typography.letterSpacing.tight} leading-none px-4 sm:px-0`} style={{ color: theme.colors.primary.white }}>
-            A Very Serious Company
+        <div className={`absolute top-1/2 -translate-y-1/2 sm:top-1/4 sm:translate-y-0 ${theme.zIndex.base} lg:${theme.sizing.maxWidth.sm} ${theme.sizing.width.container} w-full lg:w-auto`}>
+          <h2 
+            className={`text-left ${theme.typography.fontWeight.extralight} ${theme.typography.letterSpacing.tight} leading-tight`} 
+            style={{ 
+              color: theme.colors.primary.white,
+              fontSize: 'clamp(1.875rem, 4vw + 1rem, 4.5rem)',
+              lineHeight: '1.1'
+            }}
+          >
+            A Very Serious<br />Company
           </h2>
         </div>
         
