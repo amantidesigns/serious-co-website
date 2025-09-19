@@ -17,7 +17,6 @@ import {
   Globe,
   Home,
   Lock,
-  Menu,
   MessageSquare,
   Plane,
   Settings,
@@ -26,9 +25,8 @@ import {
   Sparkle,
   Truck,
   Users,
-  X,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -39,6 +37,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { HamburgerIcon } from "@/components/ui/hamburger-icon";
 import { theme } from "@/lib/theme";
 
 interface Solution {
@@ -207,103 +206,183 @@ const DATA_RESOURCES: Resource[] = [
 ];
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [showPulse, setShowPulse] = useState(false);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  const handleToggleMenu = () => {
+    if (isAnimating) return;
+    
+    // Trigger pulse animation
+    setShowPulse(true);
+    setTimeout(() => setShowPulse(false), 600);
+    
+    if (isOpen) {
+      // Closing animation
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsAnimating(false);
+      }, 300);
+    } else {
+      // Opening animation
+      setIsOpen(true);
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 400);
+    }
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
+  const navigationLinks = [
+    { href: "/company-values", label: "Company Values" },
+    { href: "/case-studies", label: "Case Studies" },
+    { href: "/our-approach", label: "Our Approach" },
+  ];
+
   return (
+    <>
     <section className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay}`} style={{backgroundColor: theme.colors.primary.blue}}>
       <div className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6`}>
         <NavigationMenu className="min-w-full">
           <div className={`flex w-full items-center justify-between ${theme.spacing.gap.lg} py-4`}>
+              {/* Logo */}
             <a href="/" className={`flex items-center ${theme.spacing.gap.xs} whitespace-nowrap hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`} style={{ color: theme.colors.primary.white }}>
-              <Asterisk className={`animate-fade-in animate-pulse brightness-150 group-hover:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
-              <span className={`${theme.typography.fontSize.lg} font-semibold ${theme.typography.letterSpacing.tighter} group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>
-                A Very Serious Company
+              <Asterisk className={`animate-fade-in brightness-150 group-hover:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow} size-4 sm:size-5`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
+              <span className={`text-sm sm:text-base lg:text-lg font-semibold ${theme.typography.letterSpacing.tighter} group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>
+                <span className="hidden sm:inline">A Very Serious Company</span>
+                <span className="sm:hidden">AVSC</span>
               </span>
             </a>
+              
+              {/* Desktop Navigation */}
             <NavigationMenuList className={`hidden lg:flex ${theme.spacing.gap.md}`}>
-              <NavigationMenuItem>
+                {navigationLinks.map((link) => (
+                  <NavigationMenuItem key={link.href}>
                 <NavigationMenuLink asChild>
-                  <a href="/company-values" className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/company-values`} style={{ color: theme.colors.primary.white }}>
-                    <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/company-values:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
-                    <span className={`group-hover/company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>Company Values</span>
+                      <a href={link.href} className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/${link.href.replace('/', '')}`} style={{ color: theme.colors.primary.white }}>
+                        <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/${link.href.replace('/', '')}:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
+                        <span className={`group-hover/${link.href.replace('/', '')}:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>{link.label}</span>
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <a href="/case-studies" className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/case-studies`} style={{ color: theme.colors.primary.white }}>
-                    <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/case-studies:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
-                    <span className={`group-hover/case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>Case Studies</span>
-                  </a>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <a href="/our-approach" className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/our-approach`} style={{ color: theme.colors.primary.white }}>
-                    <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 group-hover/our-approach:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
-                    <span className={`group-hover/our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>Our Approach</span>
-                  </a>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+                ))}
             </NavigationMenuList>
-            <div className={`flex items-center ${theme.spacing.gap.xs} lg:hidden`}>
-              <Button
-                variant="outline"
-                size="icon"
-                aria-label="Main Menu"
-                className={`border-white hover:bg-transparent hover:text-white`}
-                style={{ color: theme.colors.primary.white, borderColor: theme.colors.primary.white }}
-                onClick={() => {
-                  if (open) {
-                    setOpen(false);
-                  } else {
-                    setOpen(true);
-                  }
-                }}
-              >
-                {!open && <Menu className="size-4" />}
-                {open && <X className="size-4" />}
-              </Button>
-            </div>
-          </div>
 
-          {/* Mobile Menu (Root) */}
-          {open && (
-            <div className={`absolute inset-0 ${theme.position.absolute.topLarge} flex h-[calc(100vh-72px)] w-full flex-col overflow-hidden border-t lg:hidden`} style={{backgroundColor: theme.colors.primary.blue, borderColor: 'rgba(255,255,255,0.2)'}}>
-              <div>
-                <a
-                  href="/company-values"
-                  type="button"
-                  className={`flex w-full items-center border-b-2 border-dashed ${theme.spacing.padding.lg} ${theme.spacing.padding.xl} text-left ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/mobile-company-values`}
-                  style={{ color: theme.colors.primary.white, borderColor: 'rgba(255,255,255,0.2)' }}
+              {/* Mobile Hamburger Button with Clean Design */}
+            <div className={`flex items-center ${theme.spacing.gap.xs} lg:hidden`}>
+                <button
+                  onClick={handleToggleMenu}
+                  className={`relative p-2 focus:outline-none transition-all duration-300 ${
+                    showPulse ? 'animate-pulse-glow' : ''
+                  }`}
+                  aria-label="Toggle navigation menu"
                 >
-                  <span className={`flex-1 group-hover/mobile-company-values:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}><Asterisk className={`mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse brightness-150 group-hover/mobile-company-values:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />Company Values</span>
-                  <span className="shrink-0"></span>
-                </a>
-                <a
-                  href="/case-studies"
-                  type="button"
-                  className={`flex w-full items-center border-b-2 border-dashed ${theme.spacing.padding.lg} ${theme.spacing.padding.xl} text-left ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/mobile-case-studies`}
-                  style={{ color: theme.colors.primary.white, borderColor: 'rgba(255,255,255,0.2)' }}
-                >
-                  <span className={`flex-1 group-hover/mobile-case-studies:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}><Asterisk className={`mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse brightness-150 group-hover/mobile-case-studies:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />Case Studies</span>
-                  <span className="shrink-0"></span>
-                </a>
-                <a
-                  href="/our-approach"
-                  type="button"
-                  className={`flex w-full items-center border-b-2 border-dashed ${theme.spacing.padding.lg} ${theme.spacing.padding.xl} text-left ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group/mobile-our-approach`}
-                  style={{ color: theme.colors.primary.white, borderColor: 'rgba(255,255,255,0.2)' }}
-                >
-                  <span className={`flex-1 group-hover/mobile-our-approach:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}><Asterisk className={`mr-2 inline-block size-4 align-[-2px] animate-fade-in animate-pulse brightness-150 group-hover/mobile-our-approach:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />Our Approach</span>
-                  <span className="shrink-0"></span>
-                </a>
+                  <HamburgerIcon isOpen={isOpen} className="w-6 h-6 relative z-10" />
+                </button>
               </div>
             </div>
-          )}
-        </NavigationMenu>
-      </div>
-    </section>
+          </NavigationMenu>
+          </div>
+      </section>
+
+      {/* Modern Cascading Mobile Navigation */}
+      {isOpen && (
+        <div 
+          className={`fixed inset-0 top-16 z-40 lg:hidden animate-cascade-down`}
+          style={{ 
+            backgroundColor: theme.colors.primary.blue,
+            backdropFilter: 'blur(20px)',
+            borderTop: '1px solid rgba(255,255,255,0.15)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
+          }}
+        >
+          <div className="px-6 py-8 h-full flex flex-col">
+            {/* Typography-Focused Navigation Links */}
+            <nav className="flex-1 space-y-1">
+              {navigationLinks.map((link, index) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={handleLinkClick}
+                  className="block group animate-link-cascade"
+                  style={{ 
+                    animationDelay: `${index * 0.08}s`,
+                    animationFillMode: 'both'
+                  }}
+                >
+                  <div className="relative py-8 px-6 hover:bg-white/5 transition-all duration-700 ease-out group-hover:translate-x-2">
+                    <div className="flex items-center gap-6">
+                      <Asterisk 
+                        className="w-4 h-4 text-white/60 group-hover:text-white group-hover:animate-pulse transition-all duration-500" 
+                        style={{ filter: `drop-shadow(0 0 4px ${theme.colors.shadow.white80})` }} 
+                      />
+                      <div className="flex-1">
+                        <span className="text-3xl sm:text-4xl font-light tracking-wide text-white group-hover:text-white/95 transition-all duration-500 leading-tight">
+                          {link.label}
+                        </span>
+                        <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-3"></div>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  </div>
+                </a>
+              ))}
+            </nav>
+            
+            {/* Clean Contact Information */}
+            <div className="mt-auto pt-12 border-t border-white/20 animate-contact-slide-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+              <div className="space-y-8">
+                <div className="space-y-6">
+                  <div className="group">
+                    <a 
+                      href="tel:952-215-7878" 
+                      className="block text-center hover:translate-y-[-1px] transition-all duration-300 ease-out"
+                    >
+                      <span className="text-white text-lg font-light tracking-wide group-hover:text-white/80 transition-colors duration-300">
+                        952-215-7878
+                      </span>
+                    </a>
+                  </div>
+                  <div className="group">
+                    <a 
+                      href="mailto:info@seriouscompany.com" 
+                      className="block text-center hover:translate-y-[-1px] transition-all duration-300 ease-out"
+                    >
+                      <span className="text-white text-lg font-light tracking-wide group-hover:text-white/80 transition-colors duration-300">
+                        info@seriouscompany.com
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div className="pt-6 border-t border-white/10">
+                  <p className="text-xs text-white/30 font-light tracking-[0.2em] uppercase text-center">
+                    A Very Serious Company
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
