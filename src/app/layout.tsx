@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import LenisProvider from "@/components/LenisProvider";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 
@@ -59,10 +60,12 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-        <Navbar />
-        <main className="min-h-0">
-          {children}
-        </main>
+        <LenisProvider>
+          <Navbar />
+          <main className="min-h-0">
+            {children}
+          </main>
+        </LenisProvider>
       </body>
     </html>
   );

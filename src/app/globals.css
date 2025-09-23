@@ -49,6 +49,16 @@
   animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+/* Shimmer animation for case study hover effects */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 1s ease-out;
+}
+
 /* Galaxy zoom-in from horizon - reduced by half */
 @keyframes galaxy-zoom-in {
   0% { 
@@ -449,7 +459,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
+    @apply text-foreground pb-6 sm:pb-8;
     background-color: var(--theme-color);
   }
 

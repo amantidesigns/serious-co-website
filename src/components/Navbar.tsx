@@ -212,6 +212,8 @@ const Navbar = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showPulse, setShowPulse] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navRef = useRef<HTMLDivElement | null>(null);
 
   // Prevent body scroll when menu is open
@@ -226,6 +228,47 @@ const Navbar = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  // Scroll detection for navbar animation
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Only trigger if scrolled more than 100px to avoid flickering on small scrolls
+      if (currentScrollY > 100) {
+        if (currentScrollY > lastScrollY && !isScrolled) {
+          // Scrolling down - hide navbar
+          setIsScrolled(true);
+        } else if (currentScrollY < lastScrollY && isScrolled) {
+          // Scrolling up - show navbar
+          setIsScrolled(false);
+        }
+      } else if (isScrolled) {
+        // Always show navbar when near top
+        setIsScrolled(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledHandleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+    };
+  }, [lastScrollY, isScrolled]);
 
   // Fixed nav height to avoid layout shift between SSR and client
 
@@ -281,11 +324,16 @@ const Navbar = () => {
       className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay} z-50`} 
       style={{ backgroundColor: 'transparent' }}
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{ 
+        y: isScrolled ? -100 : 0, 
+        opacity: 1,
+        backdropFilter: isScrolled ? 'blur(0px)' : 'blur(10px)',
+        backgroundColor: isScrolled ? 'transparent' : 'rgba(30, 58, 138, 0.1)'
+      }}
       transition={{ 
-        duration: 0.8, 
+        duration: isScrolled ? 0.3 : 0.8, 
         ease: [0.25, 0.46, 0.45, 0.94],
-        delay: 0.8
+        delay: isScrolled ? 0 : 0.8
       }}
     >
       <div ref={navRef} className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6 h-16`}>
