@@ -3,11 +3,22 @@
 import { Logo } from "@/components/logo";
 import { Asterisk } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { theme } from "@/lib/theme";
 
 export default function FooterSection() {
   return (
-    <footer className="pt-8 pb-6" style={{ backgroundColor: theme.colors.primary.blue }}>
+    <motion.footer 
+      className="pt-8 pb-6" 
+      style={{ backgroundColor: theme.colors.primary.blue }}
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ 
+        duration: 0.8, 
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 1.0
+      }}
+    >
       <div className={`mx-auto ${theme.sizing.maxWidth.xxl} ${theme.spacing.padding.sm}`}>
         <div className="text-center">
           <Link
@@ -214,6 +225,6 @@ export default function FooterSection() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

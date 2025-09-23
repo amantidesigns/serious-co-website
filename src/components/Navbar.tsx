@@ -1,6 +1,7 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   Asterisk,
   Banknote,
@@ -275,7 +276,18 @@ const Navbar = () => {
 
   return (
     <>
-    <section id="app-navbar" className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay} z-50`} style={{ backgroundColor: 'transparent' }}>
+    <motion.section 
+      id="app-navbar" 
+      className={`fixed inset-x-0 top-0 ${theme.zIndex.overlay} z-50`} 
+      style={{ backgroundColor: 'transparent' }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ 
+        duration: 0.8, 
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.8
+      }}
+    >
       <div ref={navRef} className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6 h-16`}>
         <NavigationMenu className="min-w-full">
           <div className={`flex w-full items-center justify-between ${theme.spacing.gap.lg} py-4`}>
@@ -341,7 +353,7 @@ const Navbar = () => {
             </div>
           </NavigationMenu>
           </div>
-      </section>
+      </motion.section>
 
       {/* Modern Cascading Mobile Navigation */}
       {isOpen && (

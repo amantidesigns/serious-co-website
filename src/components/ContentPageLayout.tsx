@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 import StarryBackground from "./StarryBackground";
 import GalaxyBackground from "./GalaxyBackground";
 import PageFooter from "./PageFooter";
@@ -23,14 +26,33 @@ export default function ContentPageLayout({
         <GalaxyBackground />
         
         {title && (
-          <h1 className={`relative ${theme.zIndex.overlay} text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none pt-8`} style={{ color: theme.colors.primary.white }}>
+          <motion.h1 
+            className={`relative ${theme.zIndex.overlay} text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none pt-8`} 
+            style={{ color: theme.colors.primary.white }}
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.3
+            }}
+          >
             {title}
-          </h1>
+          </motion.h1>
         )}
         
-        <div className="relative z-20">
+        <motion.div 
+          className="relative z-20"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.25, 0.46, 0.45, 0.94],
+            delay: 0.5
+          }}
+        >
           {children}
-        </div>
+        </motion.div>
         
         <PageFooter />
       </div>
