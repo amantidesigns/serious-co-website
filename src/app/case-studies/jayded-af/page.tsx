@@ -61,20 +61,18 @@ export default function JaydedAFCaseStudy() {
             </div>
           </div>
           
-          {/* Project Tags */}
+          {/* Tech Stack - Own Row */}
           <div className={`${theme.spacing.space.md}`}>
-            <div className={`${theme.spacing.space.xs}`}>
-              <h3 className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.medium} text-white/70`}>
-                Tools & Technologies
-              </h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <ProjectTag variant="work-type">Web Design</ProjectTag>
-              <ProjectTag variant="work-type">Web Development</ProjectTag>
-              <ProjectTag icon={<FigmaIcon />}>Figma</ProjectTag>
-              <ProjectTag icon={<VercelIcon />}>Vercel</ProjectTag>
-              <ProjectTag icon={<CursorIcon />}>Cursor</ProjectTag>
-              <ProjectTag icon={<LovableIcon />}>Lovable</ProjectTag>
+            <div className={`space-y-3`}>
+              <div className={`${theme.typography.fontSize.xs} text-white/70`}>Tech Stack</div>
+              <div className="flex flex-wrap gap-2">
+                <ProjectTag variant="work-type">Web Design</ProjectTag>
+                <ProjectTag variant="work-type">Web Development</ProjectTag>
+                <ProjectTag icon={<FigmaIcon />}>Figma</ProjectTag>
+                <ProjectTag icon={<VercelIcon />}>Vercel</ProjectTag>
+                <ProjectTag icon={<CursorIcon />}>Cursor</ProjectTag>
+                <ProjectTag icon={<LovableIcon />}>Lovable</ProjectTag>
+              </div>
             </div>
           </div>
         </div>
