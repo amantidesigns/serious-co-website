@@ -36,6 +36,17 @@ export default function HealThriveRecoveryCaseStudy() {
           </div>
         </div>
 
+        {/* Project Media */}
+        <div className={`${theme.spacing.space.lg}`}>
+          <div className="rounded-xl border border-white/15 overflow-hidden bg-black/20 backdrop-blur-sm">
+            <img
+              src="/healthrive-recovery-project.png"
+              alt="HealThrive Recovery project preview"
+              className="block w-full h-auto object-contain max-h-[60svh]"
+            />
+          </div>
+        </div>
+
         <div className={`${theme.spacing.margin.lg}`}>
           <Link 
             href="/case-studies" 

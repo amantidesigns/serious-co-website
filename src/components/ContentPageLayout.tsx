@@ -30,7 +30,7 @@ export default function ContentPageLayout({
         
         {title && (
           <motion.h1 
-            className={`relative ${theme.zIndex.overlay} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none pt-20`} 
+            className={`relative ${theme.zIndex.overlay} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none pt-[60px] lg:pt-20`} 
             style={{ color: theme.colors.primary.white }}
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

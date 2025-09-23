@@ -36,6 +36,20 @@ export default function JaydedAFCaseStudy() {
           </div>
         </div>
 
+        {/* Project Media */}
+        <div className={`${theme.spacing.space.lg}`}>
+          <div className="rounded-xl border border-white/15 overflow-hidden bg-black/20 backdrop-blur-sm">
+            <video
+              src="/jayded-af-project-video.mp4"
+              className="block w-full h-auto object-contain max-h-[60svh]"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+        </div>
+
         <div className={`${theme.spacing.margin.lg}`}>
           <Link 
             href="/case-studies" 
