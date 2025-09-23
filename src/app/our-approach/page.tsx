@@ -1,32 +1,27 @@
-import ContentPageLayout from "@/components/ContentPageLayout";
 import type { Metadata } from "next";
+import ContentPageLayout from "@/components/ContentPageLayout";
 
 export const metadata: Metadata = {
-  title: "Our Approach",
-  description: "Our approach is somewhat unconventional. We believe the best process is no process at all—just clear thinking applied consistently.",
-  keywords: ["our approach", "process", "methodology", "clear thinking", "business approach", "creative process"],
+  title: "Our Approach - A Very Serious Company",
+  description: "Discover our unconventional approach to creative work. We believe the best process is no process at all—just clear thinking applied consistently to deliver exceptional results.",
   openGraph: {
     title: "Our Approach - A Very Serious Company",
-    description: "Our approach is somewhat unconventional. We believe the best process is no process at all—just clear thinking applied consistently.",
-    type: "article",
-    url: "https://averyseriouscompany.com/our-approach",
+    description: "Discover our unconventional approach to creative work. We believe the best process is no process at all—just clear thinking applied consistently to deliver exceptional results.",
     images: [
       {
         url: "/A Very Serious Company.jpeg",
         width: 1200,
         height: 630,
-        alt: "A Very Serious Company Approach",
+        alt: "A Very Serious Company - Our Approach",
       },
     ],
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Our Approach - A Very Serious Company",
-    description: "Our approach is somewhat unconventional. We believe the best process is no process at all—just clear thinking applied consistently.",
+    description: "Discover our unconventional approach to creative work. We believe the best process is no process at all—just clear thinking applied consistently to deliver exceptional results.",
     images: ["/A Very Serious Company.jpeg"],
-  },
-  alternates: {
-    canonical: "/our-approach",
   },
 };
 

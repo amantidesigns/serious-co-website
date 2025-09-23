@@ -1,32 +1,27 @@
-import ContentPageLayout from "@/components/ContentPageLayout";
 import type { Metadata } from "next";
+import ContentPageLayout from "@/components/ContentPageLayout";
 
 export const metadata: Metadata = {
-  title: "Company Values",
-  description: "We take simple ideas seriously. Learn about our values and philosophy at A Very Serious Company.",
-  keywords: ["company values", "philosophy", "simple ideas", "business approach", "values", "culture"],
+  title: "Company Values - A Very Serious Company",
+  description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
   openGraph: {
     title: "Company Values - A Very Serious Company",
-    description: "We take simple ideas seriously. Learn about our values and philosophy at A Very Serious Company.",
-    type: "article",
-    url: "https://averyseriouscompany.com/company-values",
+    description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
     images: [
       {
         url: "/A Very Serious Company.jpeg",
         width: 1200,
         height: 630,
-        alt: "A Very Serious Company Values",
+        alt: "A Very Serious Company - Our Values",
       },
     ],
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Company Values - A Very Serious Company",
-    description: "We take simple ideas seriously. Learn about our values and philosophy at A Very Serious Company.",
+    description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
     images: ["/A Very Serious Company.jpeg"],
-  },
-  alternates: {
-    canonical: "/company-values",
   },
 };
 

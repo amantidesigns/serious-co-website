@@ -1,36 +1,31 @@
-import ContentPageLayout from "@/components/ContentPageLayout";
-import Link from "next/link";
-import { theme } from "@/lib/theme";
 import type { Metadata } from "next";
+import ContentPageLayout from "@/components/ContentPageLayout";
 
 export const metadata: Metadata = {
-  title: "Jayded AF Case Study",
-  description: "We created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience.",
-  keywords: ["premium gin", "martini brand", "craft cocktail", "luxury branding", "web design", "case study", "AI-generated content"],
+  title: "Jayded AF Case Study - A Very Serious Company",
+  description: "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
   openGraph: {
     title: "Jayded AF Case Study - A Very Serious Company",
-    description: "We created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience.",
-    type: "article",
-    url: "https://averyseriouscompany.com/case-studies/jayded-af",
+    description: "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
     images: [
       {
-        url: "/jayded-af-project.png",
+        url: "/jayded-af-project-video.mp4",
         width: 1200,
         height: 630,
-        alt: "Jayded AF project preview",
+        alt: "Jayded AF Premium Gin Brand Website Design",
       },
     ],
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
     title: "Jayded AF Case Study - A Very Serious Company",
-    description: "We created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience.",
-    images: ["/jayded-af-project.png"],
-  },
-  alternates: {
-    canonical: "/case-studies/jayded-af",
+    description: "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
+    images: ["/jayded-af-project-video.mp4"],
   },
 };
+import Link from "next/link";
+import { theme } from "@/lib/theme";
 
 export default function JaydedAFCaseStudy() {
   return (
@@ -89,6 +84,43 @@ export default function JaydedAFCaseStudy() {
           </Link>
         </div>
       </div>
+      
+      {/* CreativeWork Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Jayded AF Premium Gin Brand Website",
+            "description": "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
+            "creator": {
+              "@type": "Organization",
+              "name": "A Very Serious Company",
+              "url": "https://avery-serious-company.com"
+            },
+            "dateCreated": "2024",
+            "genre": "Web Design Case Study",
+            "keywords": ["premium gin", "luxury spirits", "brand website", "digital marketing", "craft cocktail", "brand development"],
+            "about": {
+              "@type": "Thing",
+              "name": "Premium Spirits Brand Development"
+            },
+            "workExample": {
+              "@type": "MediaObject",
+              "contentUrl": "https://avery-serious-company.com/jayded-af-project-video.mp4",
+              "encodingFormat": "video/mp4"
+            },
+            "url": "https://avery-serious-company.com/case-studies/jayded-af",
+            "image": "https://avery-serious-company.com/jayded-af-project-video.mp4",
+            "isPartOf": {
+              "@type": "CollectionPage",
+              "name": "Case Studies",
+              "url": "https://avery-serious-company.com/case-studies"
+            }
+          })
+        }}
+      />
     </ContentPageLayout>
   );
 }

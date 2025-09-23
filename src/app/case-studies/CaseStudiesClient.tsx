@@ -5,7 +5,6 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { theme } from "@/lib/theme";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import ContentPageLayout from "@/components/ContentPageLayout";
 
 interface CaseStudy {
   title: string;
@@ -56,77 +55,157 @@ function CaseStudyCard({
       e.preventDefault();
       // Fun quirky messages for coming soon projects that match the website's aesthetic
       const messages = [
-        "This project is still brewing in our creative lab! 🧪",
-        "We're putting the finishing touches on this masterpiece! ✨",
-        "This one's cooking in our digital kitchen! 👨‍🍳",
-        "We're polishing this gem to perfection! 💎",
-        "This project is marinating in our creative juices! 🥤",
-        "We're adding the secret sauce to this one! 🍯",
-        "This project is aging like fine wine! 🍷",
-        "We're adding the final sparkles to this creation! ✨"
+        "🚀 *adjusts monocle* This project is being crafted with the utmost seriousness... almost there!",
+        "⚡ Our very serious team is putting the finishing touches on this masterpiece!",
+        "🎯 *dramatic pause* Something extraordinary is brewing in our secret laboratory...",
+        "✨ We're applying the final layers of pure excellence to this digital experience!",
+        "🔥 *clears throat professionally* This project will be so good, it might break the internet!",
+        "🎭 *serious business face* We're not joking - this will be absolutely spectacular!",
+        "🌟 Our AI-powered design elves are working overtime on this one!",
+        "🎪 *tips hat* This project is going to be so serious, it might become a case study for case studies!"
       ];
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-      alert(randomMessage);
+      
+      // Create a custom styled alert that matches the website aesthetic
+      const alertBox = document.createElement('div');
+      alertBox.style.cssText = `
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        z-index: 10000;
+      `;
+
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        background: linear-gradient(135deg, #1e3a8a, #3730a3);
+        color: white;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(16px);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        text-align: center;
+        max-width: 360px;
+        width: 100%;
+        animation: fadeInScale 0.25s ease-out;
+      `;
+      
+      // Add CSS animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.96);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      const isVideo = study.image.endsWith('.mp4') || study.image.endsWith('.webm') || study.image.endsWith('.mov');
+      const mediaHTML = isVideo
+        ? `<video src="${study.image}" style="display:block; width:100%; height:auto; max-height:40svh; border-radius: 10px;" autoplay loop muted playsinline></video>`
+        : `<img src="${study.image}" alt="${study.title} preview" style="display:block; width:100%; height:auto; max-height:40svh; border-radius: 10px;" loading="lazy" />`;
+
+      modal.innerHTML = `
+        <div style="margin-bottom: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.25); border-radius: 12px; min-height: 160px; display: flex; align-items: center; justify-content: center;">${mediaHTML}</div>
+        <div style="margin-bottom: 12px; line-height: 1.4;">${randomMessage}</div>
+        <button style="
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: white;
+          padding: 8px 12px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-family: inherit;
+          font-size: 0.85rem;
+          transition: all 0.2s ease;
+          width: 100%;
+        ">Got it</button>
+      `;
+
+      const button = modal.querySelector('button') as HTMLButtonElement | null;
+      if (button) {
+        button.addEventListener('mouseover', () => {
+          button.style.background = 'rgba(255,255,255,0.2)';
+        });
+        button.addEventListener('mouseout', () => {
+          button.style.background = 'rgba(255,255,255,0.1)';
+        });
+        button.addEventListener('click', () => {
+          if (alertBox.parentElement) alertBox.remove();
+        });
+      }
+
+      // Dismiss when tapping the backdrop (outside modal)
+      alertBox.addEventListener('click', (ev) => {
+        if (ev.target === alertBox) {
+          if (alertBox.parentElement) alertBox.remove();
+        }
+      });
+
+      // Prevent backdrop click when tapping inside modal
+      modal.addEventListener('click', (ev) => ev.stopPropagation());
+
+      alertBox.appendChild(modal);
+      document.body.appendChild(alertBox);
+      // No auto-dismiss
     }
   };
 
+  // No previews on mobile or desktop list; keep hover styles sans media
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group"
-    >
-      <Link
-        ref={cardRef}
-        href={study.href}
-        onClick={(e) => handleClick(e, study.href)}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove}
-        className="block relative"
-      >
-        <div className="relative overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20">
-          {/* Gradient overlay */}
-          <div 
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            style={{
-              background: `linear-gradient(135deg, ${study.gradient})`,
-            }}
-          />
-          
-          {/* Content */}
-          <div className="relative p-6">
-            <div className="flex items-start justify-between">
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-2">
-                  <span 
-                    className="inline-block w-2 h-2 rounded-full"
-                    style={{ backgroundColor: study.accent }}
-                  />
-                  <span className={`text-xs font-mono ${theme.typography.letterSpacing.tight} text-white/60 group-hover:text-white/80 transition-colors duration-500`}>
-                    {study.category}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
+          className="relative"
+        >
+          <Link
+            href={study.href}
+            className={`block group relative overflow-hidden ${study.href === "#" ? "cursor-pointer" : ""}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
+            onClick={(e) => handleClick(e, study.href)}
+            ref={cardRef}
+          >
+            {/* Mobile nav style hover effect */}
+            <div className="relative py-6 transition-all duration-700 ease-out group-hover:translate-x-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
+                <div className="flex-shrink-0 flex items-center">
+                  <span className={`${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50 group-hover:text-white/70 transition-all duration-500 -mt-1`}>
+                    {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
-                
-                <h3 className={`text-lg font-semibold ${theme.typography.letterSpacing.tight} text-white group-hover:text-white transition-colors duration-500 mb-2`}>
-                  {study.title}
-                </h3>
-                
-                <p className={`text-sm ${theme.typography.lineHeight.relaxed} text-white/70 group-hover:text-white/90 transition-colors duration-500`}>
-                  {study.description}
-                </p>
-                
-                {/* Mobile-only chips */}
-                <div className="flex flex-wrap gap-2 mt-3 sm:hidden">
-                  <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50 group-hover:text-white/70 transition-all duration-500`}
-                        style={{ 
-                          backgroundColor: 'transparent',
-                          border: `1px solid rgba(255,255,255,0.2)`
-                        }}>
-                    {study.workType}
+                <div className="flex-1 relative">
+                  <span className="text-3xl sm:text-2xl font-light tracking-wide text-white group-hover:text-white/95 transition-all duration-500 leading-tight">
+                    {study.title}
                   </span>
-                  {study.href === "#" && (
+                  <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-2"></div>
+                  {/* Mobile-only meta row under title */}
+                  {isMobile && (
+                    <div className="mt-3 flex items-center gap-2">
+                      <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/70`}
+                            style={{
+                              backgroundColor: 'transparent',
+                              border: `1px solid rgba(255,255,255,0.2)`
+                            }}>
+                        {study.workType}
+                      </span>
+                      {study.href === "#" && (
                         <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-yellow-300`}
                               style={{
                                 backgroundColor: 'rgba(255, 255, 0, 0.1)',
@@ -135,63 +214,73 @@ function CaseStudyCard({
                           Coming Soon
                         </span>
                       )}
+                    </div>
+                  )}
+                </div>
+                {/* Desktop-only right-side chips */}
+                <div className="hidden sm:flex flex-shrink-0 items-center gap-2">
+                  <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50 group-hover:text-white/70 transition-all duration-500`}
+                        style={{ 
+                          backgroundColor: 'transparent',
+                          border: `1px solid rgba(255,255,255,0.2)`
+                        }}>
+                    {study.workType}
+                  </span>
+                  {study.href === "#" && (
+                    <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-yellow-400/80 group-hover:text-yellow-300 transition-all duration-500`}
+                          style={{ 
+                            backgroundColor: 'rgba(255, 255, 0, 0.1)',
+                            border: `1px solid rgba(255, 255, 0, 0.3)`
+                          }}>
+                      Coming Soon
+                    </span>
+                  )}
                 </div>
               </div>
-              
-              {/* Desktop-only right-side chips */}
-              <div className="hidden sm:flex flex-shrink-0 items-center gap-2">
-                <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50 group-hover:text-white/70 transition-all duration-500`}
-                      style={{ 
-                        backgroundColor: 'transparent',
-                        border: `1px solid rgba(255,255,255,0.2)`
-                      }}>
-                  {study.workType}
-                </span>
-                {study.href === "#" && (
-                  <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-yellow-400/80 group-hover:text-yellow-300 transition-all duration-500`}
-                        style={{ 
-                          backgroundColor: 'rgba(255, 255, 0, 0.1)',
-                          border: `1px solid rgba(255, 255, 0, 0.3)`
-                        }}>
-                    Coming Soon
-                  </span>
-                )}
-              </div>
+              {/* Subtle divider line that doesn't interfere with hover */}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
             </div>
-            {/* Subtle divider line that doesn't interfere with hover */}
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-          </div>
-        </div>
-      </Link>
+          </Link>
 
-      {/* Desktop-only floating preview image near cursor */}
-      <AnimatePresence>
-        {!isMobile && isHovered && (
-          <motion.div
-            className="absolute pointer-events-none z-50"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1,
-              x: mousePosition.x + 20,
-              y: mousePosition.y - 100
-            }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="relative w-48 h-32 rounded-lg overflow-hidden shadow-2xl border border-white/20">
-              {study.image && (
-                <img 
-                  src={study.image} 
-                  alt={study.title}
-                  className="w-full h-full object-cover"
-                  style={{ maxWidth: '200px', maxHeight: '200px' }}
-                />
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          {/* Desktop-only floating preview image near cursor */}
+          <AnimatePresence>
+            {!isMobile && isHovered && (
+              <motion.div
+                className="absolute pointer-events-none z-50"
+                style={{ maxWidth: 320, maxHeight: 240 }}
+                initial={{ opacity: 0, scale: 0.9, x: mousePosition.x + 40, y: mousePosition.y - 120 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  x: mousePosition.x + 40,
+                  y: mousePosition.y - 120,
+                }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <div className="relative rounded-xl shadow-2xl border border-white/20 overflow-hidden bg-black/10 backdrop-blur-sm">
+                  {study.image.endsWith('.mp4') || study.image.endsWith('.webm') || study.image.endsWith('.mov') ? (
+                    <video
+                      src={study.image}
+                      className="block max-w-full max-h-full object-contain rounded-xl"
+                      style={{ width: 'auto', height: 'auto', maxWidth: '300px', maxHeight: '200px' }}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={study.image}
+                      alt={`${study.title} Preview`}
+                      className="block max-w-full max-h-full object-contain rounded-xl"
+                      style={{ width: 'auto', height: 'auto', maxWidth: '300px', maxHeight: '200px' }}
+                    />
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
     </motion.div>
   );
 }
@@ -207,116 +296,127 @@ export default function CaseStudiesClient() {
       if (typeof window === 'undefined') return;
       const coarse = window.matchMedia('(pointer: coarse)').matches;
       const noHover = window.matchMedia('(hover: none)').matches;
-      setIsMobile(coarse || noHover);
+      const smallWidth = window.innerWidth <= 640;
+      setIsMobile(coarse || noHover || smallWidth);
     };
-    
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const caseStudies: CaseStudy[] = [
-    {
-      title: "HealThrive Recovery",
-      description: "A compassionate website for an addiction treatment center that needed a trustworthy digital presence to help families find hope and healing.",
-      href: "/case-studies/healthrive-recovery",
-      category: "Healthcare",
-      workType: "Website",
-      gradient: "rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1)",
-      accent: "#3b82f6",
-      image: "/healthrive-recovery-project.png"
-    },
-    {
-      title: "Jayded AF",
-      description: "A sophisticated website for a premium gin martini brand that needed a digital presence matching their craft cocktail experience.",
-      href: "/case-studies/jayded-af",
-      category: "Luxury",
-      workType: "Website + AI",
-      gradient: "rgba(168, 85, 247, 0.1), rgba(196, 181, 253, 0.1)",
-      accent: "#a855f7",
-      image: "/jayded-af-project.png"
-    },
-    {
-      title: "Beka Wealth Advisors",
-      description: "A professional financial advisory website that needed to establish trust and credibility in the competitive wealth management space.",
-      href: "#",
-      category: "Finance",
-      workType: "Website",
-      gradient: "rgba(34, 197, 94, 0.1), rgba(134, 239, 172, 0.1)",
-      accent: "#22c55e",
-      image: "/beka-wealth-advisors-project.gif"
-    },
-    {
-      title: "Pet Love Cremation",
-      description: "A sensitive and respectful website for pet cremation services that needed to provide comfort during difficult times for pet owners.",
-      href: "#",
-      category: "Pet Services",
-      workType: "Website",
-      gradient: "rgba(236, 72, 153, 0.1), rgba(251, 207, 232, 0.1)",
-      accent: "#ec4899",
-      image: "/pet-love-cremation-project.gif"
-    },
-    {
-      title: "The Last Paradox",
-      description: "An innovative gaming website that needed to capture the essence of a unique puzzle game while engaging the gaming community.",
-      href: "#",
-      category: "Gaming",
-      workType: "Website",
-      gradient: "rgba(245, 158, 11, 0.1), rgba(253, 224, 71, 0.1)",
-      accent: "#f59e0b",
-      image: "/the-last-paradox-project.gif"
-    }
-  ];
-
-  if (!isVisible) return null;
+      const caseStudies: CaseStudy[] = [
+        {
+          title: "Jayded AF",
+          description: "Jayded AF is a premium gin martini brand that needed a sophisticated digital presence to match their craft cocktail experience. We created a sleek, modern website that captures the essence of their premium spirits and appeals to their target demographic of cocktail enthusiasts and luxury consumers.",
+          href: "/case-studies/jayded-af",
+          category: "Luxury Consumer Brand",
+          workType: "Spirits & Beverages",
+          gradient: "from-purple-500/20 to-pink-500/20",
+          accent: "text-purple-300",
+          image: "/jayded-af-project-video.mp4"
+        },
+        {
+          title: "HealThrive Recovery", 
+          description: "HealThrive Recovery is an addiction treatment center requiring a compassionate and trustworthy digital presence to help families find hope and healing. We developed a warm, professional website that balances sensitivity with accessibility, making it easy for those seeking help to find the resources they need.",
+          href: "/case-studies/healthrive-recovery",
+          category: "Healthcare Services",
+          workType: "Healthcare & Wellness",
+          gradient: "from-blue-500/20 to-cyan-500/20",
+          accent: "text-cyan-300",
+          image: "/healthrive-recovery-project.png"
+        },
+        {
+          title: "Zachary Construction Group",
+          description: "Coming soon - A comprehensive digital presence for this construction company.",
+          href: "#",
+          category: "Construction Services",
+          workType: "Construction & Building",
+          gradient: "from-orange-500/20 to-yellow-500/20",
+          accent: "text-orange-300",
+          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif"
+        },
+        {
+          title: "Pet Love Cremation & Memorial",
+          description: "Coming soon - A compassionate digital platform for pet memorial services.",
+          href: "#",
+          category: "Pet Services",
+          workType: "Pet Care & Services",
+          gradient: "from-green-500/20 to-teal-500/20",
+          accent: "text-green-300",
+          image: "/pet-love-cremation-project.gif"
+        },
+        {
+          title: "Beka Wealth Advisors",
+          description: "Coming soon - A professional financial advisory platform.",
+          href: "#",
+          category: "Financial Services",
+          workType: "Financial Services",
+          gradient: "from-indigo-500/20 to-blue-500/20",
+          accent: "text-indigo-300",
+          image: "/beka-wealth-advisors-project.gif"
+        },
+        {
+          title: "The Last Paradox",
+          description: "Coming soon - A digital experience for this Warner Bros. Music Group artist's upcoming album release.",
+          href: "#",
+          category: "Music & Entertainment",
+          workType: "Music & Entertainment",
+          gradient: "from-pink-500/20 to-purple-500/20",
+          accent: "text-pink-300",
+          image: "/the-last-paradox-project.gif"
+        }
+      ];
 
   return (
-    <ContentPageLayout title="Case Studies">
-      <div className={`relative z-20 ${theme.sizing.maxWidth.lg} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.lg} text-white`}>
-        <div className={`${theme.spacing.space.md}`}>
-          <div className={`${theme.spacing.space.sm}`}>
-            <p className={`${theme.typography.fontSize.lg} ${theme.typography.lineHeight.relaxed} text-white/90 ${theme.sizing.maxWidth.lg}`}>
-              We take simple ideas seriously. Here's how we've applied that philosophy to solve real business problems for our clients.
-            </p>
-          </div>
-        </div>
+    <div className={`relative z-20 ${theme.sizing.maxWidth.xxl} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.xl} text-white`}>
+      <div className={`${theme.spacing.space.sm}`}>
+        <p>Here are some of our recent projects made real.</p>
+      </div>
 
-        {/* Case Studies Grid */}
-        <div className={`grid gap-6 ${theme.spacing.space.lg}`}>
-          {caseStudies.map((study, index) => (
+      <div className={`${theme.spacing.space.md} mb-24`}>
+        {caseStudies.map((study, index) => (
+          <div key={index}>
             <CaseStudyCard
-              key={study.title}
               study={study}
               index={index}
               isMobile={isMobile}
               onOpenPreview={() => setOpenIndex(index)}
             />
-          ))}
-        </div>
 
-        {/* Mobile Preview Sheet */}
-        <Sheet open={openIndex !== null} onOpenChange={() => setOpenIndex(null)}>
-          <SheetContent side="bottom" className="h-[80vh] bg-blue-900 border-blue-700">
-            <SheetHeader>
-              <SheetTitle className="text-white">
-                {openIndex !== null && caseStudies[openIndex]?.title}
-              </SheetTitle>
-              <SheetDescription className="text-white/70">
-                {openIndex !== null && caseStudies[openIndex]?.description}
-              </SheetDescription>
-            </SheetHeader>
-            <div className="mt-6">
-              {openIndex !== null && caseStudies[openIndex]?.image && (
-                <img 
-                  src={caseStudies[openIndex].image} 
-                  alt={caseStudies[openIndex].title}
-                  className="w-full h-auto rounded-lg"
-                />
-              )}
-            </div>
-          </SheetContent>
-        </Sheet>
+            {/* Mobile bottom sheet preview */}
+            {isMobile && openIndex === index && (
+              <Sheet open onOpenChange={(open) => !open && setOpenIndex(null)}>
+                <SheetContent side="bottom" className="bg-black/70 backdrop-blur-md border-white/10">
+                  <SheetHeader>
+                    <SheetTitle className="text-white/90">{study.title}</SheetTitle>
+                    <SheetDescription className="text-white/70">
+                      {study.category} · {study.workType}
+                    </SheetDescription>
+                  </SheetHeader>
+                  <div className="px-4 pb-4 flex items-center justify-center">
+                    {study.image.endsWith('.mp4') || study.image.endsWith('.webm') || study.image.endsWith('.mov') ? (
+                      <video
+                        src={study.image}
+                        className="block max-w-full max-h-[40svh] object-contain rounded-lg"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={study.image}
+                        alt={`${study.title} Preview`}
+                        className="block max-w-full max-h-[40svh] object-contain rounded-lg"
+                      />
+                    )}
+                  </div>
+                </SheetContent>
+              </Sheet>
+            )}
+          </div>
+        ))}
       </div>
-    </ContentPageLayout>
+    </div>
   );
 }

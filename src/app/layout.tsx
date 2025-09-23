@@ -22,46 +22,35 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "A Very Serious Company - Creative Agency",
-    template: "%s | A Very Serious Company"
-  },
-  description: "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.",
-  keywords: ["creative agency", "web design", "advertising", "business solutions", "website development", "branding", "digital marketing"],
+  metadataBase: new URL('https://avery-serious-company.com'),
+  title: "A Very Serious Company - Creative Agency",
+  description: "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems. From luxury brands to healthcare services, we deliver exceptional results.",
+  keywords: ["creative agency", "web design", "brand development", "digital marketing", "website design", "creative services"],
   authors: [{ name: "A Very Serious Company" }],
   creator: "A Very Serious Company",
   publisher: "A Very Serious Company",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://averyseriouscompany.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://averyseriouscompany.com',
-    title: 'A Very Serious Company - Creative Agency',
-    description: 'We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.',
-    siteName: 'A Very Serious Company',
+    title: "A Very Serious Company - Creative Agency",
+    description: "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems. From luxury brands to healthcare services, we deliver exceptional results.",
+    url: "https://avery-serious-company.com",
+    siteName: "A Very Serious Company",
     images: [
       {
-        url: '/A Very Serious Company.jpeg',
+        url: "/A Very Serious Company.jpeg",
         width: 1200,
         height: 630,
-        alt: 'A Very Serious Company - Creative Agency',
+        alt: "A Very Serious Company - Creative Agency",
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'A Very Serious Company - Creative Agency',
-    description: 'We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.',
-    images: ['/A Very Serious Company.jpeg'],
-    creator: '@averyseriousco',
+    card: "summary_large_image",
+    title: "A Very Serious Company - Creative Agency",
+    description: "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems. From luxury brands to healthcare services, we deliver exceptional results.",
+    images: ["/A Very Serious Company.jpeg"],
+    creator: "@avery-serious-company",
   },
   robots: {
     index: true,
@@ -69,13 +58,13 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Replace with actual verification code
+    google: "your-google-verification-code",
   },
 };
 
@@ -116,6 +105,53 @@ export default function RootLayout({
         <main className="min-h-0">
           {children}
         </main>
+        
+        {/* Organization Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "A Very Serious Company",
+              "description": "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.",
+              "url": "https://avery-serious-company.com",
+              "logo": "https://avery-serious-company.com/A Very Serious Company.jpeg",
+              "image": "https://avery-serious-company.com/A Very Serious Company.jpeg",
+              "foundingDate": "2024",
+              "founder": {
+                "@type": "Person",
+                "name": "A Very Serious Company Team"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Business Inquiries",
+                "availableLanguage": "English"
+              },
+              "sameAs": [
+                "https://avery-serious-company.com"
+              ],
+              "knowsAbout": [
+                "Web Design",
+                "Brand Development", 
+                "Digital Marketing",
+                "Creative Services",
+                "Website Development",
+                "Advertising"
+              ],
+              "serviceType": [
+                "Creative Agency",
+                "Web Design Services",
+                "Brand Development",
+                "Digital Marketing"
+              ]
+            })
+          }}
+        />
       </body>
     </html>
   );
