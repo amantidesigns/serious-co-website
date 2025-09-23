@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { theme } from "@/lib/theme";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 interface CaseStudy {
   title: string;
@@ -22,10 +23,12 @@ function CaseStudyCard({
   study,
   index,
   isMobile,
+  onOpenPreview,
 }: {
   study: CaseStudy;
   index: number;
   isMobile: boolean;
+  onOpenPreview?: () => void;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -193,8 +196,7 @@ function CaseStudyCard({
                     {study.title}
                   </span>
                   <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-2"></div>
-                  {/* Mobile-only meta row under title */
-                  }
+                  {/* Mobile-only meta row under title */}
                   {isMobile && (
                     <div className="mt-3 flex items-center gap-2">
                       <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/70`}
