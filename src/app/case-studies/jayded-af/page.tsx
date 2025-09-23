@@ -1,6 +1,36 @@
 import ContentPageLayout from "@/components/ContentPageLayout";
 import Link from "next/link";
 import { theme } from "@/lib/theme";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jayded AF Case Study",
+  description: "We created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience.",
+  keywords: ["premium gin", "martini brand", "craft cocktail", "luxury branding", "web design", "case study", "AI-generated content"],
+  openGraph: {
+    title: "Jayded AF Case Study - A Very Serious Company",
+    description: "We created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience.",
+    type: "article",
+    url: "https://averyseriouscompany.com/case-studies/jayded-af",
+    images: [
+      {
+        url: "/jayded-af-project.png",
+        width: 1200,
+        height: 630,
+        alt: "Jayded AF project preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jayded AF Case Study - A Very Serious Company",
+    description: "We created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience.",
+    images: ["/jayded-af-project.png"],
+  },
+  alternates: {
+    canonical: "/case-studies/jayded-af",
+  },
+};
 
 export default function JaydedAFCaseStudy() {
   return (

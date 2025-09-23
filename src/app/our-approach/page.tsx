@@ -1,4 +1,34 @@
 import ContentPageLayout from "@/components/ContentPageLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Approach",
+  description: "Our approach is somewhat unconventional. We believe the best process is no process at all—just clear thinking applied consistently.",
+  keywords: ["our approach", "process", "methodology", "clear thinking", "business approach", "creative process"],
+  openGraph: {
+    title: "Our Approach - A Very Serious Company",
+    description: "Our approach is somewhat unconventional. We believe the best process is no process at all—just clear thinking applied consistently.",
+    type: "article",
+    url: "https://averyseriouscompany.com/our-approach",
+    images: [
+      {
+        url: "/A Very Serious Company.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "A Very Serious Company Approach",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Approach - A Very Serious Company",
+    description: "Our approach is somewhat unconventional. We believe the best process is no process at all—just clear thinking applied consistently.",
+    images: ["/A Very Serious Company.jpeg"],
+  },
+  alternates: {
+    canonical: "/our-approach",
+  },
+};
 
 export default function OurApproachPage() {
   return (

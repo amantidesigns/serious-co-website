@@ -22,8 +22,61 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "A Very Serious Company",
+  title: {
+    default: "A Very Serious Company - Creative Agency",
+    template: "%s | A Very Serious Company"
+  },
   description: "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.",
+  keywords: ["creative agency", "web design", "advertising", "business solutions", "website development", "branding", "digital marketing"],
+  authors: [{ name: "A Very Serious Company" }],
+  creator: "A Very Serious Company",
+  publisher: "A Very Serious Company",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://averyseriouscompany.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://averyseriouscompany.com',
+    title: 'A Very Serious Company - Creative Agency',
+    description: 'We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.',
+    siteName: 'A Very Serious Company',
+    images: [
+      {
+        url: '/A Very Serious Company.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'A Very Serious Company - Creative Agency',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'A Very Serious Company - Creative Agency',
+    description: 'We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.',
+    images: ['/A Very Serious Company.jpeg'],
+    creator: '@averyseriousco',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // Replace with actual verification code
+  },
 };
 
 export const viewport = {

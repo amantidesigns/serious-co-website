@@ -1,4 +1,34 @@
 import ContentPageLayout from "@/components/ContentPageLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Company Values",
+  description: "We take simple ideas seriously. Learn about our values and philosophy at A Very Serious Company.",
+  keywords: ["company values", "philosophy", "simple ideas", "business approach", "values", "culture"],
+  openGraph: {
+    title: "Company Values - A Very Serious Company",
+    description: "We take simple ideas seriously. Learn about our values and philosophy at A Very Serious Company.",
+    type: "article",
+    url: "https://averyseriouscompany.com/company-values",
+    images: [
+      {
+        url: "/A Very Serious Company.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "A Very Serious Company Values",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Company Values - A Very Serious Company",
+    description: "We take simple ideas seriously. Learn about our values and philosophy at A Very Serious Company.",
+    images: ["/A Very Serious Company.jpeg"],
+  },
+  alternates: {
+    canonical: "/company-values",
+  },
+};
 
 export default function CompanyValuesPage() {
   return (
