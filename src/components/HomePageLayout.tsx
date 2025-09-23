@@ -10,10 +10,14 @@ const HomePageLayout = () => {
   return (
     <section className={`relative overflow-hidden`} style={{ backgroundColor: theme.colors.primary.blue }}>
       <StarryBackground />
-
-      {/* Galaxy background layer (more visible) */}
-      <div className={`absolute top-0 left-0 w-full h-full ${theme.zIndex.base}`}>
-        <img src="/galaxy-ascii.png" className={`w-full h-full object-cover ${theme.effects.opacity.star} animate-fade-in animate-pulse ${theme.borderRadius.lg}`} alt="" />
+      
+      {/* Galaxy zoom-in effect */}
+      <div className={`absolute top-0 left-0 w-full h-full ${theme.zIndex.base} overflow-hidden`}>
+        <img 
+          src="/galaxy-ascii.png" 
+          className={`w-full h-full object-cover ${theme.effects.opacity.star} animate-galaxy-zoom-in ${theme.borderRadius.lg}`} 
+          alt="Galaxy approaching from distance" 
+        />
       </div>
 
       <div className={`relative ${theme.zIndex.overlay} container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[1fr_auto] grid-areas-[title_footer]`}> 
