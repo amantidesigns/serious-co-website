@@ -183,7 +183,7 @@ function CaseStudyCard({
             ref={cardRef}
           >
             {/* Mobile nav style hover effect */}
-            <div className="relative py-6 transition-all duration-700 ease-out group-hover:translate-x-2">
+            <div className="relative py-6 pr-8 transition-all duration-700 ease-out group-hover:translate-x-2">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
                 <div className="flex-shrink-0 flex items-center">
                   <span className={`${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50 group-hover:text-white/70 transition-all duration-500 -mt-1`}>

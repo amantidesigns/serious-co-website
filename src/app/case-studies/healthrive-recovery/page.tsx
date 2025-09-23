@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 };
 import Link from "next/link";
 import { theme } from "@/lib/theme";
+import ProjectTag, { FigmaIcon, FramerIcon, MidjourneyIcon } from "@/components/ProjectTag";
 
 export default function HealThriveRecoveryCaseStudy() {
   return (
@@ -57,6 +58,22 @@ export default function HealThriveRecoveryCaseStudy() {
             <div className={`space-y-1`}>
               <div className={`${theme.typography.fontSize.xs} text-white/70`}>Design team</div>
               <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>Amanti & Robera</div>
+            </div>
+          </div>
+          
+          {/* Project Tags */}
+          <div className={`${theme.spacing.space.md}`}>
+            <div className={`${theme.spacing.space.xs}`}>
+              <h3 className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.medium} text-white/70`}>
+                Tools & Technologies
+              </h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <ProjectTag variant="work-type">Web Design</ProjectTag>
+              <ProjectTag variant="work-type">Web Development</ProjectTag>
+              <ProjectTag icon={<FigmaIcon />}>Figma</ProjectTag>
+              <ProjectTag icon={<FramerIcon />}>Framer</ProjectTag>
+              <ProjectTag icon={<MidjourneyIcon />}>Midjourney</ProjectTag>
             </div>
           </div>
         </div>
