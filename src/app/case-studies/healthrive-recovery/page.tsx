@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 import Link from "next/link";
 import { theme } from "@/lib/theme";
-import ProjectTag, { FigmaIcon, FramerIcon, MidjourneyIcon } from "@/components/ProjectTag";
+import ProjectTag, { FigmaIcon, WebflowIcon, MidjourneyIcon } from "@/components/ProjectTag";
 
 export default function HealThriveRecoveryCaseStudy() {
   return (
@@ -69,7 +69,7 @@ export default function HealThriveRecoveryCaseStudy() {
                 <ProjectTag variant="work-type">Web Design</ProjectTag>
                 <ProjectTag variant="work-type">Web Development</ProjectTag>
                 <ProjectTag icon={<FigmaIcon />}>Figma</ProjectTag>
-                <ProjectTag icon={<FramerIcon />}>Framer</ProjectTag>
+                <ProjectTag icon={<WebflowIcon />}>Webflow</ProjectTag>
                 <ProjectTag icon={<MidjourneyIcon />}>Midjourney</ProjectTag>
               </div>
             </div>

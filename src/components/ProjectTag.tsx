@@ -7,7 +7,8 @@ import {
   siXcode, 
   siAnthropic, 
   siFramer, 
-  siOpenai 
+  siOpenai,
+  siWebflow 
 } from 'simple-icons';
 
 interface ProjectTagProps {
@@ -79,5 +80,11 @@ export const FramerIcon = () => (
 export const MidjourneyIcon = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill={`#${siOpenai.hex}`}>
     <path d={siOpenai.path} fill="currentColor"/>
+  </svg>
+);
+
+export const WebflowIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill={`#${siWebflow.hex}`}>
+    <path d={siWebflow.path} fill="currentColor"/>
   </svg>
 );
