@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Explore our portfolio of successful projects. From luxury spirits brands to healthcare services, see how we take simple ideas seriously and deliver exceptional results.",
     images: [
       {
-        url: "/A Very Serious Company.jpeg",
+        url: "/a-very-serious-company.jpeg",
         width: 1200,
         height: 630,
         alt: "A Very Serious Company - Case Studies",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Case Studies - A Very Serious Company",
     description: "Explore our portfolio of successful projects. From luxury spirits brands to healthcare services, see how we take simple ideas seriously and deliver exceptional results.",
-    images: ["/A Very Serious Company.jpeg"],
+    images: ["/a-very-serious-company.jpeg"],
   },
 };
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
     images: [
       {
-        url: "/A Very Serious Company.jpeg",
+        url: "/a-very-serious-company.jpeg",
         width: 1200,
         height: 630,
         alt: "A Very Serious Company - Our Values",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Company Values - A Very Serious Company",
     description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
-    images: ["/A Very Serious Company.jpeg"],
+    images: ["/a-very-serious-company.jpeg"],
   },
 };
 

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "A Very Serious Company",
     images: [
       {
-        url: "/A Very Serious Company.jpeg",
+        url: "/a-very-serious-company.jpeg",
         width: 1200,
         height: 630,
         alt: "A Very Serious Company - Creative Agency",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "A Very Serious Company - Creative Agency",
     description: "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems. From luxury brands to healthcare services, we deliver exceptional results.",
-    images: ["/A Very Serious Company.jpeg"],
+    images: ["/a-very-serious-company.jpeg"],
     creator: "@avery-serious-company",
   },
   robots: {
@@ -119,8 +119,8 @@ export default function RootLayout({
               "name": "A Very Serious Company",
               "description": "We take simple ideas seriously. A creative agency that builds websites, creates advertisements, and solves specific business problems.",
               "url": "https://avery-serious-company.com",
-              "logo": "https://avery-serious-company.com/A Very Serious Company.jpeg",
-              "image": "https://avery-serious-company.com/A Very Serious Company.jpeg",
+              "logo": "https://avery-serious-company.com/a-very-serious-company.jpeg",
+              "image": "https://avery-serious-company.com/a-very-serious-company.jpeg",
               "foundingDate": "2024",
               "founder": {
                 "@type": "Person",
