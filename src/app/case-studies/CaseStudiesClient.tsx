@@ -310,7 +310,7 @@ export default function CaseStudiesClient() {
           description: "Jayded AF is a premium gin martini brand that needed a sophisticated digital presence to match their craft cocktail experience. We created a sleek, modern website that captures the essence of their premium spirits and appeals to their target demographic of cocktail enthusiasts and luxury consumers.",
           href: "/case-studies/jayded-af",
           category: "Luxury Consumer Brand",
-          workType: "Spirits & Beverages",
+          workType: "Food and Beverage",
           gradient: "from-purple-500/20 to-pink-500/20",
           accent: "text-purple-300",
           image: "/jayded-af-project-video.mp4"
@@ -320,7 +320,7 @@ export default function CaseStudiesClient() {
           description: "HealThrive Recovery is an addiction treatment center requiring a compassionate and trustworthy digital presence to help families find hope and healing. We developed a warm, professional website that balances sensitivity with accessibility, making it easy for those seeking help to find the resources they need.",
           href: "/case-studies/healthrive-recovery",
           category: "Healthcare Services",
-          workType: "Healthcare & Wellness",
+          workType: "Health and Wellness",
           gradient: "from-blue-500/20 to-cyan-500/20",
           accent: "text-cyan-300",
           image: "/healthrive-recovery-project.png"
@@ -330,7 +330,7 @@ export default function CaseStudiesClient() {
           description: "Coming soon - A comprehensive digital presence for this construction company.",
           href: "#",
           category: "Construction Services",
-          workType: "Construction & Building",
+          workType: "Construction",
           gradient: "from-orange-500/20 to-yellow-500/20",
           accent: "text-orange-300",
           image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif"
@@ -340,7 +340,7 @@ export default function CaseStudiesClient() {
           description: "Coming soon - A compassionate digital platform for pet memorial services.",
           href: "#",
           category: "Pet Services",
-          workType: "Pet Care & Services",
+          workType: "Pet Services",
           gradient: "from-green-500/20 to-teal-500/20",
           accent: "text-green-300",
           image: "/pet-love-cremation-project.gif"
@@ -350,7 +350,7 @@ export default function CaseStudiesClient() {
           description: "Coming soon - A professional financial advisory platform.",
           href: "#",
           category: "Financial Services",
-          workType: "Financial Services",
+          workType: "Finance",
           gradient: "from-indigo-500/20 to-blue-500/20",
           accent: "text-indigo-300",
           image: "/beka-wealth-advisors-project.gif"
@@ -360,7 +360,7 @@ export default function CaseStudiesClient() {
           description: "Coming soon - A digital experience for this Warner Bros. Music Group artist's upcoming album release.",
           href: "#",
           category: "Music & Entertainment",
-          workType: "Music & Entertainment",
+          workType: "Entertainment",
           gradient: "from-pink-500/20 to-purple-500/20",
           accent: "text-pink-300",
           image: "/the-last-paradox-project.gif"
