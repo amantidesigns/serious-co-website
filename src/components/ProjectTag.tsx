@@ -60,8 +60,29 @@ export const BoltIcon = () => (
 );
 
 export const CursorIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 125 24" fill="currentColor">
-    <path d="M2 12C2 5.8 5.94 2.329 11.699 2.329h6.914v3.693H11.92c-3.526 0-5.923 2.012-5.923 5.978 0 3.966 2.397 5.978 5.923 5.978h6.694v3.693H11.7C5.94 21.67 2 18.145 2 12zm20.194 3.5V2.331h3.857v12.37c0 2.396 1.24 3.25 3.278 3.25h2.313c2.012 0 3.278-.854 3.278-3.25V2.33h3.83v13.197c0 4.16-2.754 6.143-6.475 6.143h-3.581c-3.746 0-6.502-1.984-6.502-6.17h.002zM42.909 2.331h11.433c3.913 0 5.87 2.094 5.87 5.455 0 2.149-1.02 3.885-2.646 4.353 1.681.192 2.48 1.405 2.48 2.865v6.667h-3.884v-5.758c0-1.02-.304-1.736-1.68-1.736h-7.688v7.494H42.91V2.33zM53.82 10.57c1.764 0 2.48-.937 2.48-2.314 0-1.488-.715-2.285-2.533-2.285h-6.97v4.601h7.026l-.003-.002zm9.834 7.436h10.663c1.296 0 2.121-.716 2.121-2.012 0-1.35-.853-1.873-2.204-1.985l-5.374-.412c-3.388-.248-5.702-1.957-5.702-5.594 0-3.609 2.561-5.674 5.923-5.674h10.551v3.665H69.301c-1.488 0-2.26.716-2.26 1.984 0 1.321.827 1.873 2.288 2.012l5.454.385c3.333.248 5.538 2.012 5.538 5.565 0 3.417-2.341 5.73-5.73 5.73H63.65v-3.664h.003zm18.623-6.034c0-5.87 4.242-9.972 9.918-9.972h.056c5.675 0 9.947 4.105 9.947 9.972 0 5.895-4.27 10.028-9.947 10.028h-.056c-5.674 0-9.918-4.133-9.918-10.028zm9.946 6.282c3.498 0 6.062-2.48 6.062-6.254 0-3.746-2.561-6.254-6.062-6.254-3.472 0-6.034 2.508-6.034 6.254 0 3.774 2.562 6.254 6.034 6.254zm13.03-15.923h11.432c3.913 0 5.87 2.094 5.87 5.455 0 2.149-1.02 3.885-2.645 4.353 1.68.192 2.48 1.405 2.48 2.865v6.667h-3.885v-5.758c0-1.02-.304-1.736-1.681-1.736h-7.686v7.494h-3.885V2.33zm10.911 8.239c1.764 0 2.48-.937 2.48-2.314 0-1.488-.716-2.285-2.534-2.285h-6.97v4.601h7.026l-.002-.002z"/>
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+    {/* White circular background */}
+    <circle cx="12" cy="12" r="11" fill="white" />
+    {/* Cursor icon with original gradients and transparency */}
+    <path d="M11.925 24l10.425-6-10.425-6L1.5 18l10.425 6z" fill="url(#lobe-icons-cursor-fill-0)"></path>
+    <path d="M22.35 18V6L11.925 0v12l10.425 6z" fill="url(#lobe-icons-cursor-fill-1)"></path>
+    <path d="M11.925 0L1.5 6v12l10.425-6V0z" fill="url(#lobe-icons-cursor-fill-2)"></path>
+    <path d="M22.35 6L11.925 24V12L22.35 6z" fill="#555"></path>
+    <path d="M22.35 6l-10.425 6L1.5 6h20.85z" fill="#000"></path>
+    <defs>
+      <linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-cursor-fill-0" x1="11.925" x2="11.925" y1="12" y2="24">
+        <stop offset=".16" stopColor="#000" stopOpacity=".39"></stop>
+        <stop offset=".658" stopColor="#000" stopOpacity=".8"></stop>
+      </linearGradient>
+      <linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-cursor-fill-1" x1="22.35" x2="11.925" y1="6.037" y2="12.15">
+        <stop offset=".182" stopColor="#000" stopOpacity=".31"></stop>
+        <stop offset=".715" stopColor="#000" stopOpacity="0"></stop>
+      </linearGradient>
+      <linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-cursor-fill-2" x1="11.925" x2="1.5" y1="0" y2="18">
+        <stop stopColor="#000" stopOpacity=".6"></stop>
+        <stop offset=".667" stopColor="#000" stopOpacity=".22"></stop>
+      </linearGradient>
+    </defs>
   </svg>
 );
 
