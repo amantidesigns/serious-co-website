@@ -42,11 +42,7 @@ export default function JaydedAFCaseStudy() {
             </p>
           </div>
           
-          <div className={`grid grid-cols-2 sm:grid-cols-4 ${theme.spacing.gap.md}`}>
-            <div className={`space-y-1`}>
-              <div className={`${theme.typography.fontSize.xs} text-white/70`}>Cost</div>
-              <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>$5,000</div>
-            </div>
+          <div className={`grid grid-cols-2 sm:grid-cols-3 ${theme.spacing.gap.md}`}>
             <div className={`space-y-1`}>
               <div className={`${theme.typography.fontSize.xs} text-white/70`}>Turnaround</div>
               <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>1.5 months</div>
