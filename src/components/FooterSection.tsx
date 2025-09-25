@@ -34,7 +34,7 @@ export default function FooterSection() {
           <div className={`${theme.sizing.maxWidth.md} mx-auto mb-8`}>
             <p className={`${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} mb-4`} style={{ color: theme.colors.primary.white }}>
               A Very Serious Company is a creative agency.<br />
-              We build websites, create advertisements, and solve specific business problems.
+              We create serious, high-end websites, graphics, and videos using next-gen AI.
             </p>
             <p className={`${theme.typography.fontSize.md} ${theme.typography.fontWeight.normal} mb-4`} style={{ color: theme.colors.primary.white }}>
               We take simple ideas seriously.

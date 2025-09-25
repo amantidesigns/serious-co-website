@@ -57,7 +57,7 @@ const FeatureSectionTwo = () => {
           </h1>
           <div className={`${theme.typography.fontSize.md} ${theme.sizing.maxWidth.sm} ${theme.typography.lineHeight.relaxed}`}>
             <p className={theme.spacing.margin.xs} style={{ color: theme.colors.primary.white }}>A Very Serious Company is a creative agency.</p>
-            <p className={theme.spacing.margin.xs} style={{ color: theme.colors.primary.white }}>We build websites, create advertisements, and solve specific business problems.</p>
+            <p className={theme.spacing.margin.xs} style={{ color: theme.colors.primary.white }}>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
             <p className={theme.spacing.margin.bottom} style={{ color: theme.colors.primary.white }}>We take simple ideas seriously.</p>
             <a 
               href="mailto:hello@averyseriouscompany.com" 

@@ -18,7 +18,7 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
             <p className={`${theme.spacing.margin.lg} ${theme.sizing.maxWidth.sm} ${theme.typography.fontWeight.normal} ${theme.typography.lineHeight.normal} text-sm sm:text-base lg:text-lg`} style={{ color: theme.colors.primary.white }}>
               A <em>Very</em> Serious Company is a creative agency.
               <br />
-              We build websites, create advertisements, and solve specific business problems.
+              We create serious, high-end websites, graphics, and videos using next-gen AI.
             </p>
           </div>
 

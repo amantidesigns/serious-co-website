@@ -41,7 +41,7 @@ const FeatureSection = () => {
           </h1>
           <div className={`max-w-[600px] ${theme.spacing.space.xs}`} style={{ letterSpacing: '-0.32px' }}>
             <p>A Very Serious Company is a creative agency.</p>
-            <p>We build websites, create advertisements, and solve specific business problems.</p>
+            <p>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
             <p className={theme.typography.fontWeight.normal}>We take simple ideas seriously.</p>
           </div>
           <div className={theme.spacing.margin.xs}>
