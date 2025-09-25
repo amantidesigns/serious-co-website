@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FaqSection from "@/components/FaqSection";
+import CSSBoxFAQ from "@/components/blocks/css-box-faq";
 
 export const metadata: Metadata = {
   title: "FAQ - A Very Serious Company",
@@ -29,6 +30,7 @@ export default function FAQ() {
   return (
     <div className="bg-stone-100 min-h-screen">
       <FaqSection />
+      <CSSBoxFAQ />
       
       {/* FAQ Structured Data */}
       <script
