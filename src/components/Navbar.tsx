@@ -312,9 +312,9 @@ const Navbar = () => {
   };
 
   const navigationLinks = [
-    { href: "/company-values", label: "Company Values" },
-    { href: "/case-studies", label: "Case Studies" },
-    { href: "/our-approach", label: "Our Approach" },
+    { href: "/services", label: "Services" },
+    { href: "/our-work", label: "Our Work" },
+    { href: "/why-us", label: "Why Us" },
   ];
 
   return (

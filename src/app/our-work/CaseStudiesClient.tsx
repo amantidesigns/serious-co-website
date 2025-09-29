@@ -308,7 +308,7 @@ export default function CaseStudiesClient() {
         {
           title: "Jayded AF",
           description: "Jayded AF is a premium gin martini brand that needed a sophisticated digital presence to match their craft cocktail experience. We created a sleek, modern website that captures the essence of their premium spirits and appeals to their target demographic of cocktail enthusiasts and luxury consumers.",
-          href: "/case-studies/jayded-af",
+          href: "/our-work/jayded-af",
           category: "Luxury Consumer Brand",
           workType: "Food and Beverage",
           gradient: "from-purple-500/20 to-pink-500/20",
@@ -318,7 +318,7 @@ export default function CaseStudiesClient() {
         {
           title: "HealThrive Recovery", 
           description: "HealThrive Recovery is an addiction treatment center requiring a compassionate and trustworthy digital presence to help families find hope and healing. We developed a warm, professional website that balances sensitivity with accessibility, making it easy for those seeking help to find the resources they need.",
-          href: "/case-studies/healthrive-recovery",
+          href: "/our-work/healthrive-recovery",
           category: "Healthcare Services",
           workType: "Health and Wellness",
           gradient: "from-blue-500/20 to-cyan-500/20",
@@ -354,6 +354,16 @@ export default function CaseStudiesClient() {
           gradient: "from-indigo-500/20 to-blue-500/20",
           accent: "text-indigo-300",
           image: "/beka-wealth-advisors-project.gif"
+        },
+        {
+          title: "Strangers Meeting Strangers",
+          description: "Coming soon - A community platform that brings people together through meaningful connections and shared experiences.",
+          href: "#",
+          category: "Community Platform",
+          workType: "Community",
+          gradient: "from-emerald-500/20 to-cyan-500/20",
+          accent: "text-emerald-300",
+          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif"
         },
         {
           title: "The Last Paradox",

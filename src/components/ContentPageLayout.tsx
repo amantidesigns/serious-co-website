@@ -3,8 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import StarryBackground from "./StarryBackground";
-import GalaxyBackground from "./GalaxyBackground";
+import ShootingStarBackground from "./ShootingStarBackground";
 import PageFooter from "./PageFooter";
 import { theme } from "@/lib/theme";
 
@@ -12,21 +11,18 @@ interface ContentPageLayoutProps {
   children: React.ReactNode;
   title?: string;
   className?: string;
-  hideGalaxy?: boolean;
 }
 
 export default function ContentPageLayout({ 
   children, 
   title,
   className = "",
-  hideGalaxy = false,
 }: ContentPageLayoutProps) {
   return (
     <section className={`overflow-hidden`} style={{ backgroundColor: theme.colors.primary.blue }}>
-      <StarryBackground />
+      <ShootingStarBackground numberOfStars={60} />
       
       <div className={`relative container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[auto_1fr_auto]`}>
-        {!hideGalaxy && <GalaxyBackground />}
         
         {title && (
           <motion.h1 

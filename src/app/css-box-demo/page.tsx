@@ -7,14 +7,6 @@ export default function CSSBoxDemoPage() {
       className="min-h-screen relative overflow-hidden"
       style={{ backgroundColor: theme.colors.primary.blue }}
     >
-      {/* Galaxy background */}
-      <div className="absolute inset-0 w-full h-full z-10 overflow-hidden">
-        <img 
-          src="/galaxy-ascii.png" 
-          className="w-full h-full object-cover opacity-60 rounded-2xl" 
-          alt="Galaxy background" 
-        />
-      </div>
 
       <div className="relative z-20 container mx-auto py-8">
         <div className="text-center mb-8">
