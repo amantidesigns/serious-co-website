@@ -110,7 +110,7 @@ const ColumnTrack: React.FC<{
         y: direction === "up" ? ["0%", "-50%"] : ["-50%", "0%"],
         transition: {
           duration,
-          repeat: Infinity as const,
+          repeat: Infinity,
           ease: "linear",
         },
       };

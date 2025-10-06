@@ -17,19 +17,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/our-work`,
+      url: `${baseUrl}/work`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/our-work/jayded-af`,
+      url: `${baseUrl}/work/jayded-af`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/our-work/healthrive-recovery`,
+      url: `${baseUrl}/work/healthrive-recovery`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,

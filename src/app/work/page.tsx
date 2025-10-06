@@ -41,7 +41,7 @@ export default function OurWorkPage() {
             "@type": "CollectionPage",
             "name": "Our Work - A Very Serious Company",
             "description": "Explore our portfolio of successful projects. From luxury spirits brands to healthcare services, see how we take simple ideas seriously and deliver exceptional results.",
-            "url": "https://avery-serious-company.com/our-work",
+            "url": "https://avery-serious-company.com/work",
             "mainEntity": {
               "@type": "ItemList",
               "name": "Creative Agency Portfolio",
@@ -54,7 +54,7 @@ export default function OurWorkPage() {
                   "item": {
                     "@type": "CreativeWork",
                     "name": "Jayded AF Premium Gin Brand Website",
-                    "url": "https://avery-serious-company.com/our-work/jayded-af",
+                    "url": "https://avery-serious-company.com/work/jayded-af",
                     "description": "Premium gin martini brand website design project"
                   }
                 },
@@ -64,7 +64,7 @@ export default function OurWorkPage() {
                   "item": {
                     "@type": "CreativeWork",
                     "name": "HealThrive Recovery Healthcare Website",
-                    "url": "https://avery-serious-company.com/our-work/healthrive-recovery",
+                    "url": "https://avery-serious-company.com/work/healthrive-recovery",
                     "description": "Healthcare website design project for addiction treatment center"
                   }
                 },
@@ -74,7 +74,7 @@ export default function OurWorkPage() {
                   "item": {
                     "@type": "CreativeWork",
                     "name": "Zachary Construction Group",
-                    "url": "https://avery-serious-company.com/our-work",
+                    "url": "https://avery-serious-company.com/work",
                     "description": "Construction company digital presence (Coming Soon)"
                   }
                 },
@@ -104,7 +104,7 @@ export default function OurWorkPage() {
                   "item": {
                     "@type": "CreativeWork",
                     "name": "Strangers Meeting Strangers",
-                    "url": "https://avery-serious-company.com/our-work",
+                    "url": "https://avery-serious-company.com/work",
                     "description": "Community platform for meaningful connections (Coming Soon)"
                   }
                 },
