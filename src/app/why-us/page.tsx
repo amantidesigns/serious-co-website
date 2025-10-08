@@ -150,42 +150,62 @@ export default function WhyUsPage() {
         </div>
 
         {/* Integrated Philosophy Statement */}
-        <div className="pt-12 border-t border-white/10">
-          <div className="max-w-3xl">
-            <div className="space-y-8">
-              
-              {/* Philosophy Statement */}
-              <div className="space-y-6">
-                <p className="text-xl sm:text-2xl font-light leading-relaxed text-white">
-                  This is what we mean by taking simple ideas seriously: understand what matters, then execute it properly.
-                </p>
-                
-                <div className="pl-6 border-l border-white/20">
-                  <p className="text-lg leading-relaxed text-white/80 italic mb-4">
-                    "There is an old two-part rule that often works wonders in business, science, and elsewhere: take a simple, basic idea and take it very seriously."
-                  </p>
-                  <p className="text-sm text-white/50 font-light tracking-wide uppercase">
-                    Charlie Munger
-                  </p>
+        <div className="pt-16 border-t border-white/10">
+          <div className="max-w-4xl mx-auto">
+            
+            {/* Philosophy Statement */}
+            <div className="text-center mb-16">
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-light leading-relaxed text-white max-w-3xl mx-auto">
+                This is what we mean by taking simple ideas <em>seriously</em>: understand what matters, then execute it properly.
+              </p>
+            </div>
+
+            {/* Charlie Munger Quote - Enhanced Layout */}
+            <div className="relative mb-16">
+              {/* Quote Icon */}
+              <div className="flex justify-center mb-8">
+                <div className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white/60" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                  </svg>
                 </div>
               </div>
 
-              {/* Closing Statement */}
-              <div className="pt-4">
-                <div className="space-y-3">
-                  <p className="text-sm text-white/60 font-medium tracking-wide uppercase">
+              {/* Quote Text */}
+              <blockquote className="text-center mb-6">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-light leading-relaxed text-white/90 italic max-w-4xl mx-auto">
+                  "There is an old two-part rule that often works wonders in business, science, and elsewhere: take a simple, basic idea and take it very seriously."
+                </p>
+              </blockquote>
+
+              {/* Attribution */}
+              <div className="text-center">
+                <p className="text-base text-white/60 font-light tracking-wide">
+                  Charlie Munger
+                </p>
+              </div>
+            </div>
+
+            {/* Our Promise - Enhanced Layout */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border border-white/10">
+              <div className="text-center space-y-6">
+                <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/10 rounded-full border border-white/20">
+                  <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                  <p className="text-sm text-white/70 font-medium tracking-wide uppercase">
                     Our Promise
                   </p>
-                  <p className="text-2xl sm:text-3xl font-light text-white leading-tight">
-                    Clear thinking applied consistently.
-                  </p>
-                  <p className="text-base text-white/70 pt-2">
-                    Every project starts the same way. That's why we exist.
-                  </p>
                 </div>
+                
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-tight">
+                  Clear thinking applied consistently.
+                </h3>
+                
+                <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
+                  Every project starts the same way. That's why we exist.
+                </p>
               </div>
-
             </div>
+
           </div>
         </div>
 
