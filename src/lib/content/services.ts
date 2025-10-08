@@ -3,7 +3,7 @@ import {
   Sparkles,
   PenTool,
   Brain,
-  MessageSquareStar,
+  MessageSquare,
   Globe,
   Megaphone,
   MailCheck,
@@ -130,7 +130,7 @@ export const serviceGroups: ServiceGroup[] = [
         title: "Content & Social Toolkits",
         description:
           "Editable templates and content drops that keep your team stocked for months.",
-        icon: MessageSquareStar,
+        icon: MessageSquare,
       },
       {
         title: "Video & Film",

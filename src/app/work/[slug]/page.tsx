@@ -10,15 +10,16 @@ import {
 const SITE_URL = "https://avery-serious-company.com";
 
 type PageParams = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return getPublishedCaseStudies().map((study) => ({ slug: study.slug }));
 }
 
-export function generateMetadata({ params }: PageParams): Metadata {
-  const study = findCaseStudyBySlug(params.slug);
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+  const { slug } = await params;
+  const study = findCaseStudyBySlug(slug);
 
   if (!study || study.status !== "published") {
     return {
@@ -83,8 +84,9 @@ function HeroMedia({
   );
 }
 
-export default function CaseStudyPage({ params }: PageParams) {
-  const study = findCaseStudyBySlug(params.slug);
+export default async function CaseStudyPage({ params }: PageParams) {
+  const { slug } = await params;
+  const study = findCaseStudyBySlug(slug);
 
   if (!study || study.status !== "published") {
     notFound();
