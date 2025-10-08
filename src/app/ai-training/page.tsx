@@ -40,7 +40,7 @@ export default function AITrainingPage() {
             AI Essentials Workshop
           </h1>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
-            Learn AI in three days.<br />No technical background&nbsp;<em>required</em>
+            Learn AI in three days.<br /><em>No technical background&nbsp;required</em>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
             A hands-on workshop for professionals who want to stay relevant in an AI-driven world. We'll teach you what matters and skip the rest.
@@ -53,33 +53,43 @@ export default function AITrainingPage() {
         </div>
 
         {/* Key Details */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="flex items-center justify-center space-x-3">
-            <Clock className="w-6 h-6 text-white/70" />
-            <div>
-              <p className="text-sm font-medium text-white">3 Days</p>
-              <p className="text-xs text-white/60">Intensive Learning</p>
+        <div className="flex justify-center px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="flex items-center space-x-3">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                <Clock className="w-5 h-5 text-white/70" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-white">3 Days</p>
+                <p className="text-xs text-white/60">Intensive Learning</p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center space-x-3">
-            <DollarSign className="w-6 h-6 text-white/70" />
-            <div>
-              <p className="text-sm font-medium text-white">$200</p>
-              <p className="text-xs text-white/60">Per Person</p>
+            <div className="flex items-center space-x-3">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                <DollarSign className="w-5 h-5 text-white/70" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-white">$200</p>
+                <p className="text-xs text-white/60">Per Person</p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center space-x-3">
-            <MapPin className="w-6 h-6 text-white/70" />
-            <div>
-              <p className="text-sm font-medium text-white">St. Louis Park</p>
-              <p className="text-xs text-white/60">Public Library</p>
+            <div className="flex items-center space-x-3">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 text-white/70" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-white">St. Louis Park</p>
+                <p className="text-xs text-white/60">Public Library</p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center space-x-3">
-            <Users className="w-6 h-6 text-white/70" />
-            <div>
-              <p className="text-sm font-medium text-white">Small Groups</p>
-              <p className="text-xs text-white/60">Personal Attention</p>
+            <div className="flex items-center space-x-3">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                <Users className="w-5 h-5 text-white/70" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-white">Small Groups</p>
+                <p className="text-xs text-white/60">Personal Attention</p>
+              </div>
             </div>
           </div>
         </div>
@@ -203,38 +213,38 @@ export default function AITrainingPage() {
             <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex flex-col space-y-6">
+              <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Designed for Your Generation</h3>
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-white/80 leading-relaxed flex-1">
                   We understand that technology can feel overwhelming when you're trying to catch up. 
                   This workshop is specifically designed for professionals aged 40-65 who want to stay 
                   relevant without feeling lost in technical jargon.
                 </p>
               </div>
               
-              <div className="space-y-4">
+              <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Hands-On Learning</h3>
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-white/80 leading-relaxed flex-1">
                   No boring lectures or theoretical concepts you'll never use. Every session includes 
                   practical exercises where you'll actually use AI tools to solve real problems.
                 </p>
               </div>
             </div>
             
-            <div className="space-y-6">
-              <div className="space-y-4">
+            <div className="flex flex-col space-y-6">
+              <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Small Group Setting</h3>
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-white/80 leading-relaxed flex-1">
                   Limited to small groups to ensure you get personalized attention. We'll move at 
                   a pace that works for everyone, and no question is too basic.
                 </p>
               </div>
               
-              <div className="space-y-4">
+              <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Stay Competitive</h3>
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-white/80 leading-relaxed flex-1">
                   AI is already changing how we work. Don't get left behind. Learn the skills that 
                   will keep you valuable and relevant in your career.
                 </p>

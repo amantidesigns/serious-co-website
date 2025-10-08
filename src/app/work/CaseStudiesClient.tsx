@@ -385,7 +385,7 @@ export default function CaseStudiesClient() {
           Our Work
         </h1>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
-          Here are some recent projects made <em>real</em>
+          Here are some recent projects&nbsp;made <em>real</em>
         </h2>
         <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
           From luxury spirits brands to healthcare services—simple ideas taken seriously.

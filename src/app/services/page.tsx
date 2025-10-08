@@ -50,10 +50,10 @@ export default function OurServicesPage() {
             Our Services
           </h1>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
-            Brands, websites, and creative content.<br />Built fast, built <em>right</em>
+            Brands, websites, and <span className="whitespace-nowrap">creative content</span>.<br />Built fast, built <em>right</em>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            AI workflows let us move at speed without sacrificing craft.<br />You get premium creative work in days, not months.
+            AI workflows let us move at speed<span className="hidden md:inline"> without sacrificing craft</span><span className="md:hidden"><br />without sacrificing craft</span>.<br />Premium creative work in days, not months.
           </p>
         </div>
 
