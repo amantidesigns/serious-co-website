@@ -19,30 +19,30 @@ export default function FooterSection() {
         delay: 1.0
       }}
     >
-      <div className={`mx-auto ${theme.sizing.maxWidth.xxl} ${theme.spacing.padding.sm}`}>
+      <div className="mx-auto max-w-6xl px-4">
         <div className="text-center">
           <Link
             href="/"
             aria-label="go home"
-            className={`inline-flex items-center ${theme.spacing.gap.xs} ${theme.typography.fontSize.xl} ${theme.typography.fontWeight.bold} mb-6`}
+            className="inline-flex items-center gap-2 text-xl font-bold mb-6"
             style={{ color: theme.colors.primary.white }}
           >
             <Asterisk style={{ color: theme.colors.primary.white }} />
             A Very Serious Company
           </Link>
           
-          <div className={`${theme.sizing.maxWidth.md} mx-auto mb-8`}>
-            <p className={`${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} mb-4`} style={{ color: theme.colors.primary.white }}>
+          <div className="max-w-3xl mx-auto mb-8">
+            <p className="text-lg leading-relaxed mb-4" style={{ color: theme.colors.primary.white }}>
               A Very Serious Company is a creative agency.<br />
               We create serious, high-end websites, graphics, and videos using next-gen AI.
             </p>
-            <p className={`${theme.typography.fontSize.md} ${theme.typography.fontWeight.normal} mb-4`} style={{ color: theme.colors.primary.white }}>
+            <p className="text-lg font-normal mb-4" style={{ color: theme.colors.primary.white }}>
               We take simple ideas seriously.
             </p>
             
             <Link
               href="mailto:hello@averyseriouscompany.com"
-              className={`inline-block ${theme.typography.fontSize.md} ${theme.transition.colors} ${theme.transition.duration.fast} break-all`}
+              className="inline-block text-lg transition-colors duration-200 break-all"
               style={{ color: theme.colors.primary.white, textDecorationColor: theme.colors.primary.white, textDecorationThickness: '2px' }}
             >
               hello@averyseriouscompany.com
@@ -50,11 +50,11 @@ export default function FooterSection() {
           </div>
         </div>
         
-        <div className={`mt-8 flex flex-col md:flex-row items-center justify-between ${theme.spacing.gap.md} border-t py-4`} style={{ borderColor: theme.colors.border.white20 }}>
-          <span className={`text-center ${theme.typography.fontSize.xs} order-2 md:order-1`} style={{ color: theme.colors.primary.white }}>
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-8 border-t py-4" style={{ borderColor: theme.colors.border.white20 }}>
+          <span className="text-center text-xs order-2 md:order-1" style={{ color: theme.colors.primary.white }}>
             © {new Date().getFullYear()} A Very Serious Company
           </span>
-          <div className={`flex flex-wrap justify-center ${theme.spacing.gap.md} ${theme.typography.fontSize.xs} order-1 md:order-2`}>
+          <div className="flex flex-wrap justify-center gap-8 text-xs order-1 md:order-2">
             <Link
               href="#"
               target="_blank"

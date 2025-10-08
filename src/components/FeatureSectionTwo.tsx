@@ -50,18 +50,18 @@ const LIST: Array<list> = [
 const FeatureSectionTwo = () => {
   return (
     <section className={`py-16`} style={{ backgroundColor: theme.colors.primary.blue, color: theme.colors.primary.white }}>
-      <div className={`container ${theme.sizing.maxWidth.xxl} mx-auto`}>
-        <div className={`mx-auto ${theme.spacing.margin.bottom} flex flex-col items-start justify-between ${theme.spacing.gap.md} md:${theme.spacing.margin.bottomXLarge}`}>
-          <h1 className={`text-left ${theme.typography.fontSize.huge} ${theme.sizing.maxWidth.lg} lg:${theme.typography.fontSize.massive} ${theme.typography.fontWeight.bold}`} style={{ color: theme.colors.primary.white }}>
+      <div className="container max-w-6xl mx-auto">
+        <div className="mx-auto mb-8 flex flex-col items-start justify-between gap-8 md:mb-16">
+          <h1 className="text-left text-4xl max-w-4xl lg:text-6xl font-bold" style={{ color: theme.colors.primary.white }}>
             A Very Serious Company
           </h1>
-          <div className={`${theme.typography.fontSize.md} ${theme.sizing.maxWidth.sm} ${theme.typography.lineHeight.relaxed}`}>
-            <p className={theme.spacing.margin.xs} style={{ color: theme.colors.primary.white }}>A Very Serious Company is a creative agency.</p>
-            <p className={theme.spacing.margin.xs} style={{ color: theme.colors.primary.white }}>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
-            <p className={theme.spacing.margin.bottom} style={{ color: theme.colors.primary.white }}>We take simple ideas seriously.</p>
+          <div className="text-lg max-w-xl leading-relaxed">
+            <p className="mb-2" style={{ color: theme.colors.primary.white }}>A Very Serious Company is a creative agency.</p>
+            <p className="mb-2" style={{ color: theme.colors.primary.white }}>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
+            <p className="mb-8" style={{ color: theme.colors.primary.white }}>We take simple ideas seriously.</p>
             <a 
               href="mailto:hello@averyseriouscompany.com" 
-              className={`underline ${theme.transition.colors}`}
+              className="underline transition-colors"
               style={{ color: theme.colors.primary.white }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = theme.colors.primary.lightGray;
@@ -75,7 +75,7 @@ const FeatureSectionTwo = () => {
           </div>
         </div>
         <div>
-          <Tabs defaultValue={LIST[0].value} className={`${theme.spacing.gap.xxl} xl:flex-row`}>
+          <Tabs defaultValue={LIST[0].value} className="gap-16 xl:flex-row">
             <TabsList className="h-fit w-fit flex-col gap-2.5 bg-transparent p-0">
               {LIST.map((item, i) => (
                 <TabsTrigger
@@ -94,7 +94,7 @@ const FeatureSectionTwo = () => {
                     e.currentTarget.style.backgroundColor = 'transparent';
                   }}
                 >
-                  <div className={`leading-normal ${theme.typography.fontWeight.bold}`} style={{ color: theme.colors.primary.white }}>{item.title}</div>
+                  <div className="leading-normal font-bold" style={{ color: theme.colors.primary.white }}>{item.title}</div>
                   <div className={`leading-normal`} style={{ color: theme.colors.primary.lightGray }}>
                     {item.summary}
                   </div>

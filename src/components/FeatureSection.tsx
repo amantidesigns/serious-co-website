@@ -33,21 +33,21 @@ const DATA = [
 
 const FeatureSection = () => {
   return (
-    <section className={`${theme.spacing.padding.section} ${theme.sizing.maxWidth.xxl} mx-auto`} style={{ backgroundColor: theme.colors.primary.blue, color: theme.colors.primary.white }}>
-      <div className={`border-y`} style={{ borderColor: theme.colors.border.white20 }}>
-        <div className={`container flex flex-col ${theme.spacing.gap.md} border-x max-lg:border-x ${theme.spacing.padding.xl} lg:${theme.spacing.padding.xxl} ${theme.spacing.padding.md}`} style={{ borderColor: theme.colors.border.white20 }}>
-          <h1 className={`${theme.typography.fontSize.xxl} ${theme.typography.lineHeight.tight} ${theme.typography.letterSpacing.tight} ${theme.typography.fontWeight.extralight} md:${theme.typography.fontSize.xxxl} lg:${theme.typography.fontSize.massive}`}>
+    <section className="py-16 max-w-6xl mx-auto px-6 sm:px-8 lg:px-10" style={{ backgroundColor: theme.colors.primary.blue, color: theme.colors.primary.white }}>
+      <div className="border-y" style={{ borderColor: theme.colors.border.white20 }}>
+        <div className="container flex flex-col gap-8 border-x max-lg:border-x px-6 lg:px-10 py-4" style={{ borderColor: theme.colors.border.white20 }}>
+          <h1 className="text-4xl leading-tight tracking-tight font-extralight md:text-5xl lg:text-6xl">
             A Very Serious Company
           </h1>
-          <div className={`max-w-[600px] ${theme.spacing.space.xs}`} style={{ letterSpacing: '-0.32px' }}>
+          <div className="max-w-[600px] space-y-2" style={{ letterSpacing: '-0.32px' }}>
             <p>A Very Serious Company is a creative agency.</p>
             <p>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
-            <p className={theme.typography.fontWeight.normal}>We take simple ideas seriously.</p>
+            <p className="font-normal">We take simple ideas seriously.</p>
           </div>
-          <div className={theme.spacing.margin.xs}>
+          <div className="mt-2">
             <a 
               href="mailto:hello@averyseriouscompany.com" 
-              className={`${theme.colors.primary.white} hover:${theme.colors.primary.lightGray} ${theme.transition.colors} underline`}
+              className="text-white hover:text-gray-300 transition-colors underline"
               style={{ color: theme.colors.primary.white }}
             >
               hello@averyseriouscompany.com
@@ -64,7 +64,7 @@ const FeatureSection = () => {
                 key={index}
                 className={`relative isolate pt-5 text-start lg:pt-20`}
               >
-                <h3 className={`mt-2 px-4 ${theme.typography.fontSize.md} ${theme.typography.letterSpacing.tight} lg:px-8`}>
+                <h3 className="mt-2 px-4 text-lg tracking-tight lg:px-8">
                   {item.title}
                 </h3>
                 <p className={`pb-6 pt-2 lg:px-8`} style={{ color: theme.colors.primary.lightGray }}>
@@ -83,8 +83,8 @@ const FeatureSection = () => {
         </div>
       </div>
 
-      <div className={`${theme.sizing.height.sm} w-full border-y md:${theme.sizing.height.md} lg:${theme.sizing.height.lg}`} style={{ borderColor: theme.colors.border.white20 }}>
-        <div className={`container ${theme.sizing.height.full} w-full border-x`} style={{ borderColor: theme.colors.border.white20 }}></div>
+      <div className="h-16 w-full border-y md:h-24 lg:h-32" style={{ borderColor: theme.colors.border.white20 }}>
+        <div className="container h-full w-full border-x" style={{ borderColor: theme.colors.border.white20 }}></div>
       </div>
     </section>
   );
