@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function OurWorkPage() {
   return (
-    <ContentPageLayout title="Our Work">
+    <ContentPageLayout>
       <CaseStudiesClient />
       
       {/* WebSite Collection Structured Data */}

@@ -9,7 +9,7 @@ interface FAQButtonProps {
 }
 
 export default function FAQButton({ className = "", variant = 'section-bottom-right' }: FAQButtonProps) {
-  const baseButtonClass = `text-xs sm:text-sm font-medium ${theme.borderRadius.full} border ${theme.spacing.padding.xs} py-1 sm:py-2 tracking-normal ${theme.transition.all} ${theme.transition.duration.normal} whitespace-nowrap`;
+  const baseButtonClass = `text-xs sm:text-sm font-medium rounded-full border px-4 py-2 tracking-normal transition-all duration-200 whitespace-nowrap`;
   const isFloating = variant === 'floating-top-right';
   return (
     <div

@@ -30,7 +30,7 @@ import ProjectTag, { FigmaIcon, VercelIcon, CursorIcon, LovableIcon } from "@/co
 
 export default function JaydedAFCaseStudy() {
   return (
-    <ContentPageLayout title="Case Studies / Jayded AF">
+    <ContentPageLayout title="Case Studies / Jayded AF" centerTitle={false}>
       <div className={`relative z-20 ${theme.sizing.maxWidth.lg} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.lg} text-white`}>
 
         <div className={`${theme.spacing.space.md}`}>

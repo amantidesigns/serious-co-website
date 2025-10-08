@@ -1,120 +1,151 @@
+"use client";
+
 import type { Metadata } from "next";
 import ContentPageLayout from "@/components/ContentPageLayout";
 import { theme } from "@/lib/theme";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export const metadata: Metadata = {
-  title: "Why Us - A Very Serious Company",
-  description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
-  openGraph: {
-    title: "Why Us - A Very Serious Company",
-    description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
-    images: [
-      {
-        url: "/a-very-serious-company.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "A Very Serious Company - Why Us",
-      },
-    ],
-    type: "website",
+const sections = [
+  {
+    id: 1,
+    number: "01",
+    title: "Our Philosophy",
+    content: "We take simple ideas seriously. We understand them deeply, execute them properly, and respect their power."
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Why Us - A Very Serious Company",
-    description: "We take simple ideas seriously. Learn about our philosophy of understanding simple ideas deeply, executing them properly, and respecting their power in business and design.",
-    images: ["/a-very-serious-company.jpeg"],
+  {
+    id: 2,
+    number: "02",
+    title: "Our Approach",
+    content: "Most teams present elaborate processes and proprietary frameworks. We believe the best process is no process at all—just clear thinking applied consistently."
   },
-};
+  {
+    id: 3,
+    number: "03",
+    title: "In Practice",
+    content: "\"Take this website: we identified what visitors need to know, then said exactly that. Nothing more, nothing less.\"",
+    isItalic: true
+  }
+];
 
 export default function WhyUsPage() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % sections.length);
+    }, 4000); // Auto-cycle every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
-    <ContentPageLayout title="Why Us">
-      <div className="relative z-20 max-w-4xl space-y-16 sm:space-y-20 text-white">
+    <ContentPageLayout>
+      <div className="relative z-20 space-y-32 text-white">
         
-        {/* The Problem */}
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-light tracking-wide text-white mb-4">
-              Simple ideas don't get the attention they deserve.
-            </h2>
-            <div className="w-32 h-px bg-gradient-to-r from-white/50 to-transparent"></div>
-          </div>
-          <p className="text-base sm:text-lg text-white/80 max-w-2xl">
-            Most companies rush past the fundamentals to chase complexity. They miss the power that comes from truly understanding and properly executing simple ideas.
+        {/* Hero Section with Eyebrow + Descriptive Subheading */}
+        <div className="text-center space-y-6 max-w-4xl mx-auto pt-20 lg:pt-24">
+          <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60">
+            Why Us
+          </h1>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
+            Most agencies either overcomplicate everything or miss the <em>point</em>
+          </h2>
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+            We take simple ideas seriously. That means understanding them deeply, executing them properly, and respecting their power.
           </p>
         </div>
 
-        {/* Philosophy, Approach, Practice - Case Studies Style */}
-        <div className="space-y-0">
-          
-          {/* Philosophy Section */}
-          <div className="relative py-6 pr-8">
-            <div className="flex items-start gap-3 sm:gap-6">
-              <div className="flex-shrink-0 flex items-center self-start" style={{ paddingTop: '0.375rem' }}>
-                <span className={`${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50`}>
-                  01
-                </span>
-              </div>
-              <div className="flex-1 relative">
-                <span className="text-3xl sm:text-2xl font-light tracking-wide text-white leading-tight">
-                  Our Philosophy
-                </span>
-                <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent mt-2"></div>
-                <div className="mt-4 max-w-2xl">
-                  <p className="text-base leading-relaxed text-white/80">
-                    We take simple ideas seriously. We understand them deeply, execute them properly, and respect their power.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Subtle divider line */}
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        {/* Interactive Auto-Cycling Sections */}
+        <div 
+          className="relative w-full"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Navigation Tabs */}
+          <div className="flex justify-center gap-2 sm:gap-4 mb-12">
+            {sections.map((section, index) => (
+              <button
+                key={section.id}
+                onClick={() => setActiveIndex(index)}
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-500 ${
+                  activeIndex === index
+                    ? 'bg-white/10 text-white border border-white/30'
+                    : 'bg-transparent text-white/50 border border-white/10 hover:text-white/70 hover:border-white/20'
+                }`}
+              >
+                {section.title}
+              </button>
+            ))}
           </div>
 
-          {/* Approach Section */}
-          <div className="relative py-6 pr-8">
-            <div className="flex items-start gap-3 sm:gap-6">
-              <div className="flex-shrink-0 flex items-center self-start" style={{ paddingTop: '0.375rem' }}>
-                <span className={`${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50`}>
-                  02
-                </span>
-              </div>
-              <div className="flex-1 relative">
-                <span className="text-3xl sm:text-2xl font-light tracking-wide text-white leading-tight">
-                  Our Approach
-                </span>
-                <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent mt-2"></div>
-                <div className="mt-4 max-w-2xl space-y-3">
-                  <p className="text-base leading-relaxed text-white/80">
-                    Most teams present elaborate processes and proprietary frameworks. We believe the best process is no process at all—just clear thinking applied consistently.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Subtle divider line */}
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+          {/* Content Area */}
+          <div className="relative min-h-[280px] sm:min-h-[240px]">
+            <AnimatePresence mode="wait">
+              {sections.map((section, index) => (
+                activeIndex === index && (
+                  <motion.div
+                    key={section.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ 
+                      duration: 0.6,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+                  >
+                    <div className="max-w-3xl mx-auto space-y-6">
+                      <div className="flex items-center justify-center gap-3 mb-4">
+                        <span className="text-xs font-mono tracking-tight text-white/40">
+                          {section.number}
+                        </span>
+                        <div className="h-px w-8 bg-gradient-to-r from-white/30 to-transparent"></div>
+                      </div>
+                      <h3 className="text-3xl sm:text-4xl font-light tracking-wide text-white mb-6">
+                        {section.title}
+                      </h3>
+                      <p className={`text-lg sm:text-xl leading-relaxed ${section.isItalic ? 'italic' : ''} text-white/80`}>
+                        {section.content}
+                      </p>
+                    </div>
+                  </motion.div>
+                )
+              ))}
+            </AnimatePresence>
           </div>
 
-          {/* Practice Section */}
-          <div className="relative py-6 pr-8">
-            <div className="flex items-start gap-3 sm:gap-6">
-              <div className="flex-shrink-0 flex items-center self-start" style={{ paddingTop: '0.375rem' }}>
-                <span className={`${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50`}>
-                  03
-                </span>
-              </div>
-              <div className="flex-1 relative">
-                <span className="text-3xl sm:text-2xl font-light tracking-wide text-white leading-tight">
-                  In Practice
-                </span>
-                <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent mt-2"></div>
-                <div className="mt-4 max-w-2xl">
-                  <p className="text-base leading-relaxed text-white/80 italic">
-                    "Take this website: we identified what visitors need to know, then said exactly that. Nothing more, nothing less."
-                  </p>
-                </div>
-              </div>
-            </div>
+          {/* Progress Indicator */}
+          <div className="flex justify-center gap-2 mt-12">
+            {sections.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className="relative w-12 sm:w-16 h-1 bg-white/10 rounded-full overflow-hidden"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-white/60 rounded-full origin-left"
+                  initial={{ scaleX: 0 }}
+                  animate={{ 
+                    scaleX: activeIndex === index && !isPaused ? 1 : activeIndex === index ? 0.5 : 0
+                  }}
+                  transition={{ 
+                    duration: activeIndex === index && !isPaused ? 4 : 0.3,
+                    ease: "linear"
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Hover hint */}
+          <div className="text-center mt-6">
+            <p className="text-xs text-white/30 font-light tracking-wide">
+              {isPaused ? "Paused — Move cursor away to continue" : "Hover to pause"}
+            </p>
           </div>
         </div>
 

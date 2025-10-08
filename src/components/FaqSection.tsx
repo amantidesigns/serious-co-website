@@ -7,8 +7,8 @@ import { theme } from "@/lib/theme";
 
 export default function FAQs() {
   return (
-    <section className={`${theme.spacing.padding.section} pb-0 ${theme.sizing.height.xl}`} style={{ backgroundColor: theme.colors.primary.blue }}>
-      <div className={`relative container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 ${theme.sizing.height.viewport}`}>
+    <section className="pb-0" style={{ backgroundColor: theme.colors.primary.blue }}>
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 min-h-screen pt-[var(--nav-h,64px)]">
         {/* Background stars layer */}
         <div 
           className="fixed inset-0 w-screen h-screen pointer-events-none select-none z-0"
@@ -81,9 +81,9 @@ export default function FAQs() {
 
 
 
-        <h2 className={`relative ${theme.zIndex.overlay} text-3xl sm:text-4xl md:text-5xl lg:${theme.typography.fontSize.massive} xl:${theme.typography.fontSize.gigantic} ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottom} leading-tight pt-[var(--nav-h,64px)]`} style={{ color: theme.colors.primary.white }}>The Questions People Actually Ask</h2>
+        <h2 className="relative z-20 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight font-playfair mb-16 leading-tight pt-20 lg:pt-24" style={{ color: theme.colors.primary.white }}>The Questions People Actually Ask</h2>
         
-        <div className={`relative ${theme.zIndex.overlay} max-w-3xl ${theme.spacing.space.lg} text-sm sm:${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed}`} style={{ color: theme.colors.primary.white }}>
+        <div className="relative z-20 max-w-3xl space-y-8 text-sm sm:text-base leading-relaxed pb-32" style={{ color: theme.colors.primary.white }}>
           <p>
             <strong>People ask us what kind of work we do:</strong><br />
             Websites, advertisements, and whatever specific problems you bring us. We don't limit ourselves to categories.

@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
 import ContentPageLayout from "@/components/ContentPageLayout";
+import { 
+  LightBulbIcon, 
+  SparklesIcon, 
+  CpuChipIcon, 
+  PresentationChartLineIcon,
+  GlobeAltIcon,
+  ChatBubbleLeftRightIcon,
+  EnvelopeIcon,
+  BeakerIcon,
+  PaintBrushIcon,
+  FilmIcon,
+  DocumentTextIcon,
+  BookOpenIcon
+} from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
   title: "Our Services - A Very Serious Company",
@@ -27,50 +41,79 @@ export const metadata: Metadata = {
 
 export default function OurServicesPage() {
   return (
-    <ContentPageLayout title="Our Services">
-      <div className="relative z-20 max-w-4xl space-y-12 sm:space-y-16 text-white">
+    <ContentPageLayout>
+      <div className="relative z-20 space-y-32 text-white">
         
+        {/* Hero Section with Eyebrow + Descriptive Subheading */}
+        <div className="text-center space-y-6 max-w-4xl mx-auto pt-20 lg:pt-24">
+          <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60">
+            Our Services
+          </h1>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
+            Brands, websites, and creative content.<br />Built fast, built <em>right</em>
+          </h2>
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+            AI workflows let us move at speed without sacrificing craft.<br />You get premium creative work in days, not months.
+          </p>
+        </div>
+
         {/* Services Grid - Three Groups */}
-        <div className="space-y-16">
+        <div className="space-y-32">
           
           {/* Group 1: Brand & Strategy */}
           <div className="space-y-8">
-            <div>
+            <div className="text-center">
               <h2 className="text-xl sm:text-2xl font-light text-white mb-3">Brand & Strategy</h2>
-              <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent"></div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Creative</h3>
+            <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                  <LightBulbIcon className="w-4 h-4 text-yellow-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Creative</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Strategic creative solutions that communicate your message clearly and effectively.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Branding Services</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                  <SparklesIcon className="w-4 h-4 text-purple-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Branding Services</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Complete brand identity development from positioning to visual systems.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">AI Consulting</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                  <CpuChipIcon className="w-4 h-4 text-cyan-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">AI Consulting & Training</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Strategic guidance on integrating AI into your creative and business processes.
                 </p>
+                <div className="pt-2">
+                <a 
+                  href="/ai-training" 
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-normal font-mono tracking-tight text-white/70 hover:text-white/90 transition-all duration-500 border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10"
+                >
+                  Learn about our AI Essentials Workshop →
+                  </a>
+                </div>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Presentation Design</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                  <PresentationChartLineIcon className="w-4 h-4 text-pink-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Presentation Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Compelling presentations that engage audiences and communicate ideas powerfully.
@@ -81,42 +124,50 @@ export default function OurServicesPage() {
 
           {/* Group 2: Digital & Web */}
           <div className="space-y-8">
-            <div>
+            <div className="text-center">
               <h2 className="text-xl sm:text-2xl font-light text-white mb-3">Digital & Web</h2>
-              <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent"></div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Web Design</h3>
+            <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                  <GlobeAltIcon className="w-4 h-4 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Web Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Custom websites that serve your audience's needs with clarity and performance.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Social Media Creative</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                  <ChatBubbleLeftRightIcon className="w-4 h-4 text-emerald-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Social Media Creative</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Engaging social media content that builds community and drives results.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Email Creation</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
+                  <EnvelopeIcon className="w-4 h-4 text-indigo-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Email Creation</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Email campaigns that connect with your audience and drive meaningful action.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">AI-Powered Creative</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                  <BeakerIcon className="w-4 h-4 text-violet-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">AI-Powered Creative</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Leveraging AI tools to enhance creativity and streamline production processes.
@@ -127,42 +178,50 @@ export default function OurServicesPage() {
 
           {/* Group 3: Design & Production */}
           <div className="space-y-8">
-            <div>
+            <div className="text-center">
               <h2 className="text-xl sm:text-2xl font-light text-white mb-3">Design & Production</h2>
-              <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent"></div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Illustration Design</h3>
+            <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                  <PaintBrushIcon className="w-4 h-4 text-orange-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Illustration Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Custom illustrations that bring your brand story to life with unique visual style.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Motion Design</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                  <FilmIcon className="w-4 h-4 text-red-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Motion Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Dynamic motion graphics and animations that capture attention and engage viewers.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Print Design</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-teal-500/20 flex items-center justify-center flex-shrink-0">
+                  <DocumentTextIcon className="w-4 h-4 text-teal-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Print Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Traditional print materials with modern design sensibilities and attention to detail.
                 </p>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-gradient-to-b from-white to-white/50"></div>
-                  <h3 className="text-lg font-medium text-white">Ebooks & Report Design</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center flex-shrink-0">
+                  <BookOpenIcon className="w-4 h-4 text-sky-400" />
+                </div>
+                <h3 className="text-lg font-medium text-white">Ebooks & Report Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
                   Professional document design that makes complex information accessible and engaging.

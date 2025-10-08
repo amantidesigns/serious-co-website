@@ -30,7 +30,7 @@ import ProjectTag, { FigmaIcon, WebflowIcon, MidjourneyIcon } from "@/components
 
 export default function HealThriveRecoveryCaseStudy() {
   return (
-    <ContentPageLayout title="Case Studies / HealThrive Recovery">
+    <ContentPageLayout title="Case Studies / HealThrive Recovery" centerTitle={false}>
       <div className={`relative z-20 ${theme.sizing.maxWidth.lg} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.lg} text-white`}>
 
         <div className={`${theme.spacing.space.md}`}>

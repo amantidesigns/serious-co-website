@@ -11,22 +11,24 @@ interface ContentPageLayoutProps {
   children: React.ReactNode;
   title?: string;
   className?: string;
+  centerTitle?: boolean;
 }
 
 export default function ContentPageLayout({ 
   children, 
   title,
   className = "",
+  centerTitle = true,
 }: ContentPageLayoutProps) {
   return (
     <section className={`overflow-hidden`} style={{ backgroundColor: theme.colors.primary.blue }}>
       <ShootingStarBackground numberOfStars={60} />
       
-      <div className={`relative container ${theme.sizing.maxWidth.xxl} mx-auto px-4 sm:px-6 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[auto_1fr_auto]`}>
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[auto_1fr_auto]">
         
         {title && (
           <motion.h1 
-            className={`relative ${theme.zIndex.overlay} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${theme.typography.letterSpacing.tight} font-playfair ${theme.spacing.margin.bottomSmall} leading-none pt-[60px] lg:pt-20`} 
+            className={`relative z-20 ${centerTitle ? 'text-center' : 'text-left'} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight font-playfair mb-16 leading-none pt-20 lg:pt-24`}
             style={{ color: theme.colors.primary.white }}
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -56,7 +58,7 @@ export default function ContentPageLayout({
         )}
         
         <motion.div 
-          className="relative z-20 pb-24"
+          className="relative z-20 pb-32"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ 

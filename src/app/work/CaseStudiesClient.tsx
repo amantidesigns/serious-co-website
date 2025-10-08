@@ -378,12 +378,21 @@ export default function CaseStudiesClient() {
       ];
 
   return (
-    <div className={`relative z-20 ${theme.sizing.maxWidth.xxl} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.xl} text-white`}>
-      <div className={`${theme.spacing.space.sm}`}>
-        <p>Here are some of our recent projects made real.</p>
+    <div className="relative z-20 text-base leading-relaxed space-y-32 text-white">
+      {/* Hero Section with Eyebrow + Descriptive Subheading */}
+      <div className="text-center space-y-6 max-w-4xl mx-auto pt-20 lg:pt-24">
+        <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60">
+          Our Work
+        </h1>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
+          Here are some recent projects made <em>real</em>
+        </h2>
+        <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+          From luxury spirits brands to healthcare services—simple ideas taken seriously.
+        </p>
       </div>
 
-      <div className={`${theme.spacing.space.md} mb-24`}>
+      <div className="space-y-12">
         {caseStudies.map((study, index) => (
           <div key={index}>
             <CaseStudyCard

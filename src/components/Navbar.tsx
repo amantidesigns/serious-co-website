@@ -336,7 +336,7 @@ const Navbar = () => {
         delay: isScrolled ? 0 : 0.8
       }}
     >
-      <div ref={navRef} className={`container ${theme.sizing.maxWidth.xxl} mx-auto px-6 h-16`}>
+      <div ref={navRef} className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 h-16">
         <NavigationMenu className="min-w-full">
           <div className={`flex w-full items-center justify-between ${theme.spacing.gap.lg} py-4`}>
               {/* Logo */}
@@ -355,7 +355,7 @@ const Navbar = () => {
                     <NavigationMenuLink asChild>
                       <a 
                         href={link.href} 
-                        className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`} 
+                        className={`inline-flex items-center ${theme.spacing.gap.xs} ${index === navigationLinks.length - 1 ? 'pl-3 pr-0' : 'px-3'} py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`} 
                         style={{ color: theme.colors.primary.white }}
                         onMouseEnter={(e) => {
                           const asterisk = e.currentTarget.querySelector('svg');
@@ -535,7 +535,7 @@ const Navbar = () => {
             <div className="mt-8 flex justify-center lg:hidden">
               <a 
                 href="/faq" 
-                className={`text-sm font-medium ${theme.borderRadius.full} border ${theme.spacing.padding.xs} py-2 tracking-normal ${theme.transition.all} ${theme.transition.duration.normal} whitespace-nowrap`}
+                className="text-sm font-medium rounded-full border px-4 py-2 tracking-normal transition-all duration-200 whitespace-nowrap"
                 style={{ 
                   color: theme.colors.primary.white, 
                   borderColor: theme.colors.primary.white,
@@ -554,7 +554,7 @@ const Navbar = () => {
                   <div className="flex justify-center">
                     <a 
                       href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
-                      className={`group flex cursor-pointer ${theme.effects.hover.scale} items-center justify-center ${theme.spacing.gap.xs} ${theme.typography.fontWeight.thin} ${theme.borderRadius.full} border bg-transparent ${theme.spacing.padding.xs} py-2 ${theme.typography.letterSpacing.tight} ${theme.transition.all} ${theme.transition.duration.normal}`}
+                      className="group flex cursor-pointer active:scale-[0.98] items-center justify-center gap-2 font-thin rounded-full border bg-transparent px-4 py-2 tracking-tight transition-all duration-200"
                       style={{ 
                         color: theme.colors.primary.white, 
                         borderColor: theme.colors.primary.white,
@@ -570,7 +570,7 @@ const Navbar = () => {
                       }}
                     >
                       hello@averyseriouscompany.com
-                      <ChevronRight className={`size-4 mt-1 ${theme.transition.all} ease-out group-hover:rotate-0`} />
+                      <ChevronRight className="size-4 mt-1 transition-all ease-out group-hover:rotate-0" />
                     </a>
                   </div>
                 </div>

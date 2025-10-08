@@ -39,49 +39,57 @@ export const theme = {
   },
   
   spacing: {
-    // Padding
+    // Padding - Tailwind CSS standards (4px base unit)
     padding: {
-      xs: 'px-4',
-      sm: 'px-6',
-      md: 'px-7',
-      lg: 'px-8',
-      xl: 'py-4',
-      xxl: 'py-8',
-      section: 'py-32',
-      sectionSmall: 'py-16',
+      xs: 'p-1',      // 4px
+      sm: 'p-2',      // 8px
+      md: 'p-3',      // 12px
+      lg: 'p-4',      // 16px
+      xl: 'p-6',      // 24px
+      '2xl': 'p-8',   // 32px
+      '3xl': 'p-12',  // 48px
+      '4xl': 'p-16',  // 64px
+      section: 'py-32', // 128px
+      sectionSmall: 'py-16', // 64px
     },
     
-    // Margin
+    // Margin - Tailwind CSS standards
     margin: {
-      xs: 'mt-4',
-      sm: 'mt-6',
-      md: 'mt-8',
-      lg: 'mt-10',
-      xl: 'mt-12',
-      xxl: 'mt-16',
-      bottom: 'mb-8',
-      bottomSmall: 'mb-6',
-      bottomLarge: 'mb-12',
-      bottomXLarge: 'mb-20',
+      xs: 'm-1',      // 4px
+      sm: 'm-2',      // 8px
+      md: 'm-3',      // 12px
+      lg: 'm-4',      // 16px
+      xl: 'm-6',      // 24px
+      '2xl': 'm-8',   // 32px
+      '3xl': 'm-12',  // 48px
+      '4xl': 'm-16',  // 64px
+      bottom: 'mb-8', // 32px
+      bottomSmall: 'mb-6', // 24px
+      bottomLarge: 'mb-12', // 48px
+      bottomXLarge: 'mb-20', // 80px
     },
     
-    // Gap
+    // Gap - Tailwind CSS standards
     gap: {
-      xs: 'gap-2',
-      sm: 'gap-4',
-      md: 'gap-6',
-      lg: 'gap-8',
-      xl: 'gap-10',
-      xxl: 'gap-14',
+      xs: 'gap-1',    // 4px
+      sm: 'gap-2',    // 8px
+      md: 'gap-3',    // 12px
+      lg: 'gap-4',    // 16px
+      xl: 'gap-6',    // 24px
+      '2xl': 'gap-8', // 32px
+      '3xl': 'gap-12', // 48px
     },
     
-    // Space between elements
+    // Space between elements - Tailwind CSS standards
     space: {
-      xs: 'space-y-4',
-      sm: 'space-y-6',
-      md: 'space-y-8',
-      lg: 'space-y-10',
-      xl: 'space-y-16',
+      xs: 'space-y-1',   // 4px
+      sm: 'space-y-2',   // 8px
+      md: 'space-y-3',   // 12px
+      lg: 'space-y-4',   // 16px
+      xl: 'space-y-6',   // 24px
+      '2xl': 'space-y-8', // 32px
+      '3xl': 'space-y-12', // 48px
+      '4xl': 'space-y-16', // 64px
     },
   },
   
@@ -109,14 +117,15 @@ export const theme = {
       viewport: 'min-h-[100vh]',
     },
     
-    // Max width
+    // Max width - Tailwind CSS standards
     maxWidth: {
-      xs: 'max-w-xl',
-      sm: 'max-w-2xl',
-      md: 'max-w-3xl',
-      lg: 'max-w-4xl',
-      xl: 'max-w-5xl',
-      xxl: 'max-w-7xl',
+      xs: 'max-w-xl',      // 576px
+      sm: 'max-w-2xl',     // 672px
+      md: 'max-w-3xl',     // 768px
+      lg: 'max-w-4xl',     // 896px
+      xl: 'max-w-5xl',     // 1024px
+      '2xl': 'max-w-6xl',  // 1152px
+      '3xl': 'max-w-7xl',  // 1280px (Tailwind container default)
     },
   },
   
