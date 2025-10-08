@@ -4,10 +4,10 @@ import CSSBoxFAQ from "@/components/blocks/css-box-faq";
 
 export const metadata: Metadata = {
   title: "FAQ - A Very Serious Company",
-  description: "Frequently asked questions about our creative agency services. Get answers about our process, pricing, timeline, and how we take simple ideas seriously to deliver exceptional results.",
+  description: "Common questions about our creative services. Straight answers about what we do, how we work, and why we build brands, websites, and creative content that actually work.",
   openGraph: {
     title: "FAQ - A Very Serious Company",
-    description: "Frequently asked questions about our creative agency services. Get answers about our process, pricing, timeline, and how we take simple ideas seriously to deliver exceptional results.",
+    description: "Common questions about our creative services. Straight answers about what we do, how we work, and why we build brands, websites, and creative content that actually work.",
     images: [
       {
         url: "/a-very-serious-company.jpeg",

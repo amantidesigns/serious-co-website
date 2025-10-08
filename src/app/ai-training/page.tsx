@@ -7,10 +7,10 @@ import { CheckCircle, Clock, MapPin, Users, DollarSign } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AI Essentials Workshop - A Very Serious Company",
-  description: "Join our comprehensive 3-day AI training workshop designed for beginners aged 45-65. Learn the fundamentals of AI, master prompting techniques, and build your first AI project. $200 per person at St. Louis Park Public Library.",
+  description: "Join our comprehensive 3-day AI training workshop designed for beginners aged 40-65. Learn the fundamentals of AI, master prompting techniques, and build your first AI project. $200 per person at St. Louis Park Public Library.",
   openGraph: {
     title: "AI Essentials Workshop - A Very Serious Company",
-    description: "Join our comprehensive 3-day AI training workshop designed for beginners aged 45-65. Learn the fundamentals of AI, master prompting techniques, and build your first AI project.",
+    description: "Join our comprehensive 3-day AI training workshop designed for beginners aged 40-65. Learn the fundamentals of AI, master prompting techniques, and build your first AI project.",
     images: [
       {
         url: "/a-very-serious-company.jpeg",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AI Essentials Workshop - A Very Serious Company",
-    description: "Join our comprehensive 3-day AI training workshop designed for beginners aged 45-65. Learn the fundamentals of AI, master prompting techniques, and build your first AI project.",
+    description: "Join our comprehensive 3-day AI training workshop designed for beginners aged 40-65. Learn the fundamentals of AI, master prompting techniques, and build your first AI project.",
     images: ["/a-very-serious-company.jpeg"],
   },
 };
@@ -40,7 +40,7 @@ export default function AITrainingPage() {
             AI Essentials Workshop
           </h1>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
-            Learn AI in three days. No technical background <em>required</em>
+            Learn AI in three days.<br />No technical background&nbsp;<em>required</em>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
             A hands-on workshop for professionals who want to stay relevant in an AI-driven world. We'll teach you what matters and skip the rest.
@@ -54,28 +54,28 @@ export default function AITrainingPage() {
 
         {/* Key Details */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center justify-center space-x-3">
             <Clock className="w-6 h-6 text-white/70" />
             <div>
               <p className="text-sm font-medium text-white">3 Days</p>
               <p className="text-xs text-white/60">Intensive Learning</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center justify-center space-x-3">
             <DollarSign className="w-6 h-6 text-white/70" />
             <div>
               <p className="text-sm font-medium text-white">$200</p>
               <p className="text-xs text-white/60">Per Person</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center justify-center space-x-3">
             <MapPin className="w-6 h-6 text-white/70" />
             <div>
               <p className="text-sm font-medium text-white">St. Louis Park</p>
               <p className="text-xs text-white/60">Public Library</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center justify-center space-x-3">
             <Users className="w-6 h-6 text-white/70" />
             <div>
               <p className="text-sm font-medium text-white">Small Groups</p>
@@ -209,7 +209,7 @@ export default function AITrainingPage() {
                 <h3 className="text-xl font-medium text-white">Designed for Your Generation</h3>
                 <p className="text-white/80 leading-relaxed">
                   We understand that technology can feel overwhelming when you're trying to catch up. 
-                  This workshop is specifically designed for professionals aged 45-65 who want to stay 
+                  This workshop is specifically designed for professionals aged 40-65 who want to stay 
                   relevant without feeling lost in technical jargon.
                 </p>
               </div>

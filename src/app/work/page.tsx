@@ -4,10 +4,10 @@ import CaseStudiesClient from "./CaseStudiesClient";
 
 export const metadata: Metadata = {
   title: "Our Work - A Very Serious Company",
-  description: "Explore our portfolio of successful projects. From luxury spirits brands to healthcare services, see how we take simple ideas seriously and deliver exceptional results.",
+  description: "Here are some recent projects made real. From luxury spirits brands to healthcare services—simple ideas taken seriously.",
   openGraph: {
     title: "Our Work - A Very Serious Company",
-    description: "Explore our portfolio of successful projects. From luxury spirits brands to healthcare services, see how we take simple ideas seriously and deliver exceptional results.",
+    description: "Here are some recent projects made real. From luxury spirits brands to healthcare services—simple ideas taken seriously.",
     images: [
       {
         url: "/a-very-serious-company.jpeg",

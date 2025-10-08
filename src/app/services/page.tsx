@@ -17,10 +17,10 @@ import {
 
 export const metadata: Metadata = {
   title: "Our Services - A Very Serious Company",
-  description: "We provide strategic creative services that transform simple ideas into exceptional digital experiences. From brand development to web design, we take your vision seriously.",
+  description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
   openGraph: {
     title: "Our Services - A Very Serious Company",
-    description: "We provide strategic creative services that transform simple ideas into exceptional digital experiences. From brand development to web design, we take your vision seriously.",
+    description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
     images: [
       {
         url: "/a-very-serious-company.jpeg",
