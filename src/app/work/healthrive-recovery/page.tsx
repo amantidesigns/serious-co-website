@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import ContentPageLayout from "@/components/ContentPageLayout";
 
 export const metadata: Metadata = {
-  title: "HealThrive Recovery Case Study - Amanti Melkamu",
-  description: "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
+  title: "HealThrive Recovery Case Study - A Very Serious Company",
+  description: "Healthcare website design case study for addiction treatment center. See how we created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
   openGraph: {
-    title: "HealThrive Recovery Case Study - Amanti Melkamu",
-    description: "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
+    title: "HealThrive Recovery Case Study - A Very Serious Company",
+    description: "Healthcare website design case study for addiction treatment center. See how we created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
     images: [
       {
         url: "/healthrive-recovery-project.png",
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HealThrive Recovery Case Study - Amanti Melkamu",
-    description: "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
+    title: "HealThrive Recovery Case Study - A Very Serious Company",
+    description: "Healthcare website design case study for addiction treatment center. See how we created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
     images: ["/healthrive-recovery-project.png"],
   },
 };
@@ -30,15 +30,15 @@ import ProjectTag, { FigmaIcon, WebflowIcon, MidjourneyIcon } from "@/components
 
 export default function HealThriveRecoveryCaseStudy() {
   return (
-    <ContentPageLayout title="Work / HealThrive Recovery" centerTitle={false}>
+    <ContentPageLayout title="Case Studies / HealThrive Recovery" centerTitle={false}>
       <div className={`relative z-20 ${theme.sizing.maxWidth.lg} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.lg} text-white`}>
 
         <div className={`${theme.spacing.space.md}`}>
           <div className={`${theme.spacing.space.sm}`}>
             <p className={`${theme.typography.fontSize.lg} ${theme.typography.lineHeight.relaxed} text-white/90 ${theme.sizing.maxWidth.lg}`}>
-              I developed a compassionate website for this addiction treatment center that needed a trustworthy digital presence to help families find hope and healing. 
+              We developed a compassionate website for this addiction treatment center that needed a trustworthy digital presence to help families find hope and healing. 
               The warm, professional design balances sensitivity with accessibility, making it easy for those seeking help to find the resources they need. 
-              My approach perfectly complemented their existing mission, emphasizing trust, empathy, and clear pathways to their comprehensive treatment services.
+              Our approach perfectly complemented their existing mission, emphasizing trust, empathy, and clear pathways to their comprehensive treatment services.
             </p>
           </div>
           
@@ -85,10 +85,10 @@ export default function HealThriveRecoveryCaseStudy() {
 
         <div className={`${theme.spacing.margin.lg}`}>
           <Link 
-            href="/" 
+            href="/case-studies" 
             className={`inline-flex items-center text-white/70 hover:text-white ${theme.transition.colors}`}
           >
-            ← Back to Portfolio
+            ← Back to Case Studies
           </Link>
         </div>
       </div>
@@ -101,11 +101,11 @@ export default function HealThriveRecoveryCaseStudy() {
             "@context": "https://schema.org",
             "@type": "CreativeWork",
             "name": "HealThrive Recovery Healthcare Website",
-            "description": "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
+            "description": "Healthcare website design case study for addiction treatment center. See how we created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
             "creator": {
-              "@type": "Person",
-              "name": "Amanti Melkamu",
-              "url": "https://amantimelkamu.com"
+              "@type": "Organization",
+              "name": "A Very Serious Company",
+              "url": "https://avery-serious-company.com"
             },
             "dateCreated": "2024",
             "genre": "Healthcare Web Design Case Study",
@@ -119,12 +119,12 @@ export default function HealThriveRecoveryCaseStudy() {
               "contentUrl": "https://avery-serious-company.com/healthrive-recovery-project.png",
               "encodingFormat": "image/png"
             },
-            "url": "https://amantimelkamu.com/work/healthrive-recovery",
-            "image": "https://amantimelkamu.com/healthrive-recovery-project.png",
+            "url": "https://avery-serious-company.com/case-studies/healthrive-recovery",
+            "image": "https://avery-serious-company.com/healthrive-recovery-project.png",
             "isPartOf": {
               "@type": "CollectionPage",
-              "name": "Portfolio",
-              "url": "https://amantimelkamu.com"
+              "name": "Case Studies",
+              "url": "https://avery-serious-company.com/case-studies"
             }
           })
         }}

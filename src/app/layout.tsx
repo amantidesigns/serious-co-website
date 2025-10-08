@@ -22,24 +22,24 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://amantimelkamu.com'),
-  title: "Amanti Melkamu - Product Designer Portfolio",
-  description: "Product Designer specializing in AI-powered design, brand identity, and digital experiences. Based in Minneapolis, creating meaningful solutions from luxury spirits to healthcare platforms.",
-  keywords: ["product designer", "graphic designer", "web design", "brand identity", "AI design", "UX design", "UI design", "portfolio", "Minneapolis designer", "Figma", "Webflow"],
-  authors: [{ name: "Amanti Melkamu" }],
-  creator: "Amanti Melkamu",
-  publisher: "Amanti Melkamu",
+  metadataBase: new URL('https://avery-serious-company.com'),
+  title: "A Very Serious Company - Creative Agency",
+  description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
+  keywords: ["creative agency", "web design", "brand development", "AI workflows", "website design", "creative services", "modern creative"],
+  authors: [{ name: "A Very Serious Company" }],
+  creator: "A Very Serious Company",
+  publisher: "A Very Serious Company",
   openGraph: {
-    title: "Amanti Melkamu - Product Designer Portfolio",
-    description: "Product Designer specializing in AI-powered design, brand identity, and digital experiences. Based in Minneapolis, creating meaningful solutions from luxury spirits to healthcare platforms.",
-    url: "https://amantimelkamu.com",
-    siteName: "Amanti Melkamu Portfolio",
+    title: "A Very Serious Company - Creative Agency",
+    description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
+    url: "https://avery-serious-company.com",
+    siteName: "A Very Serious Company",
     images: [
       {
         url: "/a-very-serious-company.jpeg",
         width: 1200,
         height: 630,
-        alt: "Amanti Melkamu - Product Designer Portfolio",
+        alt: "A Very Serious Company - Creative Agency",
       },
     ],
     locale: "en_US",
@@ -47,9 +47,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amanti Melkamu - Product Designer Portfolio",
-    description: "Product Designer specializing in AI-powered design, brand identity, and digital experiences. Based in Minneapolis, creating meaningful solutions.",
+    title: "A Very Serious Company - Creative Agency",
+    description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
     images: ["/a-very-serious-company.jpeg"],
+    creator: "@avery-serious-company",
   },
   robots: {
     index: true,
@@ -61,6 +62,9 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 };
 
@@ -83,7 +87,7 @@ export default function RootLayout({
         <meta name="msapplication-navbutton-color" content="var(--theme-color)" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-title" content="Amanti Melkamu" />
+        <meta name="apple-mobile-web-app-title" content="A Very Serious Company" />
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body
@@ -105,38 +109,48 @@ export default function RootLayout({
           {children}
         </main>
         
-        {/* Person Structured Data */}
+        {/* Organization Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Amanti Melkamu",
-              "jobTitle": "Product Designer",
-              "description": "Product Designer specializing in AI-powered design, brand identity, and digital experiences. Based in Minneapolis, creating meaningful solutions from luxury spirits to healthcare platforms.",
-              "url": "https://amantimelkamu.com",
-              "image": "https://amantimelkamu.com/a-very-serious-company.jpeg",
-              "email": "amantimn@gmail.com",
+              "@type": "Organization",
+              "name": "A Very Serious Company",
+              "description": "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
+              "url": "https://avery-serious-company.com",
+              "logo": "https://avery-serious-company.com/a-very-serious-company.jpeg",
+              "image": "https://avery-serious-company.com/a-very-serious-company.jpeg",
+              "foundingDate": "2024",
+              "founder": {
+                "@type": "Person",
+                "name": "A Very Serious Company Team"
+              },
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Minneapolis",
-                "addressRegion": "Minnesota",
                 "addressCountry": "US"
               },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Business Inquiries",
+                "availableLanguage": "English"
+              },
               "sameAs": [
-                "https://linkedin.com/in/amantidesigns"
+                "https://avery-serious-company.com"
               ],
               "knowsAbout": [
-                "Product Design",
                 "Web Design",
-                "Brand Identity", 
-                "AI-Powered Design",
-                "UX/UI Design",
-                "Graphic Design",
-                "Figma",
-                "Webflow",
-                "Content Creation"
+                "Brand Development", 
+                "Digital Marketing",
+                "Creative Services",
+                "Website Development",
+                "Advertising"
+              ],
+              "serviceType": [
+                "Creative Agency",
+                "Web Design Services",
+                "Brand Development",
+                "Digital Marketing"
               ]
             })
           }}

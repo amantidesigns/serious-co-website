@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import ContentPageLayout from "@/components/ContentPageLayout";
 
 export const metadata: Metadata = {
-  title: "Jayded AF Case Study - Amanti Melkamu",
-  description: "Premium gin martini brand website design case study. See how I created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
+  title: "Jayded AF Case Study - A Very Serious Company",
+  description: "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
   openGraph: {
-    title: "Jayded AF Case Study - Amanti Melkamu",
-    description: "Premium gin martini brand website design case study. See how I created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
+    title: "Jayded AF Case Study - A Very Serious Company",
+    description: "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
     images: [
       {
         url: "/jayded-af-project-video.mp4",
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jayded AF Case Study - Amanti Melkamu",
-    description: "Premium gin martini brand website design case study. See how I created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
+    title: "Jayded AF Case Study - A Very Serious Company",
+    description: "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
     images: ["/jayded-af-project-video.mp4"],
   },
 };
@@ -30,15 +30,15 @@ import ProjectTag, { FigmaIcon, VercelIcon, CursorIcon, LovableIcon } from "@/co
 
 export default function JaydedAFCaseStudy() {
   return (
-    <ContentPageLayout title="Work / Jayded AF" centerTitle={false}>
+    <ContentPageLayout title="Case Studies / Jayded AF" centerTitle={false}>
       <div className={`relative z-20 ${theme.sizing.maxWidth.lg} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.lg} text-white`}>
 
         <div className={`${theme.spacing.space.md}`}>
           <div className={`${theme.spacing.space.sm}`}>
             <p className={`${theme.typography.fontSize.lg} ${theme.typography.lineHeight.relaxed} text-white/90 ${theme.sizing.maxWidth.lg}`}>
-              I created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience. 
-              I trained custom AI models using their photography, schematics, and videos to generate unique brand assets from scratch. 
-              My approach perfectly complemented their brand identity, emphasizing quality craftsmanship through both design and custom AI-generated content.
+              We created a sophisticated website for this premium gin martini brand that needed a digital presence matching their craft cocktail experience. 
+              We trained custom AI models using their photography, schematics, and videos to generate unique brand assets from scratch. 
+              Our approach perfectly complemented their brand identity, emphasizing quality craftsmanship through both design and custom AI-generated content.
             </p>
           </div>
           
@@ -89,10 +89,10 @@ export default function JaydedAFCaseStudy() {
 
         <div className={`${theme.spacing.margin.lg}`}>
           <Link 
-            href="/" 
+            href="/case-studies" 
             className={`inline-flex items-center text-white/70 hover:text-white ${theme.transition.colors}`}
           >
-            ← Back to Portfolio
+            ← Back to Case Studies
           </Link>
         </div>
       </div>
@@ -105,11 +105,11 @@ export default function JaydedAFCaseStudy() {
             "@context": "https://schema.org",
             "@type": "CreativeWork",
             "name": "Jayded AF Premium Gin Brand Website",
-            "description": "Premium gin martini brand website design case study. See how I created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
+            "description": "Premium gin martini brand website design case study. See how we created a sophisticated digital presence for Jayded AF using custom AI models and brand assets to match their craft cocktail experience.",
             "creator": {
-              "@type": "Person",
-              "name": "Amanti Melkamu",
-              "url": "https://amantimelkamu.com"
+              "@type": "Organization",
+              "name": "A Very Serious Company",
+              "url": "https://avery-serious-company.com"
             },
             "dateCreated": "2024",
             "genre": "Web Design Case Study",
@@ -123,12 +123,12 @@ export default function JaydedAFCaseStudy() {
               "contentUrl": "https://avery-serious-company.com/jayded-af-project-video.mp4",
               "encodingFormat": "video/mp4"
             },
-            "url": "https://amantimelkamu.com/work/jayded-af",
-            "image": "https://amantimelkamu.com/jayded-af-project-video.mp4",
+            "url": "https://avery-serious-company.com/case-studies/jayded-af",
+            "image": "https://avery-serious-company.com/jayded-af-project-video.mp4",
             "isPartOf": {
               "@type": "CollectionPage",
-              "name": "Portfolio",
-              "url": "https://amantimelkamu.com"
+              "name": "Case Studies",
+              "url": "https://avery-serious-company.com/case-studies"
             }
           })
         }}
