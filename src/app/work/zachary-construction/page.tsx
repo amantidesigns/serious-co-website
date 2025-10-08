@@ -1,59 +1,59 @@
 import type { Metadata } from "next";
 import ContentPageLayout from "@/components/ContentPageLayout";
+import Link from "next/link";
+import { theme } from "@/lib/theme";
+import ProjectTag, { FigmaIcon, WebflowIcon, MidjourneyIcon } from "@/components/ProjectTag";
 
 export const metadata: Metadata = {
-  title: "HealThrive Recovery Case Study - Amanti Melkamu",
-  description: "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
+  title: "Zachary Construction Group Case Study - Amanti Melkamu",
+  description: "Construction company digital presence case study. See how we created a professional, trustworthy website for Zachary Construction Group to showcase their projects and services.",
   openGraph: {
-    title: "HealThrive Recovery Case Study - Amanti Melkamu",
-    description: "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
+    title: "Zachary Construction Group Case Study - Amanti Melkamu",
+    description: "Construction company digital presence case study. See how we created a professional, trustworthy website for Zachary Construction Group to showcase their projects and services.",
     images: [
       {
-        url: "/healthrive-recovery-project.png",
+        url: "/zachary-construction-project.png",
         width: 1200,
         height: 630,
-        alt: "HealThrive Recovery Healthcare Website Design",
+        alt: "Zachary Construction Group Website Design",
       },
     ],
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "HealThrive Recovery Case Study - Amanti Melkamu",
-    description: "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
-    images: ["/healthrive-recovery-project.png"],
+    title: "Zachary Construction Group Case Study - Amanti Melkamu",
+    description: "Construction company digital presence case study. Professional website design for a leading construction company.",
+    images: ["/zachary-construction-project.png"],
   },
 };
-import Link from "next/link";
-import { theme } from "@/lib/theme";
-import ProjectTag, { FigmaIcon, WebflowIcon, MidjourneyIcon } from "@/components/ProjectTag";
 
-export default function HealThriveRecoveryCaseStudy() {
+export default function ZacharyConstructionCaseStudy() {
   return (
-    <ContentPageLayout title="Work / HealThrive Recovery" centerTitle={false}>
+    <ContentPageLayout title="Work / Zachary Construction Group" centerTitle={false}>
       <div className={`relative z-20 ${theme.sizing.maxWidth.lg} ${theme.typography.fontSize.md} ${theme.typography.lineHeight.relaxed} ${theme.spacing.space.lg} text-white`}>
 
         <div className={`${theme.spacing.space.md}`}>
           <div className={`${theme.spacing.space.sm}`}>
             <p className={`${theme.typography.fontSize.lg} ${theme.typography.lineHeight.relaxed} text-white/90 ${theme.sizing.maxWidth.lg}`}>
-              I developed a compassionate website for this addiction treatment center that needed a trustworthy digital presence to help families find hope and healing. 
-              The warm, professional design balances sensitivity with accessibility, making it easy for those seeking help to find the resources they need. 
-              My approach perfectly complemented their existing mission, emphasizing trust, empathy, and clear pathways to their comprehensive treatment services.
+              We developed a robust digital presence for this construction company that needed a professional website to showcase their commercial and residential projects. 
+              The clean, organized design emphasizes trust, expertise, and attention to detail, making it easy for potential clients to explore their portfolio and services. 
+              Our approach perfectly complemented their brand identity, highlighting quality craftsmanship and industry leadership.
             </p>
           </div>
           
           <div className={`grid grid-cols-2 sm:grid-cols-3 ${theme.spacing.gap.md}`}>
             <div className={`space-y-1`}>
               <div className={`${theme.typography.fontSize.xs} text-white/70`}>Turnaround</div>
-              <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>3 weeks</div>
+              <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>5 weeks</div>
             </div>
             <div className={`space-y-1`}>
               <div className={`${theme.typography.fontSize.xs} text-white/70`}>Client came from</div>
-              <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>Referral from previous client</div>
+              <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>Direct hire</div>
             </div>
             <div className={`space-y-1`}>
-              <div className={`${theme.typography.fontSize.xs} text-white/70`}>Design team</div>
-              <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>Amanti & Robera</div>
+              <div className={`${theme.typography.fontSize.xs} text-white/70`}>My Role</div>
+              <div className={`${theme.typography.fontSize.sm} ${theme.typography.fontWeight.normal} text-white`}>Director of Marketing</div>
             </div>
           </div>
           
@@ -64,6 +64,7 @@ export default function HealThriveRecoveryCaseStudy() {
               <div className="flex flex-wrap gap-2">
                 <ProjectTag variant="work-type">Web Design</ProjectTag>
                 <ProjectTag variant="work-type">Web Development</ProjectTag>
+                <ProjectTag variant="work-type">Brand Identity</ProjectTag>
                 <ProjectTag icon={<FigmaIcon />}>Figma</ProjectTag>
                 <ProjectTag icon={<WebflowIcon />}>Webflow</ProjectTag>
                 <ProjectTag icon={<MidjourneyIcon />}>Midjourney</ProjectTag>
@@ -76,8 +77,8 @@ export default function HealThriveRecoveryCaseStudy() {
         <div className={`${theme.spacing.space.lg}`}>
           <div className="rounded-xl border border-white/15 overflow-hidden bg-black/20 backdrop-blur-sm">
             <img
-              src="/healthrive-recovery-project.png"
-              alt="HealThrive Recovery project preview"
+              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&h=800&fit=crop"
+              alt="Zachary Construction Group project preview"
               className="block w-full h-auto object-contain max-h-[60svh]"
             />
           </div>
@@ -100,27 +101,21 @@ export default function HealThriveRecoveryCaseStudy() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CreativeWork",
-            "name": "HealThrive Recovery Healthcare Website",
-            "description": "Healthcare website design case study for addiction treatment center. See how I created a compassionate, trustworthy digital presence for HealThrive Recovery to help families find hope and healing.",
+            "name": "Zachary Construction Group Website",
+            "description": "Construction company digital presence case study. Professional website design for a leading construction company.",
             "creator": {
               "@type": "Person",
               "name": "Amanti Melkamu",
               "url": "https://amantimelkamu.com"
             },
             "dateCreated": "2024",
-            "genre": "Healthcare Web Design Case Study",
-            "keywords": ["healthcare website", "addiction treatment", "mental health", "digital healthcare", "compassionate design", "healthcare marketing"],
+            "genre": "Web Design Case Study",
+            "keywords": ["construction website", "commercial construction", "web design", "brand identity"],
             "about": {
               "@type": "Thing",
-              "name": "Healthcare Digital Marketing"
+              "name": "Construction Industry Web Design"
             },
-            "workExample": {
-              "@type": "MediaObject",
-              "contentUrl": "https://avery-serious-company.com/healthrive-recovery-project.png",
-              "encodingFormat": "image/png"
-            },
-            "url": "https://amantimelkamu.com/work/healthrive-recovery",
-            "image": "https://amantimelkamu.com/healthrive-recovery-project.png",
+            "url": "https://amantimelkamu.com/work/zachary-construction",
             "isPartOf": {
               "@type": "CollectionPage",
               "name": "Portfolio",
@@ -132,3 +127,6 @@ export default function HealThriveRecoveryCaseStudy() {
     </ContentPageLayout>
   );
 }
+
+
+

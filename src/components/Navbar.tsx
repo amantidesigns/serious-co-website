@@ -312,9 +312,8 @@ const Navbar = () => {
   };
 
   const navigationLinks = [
-    { href: "/services", label: "Services" },
-    { href: "/work", label: "Work" },
-    { href: "/why-us", label: "Why Us" },
+    { href: "/#work", label: "Work" },
+    { href: "mailto:amantimn@gmail.com", label: "Contact" },
   ];
 
   return (
@@ -343,8 +342,8 @@ const Navbar = () => {
             <a href="/" className={`flex items-center ${theme.spacing.gap.xs} whitespace-nowrap hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`} style={{ color: theme.colors.primary.white }}>
               <Asterisk className={`animate-fade-in brightness-150 group-hover:brightness-200 ${theme.transition.all} ${theme.transition.duration.slow} size-4 sm:size-5`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
               <span className={`text-sm sm:text-base lg:text-lg font-semibold ${theme.typography.letterSpacing.tighter} group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>
-                <span className="hidden sm:inline">A Very Serious Company</span>
-                <span className="sm:hidden">AVSC</span>
+                <span className="hidden sm:inline">Amanti Melkamu</span>
+                <span className="sm:hidden">AM</span>
               </span>
             </a>
               
@@ -531,29 +530,13 @@ const Navbar = () => {
               ))}
             </nav>
             
-            {/* FAQ CTA on mobile */}
-            <div className="mt-8 flex justify-center lg:hidden">
-              <a 
-                href="/faq" 
-                className="text-sm font-medium rounded-full border px-4 py-2 tracking-normal transition-all duration-200 whitespace-nowrap"
-                style={{ 
-                  color: theme.colors.primary.white, 
-                  borderColor: theme.colors.primary.white,
-                  backgroundColor: 'transparent'
-                }}
-                onClick={handleLinkClick}
-              >
-                Questions? We have answers.
-              </a>
-            </div>
-
             {/* Clean Contact Information */}
             <div className="mt-auto pt-12 animate-contact-slide-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
               <div className="space-y-8">
                 <div className="space-y-6">
                   <div className="flex justify-center">
                     <a 
-                      href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
+                      href="mailto:amantimn@gmail.com?subject=Hello from your Portfolio&body=Hi Amanti,%0D%0A%0D%0AI came across your portfolio and would love to connect.%0D%0A%0D%0AThanks!"
                       className="group flex cursor-pointer active:scale-[0.98] items-center justify-center gap-2 font-thin rounded-full border bg-transparent px-4 py-2 tracking-tight transition-all duration-200"
                       style={{ 
                         color: theme.colors.primary.white, 
@@ -568,15 +551,16 @@ const Navbar = () => {
                         e.currentTarget.style.backgroundColor = 'transparent';
                         e.currentTarget.style.color = theme.colors.primary.white;
                       }}
+                      onClick={handleLinkClick}
                     >
-                      hello@averyseriouscompany.com
+                      amantimn@gmail.com
                       <ChevronRight className="size-4 mt-1 transition-all ease-out group-hover:rotate-0" />
                     </a>
                   </div>
                 </div>
                 <div className="pt-6">
                   <p className="text-xs text-white/30 font-light tracking-[0.2em] uppercase text-center">
-                    A Very Serious Company
+                    Product Designer
                   </p>
                 </div>
               </div>
