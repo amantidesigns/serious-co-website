@@ -1,33 +1,7 @@
 "use client";
 
-import type { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import {
-  Asterisk,
-  Banknote,
-  BarChart,
-  BookOpen,
-  Brain,
-  ChevronRight,
-  Cloud,
-  Code,
-  CreditCard,
-  Database,
-  Factory,
-  Fingerprint,
-  Gamepad2,
-  Globe,
-  Home,
-  Lock,
-  MessageSquare,
-  Plane,
-  Settings,
-  Shield,
-  ShoppingCart,
-  Sparkle,
-  Truck,
-  Users,
-} from "lucide-react";
+import { Asterisk, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -42,170 +16,34 @@ import {
 import { HamburgerIcon } from "@/components/ui/hamburger-icon";
 import { theme } from "@/lib/theme";
 
-interface Solution {
-  title: string;
-  description: string;
-  href: string;
-  icon: LucideIcon;
-}
+import { serviceGroups } from "@/lib/content/services";
 
-const DATA_SOLUTIONS: Solution[] = [
-  {
-    title: "First solution",
-    description: "Vestibulum scelerisque quis nisl ut convallis.",
-    href: "#",
-    icon: Cloud,
-  },
-  {
-    title: "Another solution",
-    description: "Curabitur vehicula malesuada enim a cursus.",
-    href: "#",
-    icon: Lock,
-  },
-  {
-    title: "And a third solution",
-    description: "Proin aliquam feugiat lobortis.",
-    href: "#",
-    icon: Fingerprint,
-  },
-  {
-    title: "And a fourth solution",
-    description: "Donec nec sapien nec dolor.",
-    href: "#",
-    icon: Cloud,
-  },
+type NavigationLink = {
+  href: string;
+  label: string;
+  type?: "services";
+};
+
+const serviceAnchorLinks = serviceGroups.map((group) => ({
+  id: group.id,
+  title: group.title,
+  eyebrow: group.eyebrow,
+  intro: group.intro,
+  href: `/services#${group.id}`,
+}));
+
+const serviceGroupMap = new Map(serviceGroups.map((group) => [group.id, group]));
+
+const navigationLinks: NavigationLink[] = [
+  { href: "/services", label: "Services", type: "services" },
+  { href: "/work", label: "Work" },
+  { href: "/why-us", label: "Why Us" },
 ];
 
-interface Platfrom {
-  title: string;
-  href: string;
-  icon: LucideIcon;
-}
-
-const DATA_PLATFORM_CASE: Platfrom[] = [
-  {
-    title: "Banking",
-    href: "#",
-    icon: CreditCard,
-  },
-  {
-    title: "Fintech",
-    href: "#",
-    icon: Banknote,
-  },
-  {
-    title: "E-commerce",
-    href: "#",
-    icon: ShoppingCart,
-  },
-  {
-    title: "Travel & Hospitality",
-    href: "#",
-    icon: Plane,
-  },
-  {
-    title: "Real Estate",
-    href: "#",
-    icon: Home,
-  },
-  {
-    title: "Gaming",
-    href: "#",
-    icon: Gamepad2,
-  },
-  {
-    title: "Manufacturing",
-    href: "#",
-    icon: Factory,
-  },
-  {
-    title: "Logistics",
-    href: "#",
-    icon: Truck,
-  },
-];
-
-interface Resource {
-  title: string;
-  description: string;
-  href: string;
-  icon: LucideIcon;
-}
-
-const DATA_RESOURCES: Resource[] = [
-  {
-    title: "AI Powered",
-    description: "Explore AI-powered resources",
-    href: "#",
-    icon: Sparkle,
-  },
-  {
-    title: "AI Development",
-    description: "Tools and frameworks for AI development",
-    href: "#",
-    icon: Code,
-  },
-  {
-    title: "Machine Learning",
-    description: "Resources for machine learning enthusiasts",
-    href: "#",
-    icon: Brain,
-  },
-  {
-    title: "Data Management",
-    description: "Best practices for data management",
-    href: "#",
-    icon: Database,
-  },
-  {
-    title: "Cloud AI",
-    description: "Cloud-based AI solutions",
-    href: "#",
-    icon: Cloud,
-  },
-  {
-    title: "AI Security",
-    description: "Secure your AI applications",
-    href: "#",
-    icon: Shield,
-  },
-  {
-    title: "AI Configuration",
-    description: "Configure AI systems effectively",
-    href: "#",
-    icon: Settings,
-  },
-  {
-    title: "AI Analytics",
-    description: "Analyze AI performance metrics",
-    href: "#",
-    icon: BarChart,
-  },
-  {
-    title: "Global AI Trends",
-    description: "Stay updated with global AI trends",
-    href: "#",
-    icon: Globe,
-  },
-  {
-    title: "AI Community",
-    description: "Join the AI community",
-    href: "#",
-    icon: Users,
-  },
-  {
-    title: "AI Learning",
-    description: "Learn AI from the best resources",
-    href: "#",
-    icon: BookOpen,
-  },
-  {
-    title: "AI Support",
-    description: "Get support for AI-related queries",
-    href: "#",
-    icon: MessageSquare,
-  },
-];
+const servicesCta = {
+  label: "Start a project",
+  href: "/services#project-intake",
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -311,12 +149,6 @@ const Navbar = () => {
     }, 500); // Match the CSS animation duration (0.5s)
   };
 
-  const navigationLinks = [
-    { href: "/services", label: "Services" },
-    { href: "/work", label: "Work" },
-    { href: "/why-us", label: "Why Us" },
-  ];
-
   return (
     <>
     <motion.section 
@@ -350,12 +182,68 @@ const Navbar = () => {
               
               {/* Desktop Navigation */}
             <NavigationMenuList className={`hidden lg:flex ${theme.spacing.gap.md}`}>
-                {navigationLinks.map((link, index) => (
+              {navigationLinks.map((link) => {
+                if (link.type === "services") {
+                  return (
+                    <NavigationMenuItem key={link.href} className="relative">
+                      <NavigationMenuTrigger
+                        className={`group inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} text-white/80 transition hover:text-white`}
+                      >
+                        <Asterisk
+                          className={`size-4 animate-fade-in animate-pulse brightness-150 ${theme.transition.all} ${theme.transition.duration.slow}`}
+                          style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }}
+                        />
+                        <span className={`${theme.transition.all} ${theme.transition.duration.slow}`}>Services</span>
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent className="mt-4 rounded-3xl border border-white/10 bg-slate-950/90 p-0 text-white shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur">
+                        <div className="grid gap-6 p-6 sm:grid-cols-3">
+                          {serviceAnchorLinks.map((group) => {
+                            const fullGroup = serviceGroupMap.get(group.id);
+                            const topServices = fullGroup?.services.slice(0, 3) ?? [];
+                            return (
+                              <a
+                                key={group.id}
+                                href={group.href}
+                                className="group flex flex-col gap-3 rounded-2xl border border-white/5 bg-white/[0.04] p-4 transition hover:border-white/30 hover:bg-white/[0.08]"
+                              >
+                                <span className="text-[0.65rem] uppercase tracking-[0.3em] text-white/50">{group.eyebrow}</span>
+                                <span className="text-lg font-light text-white">{group.title}</span>
+                                <p className="text-sm text-white/60">{group.intro}</p>
+                                <div className="flex flex-wrap gap-2 text-xs text-white/60">
+                                  {topServices.map((service) => {
+                                    const Icon = service.icon;
+                                    return (
+                                      <span
+                                        key={service.title}
+                                        className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/30 px-2 py-1"
+                                      >
+                                        <Icon className="size-3.5 text-white/70" />
+                                        {service.title}
+                                      </span>
+                                    );
+                                  })}
+                                </div>
+                              </a>
+                            );
+                          })}
+                        </div>
+                        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 px-6 py-4 text-sm text-white/70">
+                          <span>Ready to move? Jump straight into the intake.</span>
+                          <Button asChild className="bg-white/10 text-white hover:bg-white/20">
+                            <a href={servicesCta.href}>{servicesCta.label}</a>
+                          </Button>
+                        </div>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  );
+                }
+
+                return (
                   <NavigationMenuItem key={link.href}>
                     <NavigationMenuLink asChild>
-                      <a 
-                        href={link.href} 
-                        className={`inline-flex items-center ${theme.spacing.gap.xs} ${index === navigationLinks.length - 1 ? 'pl-3 pr-0' : 'px-3'} py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`} 
+                      <a
+                        href={link.href}
+                        className={`inline-flex items-center ${theme.spacing.gap.xs} px-3 py-2 ${theme.typography.fontSize.lg} lg:${theme.typography.fontSize.xl} ${theme.typography.fontWeight.normal} ${theme.typography.letterSpacing.tight} whitespace-nowrap hover:bg-transparent hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group`}
                         style={{ color: theme.colors.primary.white }}
                         onMouseEnter={(e) => {
                           const asterisk = e.currentTarget.querySelector('svg');
@@ -378,12 +266,18 @@ const Navbar = () => {
                           }
                         }}
                       >
-                        <Asterisk className={`size-4 animate-fade-in animate-pulse brightness-150 ${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} />
-                        <span className={`${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>{link.label}</span>
+                        <Asterisk
+                          className={`size-4 animate-fade-in animate-pulse brightness-150 ${theme.transition.all} ${theme.transition.duration.slow}`}
+                          style={{ color: theme.colors.primary.white, filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }}
+                        />
+                        <span className={`${theme.transition.all} ${theme.transition.duration.slow}`} style={{ color: theme.colors.primary.white }}>
+                          {link.label}
+                        </span>
                       </a>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
-                ))}
+                );
+              })}
             </NavigationMenuList>
 
               {/* Mobile Hamburger Button with Clean Design */}
@@ -501,33 +395,60 @@ const Navbar = () => {
             {/* Typography-Focused Navigation Links */}
             <nav className="flex-1 space-y-1">
               {navigationLinks.map((link, index) => (
-                <a
+                <div
                   key={link.href}
-                  href={link.href}
-                  onClick={handleLinkClick}
-                  className="block group animate-link-cascade focus:outline-none focus:ring-0"
-                  style={{ 
+                  className="group animate-link-cascade"
+                  style={{
                     animationDelay: `${index * 0.08}s`,
-                    animationFillMode: 'both'
+                    animationFillMode: 'both',
                   }}
                 >
-                  <div className="relative py-8 px-6 transition-all duration-700 ease-out group-hover:translate-x-2">
-                    <div className="flex items-start gap-6">
-                      <div className="flex-shrink-0 pt-1">
-                        <Asterisk 
-                          className="w-8 h-8 text-white/60 group-hover:text-white group-hover:animate-pulse transition-all duration-500" 
-                          style={{ filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }} 
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <span className="text-3xl sm:text-4xl font-light tracking-wide text-white group-hover:text-white/95 transition-all duration-500 leading-tight">
-                          {link.label}
-                        </span>
-                        <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-3"></div>
+                  <a
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    className="block focus:outline-none focus:ring-0"
+                  >
+                    <div className="relative py-8 px-6 transition-all duration-700 ease-out group-hover:translate-x-2">
+                      <div className="flex items-start gap-6">
+                        <div className="flex-shrink-0 pt-1">
+                          <Asterisk
+                            className="w-8 h-8 text-white/60 group-hover:text-white group-hover:animate-pulse transition-all duration-500"
+                            style={{ filter: `drop-shadow(0 0 8px ${theme.colors.shadow.white80})` }}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <span className="text-3xl sm:text-4xl font-light tracking-wide text-white group-hover:text-white/95 transition-all duration-500 leading-tight">
+                            {link.label}
+                          </span>
+                          <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-3" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
+                  </a>
+
+                  {link.type === "services" && (
+                    <div className="space-y-3 px-14 pb-8">
+                      {serviceAnchorLinks.map((group) => (
+                        <a
+                          key={group.id}
+                          href={group.href}
+                          onClick={handleLinkClick}
+                          className="block rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white/70 transition hover:border-white/30 hover:bg-white/[0.08]"
+                        >
+                          <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/50">{group.eyebrow}</div>
+                          <div className="text-base font-light text-white">{group.title}</div>
+                        </a>
+                      ))}
+                      <a
+                        href={servicesCta.href}
+                        onClick={handleLinkClick}
+                        className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 transition hover:border-white/40 hover:bg-white/10"
+                      >
+                        {servicesCta.label}
+                      </a>
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
             
