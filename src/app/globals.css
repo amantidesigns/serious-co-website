@@ -357,6 +357,20 @@
   animation: softGlow 5s ease-in-out infinite;
 }
 
+/* AI Workshop Button Continuous Shimmer Animation */
+@keyframes shimmer-continuous {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.animate-shimmer-continuous {
+  animation: shimmer-continuous 4s ease-in-out infinite;
+}
+
 .font-playfair { font-family: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
 
 @custom-variant dark (&:is(.dark *));
