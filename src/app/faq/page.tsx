@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import FaqSection from "@/components/FaqSection";
+import ContentPageLayout from "@/components/ContentPageLayout";
 import CSSBoxFAQ from "@/components/blocks/css-box-faq";
 
 export const metadata: Metadata = {
@@ -28,9 +28,83 @@ export const metadata: Metadata = {
 
 export default function FAQ() {
   return (
-    <div className="bg-stone-100 min-h-screen">
-      <FaqSection />
-      <CSSBoxFAQ />
+    <ContentPageLayout>
+      <div className="relative z-20 space-y-32 text-white">
+        
+        {/* Hero Section with Eyebrow + Descriptive Subheading */}
+        <div className="text-center space-y-6 max-w-4xl mx-auto pt-20 lg:pt-24">
+          <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60">
+            FAQ
+          </h1>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
+            The questions people <span className="whitespace-nowrap">actually ask</span><br />Straight answers, <em>no fluff</em>
+          </h2>
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+            Skip the marketing speak. Here's what you really want to know about working with us.
+          </p>
+        </div>
+
+        {/* FAQ Content */}
+        <div className="max-w-4xl mx-auto space-y-12">
+          
+          {/* FAQ Item 1 */}
+          <div className="space-y-3">
+            <h3 className="text-xl sm:text-2xl font-light text-white">What kind of work do you do?</h3>
+            <p className="text-lg text-white/80 leading-relaxed">
+              Websites, advertisements, and whatever specific problems you bring us. We don't limit ourselves to categories.
+            </p>
+          </div>
+
+          {/* FAQ Item 2 */}
+          <div className="space-y-3">
+            <h3 className="text-xl sm:text-2xl font-light text-white">How much does it cost?</h3>
+            <p className="text-lg text-white/80 leading-relaxed">
+              Depends on what you need. We'll give you a straight answer after we understand your project.
+            </p>
+          </div>
+
+          {/* FAQ Item 3 */}
+          <div className="space-y-3">
+            <h3 className="text-xl sm:text-2xl font-light text-white">How long does it take?</h3>
+            <p className="text-lg text-white/80 leading-relaxed">
+              As long as it takes to do it right. We don't pad timelines, but we don't rush good work either.
+            </p>
+          </div>
+
+          {/* FAQ Item 4 */}
+          <div className="space-y-3">
+            <h3 className="text-xl sm:text-2xl font-light text-white">What makes you different?</h3>
+            <p className="text-lg text-white/80 leading-relaxed">
+              Most agencies either overcomplicate everything or oversimplify and miss the point. We take simple ideas <em>seriously.</em>
+            </p>
+          </div>
+
+          {/* FAQ Item 5 */}
+          <div className="space-y-3">
+            <h3 className="text-xl sm:text-2xl font-light text-white">How do I get started?</h3>
+            <p className="text-lg text-white/80 leading-relaxed">
+              Email us. Tell us what you need. We'll respond within 24 hours with our honest assessment.
+            </p>
+          </div>
+
+        </div>
+
+        {/* CSS Box FAQ Component */}
+        <div className="max-w-4xl mx-auto">
+          <CSSBoxFAQ />
+        </div>
+
+        {/* Bottom Statement */}
+        <div className="text-center space-y-4 pt-8 border-t border-white/10">
+          <p className="text-lg sm:text-xl font-light leading-relaxed text-white/90 max-w-2xl mx-auto">
+            Still have questions? We're here to help. Every project is unique, and we approach each one with fresh eyes and clear thinking.
+          </p>
+          <p className="text-base text-white/70">
+            Ready to take your idea seriously? Let's talk.
+          </p>
+        </div>
+
+      </div>
       
       {/* FAQ Structured Data */}
       <script
@@ -84,6 +158,6 @@ export default function FAQ() {
           })
         }}
       />
-    </div>
+    </ContentPageLayout>
   );
 }
