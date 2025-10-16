@@ -18,7 +18,11 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight, Check, X, TrendingUp, Clock, Target, Zap, Shield } from "lucide-react";
+import { ChevronRight, Check, X, TrendingUp, Clock, Target, Zap, Shield, ArrowRight } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { AvatarGroup, AvatarGroupTooltip } from "@/components/ui/avatar-group";
+import { teamMembers } from "@/lib/content/team";
+import Link from "next/link";
 
 export default function WhyUsPage() {
   const [activeTab, setActiveTab] = useState("problem");
@@ -231,20 +235,83 @@ export default function WhyUsPage() {
               viewport={{ once: true }}
               className="space-y-16"
             >
-              {/* Empathy Statement */}
-              <div className="max-w-3xl">
-                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
-                  We understand
-                </Badge>
-                <h2 className="text-4xl md:text-6xl font-light leading-tight mb-6">
-                  We've seen this before.
-                  <br />
-                  <span className="text-white/40">It doesn't have to be this way.</span>
-          </h2>
-                <p className="text-xl text-white/70 leading-relaxed">
-                  You don't need another agency with a proprietary process. You need someone who understands what you're trying to solve, then solves it.
-          </p>
-        </div>
+              {/* Empathy Statement + Team Card */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                {/* Left: Empathy Statement */}
+                <div className="max-w-3xl">
+                  <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                    We understand
+                  </Badge>
+                  <h2 className="text-4xl md:text-6xl font-light leading-tight mb-6">
+                    We've seen this before.
+                    <br />
+                    <span className="text-white/40">It doesn't have to be this way.</span>
+                  </h2>
+                  <p className="text-xl text-white/70 leading-relaxed">
+                    You don't need another agency with a proprietary process. You need someone who understands what you're trying to solve, then solves it.
+                  </p>
+                </div>
+
+                {/* Right: Team Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Card className="bg-white/5 border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden group">
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge variant="outline" className="text-white/60 border-white/20">
+                          Meet the team
+                        </Badge>
+                        <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all duration-200" />
+                      </div>
+                      <CardTitle className="text-2xl md:text-3xl font-light text-white">
+                        Real people. Real craft.
+                      </CardTitle>
+                      <CardDescription className="text-white/60 text-base">
+                        No account managers. No layers. Just the people who do the work.
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      {/* Avatar Group with individual links */}
+                      <div className="flex items-center justify-start">
+                        <AvatarGroup variant="motion" className="h-16">
+                          {teamMembers.map((member) => (
+                            <Link 
+                              key={member.id} 
+                              href={`/team/${member.slug}`}
+                              className="group/avatar"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Avatar className="size-16 border-3 border-white/20 hover:border-white/60 transition-all duration-200 cursor-pointer">
+                                <AvatarImage src={member.image.color} alt={member.name} />
+                                <AvatarFallback className="bg-white/10 text-white">
+                                  {member.name.split(' ').map(n => n[0]).join('')}
+                                </AvatarFallback>
+                                <AvatarGroupTooltip>
+                                  <div className="text-center">
+                                    <p className="font-medium">{member.name}</p>
+                                    <p className="text-xs text-white/60">{member.title}</p>
+                                  </div>
+                                </AvatarGroupTooltip>
+                              </Avatar>
+                            </Link>
+                          ))}
+                        </AvatarGroup>
+                      </div>
+                      
+                      {/* View all team link */}
+                      <div className="pt-4 border-t border-white/10">
+                        <p className="text-sm text-white/40">
+                          Click any avatar to learn more about each team member
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </div>
 
               {/* Authority Markers - Interactive Tabs */}
               <Tabs defaultValue="speed" className="w-full">
