@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { ChevronRight } from "lucide-react";
-import { theme } from "@/lib/theme";
+import CTAButton from "./ui/CTAButton";
 
 interface PageFooterProps {
   className?: string;
@@ -27,13 +26,29 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
           <h2 className="text-left lg:text-right font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tighter mb-6 leading-tight text-white">
             We&nbsp;take simple&nbsp;ideas <em>seriously.</em>
           </h2>
-          <a 
-            href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
-            className="group self-start lg:self-end mt-2 h-14 w-80 flex cursor-pointer active:scale-[0.98] items-center justify-center gap-2 font-medium rounded-full border border-white bg-transparent text-white px-4 py-2 text-xs sm:text-sm tracking-normal transition-all duration-200 hover:bg-white/10"
-          >
-            hello@averyseriouscompany.com
-            <ChevronRight className="size-3 sm:size-4 mt-1 transition-all ease-out group-hover:rotate-0" />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 self-start lg:self-end mt-2">
+            <CTAButton
+              href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+              size="md"
+              icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              }
+            >
+              Book Call
+            </CTAButton>
+            <CTAButton
+              href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
+              variant="secondary"
+              size="md"
+            >
+              Email Us
+            </CTAButton>
+          </div>
         </div>
       </div>
     </div>

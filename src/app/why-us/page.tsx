@@ -2,6 +2,7 @@
 
 import type { Metadata } from "next";
 import ContentPageLayout from "@/components/ContentPageLayout";
+import TeamSection from "@/components/TeamSection";
 import { theme } from "@/lib/theme";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -207,6 +208,11 @@ export default function WhyUsPage() {
             </div>
 
           </div>
+        </div>
+
+        {/* Team Section */}
+        <div className="pt-32 border-t border-white/10">
+          <TeamSection />
         </div>
 
       </div>

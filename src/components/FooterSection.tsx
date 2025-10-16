@@ -5,6 +5,7 @@ import { Asterisk } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { theme } from "@/lib/theme";
+import CTAButton from "./ui/CTAButton";
 
 export default function FooterSection() {
   return (
@@ -40,13 +41,30 @@ export default function FooterSection() {
               We take simple ideas seriously.
             </p>
             
-            <Link
-              href="mailto:hello@averyseriouscompany.com"
-              className="inline-block text-lg transition-colors duration-200 break-all"
-              style={{ color: theme.colors.primary.white, textDecorationColor: theme.colors.primary.white, textDecorationThickness: '2px' }}
-            >
-              hello@averyseriouscompany.com
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <CTAButton
+                href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="lg"
+                className="hover:scale-105"
+                icon={
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                }
+              >
+                Book Call
+              </CTAButton>
+              <CTAButton
+                href="mailto:hello@averyseriouscompany.com"
+                variant="secondary"
+                size="lg"
+              >
+                Email Us
+              </CTAButton>
+            </div>
           </div>
         </div>
         

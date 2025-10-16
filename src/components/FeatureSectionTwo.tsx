@@ -3,6 +3,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { theme } from "@/lib/theme";
+import CTAButton from "./ui/CTAButton";
 
 interface list {
   title: string;
@@ -59,19 +60,30 @@ const FeatureSectionTwo = () => {
             <p className="mb-2" style={{ color: theme.colors.primary.white }}>A Very Serious Company is a creative agency.</p>
             <p className="mb-2" style={{ color: theme.colors.primary.white }}>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
             <p className="mb-8" style={{ color: theme.colors.primary.white }}>We take simple ideas seriously.</p>
-            <a 
-              href="mailto:hello@averyseriouscompany.com" 
-              className="underline transition-colors"
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
-            >
-              hello@averyseriouscompany.com
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <CTAButton
+                href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="md"
+                className="hover:scale-105"
+                icon={
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                }
+              >
+                Book Call
+              </CTAButton>
+              <CTAButton
+                href="mailto:hello@averyseriouscompany.com"
+                variant="secondary"
+                size="md"
+              >
+                Email Us
+              </CTAButton>
+            </div>
           </div>
         </div>
         <div>

@@ -337,8 +337,15 @@ export default function AITrainingPage() {
               <Button 
                 size="lg" 
                 className="bg-white text-black hover:bg-white/90 px-8 py-3 text-lg font-medium"
+                asChild
               >
-                Register Now - $200
+                <a 
+                  href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Register Now - $200
+                </a>
               </Button>
               <p className="text-sm text-white/60">
                 Limited spots available • Includes all materials
@@ -348,8 +355,8 @@ export default function AITrainingPage() {
             <div className="text-center">
               <p className="text-white/70 text-sm">
                 Questions? Contact us at{" "}
-                <a href="mailto:hello@averyeriouscompany.com" className="text-white hover:text-white/80 underline">
-                  hello@averyeriouscompany.com
+                <a href="mailto:hello@averyseriouscompany.com" className="text-white hover:text-white/80 underline">
+                  email us
                 </a>
               </p>
             </div>

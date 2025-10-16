@@ -3,6 +3,7 @@ import React from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { theme } from "@/lib/theme";
+import CTAButton from "./ui/CTAButton";
 
 const DATA = [
   {
@@ -44,14 +45,29 @@ const FeatureSection = () => {
             <p>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
             <p className="font-normal">We take simple ideas seriously.</p>
           </div>
-          <div className="mt-2">
-            <a 
-              href="mailto:hello@averyseriouscompany.com" 
-              className="text-white hover:text-gray-300 transition-colors underline"
-              style={{ color: theme.colors.primary.white }}
+          <div className="mt-4 flex flex-col sm:flex-row gap-3">
+            <CTAButton
+              href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+              size="md"
+              className="hover:scale-105"
+              icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              }
             >
-              hello@averyseriouscompany.com
-            </a>
+              Book Call
+            </CTAButton>
+            <CTAButton
+              href="mailto:hello@averyseriouscompany.com"
+              variant="secondary"
+              size="md"
+            >
+              Email Us
+            </CTAButton>
           </div>
         </div>
       </div>

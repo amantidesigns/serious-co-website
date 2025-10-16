@@ -15,10 +15,11 @@ interface CaseStudy {
   gradient: string;
   accent: string;
   image: string;
+  thumbnail: string;
 }
 
-// Interactive Case Study Card Component
-function CaseStudyCard({
+// Grid Case Study Card Component
+function CaseStudyGridCard({
   study,
   index,
   isMobile,
@@ -30,18 +31,7 @@ function CaseStudyCard({
   onOpenPreview?: () => void;
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLAnchorElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (cardRef.current) {
-      const rect = cardRef.current.getBoundingClientRect();
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    }
-  };
 
   const handleMouseEnter = () => {
     if (!isMobile) setIsHovered(true);
@@ -164,123 +154,75 @@ function CaseStudyCard({
     }
   };
 
-  // No previews on mobile or desktop list; keep hover styles sans media
-
   return (
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
-          className="relative"
-        >
-          <Link
-            href={study.href}
-            className={`block group relative overflow-hidden ${study.href === "#" ? "cursor-pointer" : ""}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onMouseMove={handleMouseMove}
-            onClick={(e) => handleClick(e, study.href)}
-            ref={cardRef}
-          >
-            {/* Mobile nav style hover effect */}
-            <div className="relative py-6 pr-8 transition-all duration-700 ease-out group-hover:translate-x-2">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
-                <div className="flex-shrink-0 flex items-center">
-                  <span className={`${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50 group-hover:text-white/70 transition-all duration-500 -mt-1`}>
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <div className="flex-1 relative">
-                  <span className="text-3xl sm:text-2xl font-light tracking-wide text-white group-hover:text-white/95 transition-all duration-500 leading-tight">
-                    {study.title}
-                  </span>
-                  <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-2"></div>
-                  {/* Mobile-only meta row under title */}
-                  {isMobile && (
-                    <div className="mt-3 flex items-center gap-2">
-                      <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/70`}
-                            style={{
-                              backgroundColor: 'transparent',
-                              border: `1px solid rgba(255,255,255,0.2)`
-                            }}>
-                        {study.workType}
-                      </span>
-                      {study.href === "#" && (
-                        <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-yellow-300`}
-                              style={{
-                                backgroundColor: 'rgba(255, 255, 0, 0.1)',
-                                border: `1px solid rgba(255, 255, 0, 0.3)`
-                              }}>
-                          Coming Soon
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-                {/* Desktop-only right-side chips */}
-                <div className="hidden sm:flex flex-shrink-0 items-center gap-2">
-                  <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-white/50 group-hover:text-white/70 transition-all duration-500`}
-                        style={{ 
-                          backgroundColor: 'transparent',
-                          border: `1px solid rgba(255,255,255,0.2)`
-                        }}>
-                    {study.workType}
-                  </span>
-                  {study.href === "#" && (
-                    <span className={`inline-block px-2 py-1 rounded-full ${theme.typography.fontSize.xs} ${theme.typography.fontWeight.normal} font-mono ${theme.typography.letterSpacing.tight} text-yellow-400/80 group-hover:text-yellow-300 transition-all duration-500`}
-                          style={{ 
-                            backgroundColor: 'rgba(255, 255, 0, 0.1)',
-                            border: `1px solid rgba(255, 255, 0, 0.3)`
-                          }}>
-                      Coming Soon
-                    </span>
-                  )}
-                </div>
-              </div>
-              {/* Subtle divider line that doesn't interfere with hover */}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+    <motion.div
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
+      className="relative"
+    >
+      <Link
+        href={study.href}
+        className={`block group relative overflow-hidden rounded-2xl bg-gradient-to-br ${study.gradient} backdrop-blur-sm border border-white/10 ${study.href === "#" ? "cursor-pointer" : ""} h-full flex flex-col transition-transform duration-300 ease-out hover:-translate-y-2`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={(e) => handleClick(e, study.href)}
+        ref={cardRef}
+      >
+        {/* Thumbnail Container */}
+        <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent z-10"></div>
+          {study.thumbnail.endsWith('.mp4') || study.thumbnail.endsWith('.webm') || study.thumbnail.endsWith('.mov') ? (
+            <video
+              src={study.thumbnail}
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : (
+            <img
+              src={study.thumbnail}
+              alt={`${study.title} Preview`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          )}
+          
+          {/* Coming Soon Badge */}
+          {study.href === "#" && (
+            <div className="absolute top-4 right-4 z-20">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-medium font-mono tracking-wide text-yellow-300 bg-yellow-400/10 border border-yellow-400/30 backdrop-blur-sm">
+                Coming Soon
+              </span>
             </div>
-          </Link>
+          )}
+        </div>
 
-          {/* Desktop-only floating preview image near cursor */}
-          <AnimatePresence>
-            {!isMobile && isHovered && (
-              <motion.div
-                className="absolute pointer-events-none z-50"
-                style={{ maxWidth: 320, maxHeight: 240 }}
-                initial={{ opacity: 0, scale: 0.9, x: mousePosition.x + 40, y: mousePosition.y - 120 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  x: mousePosition.x + 40,
-                  y: mousePosition.y - 120,
-                }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                <div className="relative rounded-xl shadow-2xl border border-white/20 overflow-hidden bg-black/10 backdrop-blur-sm">
-                  {study.image.endsWith('.mp4') || study.image.endsWith('.webm') || study.image.endsWith('.mov') ? (
-                    <video
-                      src={study.image}
-                      className="block max-w-full max-h-full object-contain rounded-xl"
-                      style={{ width: 'auto', height: 'auto', maxWidth: '300px', maxHeight: '200px' }}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
-                  ) : (
-                    <img
-                      src={study.image}
-                      alt={`${study.title} Preview`}
-                      className="block max-w-full max-h-full object-contain rounded-xl"
-                      style={{ width: 'auto', height: 'auto', maxWidth: '300px', maxHeight: '200px' }}
-                    />
-                  )}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+        {/* Content Container */}
+        <div className="p-6 flex flex-col justify-between min-h-[120px]">
+          <div className="space-y-4">
+            {/* Eyebrow Text */}
+            <div className="flex items-center justify-between">
+              <span className={`text-xs font-medium tracking-widest uppercase ${theme.typography.letterSpacing.tight} text-white/60 group-hover:text-white/80 transition-colors duration-300`}>
+                {study.workType}
+              </span>
+              <span className={`text-xs font-mono ${theme.typography.letterSpacing.tight} text-white/40 group-hover:text-white/60 transition-colors duration-300`}>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-xl font-light tracking-wide text-white group-hover:text-white/95 transition-colors duration-300 leading-tight">
+              {study.title}
+            </h3>
+          </div>
+        </div>
+
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+      </Link>
     </motion.div>
   );
 }
@@ -313,7 +255,8 @@ export default function CaseStudiesClient() {
           workType: "Food and Beverage",
           gradient: "from-purple-500/20 to-pink-500/20",
           accent: "text-purple-300",
-          image: "/jayded-af-project-video.mp4"
+          image: "/jayded-af-project-video.mp4",
+          thumbnail: "/projects/jayded/jayded-af-project.png"
         },
         {
           title: "HealThrive Recovery", 
@@ -323,7 +266,8 @@ export default function CaseStudiesClient() {
           workType: "Health and Wellness",
           gradient: "from-blue-500/20 to-cyan-500/20",
           accent: "text-cyan-300",
-          image: "/healthrive-recovery-project.png"
+          image: "/healthrive-recovery-project.png",
+          thumbnail: "/projects/healthrive/healthrive-recovery-project.png"
         },
         {
           title: "Zachary Construction Group",
@@ -333,7 +277,8 @@ export default function CaseStudiesClient() {
           workType: "Construction",
           gradient: "from-orange-500/20 to-yellow-500/20",
           accent: "text-orange-300",
-          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif"
+          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+          thumbnail: "/projects/zachary-construction/zachary-construction-01.png"
         },
         {
           title: "Pet Love Cremation & Memorial",
@@ -343,7 +288,8 @@ export default function CaseStudiesClient() {
           workType: "Pet Services",
           gradient: "from-green-500/20 to-teal-500/20",
           accent: "text-green-300",
-          image: "/pet-love-cremation-project.gif"
+          image: "/pet-love-cremation-project.gif",
+          thumbnail: "/projects/pet-love/pet-love-01.png"
         },
         {
           title: "Beka Wealth Advisors",
@@ -353,17 +299,41 @@ export default function CaseStudiesClient() {
           workType: "Finance",
           gradient: "from-indigo-500/20 to-blue-500/20",
           accent: "text-indigo-300",
-          image: "/beka-wealth-advisors-project.gif"
+          image: "/beka-wealth-advisors-project.gif",
+          thumbnail: "/projects/beka/beka-01.png"
         },
         {
-          title: "Strangers Meeting Strangers",
-          description: "Coming soon - A community platform that brings people together through meaningful connections and shared experiences.",
+          title: "Pacific Life",
+          description: "Coming soon - A comprehensive digital platform for this financial services company.",
           href: "#",
-          category: "Community Platform",
-          workType: "Community",
+          category: "Financial Services",
+          workType: "Finance",
           gradient: "from-emerald-500/20 to-cyan-500/20",
           accent: "text-emerald-300",
-          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif"
+          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+          thumbnail: "/projects/pacific-life/pacific-life-01.png"
+        },
+        {
+          title: "WEOY",
+          description: "Coming soon - A digital experience for this innovative platform.",
+          href: "#",
+          category: "Technology Platform",
+          workType: "Technology",
+          gradient: "from-violet-500/20 to-purple-500/20",
+          accent: "text-violet-300",
+          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+          thumbnail: "/projects/weoy/weoy-01.png"
+        },
+        {
+          title: "Zachary Group",
+          description: "Coming soon - A comprehensive digital presence for this group company.",
+          href: "#",
+          category: "Business Services",
+          workType: "Business",
+          gradient: "from-slate-500/20 to-gray-500/20",
+          accent: "text-slate-300",
+          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+          thumbnail: "/projects/zachary-group/zachary-group-01.png"
         },
         {
           title: "The Last Paradox",
@@ -373,7 +343,8 @@ export default function CaseStudiesClient() {
           workType: "Entertainment",
           gradient: "from-pink-500/20 to-purple-500/20",
           accent: "text-pink-300",
-          image: "/the-last-paradox-project.gif"
+          image: "/the-last-paradox-project.gif",
+          thumbnail: "/projects/the-last-paradox/the-love-paradox.png"
         }
       ];
 
@@ -385,57 +356,57 @@ export default function CaseStudiesClient() {
           Our Work
         </h1>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
-          Here are some recent projects&nbsp;made <em>real</em>
+          Simple ideas executed <em>seriously</em>.<br />Real brands, real results.
         </h2>
         <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-          From luxury spirits brands to healthcare services—simple ideas taken seriously.
+          We take our clients' visions seriously and deliver work that inspires.<span className="hidden md:inline"> From luxury consumer brands to healthcare services</span><span className="md:hidden"><br />From luxury consumer brands to healthcare services</span>, we bring thoughtful strategy and craft to every project.
         </p>
       </div>
 
-      <div className="space-y-12">
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
         {caseStudies.map((study, index) => (
-          <div key={index}>
-            <CaseStudyCard
-              study={study}
-              index={index}
-              isMobile={isMobile}
-              onOpenPreview={() => setOpenIndex(index)}
-            />
-
-            {/* Mobile bottom sheet preview */}
-            {isMobile && openIndex === index && (
-              <Sheet open onOpenChange={(open) => !open && setOpenIndex(null)}>
-                <SheetContent side="bottom" className="bg-black/70 backdrop-blur-md border-white/10">
-                  <SheetHeader>
-                    <SheetTitle className="text-white/90">{study.title}</SheetTitle>
-                    <SheetDescription className="text-white/70">
-                      {study.category} · {study.workType}
-                    </SheetDescription>
-                  </SheetHeader>
-                  <div className="px-4 pb-4 flex items-center justify-center">
-                    {study.image.endsWith('.mp4') || study.image.endsWith('.webm') || study.image.endsWith('.mov') ? (
-                      <video
-                        src={study.image}
-                        className="block max-w-full max-h-[40svh] object-contain rounded-lg"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                      />
-                    ) : (
-                      <img
-                        src={study.image}
-                        alt={`${study.title} Preview`}
-                        className="block max-w-full max-h-[40svh] object-contain rounded-lg"
-                      />
-                    )}
-                  </div>
-                </SheetContent>
-              </Sheet>
-            )}
-          </div>
+          <CaseStudyGridCard
+            key={index}
+            study={study}
+            index={index}
+            isMobile={isMobile}
+            onOpenPreview={() => setOpenIndex(index)}
+          />
         ))}
       </div>
+
+      {/* Mobile bottom sheet preview */}
+      {isMobile && openIndex !== null && (
+        <Sheet open onOpenChange={(open) => !open && setOpenIndex(null)}>
+          <SheetContent side="bottom" className="bg-black/70 backdrop-blur-md border-white/10">
+            <SheetHeader>
+              <SheetTitle className="text-white/90">{caseStudies[openIndex]?.title}</SheetTitle>
+              <SheetDescription className="text-white/70">
+                {caseStudies[openIndex]?.category} · {caseStudies[openIndex]?.workType}
+              </SheetDescription>
+            </SheetHeader>
+            <div className="px-4 pb-4 flex items-center justify-center">
+              {caseStudies[openIndex]?.image.endsWith('.mp4') || caseStudies[openIndex]?.image.endsWith('.webm') || caseStudies[openIndex]?.image.endsWith('.mov') ? (
+                <video
+                  src={caseStudies[openIndex]?.image}
+                  className="block max-w-full max-h-[40svh] object-contain rounded-lg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={caseStudies[openIndex]?.image}
+                  alt={`${caseStudies[openIndex]?.title} Preview`}
+                  className="block max-w-full max-h-[40svh] object-contain rounded-lg"
+                />
+              )}
+            </div>
+          </SheetContent>
+        </Sheet>
+      )}
     </div>
   );
 }
