@@ -142,9 +142,9 @@ export default function WhyUsPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Badge variant="outline" className="mb-4 text-white/60 border-white/20">
+                <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60 mb-4">
                   The agency problem
-                </Badge>
+                </h1>
               </motion.div>
 
               <motion.h1 
@@ -206,7 +206,7 @@ export default function WhyUsPage() {
                         </div>
                         <Progress 
                           value={stat.value} 
-                          className="h-2 bg-white/10"
+                          className="h-2 bg-white/10 [&>div]:bg-white/60"
                         />
                       </div>
                     </CardContent>
@@ -236,12 +236,12 @@ export default function WhyUsPage() {
               className="space-y-16"
             >
               {/* Empathy Statement + Team Card */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 {/* Left: Empathy Statement */}
-                <div className="max-w-3xl">
-                  <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                <div className="lg:col-span-2">
+                  <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60 mb-6">
                     We understand
-                  </Badge>
+                  </h1>
                   <h2 className="text-4xl md:text-6xl font-light leading-tight mb-6">
                     We've seen this before.
                     <br />
@@ -258,26 +258,27 @@ export default function WhyUsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
+                  className="lg:col-span-1"
                 >
-                  <Card className="bg-white/5 border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden group">
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-4">
-                        <Badge variant="outline" className="text-white/60 border-white/20">
+                  <Card className="bg-white/5 border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden group scale-90 max-w-sm mx-auto lg:mx-0">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center justify-between mb-3">
+                        <Badge variant="outline" className="text-white/60 border-white/20 text-xs px-2 py-1">
                           Meet the team
                         </Badge>
-                        <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all duration-200" />
+                        <ArrowRight className="w-3 h-3 text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all duration-200" />
                       </div>
-                      <CardTitle className="text-2xl md:text-3xl font-light text-white">
+                      <CardTitle className="text-xl md:text-2xl font-light text-white">
                         Real people. Real craft.
                       </CardTitle>
-                      <CardDescription className="text-white/60 text-base">
+                      <CardDescription className="text-white/60 text-sm">
                         No account managers. No layers. Just the people who do the work.
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
+                    <CardContent className="space-y-4 pt-0">
                       {/* Avatar Group with individual links */}
                       <div className="flex items-center justify-start">
-                        <AvatarGroup variant="motion" className="h-16">
+                        <AvatarGroup variant="motion" className="h-12">
                           {teamMembers.map((member) => (
                             <Link 
                               key={member.id} 
@@ -285,14 +286,14 @@ export default function WhyUsPage() {
                               className="group/avatar"
                               onClick={(e) => e.stopPropagation()}
                             >
-                              <Avatar className="size-16 border-3 border-white/20 hover:border-white/60 transition-all duration-200 cursor-pointer">
+                              <Avatar className="size-12 border-2 border-white/20 hover:border-white/60 transition-all duration-200 cursor-pointer">
                                 <AvatarImage src={member.image.color} alt={member.name} />
-                                <AvatarFallback className="bg-white/10 text-white">
+                                <AvatarFallback className="bg-white/10 text-white text-sm">
                                   {member.name.split(' ').map(n => n[0]).join('')}
                                 </AvatarFallback>
                                 <AvatarGroupTooltip>
                                   <div className="text-center">
-                                    <p className="font-medium">{member.name}</p>
+                                    <p className="font-medium text-sm">{member.name}</p>
                                     <p className="text-xs text-white/60">{member.title}</p>
                                   </div>
                                 </AvatarGroupTooltip>
@@ -303,8 +304,8 @@ export default function WhyUsPage() {
                       </div>
                       
                       {/* View all team link */}
-                      <div className="pt-4 border-t border-white/10">
-                        <p className="text-sm text-white/40">
+                      <div className="pt-3 border-t border-white/10">
+                        <p className="text-xs text-white/40">
                           Click any avatar to learn more about each team member
                         </p>
                       </div>
@@ -425,7 +426,7 @@ export default function WhyUsPage() {
                                   <span className="text-white/60">{item.skill}</span>
                                   <span className="text-white/40">{item.level}%</span>
                                 </div>
-                                <Progress value={item.level} className="h-1.5 bg-white/10" />
+                                <Progress value={item.level} className="h-1.5 bg-white/10 [&>div]:bg-white/60" />
                               </div>
                             ))}
                           </div>
@@ -449,9 +450,9 @@ export default function WhyUsPage() {
               className="space-y-16"
             >
               <div>
-                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60 mb-6">
                   How it works
-                </Badge>
+                </h1>
                 <h2 className="text-4xl md:text-6xl font-light leading-tight">
                   Three steps.
                   <br />
@@ -514,9 +515,9 @@ export default function WhyUsPage() {
               className="space-y-16"
             >
               <div>
-                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60 mb-6">
                   What's at stake
-                </Badge>
+                </h1>
                 <h2 className="text-4xl md:text-6xl font-light leading-tight">
                   The cost of choosing wrong.
                 </h2>
@@ -590,9 +591,9 @@ export default function WhyUsPage() {
               className="space-y-16"
             >
               <div className="text-center max-w-3xl mx-auto">
-                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60 mb-6">
                   What you get
-                </Badge>
+                </h1>
                 <h2 className="text-4xl md:text-6xl font-light leading-tight mb-6">
                   Work that actually works.
                 </h2>
@@ -659,7 +660,7 @@ export default function WhyUsPage() {
                   href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-10 py-5 rounded-full bg-white text-black font-medium text-lg tracking-tight transition-all hover:bg-white/90 active:scale-[0.98] shadow-2xl shadow-white/20"
+                  className="px-10 py-5 rounded-full bg-white text-blue-900 font-medium text-lg tracking-tight transition-all hover:bg-white/90 active:scale-[0.98] shadow-2xl shadow-white/20"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
