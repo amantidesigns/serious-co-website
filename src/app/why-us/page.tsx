@@ -1,219 +1,619 @@
 "use client";
 
-import type { Metadata } from "next";
-import ContentPageLayout from "@/components/ContentPageLayout";
-import TeamSection from "@/components/TeamSection";
-import { theme } from "@/lib/theme";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const sections = [
-  {
-    id: 1,
-    number: "01",
-    title: "Our Philosophy",
-    content: "We take simple ideas seriously. We understand them deeply, execute them properly, and respect their power."
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Our Approach",
-    content: "Most teams present elaborate processes and proprietary frameworks. We believe the best process is no process at all—just clear thinking applied consistently."
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "In Practice",
-    content: "\"Take this website: we identified what visitors need to know, then said exactly that. Nothing more, nothing less.\"",
-    isItalic: true
-  }
-];
+import ContentPageLayout from "@/components/ContentPageLayout";
+import { 
+  Tabs, 
+  TabsContent, 
+  TabsList, 
+  TabsTrigger 
+} from "@/components/ui/tabs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChevronRight, Check, X, TrendingUp, Clock, Target, Zap, Shield } from "lucide-react";
 
 export default function WhyUsPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [activeTab, setActiveTab] = useState("problem");
+  const [hoveredStat, setHoveredStat] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (isPaused) return;
+  // StoryBrand: THE CUSTOMER'S PROBLEM
+  const problemStats = [
+    { 
+      label: "Agencies overcomplicate simple projects", 
+      value: 87, 
+      icon: Target,
+      description: "Adding unnecessary steps and stakeholders"
+    },
+    { 
+      label: "Deliverables don't solve the actual problem", 
+      value: 72,
+      icon: X,
+      description: "Looking good in decks but failing in reality"
+    },
+    { 
+      label: "Timeline stretches, budget balloons", 
+      value: 91,
+      icon: Clock,
+      description: "Process for the sake of process"
+    },
+  ];
 
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % sections.length);
-    }, 4000); // Auto-cycle every 4 seconds
+  // StoryBrand: THE GUIDE (YOU) HAS EMPATHY & AUTHORITY
+  const authorityMarkers = [
+    {
+      metric: "48hr",
+      label: "Average turnaround for clear briefs",
+      detail: "Not because we rush. Because we don't waste time."
+    },
+    {
+      metric: "Zero",
+      label: "Proprietary frameworks or BS processes",
+      detail: "Just clear thinking, applied consistently."
+    },
+    {
+      metric: "100%",
+      label: "Projects start with understanding, not templates",
+      detail: "Your idea gets the seriousness it deserves."
+    },
+  ];
 
-    return () => clearInterval(interval);
-  }, [isPaused]);
+  // StoryBrand: THE PLAN (3 SIMPLE STEPS)
+  const plan = [
+    {
+      step: "01",
+      title: "You tell us the problem",
+      description: "Not what you want us to build. What you're trying to solve. We ask the right questions until we understand what actually matters.",
+      outcome: "Clarity on what success looks like"
+    },
+    {
+      step: "02",
+      title: "We figure out what matters",
+      description: "No frameworks. No templates. Just clear thinking about your specific situation. Then we tell you exactly what we'll build and why.",
+      outcome: "A plan that actually makes sense"
+    },
+    {
+      step: "03",
+      title: "We build it right",
+      description: "Fast execution. High craft. Direct communication. You work with the people actually creating. No account managers. No layers.",
+      outcome: "Something that works"
+    },
+  ];
+
+  // StoryBrand: THE STAKES (What you avoid)
+  const stakes = [
+    {
+      bad: "Months of meetings",
+      good: "Clear answers in days",
+      impact: "Time saved"
+    },
+    {
+      bad: "Layers of approval",
+      good: "Direct access to creators",
+      impact: "Better decisions"
+    },
+    {
+      bad: "Generic templates",
+      good: "Custom solutions",
+      impact: "Actual differentiation"
+    },
+    {
+      bad: "Process for process sake",
+      good: "Work that matters",
+      impact: "Real results"
+    },
+  ];
+
+  // StoryBrand: THE SUCCESS (What winning looks like)
+  const successOutcomes = [
+    { icon: Zap, title: "Fast", desc: "Days, not months" },
+    { icon: Target, title: "Precise", desc: "Solves your actual problem" },
+    { icon: Shield, title: "Quality", desc: "Built right the first time" },
+    { icon: TrendingUp, title: "Effective", desc: "Works in the real world" },
+  ];
 
   return (
     <ContentPageLayout>
-      <div className="relative z-20 space-y-32 text-white">
+      <div className="relative z-20 text-white">
         
-        {/* Hero Section with Eyebrow + Descriptive Subheading */}
-        <div className="text-center space-y-6 max-w-4xl mx-auto pt-20 lg:pt-24">
-          <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60">
-            Why Us
-          </h1>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
-            Most agencies either overcomplicate everything or miss the <em>point</em>
+        {/* HERO: THE PROBLEM (StoryBrand Element 1) */}
+        <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
+          <motion.div
+            className="max-w-5xl w-full space-y-12"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Hero Headline */}
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Badge variant="outline" className="mb-4 text-white/60 border-white/20">
+                  The agency problem
+                </Badge>
+              </motion.div>
+
+              <motion.h1 
+                className="text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                You have a problem.
+                <br />
+                <span className="text-white/40">Most agencies make it worse.</span>
+              </motion.h1>
+
+              <motion.p
+                className="text-xl md:text-2xl text-white/60 max-w-3xl font-light"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                They add process when you need speed. Templates when you need custom. Layers when you need direct answers.
+              </motion.p>
+            </div>
+
+            {/* Interactive Problem Stats */}
+            <motion.div 
+              className="space-y-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              {problemStats.map((stat, idx) => {
+                const Icon = stat.icon;
+                return (
+                  <Card 
+                    key={idx}
+                    className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 cursor-pointer group"
+                    onMouseEnter={() => setHoveredStat(idx)}
+                    onMouseLeave={() => setHoveredStat(null)}
+                  >
+                    <CardContent className="p-6">
+                      <div className="space-y-4">
+                        <div className="flex items-start justify-between">
+                          <div className="flex items-start gap-4">
+                            <div className="p-2 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
+                              <Icon className="w-5 h-5 text-white/60" />
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-lg font-light text-white mb-2">{stat.label}</p>
+                              <p className="text-sm text-white/40">{stat.description}</p>
+                            </div>
+                          </div>
+                          <motion.span 
+                            className="text-3xl font-light text-white/80"
+                            animate={{ scale: hoveredStat === idx ? 1.1 : 1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {stat.value}%
+                          </motion.span>
+                        </div>
+                        <Progress 
+                          value={stat.value} 
+                          className="h-2 bg-white/10"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </motion.div>
+          </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            className="absolute bottom-10"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <ChevronRight className="w-6 h-6 text-white/30 rotate-90" />
+          </motion.div>
+        </section>
+
+        {/* THE GUIDE: EMPATHY + AUTHORITY (StoryBrand Element 2) */}
+        <section className="py-32 px-6 border-t border-white/10">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="space-y-16"
+            >
+              {/* Empathy Statement */}
+              <div className="max-w-3xl">
+                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                  We understand
+                </Badge>
+                <h2 className="text-4xl md:text-6xl font-light leading-tight mb-6">
+                  We've seen this before.
+                  <br />
+                  <span className="text-white/40">It doesn't have to be this way.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            We take simple ideas seriously. That means understanding them deeply, executing them properly, and respecting their power.
+                <p className="text-xl text-white/70 leading-relaxed">
+                  You don't need another agency with a proprietary process. You need someone who understands what you're trying to solve, then solves it.
           </p>
         </div>
 
-        {/* Interactive Auto-Cycling Sections */}
-        <div 
-          className="relative w-full"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Navigation Tabs */}
-          <div className="flex justify-center gap-2 sm:gap-4 mb-12">
-            {sections.map((section, index) => (
-              <button
-                key={section.id}
-                onClick={() => setActiveIndex(index)}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-500 ${
-                  activeIndex === index
-                    ? 'bg-white/10 text-white border border-white/30'
-                    : 'bg-transparent text-white/50 border border-white/10 hover:text-white/70 hover:border-white/20'
-                }`}
-              >
-                {section.title}
-              </button>
+              {/* Authority Markers - Interactive Tabs */}
+              <Tabs defaultValue="speed" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 bg-white/5 border border-white/10 p-1">
+                  <TabsTrigger value="speed" className="data-[state=active]:bg-white/10">
+                    Speed
+                  </TabsTrigger>
+                  <TabsTrigger value="clarity" className="data-[state=active]:bg-white/10">
+                    Clarity
+                  </TabsTrigger>
+                  <TabsTrigger value="craft" className="data-[state=active]:bg-white/10">
+                    Craft
+                  </TabsTrigger>
+                </TabsList>
+
+                <AnimatePresence mode="wait">
+                  <TabsContent value="speed" className="mt-8">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                    >
+                      {authorityMarkers.map((marker, idx) => (
+                        <Card key={idx} className="bg-white/5 border-white/10">
+                          <CardHeader>
+                            <CardTitle className="text-5xl font-light text-white">
+                              {marker.metric}
+                            </CardTitle>
+                            <CardDescription className="text-white/60 text-base">
+                              {marker.label}
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-white/40 leading-relaxed">
+                              {marker.detail}
+                            </p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </motion.div>
+                  </TabsContent>
+
+                  <TabsContent value="clarity" className="mt-8">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className="space-y-6"
+                    >
+                      <Card className="bg-white/5 border-white/10">
+                        <CardHeader>
+                          <CardTitle className="text-3xl font-light">
+                            No jargon. No frameworks. No BS.
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                          <p className="text-white/70 leading-relaxed">
+                            Most agencies hide behind process because they don't know how to think clearly about your problem. We do the opposite: understand what matters, then execute it properly.
+                          </p>
+                          <div className="grid grid-cols-2 gap-4 pt-4">
+                            <div className="space-y-2">
+                              <p className="text-xs uppercase tracking-wider text-white/40">You won't hear</p>
+                              <div className="space-y-1">
+                                {["Synergy", "Leverage", "Optimize", "Disrupt"].map((word, i) => (
+                                  <p key={i} className="text-sm text-white/30 line-through">{word}</p>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="space-y-2">
+                              <p className="text-xs uppercase tracking-wider text-white/60">You will hear</p>
+                              <div className="space-y-1">
+                                {["What matters", "Why this works", "Here's the plan", "Let's build it"].map((phrase, i) => (
+                                  <p key={i} className="text-sm text-white/80 flex items-center gap-2">
+                                    <Check className="w-3 h-3" /> {phrase}
+                                  </p>
             ))}
           </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </TabsContent>
 
-          {/* Content Area */}
-          <div className="relative min-h-[280px] sm:min-h-[240px]">
-            <AnimatePresence mode="wait">
-              {sections.map((section, index) => (
-                activeIndex === index && (
+                  <TabsContent value="craft" className="mt-8">
                   <motion.div
-                    key={section.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    transition={{ 
-                      duration: 0.6,
-                      ease: [0.25, 0.46, 0.45, 0.94]
-                    }}
-                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+                      className="space-y-6"
+                    >
+                      <Card className="bg-white/5 border-white/10">
+                        <CardHeader>
+                          <CardTitle className="text-3xl font-light">
+                            Fast doesn't mean sloppy.
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-white/70 leading-relaxed mb-6">
+                            We're fast because we don't waste time on things that don't matter. That leaves more time for things that do: typography, details, the small things that make work feel right.
+                          </p>
+                          <div className="space-y-3">
+                            {[
+                              { skill: "Design precision", level: 98 },
+                              { skill: "Code quality", level: 95 },
+                              { skill: "Attention to detail", level: 100 },
+                            ].map((item, idx) => (
+                              <div key={idx} className="space-y-2">
+                                <div className="flex justify-between text-sm">
+                                  <span className="text-white/60">{item.skill}</span>
+                                  <span className="text-white/40">{item.level}%</span>
+                                </div>
+                                <Progress value={item.level} className="h-1.5 bg-white/10" />
+                              </div>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </TabsContent>
+                </AnimatePresence>
+              </Tabs>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* THE PLAN (StoryBrand Element 3) */}
+        <section className="py-32 px-6 border-t border-white/10 bg-white/[0.02]">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="space-y-16"
+            >
+              <div>
+                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                  How it works
+                </Badge>
+                <h2 className="text-4xl md:text-6xl font-light leading-tight">
+                  Three steps.
+                  <br />
+                  <span className="text-white/40">That's it.</span>
+                </h2>
+              </div>
+
+              {/* Interactive Accordion Plan */}
+              <Accordion type="single" collapsible defaultValue="item-0" className="space-y-4">
+                {plan.map((item, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="border border-white/10 rounded-xl bg-white/5 backdrop-blur-sm overflow-hidden data-[state=open]:bg-white/10 transition-all"
                   >
-                    <div className="max-w-3xl mx-auto space-y-6">
-                      <div className="flex items-center justify-center gap-3 mb-4">
-                        <span className="text-xs font-mono tracking-tight text-white/40">
-                          {section.number}
-                        </span>
-                        <div className="h-px w-8 bg-gradient-to-r from-white/30 to-transparent"></div>
+                    <AccordionTrigger className="px-8 py-6 hover:no-underline group">
+                      <div className="flex items-center gap-6 text-left w-full">
+                        <div className="text-6xl font-light text-white/20 group-data-[state=open]:text-white/40 transition-colors">
+                          {item.step}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl md:text-3xl font-light text-white group-data-[state=open]:text-white transition-colors">
+                            {item.title}
+                          </h3>
+                        </div>
                       </div>
-                      <h3 className="text-3xl sm:text-4xl font-light tracking-wide text-white mb-6">
-                        {section.title}
-                      </h3>
-                      <p className={`text-lg sm:text-xl leading-relaxed ${section.isItalic ? 'italic' : ''} text-white/80`}>
-                        {section.content}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-8 pb-8">
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="space-y-6 pl-[88px]"
+                      >
+                        <p className="text-lg text-white/70 leading-relaxed">
+                          {item.description}
+                        </p>
+                        <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10">
+                          <Check className="w-5 h-5 text-white/60 flex-shrink-0" />
+                          <p className="text-white/80">
+                            <span className="font-medium">Outcome:</span> {item.outcome}
                       </p>
                     </div>
                   </motion.div>
-                )
+                    </AccordionContent>
+                  </AccordionItem>
               ))}
-            </AnimatePresence>
+              </Accordion>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* THE STAKES: Success vs Failure (StoryBrand Element 4) */}
+        <section className="py-32 px-6 border-t border-white/10">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="space-y-16"
+            >
+              <div>
+                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                  What's at stake
+                </Badge>
+                <h2 className="text-4xl md:text-6xl font-light leading-tight">
+                  The cost of choosing wrong.
+                </h2>
           </div>
 
-          {/* Progress Indicator */}
-          <div className="flex justify-center gap-2 mt-12">
-            {sections.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className="relative w-12 sm:w-16 h-1 bg-white/10 rounded-full overflow-hidden"
-              >
-                <motion.div
-                  className="absolute inset-0 bg-white/60 rounded-full origin-left"
-                  initial={{ scaleX: 0 }}
-                  animate={{ 
-                    scaleX: activeIndex === index && !isPaused ? 1 : activeIndex === index ? 0.5 : 0
-                  }}
-                  transition={{ 
-                    duration: activeIndex === index && !isPaused ? 4 : 0.3,
-                    ease: "linear"
-                  }}
-                />
-              </button>
-            ))}
-          </div>
-
-          {/* Hover hint */}
-          <div className="text-center mt-6">
-            <p className="text-xs text-white/30 font-light tracking-wide">
-              {isPaused ? "Paused — Move cursor away to continue" : "Hover to pause"}
+              <div className="grid grid-cols-1 gap-6">
+                {stakes.map((stake, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <Card className="bg-white/5 border-white/10 overflow-hidden group hover:bg-white/10 transition-all">
+                      <CardContent className="p-0">
+                        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                          {/* Bad Option */}
+                          <div className="p-8 bg-red-500/5 group-hover:bg-red-500/10 transition-colors">
+                            <div className="flex items-start gap-4">
+                              <div className="p-2 rounded-lg bg-red-500/10">
+                                <X className="w-5 h-5 text-red-400" />
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm uppercase tracking-wider text-red-400/60 mb-2">
+                                  Most agencies
+                                </p>
+                                <p className="text-xl font-light text-white/80">
+                                  {stake.bad}
             </p>
           </div>
         </div>
+                          </div>
 
-        {/* Integrated Philosophy Statement */}
-        <div className="pt-16 border-t border-white/10">
-          <div className="max-w-4xl mx-auto">
-            
-            {/* Philosophy Statement */}
-            <div className="text-center mb-16">
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-light leading-relaxed text-white max-w-3xl mx-auto">
-                This is what we mean by taking simple ideas <em>seriously</em>: understand what matters, then execute it properly.
+                          {/* Good Option */}
+                          <div className="p-8 bg-emerald-500/5 group-hover:bg-emerald-500/10 transition-colors">
+                            <div className="flex items-start gap-4">
+                              <div className="p-2 rounded-lg bg-emerald-500/10">
+                                <Check className="w-5 h-5 text-emerald-400" />
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm uppercase tracking-wider text-emerald-400/60 mb-2">
+                                  A Very Serious Company
+                                </p>
+                                <p className="text-xl font-light text-white/80">
+                                  {stake.good}
+                                </p>
+                                <p className="text-sm text-white/40 mt-3">
+                                  Impact: {stake.impact}
               </p>
             </div>
-
-            {/* Charlie Munger Quote - Enhanced Layout */}
-            <div className="relative mb-16">
-              {/* Quote Icon */}
-              <div className="flex justify-center mb-8">
-                <div className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white/60" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                  </svg>
+                            </div>
+                          </div>
                 </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
               </div>
-
-              {/* Quote Text */}
-              <blockquote className="text-center mb-6">
-                <p className="text-xl sm:text-2xl lg:text-3xl font-light leading-relaxed text-white/90 italic max-w-4xl mx-auto">
-                  "There is an old two-part rule that often works wonders in business, science, and elsewhere: take a simple, basic idea and take it very seriously."
-                </p>
-              </blockquote>
-
-              {/* Attribution */}
-              <div className="text-center">
-                <p className="text-base text-white/60 font-light tracking-wide">
-                  Charlie Munger
-                </p>
-              </div>
-            </div>
-
-            {/* Our Promise - Enhanced Layout */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border border-white/10">
-              <div className="text-center space-y-6">
-                <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/10 rounded-full border border-white/20">
-                  <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-                  <p className="text-sm text-white/70 font-medium tracking-wide uppercase">
-                    Our Promise
-                  </p>
-                </div>
-                
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-tight">
-                  Clear thinking applied consistently.
-                </h3>
-                
-                <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
-                  Every project starts the same way. That's why we exist.
-                </p>
-              </div>
-            </div>
-
+            </motion.div>
           </div>
-        </div>
+        </section>
 
-        {/* Team Section */}
-        <div className="pt-32 border-t border-white/10">
-          <TeamSection />
-        </div>
+        {/* THE SUCCESS: What winning looks like (StoryBrand Element 5) */}
+        <section className="py-32 px-6 border-t border-white/10 bg-white/[0.02]">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="space-y-16"
+            >
+              <div className="text-center max-w-3xl mx-auto">
+                <Badge variant="outline" className="mb-6 text-white/60 border-white/20">
+                  What you get
+                </Badge>
+                <h2 className="text-4xl md:text-6xl font-light leading-tight mb-6">
+                  Work that actually works.
+                </h2>
+                <p className="text-xl text-white/60">
+                  Not decks. Not deliverables. Not process documents. Real work that solves your real problem.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {successOutcomes.map((outcome, idx) => {
+                  const Icon = outcome.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      whileHover={{ y: -8 }}
+                    >
+                      <Card className="bg-white/5 border-white/10 h-full hover:bg-white/10 transition-all">
+                        <CardContent className="p-8 space-y-4">
+                          <div className="p-3 rounded-xl bg-white/5 w-fit">
+                            <Icon className="w-8 h-8 text-white/60" />
+            </div>
+                          <h3 className="text-2xl font-light text-white">
+                            {outcome.title}
+                          </h3>
+                          <p className="text-white/60">
+                            {outcome.desc}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+                </div>
+        </section>
+
+        {/* CALL TO ACTION (StoryBrand Element 6) */}
+        <section className="py-32 px-6 border-t border-white/10">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="space-y-12"
+            >
+              <div className="space-y-6">
+                <h2 className="text-5xl md:text-7xl font-light leading-tight">
+                  Ready to work on something
+                  <br />
+                  <em className="text-white/60">serious?</em>
+                </h2>
+                <p className="text-xl text-white/60 max-w-2xl mx-auto">
+                  Tell us what you're trying to solve. We'll tell you if we can help.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <motion.a 
+                  href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-10 py-5 rounded-full bg-white text-black font-medium text-lg tracking-tight transition-all hover:bg-white/90 active:scale-[0.98] shadow-2xl shadow-white/20"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Book a Call
+                </motion.a>
+                <motion.a 
+                  href="mailto:hello@averyseriouscompany.com"
+                  className="px-10 py-5 rounded-full border-2 border-white/20 text-white font-medium text-lg tracking-tight transition-all hover:bg-white/10 hover:border-white/40 active:scale-[0.98]"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Email Us
+                </motion.a>
+            </div>
+
+              <p className="text-sm text-white/40">
+                No long forms. No meetings about meetings. Just a conversation.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
       </div>
     </ContentPageLayout>

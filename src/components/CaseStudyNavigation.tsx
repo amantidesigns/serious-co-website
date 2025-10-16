@@ -18,15 +18,12 @@ export default function CaseStudyNavigation({ currentSlug }: CaseStudyNavigation
     <>
       {/* Next Case Studies Navigation */}
       <div className="border-t border-white/10 pt-16">
-        <div className="flex items-center justify-between mb-8">
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-          >
-            <span>←</span>
-            <span>Back to Our Work</span>
-          </Link>
-        </div>
+        {/* Header at the top */}
+        <h3 className="text-sm font-medium tracking-widest uppercase text-white/60 mb-8">
+          Explore More Projects
+        </h3>
+        
+        {/* Navigation cards in the middle */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Link
             href={`/work/${prevStudy.slug}`}
@@ -70,6 +67,17 @@ export default function CaseStudyNavigation({ currentSlug }: CaseStudyNavigation
                 <p className="text-sm text-white/60">{nextStudy.category}</p>
               </div>
             </div>
+          </Link>
+        </div>
+        
+        {/* Back navigation at the bottom */}
+        <div className="border-t border-white/10 pt-8 mt-8">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+          >
+            <span>←</span>
+            <span>Back to Our Work</span>
           </Link>
         </div>
       </div>
