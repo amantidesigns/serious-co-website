@@ -359,7 +359,7 @@ export default function CaseStudiesClient() {
           Simple ideas executed <em>seriously</em>.<br />Real brands, real results.
         </h2>
         <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-          We take our clients' visions seriously and deliver work that inspires.<span className="hidden md:inline"> From luxury consumer brands to healthcare services</span><span className="md:hidden"><br />From luxury consumer brands to healthcare services</span>, we bring thoughtful strategy and craft to every project.
+          We take our clients' visions seriously and deliver work that inspires.<span className="hidden md:inline"> From luxury consumer brands to healthcare services</span><span className="md:hidden"><br />From luxury consumer brands to healthcare services</span>, we bring thoughtful strategy and craft to&nbsp;every&nbsp;project.
         </p>
       </div>
 

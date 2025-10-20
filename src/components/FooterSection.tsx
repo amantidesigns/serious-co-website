@@ -35,7 +35,7 @@ export default function FooterSection() {
           <div className="max-w-3xl mx-auto mb-8">
             <p className="text-lg leading-relaxed mb-4" style={{ color: theme.colors.primary.white }}>
               A Very Serious Company is a creative agency.<br />
-              We create serious, high-end websites, graphics, and videos using next-gen AI.
+              We create serious, high-end websites, graphics, and videos using next-gen&nbsp;AI.
             </p>
             <p className="text-lg font-normal mb-4" style={{ color: theme.colors.primary.white }}>
               We take simple ideas seriously.
