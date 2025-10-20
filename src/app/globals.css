@@ -501,6 +501,17 @@
     scroll-padding-top: 80px; /* Account for fixed navbar */
   }
 
+  /* Modern typography: Prevent widows and improve text flow */
+  /* text-wrap: balance - distributes text evenly across lines (great for headlines) */
+  /* text-wrap: pretty - prevents orphans/widows in body text (experimental but well-supported) */
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
   /* Responsive page scrolling */
   html, body {
     min-height: 100svh;
@@ -637,6 +648,30 @@ nextjs-portal {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Typography widow prevention utilities */
+/* Use these classes for specific elements that need widow prevention */
+.text-wrap-balance {
+  text-wrap: balance;
+}
+
+.text-wrap-pretty {
+  text-wrap: pretty;
+}
+
+.text-wrap-stable {
+  text-wrap: stable;
+}
+
+/* Prevent widows by keeping last 2-3 words together */
+.no-widows {
+  text-wrap: pretty;
+}
+
+/* For inline elements that should stay together */
+.keep-together {
+  white-space: nowrap;
 }
 
 /* Respect user's motion preferences */

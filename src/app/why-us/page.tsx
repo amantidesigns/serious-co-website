@@ -74,19 +74,19 @@ export default function WhyUsPage() {
     {
       step: "01",
       title: "You tell us the problem",
-      description: "Not what you want us to build. What you're trying to solve. We ask the right questions until we understand what actually matters.",
+      description: "Not what you want us to build. What you're trying to solve. We ask the right questions until we understand what actually&nbsp;matters.",
       outcome: "Clarity on what success looks like"
     },
     {
       step: "02",
       title: "We figure out what matters",
-      description: "No frameworks. No templates. Just clear thinking about your specific situation. Then we tell you exactly what we'll build and why.",
+      description: "No frameworks. No templates. Just clear thinking about your specific situation. Then we tell you exactly what we'll build and&nbsp;why.",
       outcome: "A plan that actually makes sense"
     },
     {
       step: "03",
       title: "We build it right",
-      description: "Fast execution. High craft. Direct communication. You work with the people actually creating. No account managers. No layers.",
+      description: "Fast execution. High craft. Direct communication. You work with the people actually creating. No account managers. No&nbsp;layers.",
       outcome: "Something that works"
     },
   ];
@@ -164,7 +164,7 @@ export default function WhyUsPage() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                They add process when you need speed. Templates when you need custom. Layers when you need direct answers.
+                They add process when you need speed. Templates when you need custom. Layers when you need direct&nbsp;answers.
               </motion.p>
             </div>
 
@@ -248,7 +248,7 @@ export default function WhyUsPage() {
                     <span className="text-white/40">It doesn't have to be this way.</span>
                   </h2>
                   <p className="text-xl text-white/70 leading-relaxed">
-                    You don't need another agency with a proprietary process. You need someone who understands what you're trying to solve, then solves it.
+                    You don't need another agency with a proprietary process. You need someone who understands what you're trying to solve, then&nbsp;solves&nbsp;it.
                   </p>
                 </div>
 
@@ -371,7 +371,7 @@ export default function WhyUsPage() {
                         </CardHeader>
                         <CardContent className="space-y-4">
                           <p className="text-white/70 leading-relaxed">
-                            Most agencies hide behind process because they don't know how to think clearly about your problem. We do the opposite: understand what matters, then execute it properly.
+                            Most agencies hide behind process because they don't know how to think clearly about your problem. We do the opposite: understand what matters, then execute it&nbsp;properly.
                           </p>
                           <div className="grid grid-cols-2 gap-4 pt-4">
                             <div className="space-y-2">
@@ -413,7 +413,7 @@ export default function WhyUsPage() {
                         </CardHeader>
                         <CardContent>
                           <p className="text-white/70 leading-relaxed mb-6">
-                            We're fast because we don't waste time on things that don't matter. That leaves more time for things that do: typography, details, the small things that make work feel right.
+                            We're fast because we don't waste time on things that don't matter. That leaves more time for things that do: typography, details, the small things that make work feel&nbsp;right.
                           </p>
                           <div className="space-y-3">
                             {[
@@ -598,7 +598,7 @@ export default function WhyUsPage() {
                   Work that actually works.
                 </h2>
                 <p className="text-xl text-white/60">
-                  Not decks. Not deliverables. Not process documents. Real work that solves your real problem.
+                  Not decks. Not deliverables. Not process documents. Real work that solves your real&nbsp;problem.
                 </p>
               </div>
 
@@ -651,7 +651,7 @@ export default function WhyUsPage() {
                   <em className="text-white/60">serious?</em>
                 </h2>
                 <p className="text-xl text-white/60 max-w-2xl mx-auto">
-                  Tell us what you're trying to solve. We'll tell you if we can help.
+                  Tell us what you're trying to solve. We'll tell you if we can&nbsp;help.
                 </p>
               </div>
 

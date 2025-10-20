@@ -40,10 +40,10 @@ export default function AITrainingPage() {
             AI Essentials Workshop
           </h1>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
-            Learn AI in three days.<br /><em>No technical background&nbsp;required</em>
+            Learn AI in three&nbsp;days.<br /><em>No technical background&nbsp;required</em>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            A hands-on workshop for professionals who want to stay relevant in an AI-driven world. We'll teach you what matters and skip the rest.
+            A hands-on workshop for professionals who want to stay relevant in an AI-driven world. We'll teach you what matters and skip the&nbsp;rest.
           </p>
           <div className="flex justify-center pt-2">
             <Badge variant="outline" className="text-white border-white/30 px-4 py-2">

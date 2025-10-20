@@ -53,7 +53,7 @@ export default function OurServicesPage() {
             Brands, websites, and <span className="whitespace-nowrap">creative content</span>.<br />Built fast, built <em>right</em>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            AI workflows let us move at speed<span className="hidden md:inline"> without sacrificing craft</span><span className="md:hidden"><br />without sacrificing craft</span>.<br />Premium creative work in days, not months.
+            AI workflows let us move at speed<span className="hidden md:inline"> without sacrificing craft</span><span className="md:hidden"><br />without sacrificing craft</span>.<br />Premium creative work in days, not&nbsp;months.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Creative</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Strategic creative solutions that communicate your message clearly and effectively.
+                  Strategic creative solutions that communicate your message clearly and&nbsp;effectively.
                 </p>
               </div>
             <div className="space-y-3">
@@ -86,7 +86,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Branding Services</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Complete brand identity development from positioning to visual systems.
+                  Complete brand identity development from positioning to visual&nbsp;systems.
                 </p>
               </div>
             <div className="space-y-3">
@@ -97,7 +97,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">AI Consulting & Training</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Strategic guidance on integrating AI into your creative and business processes.
+                  Strategic guidance on integrating AI into your creative and business&nbsp;processes.
                 </p>
                 <div className="pt-2">
                 <a 
@@ -117,7 +117,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Presentation Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Compelling presentations that engage audiences and communicate ideas powerfully.
+                  Compelling presentations that engage audiences and communicate ideas&nbsp;powerfully.
                 </p>
               </div>
             </div>
@@ -138,7 +138,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Web Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Custom websites that serve your audience's needs with clarity and performance.
+                  Custom websites that serve your audience's needs with clarity and&nbsp;performance.
                 </p>
               </div>
             <div className="space-y-3">
@@ -149,7 +149,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Social Media Creative</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Engaging social media content that builds community and drives results.
+                  Engaging social media content that builds community and drives&nbsp;results.
                 </p>
               </div>
             <div className="space-y-3">
@@ -160,7 +160,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Email Creation</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Email campaigns that connect with your audience and drive meaningful action.
+                  Email campaigns that connect with your audience and drive meaningful&nbsp;action.
                 </p>
               </div>
             <div className="space-y-3">
@@ -171,7 +171,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">AI-Powered Creative</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Leveraging AI tools to enhance creativity and streamline production processes.
+                  Leveraging AI tools to enhance creativity and streamline production&nbsp;processes.
                 </p>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Illustration Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Custom illustrations that bring your brand story to life with unique visual style.
+                  Custom illustrations that bring your brand story to life with unique visual&nbsp;style.
                 </p>
               </div>
             <div className="space-y-3">
@@ -203,7 +203,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Motion Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Dynamic motion graphics and animations that capture attention and engage viewers.
+                  Dynamic motion graphics and animations that capture attention and engage&nbsp;viewers.
                 </p>
               </div>
             <div className="space-y-3">
@@ -214,7 +214,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Print Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Traditional print materials with modern design sensibilities and attention to detail.
+                  Traditional print materials with modern design sensibilities and attention to&nbsp;detail.
                 </p>
               </div>
             <div className="space-y-3">
@@ -225,7 +225,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Ebooks & Report Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Professional document design that makes complex information accessible and engaging.
+                  Professional document design that makes complex information accessible and&nbsp;engaging.
                 </p>
               </div>
             </div>
@@ -235,7 +235,7 @@ export default function OurServicesPage() {
         {/* Bottom Statement */}
         <div className="text-center space-y-4 pt-8 border-t border-white/10">
           <p className="text-lg sm:text-xl font-light leading-relaxed text-white/90 max-w-2xl mx-auto">
-            We don't believe in one-size-fits-all solutions. Every project is unique, and we approach each one with fresh eyes and clear thinking.
+            We don't believe in one-size-fits-all solutions. Every project is unique, and we approach each one with fresh eyes and clear&nbsp;thinking.
           </p>
           <p className="text-base text-white/70">
             Ready to take your idea seriously? Let's talk.
