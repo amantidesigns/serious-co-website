@@ -5,7 +5,7 @@ import { Asterisk } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { theme } from "@/lib/theme";
-import CTAButton from "./ui/CTAButton";
+import CTAButton from "../ui/CTAButton";
 
 export default function FooterSection() {
   return (

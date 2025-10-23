@@ -1,6 +1,6 @@
 "use client";
 
-import HeroKineticMasonry from "@/components/HeroKineticMasonry";
+import HeroKineticMasonry from "@/components/sections/HeroKineticMasonry";
 
 export default function HealThriveRecoveryClient() {
   // Sample media items for the kinetic masonry

@@ -3,7 +3,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { theme } from "@/lib/theme";
-import CTAButton from "./ui/CTAButton";
+import CTAButton from "../ui/CTAButton";
 
 interface list {
   title: string;

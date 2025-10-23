@@ -1,9 +1,9 @@
 "use client";
 
 import ContentPageLayout from "@/components/ContentPageLayout";
-import CaseStudyNavigation from "@/components/CaseStudyNavigation";
-import CaseStudyCTA from "@/components/CaseStudyCTA";
-import ProjectDetailsGridSection from "@/components/ProjectDetailsGridSection";
+import CaseStudyNavigation from "@/components/sections/CaseStudyNavigation";
+import CaseStudyCTA from "@/components/sections/CaseStudyCTA";
+import ProjectDetailsGridSection from "@/components/sections/ProjectDetailsGridSection";
 import { caseStudies } from "@/lib/content/caseStudies";
 
 interface CaseStudyPageLayoutProps {

@@ -3,7 +3,7 @@ import React from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { theme } from "@/lib/theme";
-import CTAButton from "./ui/CTAButton";
+import CTAButton from "../ui/CTAButton";
 
 const DATA = [
   {

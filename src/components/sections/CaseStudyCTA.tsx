@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { theme } from "@/lib/theme";
 import { motion } from "framer-motion";
-import CTAButton from "./ui/CTAButton";
+import CTAButton from "../ui/CTAButton";
 
 interface CaseStudyCTAProps {
   title?: string;

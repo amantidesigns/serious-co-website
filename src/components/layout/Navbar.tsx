@@ -414,18 +414,14 @@ const Navbar = () => {
             boxShadow: '0 25px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1)'
           }}
         >
-          {/* Dark overlay for menu distinction */}
+          {/* Clean overlay for menu distinction */}
           <div 
             className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              backgroundColor: 'rgba(0, 0, 0, 0.2)',
               backdropFilter: 'blur(10px)'
             }}
           />
-          {/* Galaxy background layer */}
-          <div className={`absolute top-0 left-0 w-full h-full ${theme.zIndex.base}`}>
-            <img src="/galaxy-ascii.png" className={`w-full h-full object-cover opacity-60 animate-fade-in animate-pulse ${theme.borderRadius.lg}`} alt="" />
-          </div>
 
           {/* Background stars layer */}
           <div 

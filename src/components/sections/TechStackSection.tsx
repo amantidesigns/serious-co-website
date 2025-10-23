@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ProjectTag from "@/components/ProjectTag";
+import ProjectTag from "@/components/blocks/ProjectTag";
 import { theme } from "@/lib/theme";
 
 interface TechStackItem {

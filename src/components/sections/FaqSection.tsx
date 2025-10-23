@@ -2,7 +2,7 @@
 
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import PageFooter from "./PageFooter";
+import PageFooter from "../layout/PageFooter";
 import { theme } from "@/lib/theme";
 
 export default function FAQs() {

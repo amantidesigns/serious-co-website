@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import ShootingStarBackground from "./ShootingStarBackground";
-import PageFooter from "./PageFooter";
+import ShootingStarBackground from "./blocks/ShootingStarBackground";
+import PageFooter from "./layout/PageFooter";
 import { theme } from "@/lib/theme";
 
 interface ContentPageLayoutProps {

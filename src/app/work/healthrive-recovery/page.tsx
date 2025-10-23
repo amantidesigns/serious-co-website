@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import CaseStudyPageLayout from "@/components/CaseStudyPageLayout";
+import CaseStudyPageLayout from "@/components/sections/CaseStudyPageLayout";
 import { caseStudies } from "@/lib/content/caseStudies";
 
 export const metadata: Metadata = {

@@ -4,9 +4,9 @@ import { ChevronRight } from "lucide-react";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import ShootingStarBackground from "./ShootingStarBackground";
+import ShootingStarBackground from "../blocks/ShootingStarBackground";
 import PageFooter from "./PageFooter";
-import FAQButton from "./FAQButton";
+import FAQButton from "../FAQButton";
 import { theme } from "@/lib/theme";
 
 const HomePageLayout = () => {
