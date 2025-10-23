@@ -1,6 +1,8 @@
 # A Very Serious Company Website
 
-Next.js 15 app for the A Very Serious Company site.
+A Very Serious Company (AVSC) is a modern creative studio built for the AI era. We take simple ideas seriously—crafting brands, websites, and content that are elegant, fast, and measurably effective by pairing high‑craft design with pragmatic AI workflows.
+
+This repository contains the AVSC marketing website built with Next.js 15.
 
 ## Quick start
 
