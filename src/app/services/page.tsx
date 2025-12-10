@@ -99,13 +99,20 @@ export default function OurServicesPage() {
                 <p className="text-sm leading-relaxed text-white/70">
                   Strategic guidance on integrating AI into your creative and business processes.
                 </p>
-                <div className="pt-2">
-                <a 
-                  href="/ai-training" 
+                <div className="pt-2 space-y-2">
+                <a
+                  href="/ai-training"
                   className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-normal font-mono tracking-tight text-white/70 hover:text-white/90 transition-all duration-500 border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 overflow-hidden"
                 >
                   <div className="h-[120px] w-10 bg-gradient-to-r from-blue-400/20 via-blue-300/50 to-cyan-400/20 absolute blur-sm -rotate-45 -left-16 animate-shimmer-continuous" />
                   <span className="relative z-10">Learn about our AI Essentials Workshop →</span>
+                </a>
+                <a
+                  href="/chatgpt-for-seniors"
+                  className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-normal font-mono tracking-tight text-white/70 hover:text-white/90 transition-all duration-500 border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 overflow-hidden"
+                >
+                  <div className="h-[120px] w-10 bg-gradient-to-r from-rose-400/20 via-amber-300/50 to-orange-400/20 absolute blur-sm -rotate-45 -left-16 animate-shimmer-continuous" />
+                  <span className="relative z-10">Bring ChatGPT for Seniors to your facility →</span>
                 </a>
                 </div>
               </div>
