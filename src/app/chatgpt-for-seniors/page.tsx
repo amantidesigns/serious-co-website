@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContentPageLayout from "@/components/ContentPageLayout";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

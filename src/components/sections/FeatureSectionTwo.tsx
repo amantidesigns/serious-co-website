@@ -2,7 +2,6 @@
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { theme } from "@/lib/theme";
 import CTAButton from "../ui/CTAButton";
 
 interface list {
@@ -50,16 +49,16 @@ const LIST: Array<list> = [
 
 const FeatureSectionTwo = () => {
   return (
-    <section className={`py-16`} style={{ backgroundColor: theme.colors.primary.blue, color: theme.colors.primary.white }}>
+    <section className="py-16 bg-[#0B3D91] text-white">
       <div className="container max-w-6xl mx-auto">
         <div className="mx-auto mb-8 flex flex-col items-start justify-between gap-8 md:mb-16">
-          <h1 className="text-left text-4xl max-w-4xl lg:text-6xl font-bold" style={{ color: theme.colors.primary.white }}>
+          <h1 className="text-left text-4xl max-w-4xl lg:text-6xl font-bold text-white">
             A Very Serious Company
           </h1>
           <div className="text-lg max-w-xl leading-relaxed">
-            <p className="mb-2" style={{ color: theme.colors.primary.white }}>A Very Serious Company is a creative agency.</p>
-            <p className="mb-2" style={{ color: theme.colors.primary.white }}>We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
-            <p className="mb-8" style={{ color: theme.colors.primary.white }}>We take simple ideas seriously.</p>
+            <p className="mb-2 text-white">A Very Serious Company is a creative agency.</p>
+            <p className="mb-2 text-white">We create serious, high-end websites, graphics, and videos using next-gen AI.</p>
+            <p className="mb-8 text-white">We take simple ideas seriously.</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <CTAButton
                 href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
@@ -91,23 +90,12 @@ const FeatureSectionTwo = () => {
             <TabsList className="h-fit w-fit flex-col gap-2.5 bg-transparent p-0">
               {LIST.map((item, i) => (
                 <TabsTrigger
-                  className={`flex-col items-start rounded-none p-5 text-left shadow-none border whitespace-normal data-[state=active]:outline cursor-pointer xl:max-w-[34.0625rem]`}
-                  style={{ 
-                    borderColor: theme.colors.border.white20,
-                    color: theme.colors.primary.white,
-                    backgroundColor: 'transparent'
-                  }}
+                  className="flex-col items-start rounded-none p-5 text-left shadow-none border whitespace-normal data-[state=active]:outline cursor-pointer xl:max-w-[34.0625rem] border-white/20 text-white bg-transparent hover:bg-white/10"
                   key={`tab-trigger-${i}`}
                   value={item.value}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = theme.colors.border.white10;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }}
                 >
-                  <div className="leading-normal font-bold" style={{ color: theme.colors.primary.white }}>{item.title}</div>
-                  <div className={`leading-normal`} style={{ color: theme.colors.primary.lightGray }}>
+                  <div className="leading-normal font-bold text-white">{item.title}</div>
+                  <div className="leading-normal text-white/80">
                     {item.summary}
                   </div>
                 </TabsTrigger>

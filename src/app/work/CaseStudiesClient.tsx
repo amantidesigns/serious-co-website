@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { theme } from "@/lib/theme";
+import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 interface CaseStudy {
@@ -39,7 +38,7 @@ function CaseStudyGridCard({
   const handleMouseLeave = () => {
     if (!isMobile) setIsHovered(false);
   };
-  
+
   const handleClick = (e: React.MouseEvent, href: string) => {
     if (href === "#") {
       e.preventDefault();
@@ -55,7 +54,7 @@ function CaseStudyGridCard({
         "🎪 *tips hat* This project is going to be so serious, it might become a case study for case studies!"
       ];
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-      
+
       // Create a custom styled alert that matches the website aesthetic
       const alertBox = document.createElement('div');
       alertBox.style.cssText = `
@@ -86,7 +85,7 @@ function CaseStudyGridCard({
         width: 100%;
         animation: fadeInScale 0.25s ease-out;
       `;
-      
+
       // Add CSS animation
       const style = document.createElement('style');
       style.textContent = `
@@ -102,7 +101,7 @@ function CaseStudyGridCard({
         }
       `;
       document.head.appendChild(style);
-      
+
       const isVideo = study.image.endsWith('.mp4') || study.image.endsWith('.webm') || study.image.endsWith('.mov');
       const mediaHTML = isVideo
         ? `<video src="${study.image}" style="display:block; width:100%; height:auto; max-height:40svh; border-radius: 10px;" autoplay loop muted playsinline></video>`
@@ -189,7 +188,7 @@ function CaseStudyGridCard({
               loading="lazy"
             />
           )}
-          
+
           {/* Coming Soon Badge */}
           {study.href === "#" && (
             <div className="absolute top-4 right-4 z-20">
@@ -205,10 +204,10 @@ function CaseStudyGridCard({
           <div className="space-y-4">
             {/* Eyebrow Text */}
             <div className="flex items-center justify-between">
-              <span className={`text-xs font-medium tracking-widest uppercase ${theme.typography.letterSpacing.tight} text-white/60 group-hover:text-white/80 transition-colors duration-300`}>
+              <span className="text-xs font-medium tracking-widest uppercase text-white/60 group-hover:text-white/80 transition-colors duration-300">
                 {study.workType}
               </span>
-              <span className={`text-xs font-mono ${theme.typography.letterSpacing.tight} text-white/40 group-hover:text-white/60 transition-colors duration-300`}>
+              <span className="text-xs font-mono text-white/40 group-hover:text-white/60 transition-colors duration-300">
                 {String(index + 1).padStart(2, '0')}
               </span>
             </div>
@@ -246,107 +245,107 @@ export default function CaseStudiesClient() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-      const caseStudies: CaseStudy[] = [
-        {
-          title: "Jayded AF",
-          description: "Jayded AF is a premium gin martini brand that needed a sophisticated digital presence to match their craft cocktail experience. We created a sleek, modern website that captures the essence of their premium spirits and appeals to their target demographic of cocktail enthusiasts and luxury consumers.",
-          href: "/work/jayded-af",
-          category: "Luxury Consumer Brand",
-          workType: "Food and Beverage",
-          gradient: "from-purple-500/20 to-pink-500/20",
-          accent: "text-purple-300",
-          image: "/jayded-af-project-video.mp4",
-          thumbnail: "/projects/jayded/jayded-af-project.png"
-        },
-        {
-          title: "HealThrive Recovery", 
-          description: "HealThrive Recovery is an addiction treatment center requiring a compassionate and trustworthy digital presence to help families find hope and healing. We developed a warm, professional website that balances sensitivity with accessibility, making it easy for those seeking help to find the resources they need.",
-          href: "/work/healthrive-recovery",
-          category: "Healthcare Services",
-          workType: "Health and Wellness",
-          gradient: "from-blue-500/20 to-cyan-500/20",
-          accent: "text-cyan-300",
-          image: "/healthrive-recovery-project.png",
-          thumbnail: "/projects/healthrive/healthrive-recovery-project.png"
-        },
-        {
-          title: "Zachary Construction Group",
-          description: "Coming soon - A comprehensive digital presence for this construction company.",
-          href: "#",
-          category: "Construction Services",
-          workType: "Construction",
-          gradient: "from-orange-500/20 to-yellow-500/20",
-          accent: "text-orange-300",
-          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
-          thumbnail: "/projects/zachary-construction/zachary-construction-01.png"
-        },
-        {
-          title: "Pet Love Cremation & Memorial",
-          description: "Coming soon - A compassionate digital platform for pet memorial services.",
-          href: "#",
-          category: "Pet Services",
-          workType: "Pet Services",
-          gradient: "from-green-500/20 to-teal-500/20",
-          accent: "text-green-300",
-          image: "/pet-love-cremation-project.gif",
-          thumbnail: "/projects/pet-love/pet-love-01.png"
-        },
-        {
-          title: "Beka Wealth Advisors",
-          description: "Coming soon - A professional financial advisory platform.",
-          href: "#",
-          category: "Financial Services",
-          workType: "Finance",
-          gradient: "from-indigo-500/20 to-blue-500/20",
-          accent: "text-indigo-300",
-          image: "/beka-wealth-advisors-project.gif",
-          thumbnail: "/projects/beka/beka-01.png"
-        },
-        {
-          title: "Pacific Life",
-          description: "Coming soon - A comprehensive digital platform for this financial services company.",
-          href: "#",
-          category: "Financial Services",
-          workType: "Finance",
-          gradient: "from-emerald-500/20 to-cyan-500/20",
-          accent: "text-emerald-300",
-          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
-          thumbnail: "/projects/pacific-life/pacific-life-01.png"
-        },
-        {
-          title: "WEOY",
-          description: "Coming soon - A digital experience for this innovative platform.",
-          href: "#",
-          category: "Technology Platform",
-          workType: "Technology",
-          gradient: "from-violet-500/20 to-purple-500/20",
-          accent: "text-violet-300",
-          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
-          thumbnail: "/projects/weoy/weoy-01.png"
-        },
-        {
-          title: "Zachary Group",
-          description: "Coming soon - A comprehensive digital presence for this group company.",
-          href: "#",
-          category: "Business Services",
-          workType: "Business",
-          gradient: "from-slate-500/20 to-gray-500/20",
-          accent: "text-slate-300",
-          image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
-          thumbnail: "/projects/zachary-group/zachary-group-01.png"
-        },
-        {
-          title: "The Last Paradox",
-          description: "Coming soon - A digital experience for this Warner Bros. Music Group artist's upcoming album release.",
-          href: "#",
-          category: "Music & Entertainment",
-          workType: "Entertainment",
-          gradient: "from-pink-500/20 to-purple-500/20",
-          accent: "text-pink-300",
-          image: "/the-last-paradox-project.gif",
-          thumbnail: "/projects/the-last-paradox/the-love-paradox.png"
-        }
-      ];
+  const caseStudies: CaseStudy[] = [
+    {
+      title: "Jayded AF",
+      description: "Jayded AF is a premium gin martini brand that needed a sophisticated digital presence to match their craft cocktail experience. We created a sleek, modern website that captures the essence of their premium spirits and appeals to their target demographic of cocktail enthusiasts and luxury consumers.",
+      href: "/work/jayded-af",
+      category: "Luxury Consumer Brand",
+      workType: "Food and Beverage",
+      gradient: "from-purple-500/20 to-pink-500/20",
+      accent: "text-purple-300",
+      image: "/jayded-af-project-video.mp4",
+      thumbnail: "/projects/jayded/jayded-af-project.png"
+    },
+    {
+      title: "HealThrive Recovery",
+      description: "HealThrive Recovery is an addiction treatment center requiring a compassionate and trustworthy digital presence to help families find hope and healing. We developed a warm, professional website that balances sensitivity with accessibility, making it easy for those seeking help to find the resources they need.",
+      href: "/work/healthrive-recovery",
+      category: "Healthcare Services",
+      workType: "Health and Wellness",
+      gradient: "from-blue-500/20 to-cyan-500/20",
+      accent: "text-cyan-300",
+      image: "/healthrive-recovery-project.png",
+      thumbnail: "/projects/healthrive/healthrive-recovery-project.png"
+    },
+    {
+      title: "Zachary Construction Group",
+      description: "Coming soon - A comprehensive digital presence for this construction company.",
+      href: "#",
+      category: "Construction Services",
+      workType: "Construction",
+      gradient: "from-orange-500/20 to-yellow-500/20",
+      accent: "text-orange-300",
+      image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+      thumbnail: "/projects/zachary-construction/zachary-construction-01.png"
+    },
+    {
+      title: "Pet Love Cremation & Memorial",
+      description: "Coming soon - A compassionate digital platform for pet memorial services.",
+      href: "#",
+      category: "Pet Services",
+      workType: "Pet Services",
+      gradient: "from-green-500/20 to-teal-500/20",
+      accent: "text-green-300",
+      image: "/pet-love-cremation-project.gif",
+      thumbnail: "/projects/pet-love/pet-love-01.png"
+    },
+    {
+      title: "Beka Wealth Advisors",
+      description: "Coming soon - A professional financial advisory platform.",
+      href: "#",
+      category: "Financial Services",
+      workType: "Finance",
+      gradient: "from-indigo-500/20 to-blue-500/20",
+      accent: "text-indigo-300",
+      image: "/beka-wealth-advisors-project.gif",
+      thumbnail: "/projects/beka/beka-01.png"
+    },
+    {
+      title: "Pacific Life",
+      description: "Coming soon - A comprehensive digital platform for this financial services company.",
+      href: "#",
+      category: "Financial Services",
+      workType: "Finance",
+      gradient: "from-emerald-500/20 to-cyan-500/20",
+      accent: "text-emerald-300",
+      image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+      thumbnail: "/projects/pacific-life/pacific-life-01.png"
+    },
+    {
+      title: "WEOY",
+      description: "Coming soon - A digital experience for this innovative platform.",
+      href: "#",
+      category: "Technology Platform",
+      workType: "Technology",
+      gradient: "from-violet-500/20 to-purple-500/20",
+      accent: "text-violet-300",
+      image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+      thumbnail: "/projects/weoy/weoy-01.png"
+    },
+    {
+      title: "Zachary Group",
+      description: "Coming soon - A comprehensive digital presence for this group company.",
+      href: "#",
+      category: "Business Services",
+      workType: "Business",
+      gradient: "from-slate-500/20 to-gray-500/20",
+      accent: "text-slate-300",
+      image: "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+      thumbnail: "/projects/zachary-group/zachary-group-01.png"
+    },
+    {
+      title: "The Last Paradox",
+      description: "Coming soon - A digital experience for this Warner Bros. Music Group artist's upcoming album release.",
+      href: "#",
+      category: "Music & Entertainment",
+      workType: "Entertainment",
+      gradient: "from-pink-500/20 to-purple-500/20",
+      accent: "text-pink-300",
+      image: "/the-last-paradox-project.gif",
+      thumbnail: "/projects/the-last-paradox/the-love-paradox.png"
+    }
+  ];
 
   return (
     <div className="relative z-20 text-base leading-relaxed space-y-32 text-white">
@@ -359,7 +358,7 @@ export default function CaseStudiesClient() {
           Simple ideas executed <em>seriously</em>.<br />Real brands, real results.
         </h2>
         <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-          We take our clients' visions seriously and deliver work that inspires.<span className="hidden md:inline"> From luxury consumer brands to healthcare services</span><span className="md:hidden"><br />From luxury consumer brands to healthcare services</span>, we bring thoughtful strategy and craft to every project.
+          We take our clients&apos; visions seriously and deliver work that inspires.<span className="hidden md:inline"> From luxury consumer brands to healthcare services</span><span className="md:hidden"><br />From luxury consumer brands to healthcare services</span>, we bring thoughtful strategy and craft to every project.
         </p>
       </div>
 

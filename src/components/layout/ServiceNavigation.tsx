@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { services } from "@/lib/content/services";
+import { services } from "@/content/services";
 
 interface ServiceNavigationProps {
   currentSlug: string;

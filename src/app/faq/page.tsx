@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContentPageLayout from "@/components/ContentPageLayout";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import CSSBoxFAQ from "@/components/blocks/css-box-faq";
 
 export const metadata: Metadata = {

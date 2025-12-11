@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import ProjectTag from "@/components/blocks/ProjectTag";
-import { theme } from "@/lib/theme";
 
 interface TechStackItem {
   label: string;
@@ -23,7 +22,7 @@ export default function TechStackSection({ items }: TechStackSectionProps) {
   return (
     <div className="max-w-4xl">
       <div className={`space-y-3`}>
-        <p className={`${theme.typography.fontSize.xs} text-white/60`}>
+        <p className="text-xs text-white/60">
           Tech Stack
         </p>
         <div className="flex flex-wrap items-center gap-2">

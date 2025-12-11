@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import ContentPageLayout from "@/components/ContentPageLayout";
-import { teamMembers } from "@/lib/content/team";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
+import { teamMembers } from "@/content/team";
 import Image from "next/image";
 import Link from "next/link";
 

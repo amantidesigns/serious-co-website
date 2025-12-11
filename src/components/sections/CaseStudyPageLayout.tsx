@@ -1,10 +1,10 @@
 "use client";
 
-import ContentPageLayout from "@/components/ContentPageLayout";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import CaseStudyNavigation from "@/components/sections/CaseStudyNavigation";
 import CaseStudyCTA from "@/components/sections/CaseStudyCTA";
 import ProjectDetailsGridSection from "@/components/sections/ProjectDetailsGridSection";
-import { caseStudies } from "@/lib/content/caseStudies";
+import { caseStudies } from "@/content/caseStudies";
 
 interface CaseStudyPageLayoutProps {
   slug: string;

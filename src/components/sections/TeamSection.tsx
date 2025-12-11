@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import TeamCard from "@/components/TeamCard";
-import { teamMembers } from "@/lib/content/team";
+import TeamCard from "@/components/ui/TeamCard";
+import { teamMembers } from "@/content/team";
 
 export default function TeamSection() {
   return (

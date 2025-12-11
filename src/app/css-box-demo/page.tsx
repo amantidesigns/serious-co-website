@@ -1,11 +1,11 @@
+"use client"
+
 import CSSBoxExample from "@/components/blocks/css-box-example"
-import { theme } from "@/lib/theme"
 
 export default function CSSBoxDemoPage() {
   return (
-    <div 
-      className="min-h-screen relative overflow-hidden"
-      style={{ backgroundColor: theme.colors.primary.blue }}
+    <div
+      className="min-h-screen relative overflow-hidden bg-[#0B3D91]"
     >
 
       <div className="relative z-20 container mx-auto py-8">
@@ -17,9 +17,9 @@ export default function CSSBoxDemoPage() {
             A simple 3D box component with CSS-only 3D transforms
           </p>
         </div>
-        
+
         <CSSBoxExample />
-        
+
         <div className="mt-16 max-w-4xl mx-auto">
           <h2 className="text-2xl font-playfair font-light text-white mb-6">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import ContentPageLayout from "@/components/ContentPageLayout";
-import ServiceNavigation from "@/components/ServiceNavigation";
-import { services } from "@/lib/content/services";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
+import ServiceNavigation from "@/components/layout/ServiceNavigation";
+import { services } from "@/content/services";
 
 interface ServicePageProps {
   params: Promise<{

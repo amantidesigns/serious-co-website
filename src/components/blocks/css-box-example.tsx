@@ -3,7 +3,6 @@
 import React, { useRef } from "react"
 import CSSBox, { CSSBoxRef } from "./css-box"
 import { Button } from "@/components/ui/button"
-import { theme } from "@/lib/theme"
 
 export default function CSSBoxExample() {
   const cubeRef = useRef<CSSBoxRef>(null)
@@ -28,7 +27,7 @@ export default function CSSBoxExample() {
         <Star className="top-1/3 right-1/3" />
         <Star className="bottom-1/3 left-1/3" />
       </div>
-      
+
       {/* Content */}
       <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
         {children}
@@ -46,7 +45,7 @@ export default function CSSBoxExample() {
           A Very Serious Company Cube
         </p>
       </div>
-      
+
       <CSSBox
         ref={cubeRef}
         width={280}
@@ -120,43 +119,43 @@ export default function CSSBoxExample() {
       />
 
       <div className="flex flex-wrap gap-3 justify-center">
-        <Button 
+        <Button
           onClick={() => cubeRef.current?.showTop()}
           className="bg-white/10 hover:bg-white/20 text-white border-white/20"
         >
           Show Top
         </Button>
-        <Button 
+        <Button
           onClick={() => cubeRef.current?.showFront()}
           className="bg-white/10 hover:bg-white/20 text-white border-white/20"
         >
           Show Front
         </Button>
-        <Button 
+        <Button
           onClick={() => cubeRef.current?.showBack()}
           className="bg-white/10 hover:bg-white/20 text-white border-white/20"
         >
           Show Back
         </Button>
-        <Button 
+        <Button
           onClick={() => cubeRef.current?.showLeft()}
           className="bg-white/10 hover:bg-white/20 text-white border-white/20"
         >
           Show Left
         </Button>
-        <Button 
+        <Button
           onClick={() => cubeRef.current?.showRight()}
           className="bg-white/10 hover:bg-white/20 text-white border-white/20"
         >
           Show Right
         </Button>
-        <Button 
+        <Button
           onClick={() => cubeRef.current?.showBottom()}
           className="bg-white/10 hover:bg-white/20 text-white border-white/20"
         >
           Show Bottom
         </Button>
-        <Button 
+        <Button
           onClick={() => cubeRef.current?.reset()}
           className="bg-white/20 hover:bg-white/30 text-white border-white/30"
         >

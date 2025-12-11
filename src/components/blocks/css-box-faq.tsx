@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react"
 import CSSBox, { CSSBoxRef } from "./css-box"
-import { theme } from "@/lib/theme"
 
 export default function CSSBoxFAQ() {
   const cubeRef = useRef<CSSBoxRef>(null)
@@ -19,40 +18,40 @@ export default function CSSBoxFAQ() {
   const Face = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
     <div className={`w-full h-full relative overflow-hidden border-2 border-white/30 ${className}`}>
       {/* Background with exact same star pattern as FAQ page */}
-      <div 
+      <div
         className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700"
         style={{
           backgroundImage: `
-            radial-gradient(1px 1px at 15px 25px, ${theme.colors.star.opacity60}, transparent),
-            radial-gradient(1px 1px at 45px 85px, ${theme.colors.star.opacity40}, transparent),
-            radial-gradient(1px 1px at 75px 15px, ${theme.colors.star.opacity80}, transparent),
-            radial-gradient(1px 1px at 105px 65px, ${theme.colors.star.opacity50}, transparent),
-            radial-gradient(1px 1px at 135px 35px, ${theme.colors.star.opacity70}, transparent),
-            radial-gradient(1px 1px at 165px 95px, ${theme.colors.star.opacity30}, transparent),
-            radial-gradient(1px 1px at 195px 55px, ${theme.colors.star.opacity90}, transparent),
-            radial-gradient(1px 1px at 225px 25px, ${theme.colors.star.opacity40}, transparent),
-            radial-gradient(1px 1px at 255px 75px, ${theme.colors.star.opacity60}, transparent),
-            radial-gradient(1px 1px at 285px 45px, ${theme.colors.star.opacity80}, transparent),
-            radial-gradient(1px 1px at 315px 15px, ${theme.colors.star.opacity50}, transparent),
-            radial-gradient(1px 1px at 345px 85px, ${theme.colors.star.opacity70}, transparent),
-            radial-gradient(1px 1px at 375px 35px, ${theme.colors.star.opacity30}, transparent),
-            radial-gradient(1px 1px at 405px 65px, ${theme.colors.star.opacity90}, transparent),
-            radial-gradient(1px 1px at 435px 25px, ${theme.colors.star.opacity40}, transparent),
-            radial-gradient(1px 1px at 465px 75px, ${theme.colors.star.opacity60}, transparent),
-            radial-gradient(1px 1px at 495px 45px, ${theme.colors.star.opacity80}, transparent),
-            radial-gradient(1px 1px at 525px 15px, ${theme.colors.star.opacity50}, transparent),
-            radial-gradient(1px 1px at 555px 85px, ${theme.colors.star.opacity70}, transparent),
-            radial-gradient(1px 1px at 585px 35px, ${theme.colors.star.opacity30}, transparent),
-            radial-gradient(1px 1px at 615px 65px, ${theme.colors.star.opacity90}, transparent),
-            radial-gradient(1px 1px at 645px 25px, ${theme.colors.star.opacity40}, transparent),
-            radial-gradient(1px 1px at 675px 75px, ${theme.colors.star.opacity60}, transparent),
-            radial-gradient(1px 1px at 705px 45px, ${theme.colors.star.opacity80}, transparent),
-            radial-gradient(1px 1px at 735px 15px, ${theme.colors.star.opacity50}, transparent),
-            radial-gradient(1px 1px at 765px 85px, ${theme.colors.star.opacity70}, transparent),
-            radial-gradient(1px 1px at 795px 35px, ${theme.colors.star.opacity30}, transparent),
-            radial-gradient(1px 1px at 825px 65px, ${theme.colors.star.opacity90}, transparent),
-            radial-gradient(1px 1px at 855px 25px, ${theme.colors.star.opacity40}, transparent),
-            radial-gradient(1px 1px at 885px 75px, ${theme.colors.star.opacity60}, transparent)
+            radial-gradient(1px 1px at 15px 25px, rgba(255,255,255,0.6), transparent),
+            radial-gradient(1px 1px at 45px 85px, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 75px 15px, rgba(255,255,255,0.8), transparent),
+            radial-gradient(1px 1px at 105px 65px, rgba(255,255,255,0.5), transparent),
+            radial-gradient(1px 1px at 135px 35px, rgba(255,255,255,0.7), transparent),
+            radial-gradient(1px 1px at 165px 95px, rgba(255,255,255,0.3), transparent),
+            radial-gradient(1px 1px at 195px 55px, rgba(255,255,255,0.9), transparent),
+            radial-gradient(1px 1px at 225px 25px, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 255px 75px, rgba(255,255,255,0.6), transparent),
+            radial-gradient(1px 1px at 285px 45px, rgba(255,255,255,0.8), transparent),
+            radial-gradient(1px 1px at 315px 15px, rgba(255,255,255,0.5), transparent),
+            radial-gradient(1px 1px at 345px 85px, rgba(255,255,255,0.7), transparent),
+            radial-gradient(1px 1px at 375px 35px, rgba(255,255,255,0.3), transparent),
+            radial-gradient(1px 1px at 405px 65px, rgba(255,255,255,0.9), transparent),
+            radial-gradient(1px 1px at 435px 25px, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 465px 75px, rgba(255,255,255,0.6), transparent),
+            radial-gradient(1px 1px at 495px 45px, rgba(255,255,255,0.8), transparent),
+            radial-gradient(1px 1px at 525px 15px, rgba(255,255,255,0.5), transparent),
+            radial-gradient(1px 1px at 555px 85px, rgba(255,255,255,0.7), transparent),
+            radial-gradient(1px 1px at 585px 35px, rgba(255,255,255,0.3), transparent),
+            radial-gradient(1px 1px at 615px 65px, rgba(255,255,255,0.9), transparent),
+            radial-gradient(1px 1px at 645px 25px, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 675px 75px, rgba(255,255,255,0.6), transparent),
+            radial-gradient(1px 1px at 705px 45px, rgba(255,255,255,0.8), transparent),
+            radial-gradient(1px 1px at 735px 15px, rgba(255,255,255,0.5), transparent),
+            radial-gradient(1px 1px at 765px 85px, rgba(255,255,255,0.7), transparent),
+            radial-gradient(1px 1px at 795px 35px, rgba(255,255,255,0.3), transparent),
+            radial-gradient(1px 1px at 825px 65px, rgba(255,255,255,0.9), transparent),
+            radial-gradient(1px 1px at 855px 25px, rgba(255,255,255,0.4), transparent),
+            radial-gradient(1px 1px at 885px 75px, rgba(255,255,255,0.6), transparent)
           `,
           backgroundRepeat: 'repeat',
           backgroundSize: '900px 100px',
@@ -60,7 +59,7 @@ export default function CSSBoxFAQ() {
           animation: 'twinkle 4s ease-in-out infinite alternate'
         }}
       />
-      
+
       {/* Content */}
       <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
         {children}

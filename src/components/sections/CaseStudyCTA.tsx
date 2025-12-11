@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { theme } from "@/lib/theme";
 import { motion } from "framer-motion";
 import CTAButton from "../ui/CTAButton";
 
@@ -10,7 +8,7 @@ interface CaseStudyCTAProps {
   subtitle?: string;
 }
 
-export default function CaseStudyCTA({ 
+export default function CaseStudyCTA({
   title = "Ready to elevate your brand too?",
   subtitle = "Let's discuss how we can help bring your vision to life."
 }: CaseStudyCTAProps) {
@@ -36,17 +34,17 @@ export default function CaseStudyCTA({
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20 mx-auto">
             <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-            <p className={`${theme.typography.fontSize.xs} text-white/70 font-medium tracking-widest uppercase`}>
+            <p className="text-xs text-white/70 font-medium tracking-widest uppercase">
               Next Steps
             </p>
           </div>
 
           {/* Main Heading */}
           <div className="space-y-4">
-            <h2 className={`${theme.typography.fontSize.xl} sm:text-4xl lg:text-5xl font-light leading-tight text-white`}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-white">
               {title}
             </h2>
-            <p className={`${theme.typography.fontSize.lg} text-white/70 leading-relaxed`}>
+            <p className="text-lg text-white/70 leading-relaxed">
               {subtitle}
             </p>
           </div>
@@ -102,7 +100,7 @@ export default function CaseStudyCTA({
           </div>
 
           {/* Subtext */}
-          <p className={`${theme.typography.fontSize.sm} text-white/50 pt-4`}>
+          <p className="text-sm text-white/50 pt-4">
             We typically respond within 24 hours
           </p>
         </div>

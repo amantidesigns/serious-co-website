@@ -1,21 +1,19 @@
 "use client";
 
-import { Logo } from "@/components/logo";
 import { Asterisk } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { theme } from "@/lib/theme";
 import CTAButton from "../ui/CTAButton";
 
 export default function FooterSection() {
   return (
-    <motion.footer 
-      className="pt-8 pb-6" 
-      style={{ backgroundColor: theme.colors.primary.blue }}
+    <motion.footer
+      className="pt-8 pb-6 bg-[#0B3D91]"
+      style={{ backgroundColor: 'var(--brand-blue, #0B3D91)' }}
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ 
-        duration: 0.8, 
+      transition={{
+        duration: 0.8,
         ease: [0.25, 0.46, 0.45, 0.94],
         delay: 1.0
       }}
@@ -25,22 +23,21 @@ export default function FooterSection() {
           <Link
             href="/"
             aria-label="go home"
-            className="inline-flex items-center gap-2 text-xl font-bold mb-6"
-            style={{ color: theme.colors.primary.white }}
+            className="inline-flex items-center gap-2 text-xl font-bold mb-6 text-white"
           >
-            <Asterisk style={{ color: theme.colors.primary.white }} />
+            <Asterisk className="text-white" />
             A Very Serious Company
           </Link>
-          
+
           <div className="max-w-3xl mx-auto mb-8">
-            <p className="text-lg leading-relaxed mb-4" style={{ color: theme.colors.primary.white }}>
+            <p className="text-lg leading-relaxed mb-4 text-white">
               A Very Serious Company is a creative agency.<br />
               We create serious, high-end websites, graphics, and videos using next-gen AI.
             </p>
-            <p className="text-lg font-normal mb-4" style={{ color: theme.colors.primary.white }}>
+            <p className="text-lg font-normal mb-4 text-white">
               We take simple ideas seriously.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
               <CTAButton
                 href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
@@ -67,9 +64,9 @@ export default function FooterSection() {
             </div>
           </div>
         </div>
-        
-        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-8 border-t py-4" style={{ borderColor: theme.colors.border.white20 }}>
-          <span className="text-center text-xs order-2 md:order-1" style={{ color: theme.colors.primary.white }}>
+
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-8 border-t py-4 border-white/20">
+          <span className="text-center text-xs order-2 md:order-1 text-white">
             © {new Date().getFullYear()} A Very Serious Company
           </span>
           <div className="flex flex-wrap justify-center gap-8 text-xs order-1 md:order-2">
@@ -78,14 +75,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X/Twitter"
-              className="block"
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
+              className="block text-white hover:text-[#F2F2F2] transition-colors"
             >
               <svg
                 className="size-6"
@@ -105,14 +95,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="block"
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
+              className="block text-white hover:text-[#F2F2F2] transition-colors"
             >
               <svg
                 className="size-6"
@@ -132,14 +115,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="block"
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
+              className="block text-white hover:text-[#F2F2F2] transition-colors"
             >
               <svg
                 className="size-6"
@@ -159,14 +135,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Threads"
-              className="block"
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
+              className="block text-white hover:text-[#F2F2F2] transition-colors"
             >
               <svg
                 className="size-6"
@@ -191,14 +160,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="block"
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
+              className="block text-white hover:text-[#F2F2F2] transition-colors"
             >
               <svg
                 className="size-6"
@@ -218,14 +180,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
-              className="block"
-              style={{ color: theme.colors.primary.white }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = theme.colors.primary.white;
-              }}
+              className="block text-white hover:text-[#F2F2F2] transition-colors"
             >
               <svg
                 className="size-6"

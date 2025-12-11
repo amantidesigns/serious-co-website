@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { caseStudies } from "@/lib/content/caseStudies";
+import { caseStudies } from "@/content/caseStudies";
 
 interface CaseStudyNavigationProps {
   currentSlug: string;

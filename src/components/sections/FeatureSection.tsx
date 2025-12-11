@@ -1,8 +1,5 @@
-import { PocketKnife } from "lucide-react";
-import React from "react";
+"use client";
 
-import { Badge } from "@/components/ui/badge";
-import { theme } from "@/lib/theme";
 import CTAButton from "../ui/CTAButton";
 
 const DATA = [
@@ -34,9 +31,9 @@ const DATA = [
 
 const FeatureSection = () => {
   return (
-    <section className="py-16 max-w-6xl mx-auto px-6 sm:px-8 lg:px-10" style={{ backgroundColor: theme.colors.primary.blue, color: theme.colors.primary.white }}>
-      <div className="border-y" style={{ borderColor: theme.colors.border.white20 }}>
-        <div className="container flex flex-col gap-8 border-x max-lg:border-x px-6 lg:px-10 py-4" style={{ borderColor: theme.colors.border.white20 }}>
+    <section className="py-16 max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 bg-[#0B3D91] text-white">
+      <div className="border-y border-white/20">
+        <div className="container flex flex-col gap-8 border-x max-lg:border-x px-6 lg:px-10 py-4 border-white/20">
           <h1 className="text-4xl leading-tight tracking-tight font-extralight md:text-5xl lg:text-6xl">
             A Very Serious Company
           </h1>
@@ -72,21 +69,21 @@ const FeatureSection = () => {
         </div>
       </div>
 
-      <div className="lg:px-0! container border-x" style={{ borderColor: theme.colors.border.white20 }}>
+      <div className="lg:px-0! container border-x border-white/20">
         <div className="items-center">
-          <div className={`grid flex-1 max-lg:divide-y max-lg:border-x lg:grid-cols-3 lg:divide-x`} style={{ borderColor: theme.colors.border.white20 }}>
+          <div className="grid flex-1 max-lg:divide-y max-lg:border-x lg:grid-cols-3 lg:divide-x border-white/20">
             {DATA.map((item, index) => (
               <div
                 key={index}
-                className={`relative isolate pt-5 text-start lg:pt-20`}
+                className="relative isolate pt-5 text-start lg:pt-20"
               >
                 <h3 className="mt-2 px-4 text-lg tracking-tight lg:px-8">
                   {item.title}
                 </h3>
-                <p className={`pb-6 pt-2 lg:px-8`} style={{ color: theme.colors.primary.lightGray }}>
+                <p className="pb-6 pt-2 lg:px-8 text-white/80">
                   {item.description}
                 </p>
-                <div className="border-t" style={{ borderColor: theme.colors.border.white20 }}>
+                <div className="border-t border-white/20">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -99,8 +96,8 @@ const FeatureSection = () => {
         </div>
       </div>
 
-      <div className="h-16 w-full border-y md:h-24 lg:h-32" style={{ borderColor: theme.colors.border.white20 }}>
-        <div className="container h-full w-full border-x" style={{ borderColor: theme.colors.border.white20 }}></div>
+      <div className="h-16 w-full border-y md:h-24 lg:h-32 border-white/20">
+        <div className="container h-full w-full border-x border-white/20"></div>
       </div>
     </section>
   );

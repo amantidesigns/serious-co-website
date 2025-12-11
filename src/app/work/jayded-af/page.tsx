@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CaseStudyPageLayout from "@/components/sections/CaseStudyPageLayout";
-import { caseStudies } from "@/lib/content/caseStudies";
+import { caseStudies } from "@/content/caseStudies";
 
 export const metadata: Metadata = {
   title: "Jayded AF Case Study - A Very Serious Company",

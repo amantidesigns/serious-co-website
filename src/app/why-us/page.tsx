@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ContentPageLayout from "@/components/ContentPageLayout";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import { 
   Tabs, 
   TabsContent, 
@@ -21,7 +21,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ChevronRight, Check, X, TrendingUp, Clock, Target, Zap, Shield, ArrowRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AvatarGroup, AvatarGroupTooltip } from "@/components/ui/avatar-group";
-import { teamMembers } from "@/lib/content/team";
+import { teamMembers } from "@/content/team";
 import Link from "next/link";
 
 export default function WhyUsPage() {

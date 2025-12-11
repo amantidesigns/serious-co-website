@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { theme } from "@/lib/theme";
 
 interface TeamMember {
   name: string;
@@ -18,7 +17,7 @@ export default function CreativeTeamSection({ teamMembers }: CreativeTeamSection
   return (
     <div className="max-w-4xl">
       <div className="space-y-3">
-        <p className={`${theme.typography.fontSize.xs} text-white/60`}>
+        <p className="text-xs text-white/60">
           Creative Team
         </p>
         <div className="flex flex-wrap items-center gap-2">

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { theme } from "@/lib/theme";
 import { motion } from "framer-motion";
 
 interface RelatedServiceItem {
@@ -24,7 +23,7 @@ const servicesList: { [key: string]: string } = {
   "Content Strategy": "/services/content-strategy",
 };
 
-export default function CaseStudyRelatedServices({ 
+export default function CaseStudyRelatedServices({
   servicesUsed = [],
   teamMembers = []
 }: CaseStudyRelatedServicesProps) {
@@ -45,14 +44,14 @@ export default function CaseStudyRelatedServices({
           {servicesUsed.length > 0 && (
             <div className="space-y-6">
               <div>
-                <p className={`${theme.typography.fontSize.xs} text-white/60 font-medium tracking-widest uppercase mb-4`}>
+                <p className="text-xs text-white/60 font-medium tracking-widest uppercase mb-4">
                   Services Used
                 </p>
-                <h3 className={`${theme.typography.fontSize.lg} text-white font-light`}>
+                <h3 className="text-lg text-white font-light">
                   Our Expertise Applied
                 </h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-3">
                 {servicesUsed.map((service) => (
                   <Link
@@ -71,14 +70,14 @@ export default function CaseStudyRelatedServices({
           {teamMembers.length > 0 && (
             <div className="space-y-6">
               <div>
-                <p className={`${theme.typography.fontSize.xs} text-white/60 font-medium tracking-widest uppercase mb-4`}>
+                <p className="text-xs text-white/60 font-medium tracking-widest uppercase mb-4">
                   Team Members
                 </p>
-                <h3 className={`${theme.typography.fontSize.lg} text-white font-light`}>
+                <h3 className="text-lg text-white font-light">
                   Who Made It Happen
                 </h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-3">
                 {teamMembers.map((member) => (
                   <Link
