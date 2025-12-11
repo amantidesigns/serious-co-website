@@ -1,33 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
+import { motion } from "framer-motion";
 import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, MapPin, Users, Heart, Shield, Sparkles } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "ChatGPT for Seniors - A Very Serious Company",
-  description: "A specialized 1-day workshop designed to teach seniors how to use ChatGPT for connection, entertainment, and daily assistance. We bring the workshop to your facility.",
-  openGraph: {
-    title: "ChatGPT for Seniors - A Very Serious Company",
-    description: "A specialized 1-day workshop designed to teach seniors how to use ChatGPT for connection, entertainment, and daily assistance.",
-    images: [
-      {
-        url: "/a-very-serious-company.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "ChatGPT for Seniors - A Very Serious Company",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ChatGPT for Seniors - A Very Serious Company",
-    description: "A specialized 1-day workshop designed to teach seniors how to use ChatGPT for connection, entertainment, and daily assistance.",
-    images: ["/a-very-serious-company.jpeg"],
-  },
-};
 
 export default function ChatGPTForSeniorsPage() {
   return (
@@ -95,106 +72,160 @@ export default function ChatGPTForSeniorsPage() {
           </div>
         </div>
 
-        {/* Curriculum */}
-        <div className="space-y-8">
+        {/* Curriculum Timeline */}
+        <div className="space-y-12">
           <div className="text-center">
             <h2 className="text-2xl sm:text-3xl font-light text-white mb-3">One Day Curriculum</h2>
             <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent mx-auto"></div>
-            <p className="text-white/70 mt-4 max-w-2xl mx-auto">
+            <p className="text-white/70 mt-4 max-w-2xl mx-auto text-base">
               A gentle, paced day of learning designed to be enjoyable and immediately useful.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-                    <span className="text-blue-400 font-bold">AM</span>
+          {/* Timeline Container */}
+          <div className="max-w-3xl mx-auto">
+            <div className="relative">
+              {/* Vertical Timeline Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-400/40 via-purple-400/40 to-green-400/40 hidden md:block" />
+              
+              {/* Timeline Items */}
+              <div className="space-y-12 md:space-y-16">
+                {/* Morning Session */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="relative"
+                >
+                  <div className="flex gap-6 md:gap-8">
+                    {/* Timeline Dot */}
+                    <div className="flex-shrink-0 relative z-10">
+                      <div className="w-16 h-16 rounded-full bg-blue-500/20 border-2 border-blue-400/40 flex items-center justify-center backdrop-blur-sm">
+                        <span className="text-blue-400 font-bold text-lg">AM</span>
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 pt-1 space-y-4">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">
+                          Morning: Meeting Your New Helper
+                        </h3>
+                        <p className="text-white/80 text-base leading-relaxed mb-4">
+                          We start with the basics. What is this &quot;AI&quot; everyone talks about, and how can it be a friendly helper?
+                        </p>
+                      </div>
+                      
+                      <ul className="space-y-3 text-base text-white/80">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Demystifying AI: It&apos;s just a conversation</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Voice Mode: Talking to ChatGPT like a friend</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Asking questions and getting simple answers</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <span>Morning: Meeting Your New Helper</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-white/80 text-sm">
-                  We start with the basics. What is this &quot;AI&quot; everyone talks about, and how can it be a friendly helper?
-                </p>
-                <ul className="space-y-2 text-sm text-white/70">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Demystifying AI: It&apos;s just a conversation</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Voice Mode: Talking to ChatGPT like a friend</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Asking questions and getting simple answers</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+                </motion.div>
 
-            <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
-                    <span className="text-purple-400 font-bold">Mid</span>
+                {/* Mid-Day Session */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="relative"
+                >
+                  <div className="flex gap-6 md:gap-8">
+                    {/* Timeline Dot */}
+                    <div className="flex-shrink-0 relative z-10">
+                      <div className="w-16 h-16 rounded-full bg-purple-500/20 border-2 border-purple-400/40 flex items-center justify-center backdrop-blur-sm">
+                        <span className="text-purple-400 font-bold text-sm">Mid</span>
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 pt-1 space-y-4">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">
+                          Mid-Day: Connecting & Remembering
+                        </h3>
+                        <p className="text-white/80 text-base leading-relaxed mb-4">
+                          Practical ways to use ChatGPT to stay in touch with family and keep track of daily life.
+                        </p>
+                      </div>
+                      
+                      <ul className="space-y-3 text-base text-white/80">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Drafting messages and emails to family members</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Finding old recipes and reminiscence</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Setting reminders for medications and events</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <span>Mid-Day: Connecting & Remembering</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-white/80 text-sm">
-                  Practical ways to use ChatGPT to stay in touch with family and keep track of daily life.
-                </p>
-                <ul className="space-y-2 text-sm text-white/70">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Drafting messages and emails to grandkids</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Finding old recipes and reminiscence</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Setting reminders for medications and events</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+                </motion.div>
 
-            <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <span className="text-green-400 font-bold">PM</span>
+                {/* Afternoon Session */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="relative"
+                >
+                  <div className="flex gap-6 md:gap-8">
+                    {/* Timeline Dot */}
+                    <div className="flex-shrink-0 relative z-10">
+                      <div className="w-16 h-16 rounded-full bg-green-500/20 border-2 border-green-400/40 flex items-center justify-center backdrop-blur-sm">
+                        <span className="text-green-400 font-bold text-lg">PM</span>
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 pt-1 space-y-4">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">
+                          Afternoon: Fun & Safety
+                        </h3>
+                        <p className="text-white/80 text-base leading-relaxed mb-4">
+                          Learning to play games, explore hobbies, and most importantly, stay safe online.
+                        </p>
+                      </div>
+                      
+                      <ul className="space-y-3 text-base text-white/80">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Storytelling, trivia, and learning new hobbies</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Identifying scams and &quot;fake&quot; messages</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">Safe browsing habits with your AI companion</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <span>Afternoon: Fun & Safety</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-white/80 text-sm">
-                  Learning to play games, explore hobbies, and most importantly, stay safe online.
-                </p>
-                <ul className="space-y-2 text-sm text-white/70">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Storytelling, trivia, and learning new hobbies</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Identifying scams and &quot;fake&quot; messages</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Safe browsing habits with your AI companion</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </div>
 
