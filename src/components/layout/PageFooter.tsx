@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import CTAButton from "../ui/CTAButton";
 
 interface PageFooterProps {
@@ -26,6 +27,14 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
           <h2 className="text-left lg:text-right font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tighter mb-6 leading-tight text-white">
             We&nbsp;take simple&nbsp;ideas <em>seriously.</em>
           </h2>
+          <div className="flex flex-col sm:flex-row gap-3 self-start lg:self-end mt-2 mb-4">
+            <Link
+              href="/faq"
+              className="text-xs sm:text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 underline-offset-4 hover:underline"
+            >
+              Questions? We have answers.
+            </Link>
+          </div>
           <div className="flex flex-col sm:flex-row gap-3 self-start lg:self-end mt-2">
             <CTAButton
               href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
