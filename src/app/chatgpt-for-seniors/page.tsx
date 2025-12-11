@@ -117,12 +117,12 @@ export default function ChatGPTForSeniorsPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-white/80 text-sm">
-                  We start with the basics. What is this "AI" everyone talks about, and how can it be a friendly helper?
+                  We start with the basics. What is this &quot;AI&quot; everyone talks about, and how can it be a friendly helper?
                 </p>
                 <ul className="space-y-2 text-sm text-white/70">
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Demystifying AI: It's just a conversation</span>
+                    <span>Demystifying AI: It&apos;s just a conversation</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
@@ -186,7 +186,7 @@ export default function ChatGPTForSeniorsPage() {
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Identifying scams and "fake" messages</span>
+                    <span>Identifying scams and &quot;fake&quot; messages</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
@@ -257,7 +257,7 @@ export default function ChatGPTForSeniorsPage() {
           <div className="space-y-4">
             <h2 className="text-2xl sm:text-3xl font-light text-white">Schedule a Workshop</h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Interested in bringing "ChatGPT for Seniors" to your facility? Let's discuss how we can tailor this experience for your residents.
+              Interested in bringing &quot;ChatGPT for Seniors&quot; to your facility? Let&apos;s discuss how we can tailor this experience for your residents.
             </p>
           </div>
           

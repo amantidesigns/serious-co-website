@@ -25,7 +25,6 @@ import { teamMembers } from "@/content/team";
 import Link from "next/link";
 
 export default function WhyUsPage() {
-  const [activeTab, setActiveTab] = useState("problem");
   const [hoveredStat, setHoveredStat] = useState<number | null>(null);
 
   // StoryBrand: THE CUSTOMER'S PROBLEM
@@ -37,7 +36,7 @@ export default function WhyUsPage() {
       description: "Adding unnecessary steps and stakeholders"
     },
     { 
-      label: "Deliverables don't solve the actual problem", 
+      label: "Deliverables don&apos;t solve the actual problem", 
       value: 72,
       icon: X,
       description: "Looking good in decks but failing in reality"
@@ -55,7 +54,7 @@ export default function WhyUsPage() {
     {
       metric: "48hr",
       label: "Average turnaround for clear briefs",
-      detail: "Not because we rush. Because we don't waste time."
+      detail: "Not because we rush. Because we don&apos;t waste time."
     },
     {
       metric: "Zero",
@@ -74,13 +73,13 @@ export default function WhyUsPage() {
     {
       step: "01",
       title: "You tell us the problem",
-      description: "Not what you want us to build. What you're trying to solve. We ask the right questions until we understand what actually matters.",
+      description: "Not what you want us to build. What you&apos;re trying to solve. We ask the right questions until we understand what actually matters.",
       outcome: "Clarity on what success looks like"
     },
     {
       step: "02",
       title: "We figure out what matters",
-      description: "No frameworks. No templates. Just clear thinking about your specific situation. Then we tell you exactly what we'll build and why.",
+      description: "No frameworks. No templates. Just clear thinking about your specific situation. Then we tell you exactly what we&apos;ll build and why.",
       outcome: "A plan that actually makes sense"
     },
     {
@@ -243,12 +242,12 @@ export default function WhyUsPage() {
                     We understand
                   </h1>
                   <h2 className="text-4xl md:text-6xl font-light leading-tight mb-6">
-                    We've seen this before.
+                    We&apos;ve seen this before.
                     <br />
-                    <span className="text-white/40">It doesn't have to be this way.</span>
+                    <span className="text-white/40">It doesn&apos;t have to be this way.</span>
                   </h2>
                   <p className="text-xl text-white/70 leading-relaxed">
-                    You don't need another agency with a proprietary process. You need someone who understands what you're trying to solve, then solves it.
+                    You don&apos;t need another agency with a proprietary process. You need someone who understands what you&apos;re trying to solve, then solves it.
                   </p>
                 </div>
 
@@ -371,11 +370,11 @@ export default function WhyUsPage() {
                         </CardHeader>
                         <CardContent className="space-y-4">
                           <p className="text-white/70 leading-relaxed">
-                            Most agencies hide behind process because they don't know how to think clearly about your problem. We do the opposite: understand what matters, then execute it properly.
+                            Most agencies hide behind process because they don&apos;t know how to think clearly about your problem. We do the opposite: understand what matters, then execute it properly.
                           </p>
                           <div className="grid grid-cols-2 gap-4 pt-4">
                             <div className="space-y-2">
-                              <p className="text-xs uppercase tracking-wider text-white/40">You won't hear</p>
+                              <p className="text-xs uppercase tracking-wider text-white/40">You won&apos;t hear</p>
                               <div className="space-y-1">
                                 {["Synergy", "Leverage", "Optimize", "Disrupt"].map((word, i) => (
                                   <p key={i} className="text-sm text-white/30 line-through">{word}</p>
@@ -385,7 +384,7 @@ export default function WhyUsPage() {
                             <div className="space-y-2">
                               <p className="text-xs uppercase tracking-wider text-white/60">You will hear</p>
                               <div className="space-y-1">
-                                {["What matters", "Why this works", "Here's the plan", "Let's build it"].map((phrase, i) => (
+                                {["What matters", "Why this works", "Here&apos;s the plan", "Let&apos;s build it"].map((phrase, i) => (
                                   <p key={i} className="text-sm text-white/80 flex items-center gap-2">
                                     <Check className="w-3 h-3" /> {phrase}
                                   </p>
@@ -408,12 +407,12 @@ export default function WhyUsPage() {
                       <Card className="bg-white/5 border-white/10">
                         <CardHeader>
                           <CardTitle className="text-3xl font-light">
-                            Fast doesn't mean sloppy.
+                            Fast doesn&apos;t mean sloppy.
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <p className="text-white/70 leading-relaxed mb-6">
-                            We're fast because we don't waste time on things that don't matter. That leaves more time for things that do: typography, details, the small things that make work feel right.
+                            We&apos;re fast because we don&apos;t waste time on things that don&apos;t matter. That leaves more time for things that do: typography, details, the small things that make work feel right.
                           </p>
                           <div className="space-y-3">
                             {[
@@ -456,7 +455,7 @@ export default function WhyUsPage() {
                 <h2 className="text-4xl md:text-6xl font-light leading-tight">
                   Three steps.
                   <br />
-                  <span className="text-white/40">That's it.</span>
+                  <span className="text-white/40">That&apos;s it.</span>
                 </h2>
               </div>
 
@@ -516,7 +515,7 @@ export default function WhyUsPage() {
             >
               <div>
                 <h1 className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60 mb-6">
-                  What's at stake
+                  What&apos;s at stake
                 </h1>
                 <h2 className="text-4xl md:text-6xl font-light leading-tight">
                   The cost of choosing wrong.
@@ -651,7 +650,7 @@ export default function WhyUsPage() {
                   <em className="text-white/60">serious?</em>
                 </h2>
                 <p className="text-xl text-white/60 max-w-2xl mx-auto">
-                  Tell us what you're trying to solve. We'll tell you if we can help.
+                  Tell us what you&apos;re trying to solve. We&apos;ll tell you if we can help.
                 </p>
               </div>
 

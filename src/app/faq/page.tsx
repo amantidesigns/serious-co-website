@@ -40,7 +40,7 @@ export default function FAQ() {
             The questions people <span className="whitespace-nowrap">actually ask</span><br />Straight answers, <em>no fluff</em>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            Skip the marketing speak. Here's what you really want to know about working with us.
+            Skip the marketing speak. Here&apos;s what you really want to know about working with us.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function FAQ() {
           <div className="space-y-3">
             <h3 className="text-xl sm:text-2xl font-light text-white">What kind of work do you do?</h3>
             <p className="text-lg text-white/80 leading-relaxed">
-              Websites, advertisements, and whatever specific problems you bring us. We don't limit ourselves to categories.
+              Websites, advertisements, and whatever specific problems you bring us. We don&apos;t limit ourselves to categories.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function FAQ() {
           <div className="space-y-3">
             <h3 className="text-xl sm:text-2xl font-light text-white">How much does it cost?</h3>
             <p className="text-lg text-white/80 leading-relaxed">
-              Depends on what you need. We'll give you a straight answer after we understand your project.
+              Depends on what you need. We&apos;ll give you a straight answer after we understand your project.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function FAQ() {
           <div className="space-y-3">
             <h3 className="text-xl sm:text-2xl font-light text-white">How long does it take?</h3>
             <p className="text-lg text-white/80 leading-relaxed">
-              As long as it takes to do it right. We don't pad timelines, but we don't rush good work either.
+              As long as it takes to do it right. We don&apos;t pad timelines, but we don&apos;t rush good work either.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function FAQ() {
           <div className="space-y-3">
             <h3 className="text-xl sm:text-2xl font-light text-white">How do I get started?</h3>
             <p className="text-lg text-white/80 leading-relaxed">
-              Email us. Tell us what you need. We'll respond within 24 hours with our honest assessment.
+              Email us. Tell us what you need. We&apos;ll respond within 24 hours with our honest assessment.
             </p>
           </div>
 
@@ -97,10 +97,10 @@ export default function FAQ() {
         {/* Bottom Statement */}
         <div className="text-center space-y-4 pt-8 border-t border-white/10">
           <p className="text-lg sm:text-xl font-light leading-relaxed text-white/90 max-w-2xl mx-auto">
-            Still have questions? We're here to help. Every project is unique, and we approach each one with fresh eyes and clear thinking.
+            Still have questions? We&apos;re here to help. Every project is unique, and we approach each one with fresh eyes and clear thinking.
           </p>
           <p className="text-base text-white/70">
-            Ready to take your idea seriously? Let's talk.
+            Ready to take your idea seriously? Let&apos;s talk.
           </p>
         </div>
 

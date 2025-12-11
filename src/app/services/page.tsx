@@ -138,7 +138,7 @@ export default function OurServicesPage() {
                 <h3 className="text-lg font-medium text-white">Web Design</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Custom websites that serve your audience's needs with clarity and performance.
+                  Custom websites that serve your audience&apos;s needs with clarity and performance.
                 </p>
               </div>
             <div className="space-y-3">
@@ -235,10 +235,10 @@ export default function OurServicesPage() {
         {/* Bottom Statement */}
         <div className="text-center space-y-4 pt-8 border-t border-white/10">
           <p className="text-lg sm:text-xl font-light leading-relaxed text-white/90 max-w-2xl mx-auto">
-            We don't believe in one-size-fits-all solutions. Every project is unique, and we approach each one with fresh eyes and clear thinking.
+            We don&apos;t believe in one-size-fits-all solutions. Every project is unique, and we approach each one with fresh eyes and clear thinking.
           </p>
           <p className="text-base text-white/70">
-            Ready to take your idea seriously? Let's talk.
+            Ready to take your idea seriously? Let&apos;s talk.
           </p>
         </div>
 

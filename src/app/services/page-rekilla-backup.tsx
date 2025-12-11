@@ -50,7 +50,6 @@ function BentoCard({
   tier?: Tier;
   showHoverLines?: boolean;
 }) {
-  const isBigTile = className.includes('row-span-2');
 
   return (
     <article
@@ -395,10 +394,10 @@ export default function OurServicesPage() {
         {/* Optional text */}
         <div className="mt-10 sm:mt-12 text-center space-y-2">
           <p className="text-white/80">
-            We don't believe in one-size-fits-all solutions. Every project is unique, and we approach each one with fresh eyes and clear thinking.
+            We don&apos;t believe in one-size-fits-all solutions. Every project is unique, and we approach each one with fresh eyes and clear thinking.
           </p>
           <p className="text-white/80">
-            Ready to take your idea seriously? Let's talk.
+            Ready to take your idea seriously? Let&apos;s talk.
           </p>
         </div>
       </div>

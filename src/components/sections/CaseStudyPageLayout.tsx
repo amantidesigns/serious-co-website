@@ -9,7 +9,7 @@ import { caseStudies } from "@/content/caseStudies";
 interface CaseStudyPageLayoutProps {
   slug: string;
   children?: React.ReactNode;
-  structuredData?: any;
+  structuredData?: Record<string, unknown>;
 }
 
 export default function CaseStudyPageLayout({ 

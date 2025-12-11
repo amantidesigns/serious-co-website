@@ -111,7 +111,7 @@ const ColumnTrack: React.FC<{
         transition: {
           duration,
           repeat: Infinity,
-          ease: "linear",
+          ease: "linear" as const,
         },
       };
 
@@ -124,7 +124,7 @@ const ColumnTrack: React.FC<{
       <motion.div
         className="will-change-transform"
         style={{ display: "flex", flexDirection: "column" }}
-        animate={animate as any}
+        animate={animate}
       >
         {content}
         {contentClone}

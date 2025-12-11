@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, MapPin, Users, DollarSign } from "lucide-react";
 
@@ -43,7 +43,7 @@ export default function AITrainingPage() {
             Learn AI in three days.<br /><em>No technical background&nbsp;required</em>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            A hands-on workshop for professionals who want to stay relevant in an AI-driven world. We'll teach you what matters and skip the rest.
+            A hands-on workshop for professionals who want to stay relevant in an AI-driven world. We&apos;ll teach you what matters and skip the rest.
           </p>
           <div className="flex justify-center pt-2">
             <Badge variant="outline" className="text-white border-white/30 px-4 py-2">
@@ -97,7 +97,7 @@ export default function AITrainingPage() {
         {/* What You'll Learn */}
         <div className="space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-light text-white mb-3">What You'll Learn</h2>
+            <h2 className="text-2xl sm:text-3xl font-light text-white mb-3">What You&apos;ll Learn</h2>
             <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent mx-auto"></div>
           </div>
           
@@ -113,7 +113,7 @@ export default function AITrainingPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-white/80 text-sm">
-                  Understand what AI really is and how it's changing the world around you.
+                  Understand what AI really is and how it&apos;s changing the world around you.
                 </p>
                 <ul className="space-y-2 text-sm text-white/70">
                   <li className="flex items-start space-x-2">
@@ -181,7 +181,7 @@ export default function AITrainingPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-white/80 text-sm">
-                  Apply everything you've learned by creating a real AI-powered project.
+                  Apply everything you&apos;ve learned by creating a real AI-powered project.
                 </p>
                 <ul className="space-y-2 text-sm text-white/70">
                   <li className="flex items-start space-x-2">
@@ -218,7 +218,7 @@ export default function AITrainingPage() {
               <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Designed for Your Generation</h3>
                 <p className="text-white/80 leading-relaxed flex-1">
-                  We understand that technology can feel overwhelming when you're trying to catch up. 
+                  We understand that technology can feel overwhelming when you&apos;re trying to catch up. 
                   This workshop is specifically designed for professionals aged 40-65 who want to stay 
                   relevant without feeling lost in technical jargon.
                 </p>
@@ -227,8 +227,8 @@ export default function AITrainingPage() {
               <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Hands-On Learning</h3>
                 <p className="text-white/80 leading-relaxed flex-1">
-                  No boring lectures or theoretical concepts you'll never use. Every session includes 
-                  practical exercises where you'll actually use AI tools to solve real problems.
+                  No boring lectures or theoretical concepts you&apos;ll never use. Every session includes 
+                  practical exercises where you&apos;ll actually use AI tools to solve real problems.
                 </p>
               </div>
             </div>
@@ -237,7 +237,7 @@ export default function AITrainingPage() {
               <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Small Group Setting</h3>
                 <p className="text-white/80 leading-relaxed flex-1">
-                  Limited to small groups to ensure you get personalized attention. We'll move at 
+                  Limited to small groups to ensure you get personalized attention. We&apos;ll move at 
                   a pace that works for everyone, and no question is too basic.
                 </p>
               </div>
@@ -245,7 +245,7 @@ export default function AITrainingPage() {
               <div className="flex flex-col space-y-4 md:min-h-[180px]">
                 <h3 className="text-xl font-medium text-white">Stay Competitive</h3>
                 <p className="text-white/80 leading-relaxed flex-1">
-                  AI is already changing how we work. Don't get left behind. Learn the skills that 
+                  AI is already changing how we work. Don&apos;t get left behind. Learn the skills that 
                   will keep you valuable and relevant in your career.
                 </p>
               </div>
@@ -256,7 +256,7 @@ export default function AITrainingPage() {
         {/* What You'll Walk Away With */}
         <div className="space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-light text-white mb-3">What You'll Walk Away With</h2>
+            <h2 className="text-2xl sm:text-3xl font-light text-white mb-3">What You&apos;ll Walk Away With</h2>
             <div className="w-24 h-px bg-gradient-to-r from-white/50 to-transparent mx-auto"></div>
           </div>
           
@@ -267,7 +267,7 @@ export default function AITrainingPage() {
               </div>
               <h3 className="text-lg font-medium text-white">Confidence with AI Tools</h3>
               <p className="text-white/70 text-sm">
-                You'll feel comfortable using ChatGPT, Claude, and other AI assistants for both personal and professional tasks.
+                You&apos;ll feel comfortable using ChatGPT, Claude, and other AI assistants for both personal and professional tasks.
               </p>
             </div>
             
@@ -277,7 +277,7 @@ export default function AITrainingPage() {
               </div>
               <h3 className="text-lg font-medium text-white">Advanced Prompting Skills</h3>
               <p className="text-white/70 text-sm">
-                Master the art of writing prompts that get you exactly the results you're looking for.
+                Master the art of writing prompts that get you exactly the results you&apos;re looking for.
               </p>
             </div>
             
@@ -328,7 +328,7 @@ export default function AITrainingPage() {
           <div className="space-y-4">
             <h2 className="text-2xl sm:text-3xl font-light text-white">Ready to Master AI?</h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Don't let the future pass you by. Join us for three days that will change how you think about and use technology.
+              Don&apos;t let the future pass you by. Join us for three days that will change how you think about and use technology.
             </p>
           </div>
           
@@ -385,7 +385,7 @@ export default function AITrainingPage() {
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-xl font-medium text-white">What's Included</h3>
+              <h3 className="text-xl font-medium text-white">What&apos;s Included</h3>
               <ul className="space-y-2 text-white/80">
                 <li className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
