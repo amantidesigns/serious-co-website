@@ -16,7 +16,7 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
         </h2>
         <div className="flex flex-col sm:flex-row gap-3 self-start lg:self-end mt-2 mb-4">
           <p className="text-xs sm:text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 text-left lg:text-right">
-            A Very Serious Company is a modern creative studio built for the AI era.
+            AVSC is a modern creative studio built for the AI era.
           </p>
         </div>
         <div className="flex flex-row max-[400px]:flex-col gap-3 self-start lg:self-end mt-2">
