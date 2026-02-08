@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
@@ -61,8 +62,24 @@ export default async function BlogPostPage({
         ) : null}
       </header>
 
+      {post.coverImage ? (
+        <div className="mb-10 overflow-hidden rounded-2xl border border-border/60 bg-muted/20">
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            width={1200}
+            height={630}
+            priority
+            className="h-auto w-full"
+          />
+        </div>
+      ) : null}
+
       <article className="prose prose-invert max-w-none prose-headings:tracking-tight prose-a:underline-offset-4">
-        <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+        <MDXRemote
+          source={post.content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
       </article>
     </main>
   );
