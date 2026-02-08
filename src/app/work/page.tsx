@@ -46,7 +46,7 @@ export default function OurWorkPage() {
               "@type": "ItemList",
               "name": "Creative Agency Portfolio",
               "description": "Portfolio of web design and brand development projects",
-              "numberOfItems": 7,
+              "numberOfItems": 9,
               "itemListElement": [
                 {
                   "@type": "ListItem",
@@ -74,8 +74,8 @@ export default function OurWorkPage() {
                   "item": {
                     "@type": "CreativeWork",
                     "name": "Zachary Construction Group",
-                    "url": "https://avery-serious-company.com/work",
-                    "description": "Construction company digital presence (Coming Soon)"
+                    "url": "https://avery-serious-company.com/work/zachary-construction-group",
+                    "description": "Complete brand identity and digital ecosystem for a premier general contractor"
                   }
                 },
                 {
@@ -84,8 +84,8 @@ export default function OurWorkPage() {
                   "item": {
                     "@type": "CreativeWork",
                     "name": "Pet Love Cremation & Memorial",
-                    "url": "https://avery-serious-company.com/case-studies",
-                    "description": "Pet memorial services digital platform (Coming Soon)"
+                    "url": "https://avery-serious-company.com/work/pet-love-cremation",
+                    "description": "Compassionate digital platform for pet memorial services"
                   }
                 },
                 {
@@ -94,8 +94,8 @@ export default function OurWorkPage() {
                   "item": {
                     "@type": "CreativeWork",
                     "name": "Beka Wealth Advisors",
-                    "url": "https://avery-serious-company.com/case-studies",
-                    "description": "Financial advisory platform (Coming Soon)"
+                    "url": "https://avery-serious-company.com/work/beka-wealth-advisors",
+                    "description": "Professional financial advisory platform design"
                   }
                 },
                 {
@@ -103,9 +103,9 @@ export default function OurWorkPage() {
                   "position": 6,
                   "item": {
                     "@type": "CreativeWork",
-                    "name": "Strangers Meeting Strangers",
-                    "url": "https://avery-serious-company.com/work",
-                    "description": "Community platform for meaningful connections (Coming Soon)"
+                    "name": "Pacific Life",
+                    "url": "https://avery-serious-company.com/work/pacific-life",
+                    "description": "Insurance presentation design for Pacific Life"
                   }
                 },
                 {
@@ -113,9 +113,29 @@ export default function OurWorkPage() {
                   "position": 7,
                   "item": {
                     "@type": "CreativeWork",
+                    "name": "EY Entrepreneur Of The Year",
+                    "url": "https://avery-serious-company.com/work/weoy",
+                    "description": "Event branding and advertising campaign for EY's global awards program"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 8,
+                  "item": {
+                    "@type": "CreativeWork",
+                    "name": "The Zachary Group",
+                    "url": "https://avery-serious-company.com/work/zachary-group",
+                    "description": "Insurance advisory platform serving multiple industries"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 9,
+                  "item": {
+                    "@type": "CreativeWork",
                     "name": "The Last Paradox",
-                    "url": "https://avery-serious-company.com/case-studies",
-                    "description": "Warner Bros. Music Group artist digital experience (Coming Soon)"
+                    "url": "https://avery-serious-company.com/work/the-last-paradox",
+                    "description": "Warner Bros. Music Group artist digital experience"
                   }
                 }
               ]

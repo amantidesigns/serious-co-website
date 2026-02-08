@@ -50,6 +50,26 @@ export default function CaseStudyPageLayout({
       icon = <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
       </svg>;
+    } else if (item.icon === "adobe") {
+      icon = <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm6.232 0L24 22.624V1.376z"/>
+      </svg>;
+    } else if (item.icon === "microsoft") {
+      icon = <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623z"/>
+      </svg>;
+    } else if (item.icon === "chatgpt") {
+      icon = <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073z"/>
+      </svg>;
+    } else if (item.icon === "canva") {
+      icon = <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 16.892c-2.102.144-6.784.144-8.886 0C5.282 16.736 5.1 14.384 5.1 12c0-2.384.182-4.736 2.455-4.892 2.102-.144 6.784-.144 8.886 0C18.718 7.264 18.9 9.616 18.9 12c0 2.384-.182 4.736-2.459 4.892z"/>
+      </svg>;
+    } else if (item.icon === "squarespace") {
+      icon = <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0z"/>
+      </svg>;
     }
     
     return { ...item, icon };

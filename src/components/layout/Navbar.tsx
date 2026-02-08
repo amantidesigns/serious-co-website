@@ -309,6 +309,7 @@ const Navbar = () => {
   const navigationLinks = [
     { href: "/services", label: "Services" },
     { href: "/work", label: "Work" },
+    { href: "/blog", label: "Blog" },
     { href: "/why-us", label: "Why Us" },
   ];
 
