@@ -96,10 +96,30 @@ You are writing for **A Very Serious Company**, a creative agency that takes sim
 - **Results** - What we delivered
 - **Tech stack** - Tools used (Figma, Webflow, AI, etc.)
 
+#### Blog Posts
+- **Topics** - Design, technology, AI, strategy, process, industry takes
+- **Perspective** - Studio opinions and real experience, not generic advice
+- **Structure** - Open with the point, build with specifics, close with something that sticks
+- **Length** - 500–1,200 words. Enough to say something real. Not so long it becomes a white paper.
+- **Openings** - Start with a claim, observation, or insight. Never "In today's fast-paced world..." or any variation.
+- **Endings** - Tie back to AVSC's philosophy when natural. End on a line that lands. The last sentence should feel intentional.
+- **Humor** - Dry and understated. We're funny because we're honest, not because we're performing.
+- **Hot takes** - Welcome and encouraged. Back them up with reasoning or experience. Opinions without substance are noise.
+- **Self-reference** - Reference our work, process, or studio when it serves the reader. Not self-promotion for its own sake.
+- **Technical content** - Explain clearly. No gatekeeping. If a non-technical reader can't follow, simplify further.
+
 #### About Us Content
 - **Philosophy** - Charlie Munger quote and our interpretation
 - **Approach** - Clear thinking applied consistently
 - **Values** - Taking simple ideas seriously
+
+#### Social Media (Twitter)
+- **Same voice, tighter.** Every word earns its place.
+- **Lead with the idea.** Never "New blog post!" — start with the insight.
+- **Thread format** - 2-3 tweets. Hook, substance, link.
+- **No hashtag spam.** One or two, or none.
+- **No emoji unless it adds meaning.**
+- **Reads like a person sharing something interesting, not a brand broadcasting.**
 
 ### Technical Writing Notes
 
