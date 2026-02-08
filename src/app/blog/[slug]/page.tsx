@@ -1,33 +1,52 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import remarkGfm from "remark-gfm";
-import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
+import BlogPostContent from "./BlogPostContent";
+import { getAllPosts, getPostBySlug } from "@/lib/blog";
 
 export function generateStaticParams() {
-  return getAllPostSlugs().map((slug) => ({ slug }));
+  const posts = getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
-  try {
-    const post = getPostBySlug(slug);
-    return {
-      title: `${post.title} | A Very Serious Company`,
-      description: post.excerpt,
-      openGraph: {
-        title: post.title,
-        description: post.excerpt,
-        type: "article",
-      },
-    };
-  } catch {
-    return { title: "Blog | A Very Serious Company" };
+  const post = getPostBySlug(slug);
+
+  if (!post) {
+    return { title: "Post Not Found - A Very Serious Company" };
   }
+
+  return {
+    title: `${post.title} - A Very Serious Company`,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author.name],
+      tags: post.tags,
+      images: [
+        {
+          url: post.coverImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.coverImage],
+    },
+  };
 }
 
 export default async function BlogPostPage({
@@ -36,51 +55,52 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const post = getPostBySlug(slug);
 
-  let post: ReturnType<typeof getPostBySlug>;
-  try {
-    post = getPostBySlug(slug);
-  } catch {
+  if (!post) {
     notFound();
   }
 
+  // Get related posts (same tags, excluding current post)
+  const allPosts = getAllPosts();
+  const relatedPosts = allPosts
+    .filter(
+      (p) =>
+        p.slug !== post.slug &&
+        p.tags.some((tag) => post.tags.includes(tag))
+    )
+    .slice(0, 3)
+    .map(({ content, ...rest }) => rest);
+
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-16">
-      <header className="mb-10">
-        <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-          <time dateTime={post.date}>{post.date}</time>
-          <span aria-hidden>•</span>
-          <span>{post.readingMinutes} min read</span>
-        </div>
-        <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight">
-          {post.title}
-        </h1>
-        {post.excerpt ? (
-          <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            {post.excerpt}
-          </p>
-        ) : null}
-      </header>
+    <ContentPageLayout centerTitle={false}>
+      <BlogPostContent post={post} relatedPosts={relatedPosts} />
 
-      {post.coverImage ? (
-        <div className="mb-10 overflow-hidden rounded-2xl border border-border/60 bg-muted/20">
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            width={1200}
-            height={630}
-            priority
-            className="h-auto w-full"
-          />
-        </div>
-      ) : null}
-
-      <article className="prose prose-invert max-w-none prose-headings:tracking-tight prose-a:underline-offset-4">
-        <MDXRemote
-          source={post.content}
-          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-        />
-      </article>
-    </main>
+      {/* Article structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.date,
+            author: {
+              "@type": "Organization",
+              name: post.author.name,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "A Very Serious Company",
+              url: "https://averyseriouscompany.com",
+            },
+            image: post.coverImage,
+            url: `https://averyseriouscompany.com/blog/${post.slug}`,
+            keywords: post.tags.join(", "),
+          }),
+        }}
+      />
+    </ContentPageLayout>
   );
 }

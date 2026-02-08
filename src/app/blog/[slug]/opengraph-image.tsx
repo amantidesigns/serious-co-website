@@ -13,6 +13,10 @@ export default async function OpenGraphImage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
+  const title = post?.title ?? "Blog Post";
+  const excerpt = post?.excerpt ?? "";
+  const date = post?.date ?? "";
+
   return new ImageResponse(
     (
       <div
@@ -52,16 +56,16 @@ export default async function OpenGraphImage({
               lineHeight: 1.06,
             }}
           >
-            {post.title}
+            {title}
           </div>
           <div style={{ fontSize: 24, opacity: 0.8, maxWidth: 980 }}>
-            {post.excerpt}
+            {excerpt}
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 20, opacity: 0.7 }}>
           <div>veryseriouscompany.com</div>
-          <div>{post.date}</div>
+          <div>{date}</div>
         </div>
       </div>
     ),

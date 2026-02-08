@@ -1,63 +1,79 @@
-import Link from "next/link";
-import { getAllPosts } from "@/lib/blog";
+import type { Metadata } from "next";
+import ContentPageLayout from "@/components/layout/ContentPageLayout";
+import BlogClient from "./BlogClient";
+import { getAllPosts, getAllTags } from "@/lib/blog";
 
-export const metadata = {
-  title: "Blog | A Very Serious Company",
-  description: "Notes on design, websites, and clear thinking applied consistently.",
+export const metadata: Metadata = {
+  title: "Blog - A Very Serious Company",
+  description:
+    "Thoughts on design, technology, and craft. Weekly perspectives from the studio on what we're building, how we think, and why simplicity always wins.",
+  openGraph: {
+    title: "Blog - A Very Serious Company",
+    description:
+      "Thoughts on design, technology, and craft. Weekly perspectives from the studio on what we're building, how we think, and why simplicity always wins.",
+    images: [
+      {
+        url: "/a-very-serious-company.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "A Very Serious Company - Blog",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - A Very Serious Company",
+    description:
+      "Thoughts on design, technology, and craft. Weekly perspectives from the studio.",
+    images: ["/a-very-serious-company.jpeg"],
+  },
 };
 
-export default function BlogIndexPage() {
+export default function BlogPage() {
   const posts = getAllPosts();
+  const tags = getAllTags();
+
+  // Strip content from posts for the client component (no need to send full markdown)
+  const postsWithoutContent = posts.map(({ content, ...rest }) => rest);
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-6 py-16">
-      <header className="mb-10">
-        <h1 className="text-balance text-4xl font-semibold tracking-tight">
-          Blog
-        </h1>
-        <p className="mt-3 max-w-2xl text-pretty text-base text-muted-foreground">
-          Clear thinking applied consistently. No fluff.
-        </p>
-      </header>
+    <ContentPageLayout>
+      <BlogClient
+        posts={postsWithoutContent as Parameters<typeof BlogClient>[0]["posts"]}
+        tags={tags}
+      />
 
-      <div className="space-y-6">
-        {posts.map((post) => (
-          <article
-            key={post.slug}
-            className="rounded-2xl border border-border/60 bg-background/40 p-6 backdrop-blur"
-          >
-            <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-              <time dateTime={post.date}>{post.date}</time>
-              <span aria-hidden>•</span>
-              <span>{post.readingMinutes} min read</span>
-            </div>
-
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight">
-              <Link
-                href={`/blog/${post.slug}`}
-                className="hover:underline underline-offset-4"
-              >
-                {post.title}
-              </Link>
-            </h2>
-
-            {post.excerpt ? (
-              <p className="mt-3 text-pretty text-base text-muted-foreground">
-                {post.excerpt}
-              </p>
-            ) : null}
-
-            <div className="mt-4">
-              <Link
-                href={`/blog/${post.slug}`}
-                className="text-sm font-medium hover:underline underline-offset-4"
-              >
-                Read →
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
-    </main>
+      {/* Blog structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            name: "A Very Serious Company Blog",
+            description:
+              "Thoughts on design, technology, and craft from A Very Serious Company.",
+            url: "https://averyseriouscompany.com/blog",
+            publisher: {
+              "@type": "Organization",
+              name: "A Very Serious Company",
+              url: "https://averyseriouscompany.com",
+            },
+            blogPost: posts.map((post) => ({
+              "@type": "BlogPosting",
+              headline: post.title,
+              description: post.excerpt,
+              datePublished: post.date,
+              author: {
+                "@type": "Organization",
+                name: post.author.name,
+              },
+              url: `https://averyseriouscompany.com/blog/${post.slug}`,
+            })),
+          }),
+        }}
+      />
+    </ContentPageLayout>
   );
 }
