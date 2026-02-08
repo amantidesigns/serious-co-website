@@ -59,7 +59,7 @@ author:
 - `AI`
 - `Technology`
 
-When you need a new tag, use **title case** and keep it to one or two words. The tag filter on the blog page auto-populates from whatever tags exist across all posts.
+When you need a new tag, use **title case** and keep it to one or two words. The tag filter on the blog page auto-populates from whatever tags exist across all posts. Tags are clickable in both the blog listing page (filters posts and updates URL) and individual post pages (navigates to `/blog?tag=...` with the filter applied).
 
 ---
 
@@ -70,9 +70,17 @@ When you need a new tag, use **title case** and keep it to one or two words. The
 1. **`src/lib/blog.ts`** reads all `.md`/`.mdx` files from `content/blog/`.
 2. It parses frontmatter with `gray-matter` and calculates reading time (~238 words/min).
 3. Posts are sorted by `date` descending (newest first).
-4. The listing page (`/blog`) renders cards with excerpt, tags, cover image, and reading time.
-5. Individual post pages (`/blog/[slug]`) render full Markdown content via `react-markdown` with GitHub Flavored Markdown, raw HTML support, and auto-generated heading slugs.
-6. **OpenGraph images are generated automatically** for every post — title, tags, date, and reading time are rendered onto a branded blue card. No manual OG image creation needed.
+4. The listing page (`/blog`) renders:
+   - A hero section with title and description
+   - Pill-shaped tag filter buttons (auto-populated from all post tags)
+   - Featured posts section (if any posts have `featured: true`)
+   - Grid of all posts with excerpt, tags, cover image, date, and reading time
+5. Individual post pages (`/blog/[slug]`) render:
+   - Full Markdown content via `react-markdown` with GitHub Flavored Markdown, raw HTML support, and auto-generated heading slugs
+   - Clickable tags in the header and footer (links to `/blog?tag=...`)
+   - Related posts section at the bottom (shows up to 3 posts with matching tags)
+   - Back navigation to blog listing
+6. **OpenGraph images are generated automatically** for every post — title, excerpt, date, and AVSC branding are rendered onto a dark gradient card. No manual OG image creation needed.
 
 ### What Happens at Deploy
 
@@ -82,7 +90,32 @@ When you need a new tag, use **title case** and keep it to one or two words. The
 
 ### Featured Posts
 
-Posts with `featured: true` appear in a larger hero section at the top of `/blog`. Keep this to 1-2 posts. When you publish a new featured post, consider setting older featured posts back to `featured: false`.
+Posts with `featured: true` appear in a dedicated "Featured" section at the top of `/blog` with a Sparkles icon. Featured posts display in a larger card format (1-2 columns depending on count) with:
+- A "Featured" badge overlay on the cover image
+- Larger title and excerpt
+- Full tag display
+- Date and reading time
+
+**Important:** Featured posts are hidden when a tag filter is active. Keep featured posts to 1-2 at a time. When you publish a new featured post, consider setting older featured posts back to `featured: false`.
+
+### Tag Filtering
+
+The blog listing page includes a pill-shaped tag filter at the top:
+- "All Posts" button to clear filters
+- One button per unique tag across all posts
+- Clicking a tag filters posts and updates the URL (e.g., `/blog?tag=Design`)
+- Filtered posts exclude featured posts from display
+- Tag links in individual post pages use `/blog?tag=...` format and work correctly — clicking a tag from a post page navigates to the blog listing with that tag filter applied
+- Browser back/forward buttons work with tag filters
+- Invalid tags in the URL are automatically cleared
+
+### Related Posts
+
+Individual post pages automatically show a "More from the blog" section at the bottom with up to 3 related posts. Related posts are determined by:
+- Posts that share at least one tag with the current post
+- Excludes the current post itself
+- Sorted by date (newest first)
+- Displays cover image, title, tags, date, and reading time
 
 ---
 
@@ -114,12 +147,95 @@ One paragraph that states the point. No throat-clearing.
 
 Each section covers one idea. Use `##` for main headings, `###` for sub-sections.
 
-### Supported Markdown Features
+### Supported Markdown Features (USE THESE!)
 
-- **Bold** and *italic* text
+**CRITICAL: Write in RICH MARKDOWN, NOT PLAIN TEXT**
+
+The blog system uses `react-markdown` with GitHub Flavored Markdown. You MUST write in rich markdown formatting throughout your posts. **Do NOT write plain text** — always use markdown formatting features to make your posts visually engaging and easy to read.
+
+**Every post MUST include:**
+
+1. **Bold statements in body paragraphs** (`**The tool:**`, `**The key insight:**`, `**The point:**`) — Use these to emphasize important information in body text, not just in lists
+2. **Bold items in lists** (`- **Item text.** Explanation here.`) — Always bold the key point in each list item
+3. **Sub-headers** (`###`) — Use `###` sub-headers to break up sections, not just `##` main headers
+4. **Tables** — Use markdown tables when comparing items, tools, or showing data
+5. **Bold text** (`**text**`) — Use for emphasis, key points, and important statements throughout
+6. *Italic text* (`*text*`) — Use for subtle emphasis and quotes
+7. > Blockquotes — Use for quotes, callouts, or important statements
+8. `inline code` — For technical terms, tool names, or code references
+
+**Examples of RICH MARKDOWN (DO THIS):**
+
+```markdown
+## What AI Does Well
+
+### 1. Research & Discovery
+
+Before AI, the discovery phase of a project could take a week.
+
+**The tool:** Claude and ChatGPT for research synthesis. We feed them specific frameworks and get structured outputs that we then challenge and refine.
+
+### 2. First Drafts & Ideation
+
+The blank page is dead. Not because AI writes our copy (it doesn't), but because it gives us something to react to.
+
+**The key insight:** AI is an ideation partner, not a replacement for creative direction.
+
+## Our Actual Tech Stack
+
+Here's what we use daily, no affiliate links:
+
+| Tool | Use Case | Impact |
+|------|----------|--------|
+| **Cursor** | Code development | 40% faster shipping |
+| **Claude** | Research & writing | Better first drafts |
+
+- **Decisions get faster.** No more three-day email chains about button colors.
+- **Quality goes up.** Energy goes into craft, not consensus.
+- **Timelines shrink.** Not because you rush, but because you don't waste.
+
+> "Simplicity is the ultimate sophistication." — Leonardo da Vinci
+```
+
+**DO NOT write PLAIN TEXT like this (BAD):**
+```markdown
+## A tool that lives in the work
+
+We run an agent called Open Claw.
+
+It's not a novelty.
+
+It's an execution layer.
+
+It sits in the background and does what operators do:
+
+- watches for changes
+- turns messages into actions
+- follows up when something is waiting on you
+- keeps the machine moving
+```
+
+**DO write RICH MARKDOWN like this (GOOD):**
+```markdown
+## A Tool That Lives in the Work
+
+We run an agent called **Open Claw**.
+
+**The point:** It's not a novelty. It's an execution layer.
+
+It sits in the background and does what operators do:
+
+- **Watches for changes** and signals in the workflow
+- **Turns messages into actions** automatically
+- **Follows up** when something is waiting on you
+- **Keeps the machine moving** without your constant attention
+
+**The interface is just chat. The job is not.**
+```
+
+**Other supported features:**
 - Bullet lists and numbered lists
 - `inline code` and code blocks with syntax highlighting
-- > Blockquotes
 - [Links](https://example.com)
 - Tables (GitHub Flavored Markdown)
 - Images: `![Alt text](/path/to/image.jpg)`
@@ -192,11 +308,69 @@ Here's the short version for blog writing:
 - **Hot takes:** Welcome. But back them up. Opinions without reasoning are just noise.
 - **Self-reference:** It's fine to reference AVSC, our process, our work. Keep it in service of the reader's interest, not self-promotion.
 
+### Formatting Examples from Existing Posts
+
+Study these examples from `ai-workflows-creative-teams.md` and `simple-ideas-seriously.md`:
+
+**Bold emphasis in lists:**
+```markdown
+- **Decisions get faster.** No more three-day email chains about button colors.
+- **Quality goes up.** Energy goes into craft, not consensus.
+- **Timelines shrink.** Not because you rush, but because you don't waste.
+```
+
+**Bold for key statements:**
+```markdown
+Our rule is simple: **AI handles the mechanical. Humans handle the meaningful.**
+```
+
+**Italic for emphasis:**
+```markdown
+Not simple as in easy. Simple as in clear.
+```
+
+**Blockquotes:**
+```markdown
+> "Simplicity is the ultimate sophistication." — Leonardo da Vinci
+```
+
+**Tables:**
+```markdown
+| Tool | Use Case | Impact |
+|------|----------|--------|
+| **Cursor** | Code development | 40% faster shipping |
+| **Claude** | Research & writing | Better first drafts |
+```
+
+**Headers with sub-sections:**
+```markdown
+## What AI Does Well
+
+### 1. Research & Discovery
+
+Before AI, the discovery phase...
+```
+
+**CRITICAL: Write in RICH MARKDOWN, NOT PLAIN TEXT**
+
+Your posts should look like `ai-workflows-creative-teams.md` and `simple-ideas-seriously.md` — these use rich markdown formatting with bold statements in body paragraphs, tables, sub-headers (`###`), and bold in lists. 
+
+**DO NOT write plain text like `open-claw-operator.md`** — that post looks choppy and unformatted because it doesn't use rich markdown features. Always use bold, sub-headers, tables, and proper formatting throughout your posts.
+
 ### Quality Checklist Before Publishing
 
 - [ ] Does the title make someone want to read this?
 - [ ] Is the excerpt clear and compelling in under 160 characters?
 - [ ] Does the opening paragraph deliver value in the first two sentences?
+- [ ] **Have you used bold statements in body paragraphs** (like `**The tool:**`, `**The key insight:**`, `**The problem:**`)?
+- [ ] **Have you used tables when comparing items, tools, or showing data?**
+- [ ] **Have you used multiple `###` sub-headers to break up sections?**
+- [ ] **Have you used bold formatting (`**text**`) for emphasis throughout body text, not just in lists?**
+- [ ] **Have you used italic formatting (`*text*`) where appropriate?**
+- [ ] **Are list items formatted with bold for key points?**
+- [ ] **Do you have proper header hierarchy (`##` and `###`)?**
+- [ ] **Have you used blockquotes for quotes or callouts?**
+- [ ] **Does your formatting match the richness of `ai-workflows-creative-teams.md`?**
 - [ ] Zero buzzwords?
 - [ ] Would you actually send this to a smart friend?
 - [ ] Does it match the AVSC brand guide at `docs/misc/AVERY_SERIOUS_COMPANY_CURSOR_PROMPT.md`?
@@ -255,6 +429,8 @@ After publishing a blog post, create a Twitter thread to promote it. Here's the 
 - Include the blog post URL: `https://avery-serious-company.com/blog/[slug]`
 - The OG image will auto-populate — no need to attach an image manually.
 
+**Note:** The OG image is generated at `/blog/[slug]/opengraph-image` and includes the post title, excerpt, date, and AVSC branding. It's automatically used when sharing the link on social platforms.
+
 ### Twitter Voice (same as blog, but tighter)
 
 - Even more direct. Every word counts.
@@ -283,17 +459,18 @@ After publishing a blog post, create a Twitter thread to promote it. Here's the 
 > **Tweet 3:**
 > We wrote about why we think the best creative process is no process at all.
 >
-> avery-serious-company.com/blog/simple-ideas-seriously
+> https://avery-serious-company.com/blog/simple-ideas-seriously
 
 ### OG Image Preview
 
-Every blog post auto-generates an OpenGraph image that shows:
-- The post title
-- Tags as pill badges
-- Date and reading time
-- AVSC branding
+Every blog post auto-generates an OpenGraph image at `/blog/[slug]/opengraph-image` that shows:
+- The post title (large, bold, ~56px)
+- The post excerpt (smaller, ~24px)
+- The publication date (bottom right)
+- AVSC branding (green dot indicator and "A Very Serious Company" text at top)
+- Domain name at bottom left ("veryseriouscompany.com")
 
-This image is pulled automatically by Twitter when you share the link. No manual image attachment needed for the link tweet.
+**Note:** The OG image does NOT show tags or reading time — only title, excerpt, formatted date (e.g., "February 7, 2026"), and branding. The domain shown is `avery-serious-company.com`. The image uses a dark gradient background (`#05060a` to `#0b1020`) with white text. This image is pulled automatically by Twitter, Facebook, and other social platforms when you share the link. No manual image attachment needed for the link tweet.
 
 ---
 
@@ -310,6 +487,7 @@ This image is pulled automatically by Twitter when you share the link. No manual
 | OG image generator | `src/app/blog/[slug]/opengraph-image.tsx` |
 | Blog client component | `src/app/blog/BlogClient.tsx` |
 | Post content renderer | `src/app/blog/[slug]/BlogPostContent.tsx` |
+| Layout component | `src/components/layout/ContentPageLayout.tsx` |
 | Brand voice guide | `docs/misc/AVERY_SERIOUS_COMPANY_CURSOR_PROMPT.md` |
 | Site URL | `https://avery-serious-company.com` |
 | Blog URL | `https://avery-serious-company.com/blog` |
