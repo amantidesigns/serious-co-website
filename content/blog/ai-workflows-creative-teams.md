@@ -4,7 +4,7 @@ date: "2026-01-27"
 excerpt: "We've tested dozens of AI tools in production creative work. Here's what stuck, what didn't, and how we build AI into our daily workflow without losing the human touch."
 tags: ["AI", "Technology", "Process"]
 featured: true
-coverImage: "/a-very-serious-company.jpeg"
+coverImage: "/blog/ai-workflows-creative-teams.png"
 author:
   name: "AVSC Team"
   role: "Creative Studio"

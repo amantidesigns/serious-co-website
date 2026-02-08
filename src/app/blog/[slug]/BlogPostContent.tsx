@@ -118,7 +118,7 @@ export default function BlogPostContent({
 
       {/* Cover Image */}
       <motion.div
-        className="relative aspect-[2.2/1] rounded-2xl overflow-hidden mb-16 border border-white/10"
+        className="relative aspect-[1.91/1] rounded-2xl overflow-hidden mb-16 border border-white/10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}

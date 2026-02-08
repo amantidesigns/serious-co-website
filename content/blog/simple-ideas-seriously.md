@@ -4,7 +4,7 @@ date: "2026-02-03"
 excerpt: "Why the best creative work starts with the simplest brief. A look at how we approach projects differently — and why clarity beats complexity every time."
 tags: ["Design", "Process", "Strategy"]
 featured: true
-coverImage: "/a-very-serious-company.jpeg"
+coverImage: "/blog/simple-ideas-seriously.png"
 author:
   name: "AVSC Team"
   role: "Creative Studio"
