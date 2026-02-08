@@ -25,7 +25,7 @@ export function getAllPostSlugs(): string[] {
   assertContentDirExists();
   return fs
     .readdirSync(CONTENT_DIR)
-    .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
+    .filter((f) => (f.endsWith(".md") || f.endsWith(".mdx")) && f !== "README.md")
     .map((f) => f.replace(/\.(md|mdx)$/, ""));
 }
 
