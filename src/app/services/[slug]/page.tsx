@@ -58,9 +58,6 @@ export default async function ServicePage({
             <p className="text-xs sm:text-sm font-medium tracking-widest uppercase text-white/60 mb-4">
               Service
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light leading-tight text-white mb-4">
-              {service.title}
-            </h1>
             <p className="text-xl sm:text-2xl text-white/70 font-light">
               {service.shortDescription}
             </p>

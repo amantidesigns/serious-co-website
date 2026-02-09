@@ -9,6 +9,7 @@ import {
   BarChart,
   BookOpen,
   Brain,
+  ChevronDown,
   ChevronRight,
   Cloud,
   Code,
@@ -366,12 +367,17 @@ const Navbar = () => {
               <NavigationMenuList className="hidden lg:flex gap-3">
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
-                    className="group !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent data-[state=open]:!bg-transparent px-3 py-2 text-lg lg:text-xl font-medium tracking-tight text-white data-[state=open]:text-white flex items-center gap-1 !shadow-none !border-0 !rounded-none h-auto appearance-none focus-visible:ring-0 focus-visible:outline-none"
+                    className="group !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent data-[state=open]:!bg-transparent px-3 py-2 text-lg lg:text-xl font-medium tracking-tight text-white data-[state=open]:text-white flex items-center gap-1 !shadow-none !border-0 !rounded-none h-auto appearance-none focus-visible:ring-0 focus-visible:outline-none [&>svg]:hidden"
                   >
-                    <Asterisk className="size-4 animate-fade-in brightness-150 transition-all duration-300 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] group-hover:brightness-200" />
-                    <span className="transition-all duration-300 text-white">Services</span>
+                    <span className="flex flex-col items-center gap-1 leading-none">
+                      <Asterisk className="size-4 animate-fade-in brightness-150 transition-all duration-300 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] group-hover:brightness-200" />
+                      <span className="inline-flex items-center gap-1 text-white">
+                        <span className="transition-all duration-300 text-white">Services</span>
+                        <ChevronDown className="size-3 transition duration-300 group-data-[state=open]:rotate-180" />
+                      </span>
+                    </span>
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="w-[360px] md:w-[420px] bg-[#0B3D91]/95 border border-white/10 rounded-xl p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] md:left-0 md:right-auto">
+                  <NavigationMenuContent className="w-[360px] md:w-[420px] !bg-[#0B3D91]/95 !text-white border border-white/10 rounded-xl p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] md:left-0 md:right-auto">
                     <div className="grid gap-3">
                       {serviceLinks.map((service) => (
                         <NavigationMenuLink key={service.href} asChild>
