@@ -351,7 +351,7 @@ const Navbar = () => {
         }}
       >
         <div ref={navRef} className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 h-16">
-          <NavigationMenu className="min-w-full">
+          <NavigationMenu className="min-w-full" viewport={false}>
             <div className="flex w-full items-center justify-between gap-4 py-4">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-1 whitespace-nowrap hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group text-white">
@@ -371,7 +371,7 @@ const Navbar = () => {
                     <Asterisk className="size-4 animate-fade-in brightness-150 transition-all duration-300 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] group-hover:brightness-200" />
                     <span className="transition-all duration-300 text-white">Services</span>
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="w-[360px] md:w-[420px] bg-[#0B3D91]/95 border border-white/10 rounded-xl p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+                  <NavigationMenuContent className="w-[360px] md:w-[420px] bg-[#0B3D91]/95 border border-white/10 rounded-xl p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] md:left-0 md:right-auto">
                     <div className="grid gap-3">
                       {serviceLinks.map((service) => (
                         <NavigationMenuLink key={service.href} asChild>
