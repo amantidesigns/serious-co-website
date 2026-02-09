@@ -366,7 +366,7 @@ const Navbar = () => {
               <NavigationMenuList className="hidden lg:flex gap-3">
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
-                    className="group bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent px-3 py-2 text-lg lg:text-xl font-medium tracking-tight text-white data-[state=open]:bg-transparent data-[state=open]:text-white flex items-center gap-1"
+                    className="group !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent data-[state=open]:!bg-transparent px-3 py-2 text-lg lg:text-xl font-medium tracking-tight text-white data-[state=open]:text-white flex items-center gap-1 !shadow-none !border-0 !rounded-none h-auto appearance-none focus-visible:ring-0 focus-visible:outline-none"
                   >
                     <Asterisk className="size-4 animate-fade-in brightness-150 transition-all duration-300 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] group-hover:brightness-200" />
                     <span className="transition-all duration-300 text-white">Services</span>
