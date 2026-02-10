@@ -331,7 +331,7 @@ const Navbar = () => {
           delay: isScrolled ? 0 : 0.8
         }}
       >
-        <div ref={navRef} className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 h-16">
+        <div ref={navRef} className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 2xl:px-40 h-16">
           <NavigationMenu className="min-w-full">
             <div className="flex w-full items-center justify-between gap-4 py-4">
               {/* Logo */}

@@ -12,7 +12,7 @@ const HomePageLayout = () => {
       <ShootingStarBackground numberOfStars={100} />
 
 
-      <div className="relative z-20 max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[1fr_auto] grid-areas-[title_footer]">
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 2xl:px-40 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[1fr_auto] grid-areas-[title_footer]">
         {/* Title Area */}
         <motion.div
           className="grid-area-title flex items-center z-10 lg:max-w-2xl w-full lg:w-auto -mt-32 lg:mt-0"

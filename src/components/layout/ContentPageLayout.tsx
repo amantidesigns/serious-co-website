@@ -23,7 +23,7 @@ export default function ContentPageLayout({
     <section className={`overflow-hidden bg-[#0B3D91]`} style={{ backgroundColor: 'var(--brand-blue, #0B3D91)' }}>
       <ShootingStarBackground numberOfStars={60} />
 
-      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[auto_1fr_auto]">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 2xl:px-40 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[auto_1fr_auto]">
 
         {title && (
           <motion.h1

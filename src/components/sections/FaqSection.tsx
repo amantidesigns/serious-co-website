@@ -5,7 +5,7 @@ import PageFooter from "../layout/PageFooter";
 export default function FAQs() {
   return (
     <section className="pb-0 bg-[#0B3D91]">
-      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 min-h-screen pt-[var(--nav-h,64px)]">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 2xl:px-40 min-h-screen pt-[var(--nav-h,64px)]">
         {/* Background stars layer */}
         <div
           className="fixed inset-0 w-screen h-screen pointer-events-none select-none z-0"

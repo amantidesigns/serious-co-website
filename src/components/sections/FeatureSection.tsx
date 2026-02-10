@@ -31,7 +31,7 @@ const DATA = [
 
 const FeatureSection = () => {
   return (
-    <section className="py-16 max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 bg-[#0B3D91] text-white">
+    <section className="py-16 max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 2xl:px-40 bg-[#0B3D91] text-white">
       <div className="border-y border-white/20">
         <div className="container flex flex-col gap-8 border-x max-lg:border-x px-6 lg:px-10 py-4 border-white/20">
           <h1 className="text-4xl leading-tight tracking-tight font-extralight md:text-5xl lg:text-6xl">
