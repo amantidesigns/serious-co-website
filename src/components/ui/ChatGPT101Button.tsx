@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
 
-interface ChatGPTForSeniorsButtonProps {
+interface ChatGPT101ButtonProps {
   className?: string;
   variant?: 'floating-top-right' | 'section-bottom-right';
 }
 
-export default function ChatGPTForSeniorsButton({ 
+export default function ChatGPT101Button({ 
   className = "", 
   variant = 'floating-top-right' 
-}: ChatGPTForSeniorsButtonProps) {
+}: ChatGPT101ButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const isFloating = variant === 'floating-top-right';
 
@@ -34,7 +34,7 @@ export default function ChatGPTForSeniorsButton({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href="/chatgpt-for-seniors">
+      <Link href="/chatgpt-101">
         <div className="relative">
           {/* Main Button */}
           <motion.div
@@ -91,8 +91,8 @@ export default function ChatGPTForSeniorsButton({
                 <Sparkles className="w-4 h-4 flex-shrink-0" />
               </motion.div>
               <span className="text-xs sm:text-sm font-medium tracking-normal whitespace-nowrap">
-                <span className="hidden sm:inline">ChatGPT for Seniors Workshop</span>
-                <span className="sm:hidden">Seniors Workshop</span>
+                <span className="hidden sm:inline">ChatGPT 101 Workshop</span>
+                <span className="sm:hidden">ChatGPT 101</span>
               </span>
               <motion.div
                 animate={{ x: isHovered ? 4 : 0 }}
@@ -151,10 +151,10 @@ export default function ChatGPTForSeniorsButton({
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="text-sm font-medium text-white mb-1.5 leading-tight">
-                          Empowering The Golden Generation
+                          ChatGPT 101 Workshop
                         </h3>
                         <p className="text-xs text-white/70 leading-relaxed">
-                          A specialized 1-day workshop teaching seniors how to use ChatGPT for connection, entertainment, and daily assistance.
+                          Hands-on training that teaches practical ChatGPT workflows, clear prompts, and responsible use.
                         </p>
                       </div>
                     </div>
@@ -166,7 +166,7 @@ export default function ChatGPTForSeniorsButton({
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                        <span className="text-xs text-white/60 font-light">No tech experience required</span>
+                        <span className="text-xs text-white/60 font-light">Beginner friendly</span>
                       </div>
                       <motion.div
                         className="flex items-center gap-1.5 text-xs font-medium text-white/90"

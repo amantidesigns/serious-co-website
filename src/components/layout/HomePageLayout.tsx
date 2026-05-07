@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ShootingStarBackground from "../blocks/ShootingStarBackground";
 import PageFooter from "./PageFooter";
-import ChatGPTForSeniorsButton from "../ui/ChatGPTForSeniorsButton";
+import ChatGPT101Button from "../ui/ChatGPT101Button";
 
 const HomePageLayout = () => {
   return (
@@ -65,7 +65,7 @@ const HomePageLayout = () => {
             delay: 1.4
           }}
         >
-          <ChatGPTForSeniorsButton variant="floating-top-right" />
+          <ChatGPT101Button variant="floating-top-right" />
         </motion.div>
       </div>
     </section>

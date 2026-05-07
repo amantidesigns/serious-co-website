@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ChatGPT101RedirectLayout({
+export default function ChatGPT101Layout({
   children,
 }: {
   children: React.ReactNode;

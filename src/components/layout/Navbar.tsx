@@ -9,6 +9,7 @@ import {
   BarChart,
   BookOpen,
   Brain,
+  ChevronDown,
   ChevronRight,
   Cloud,
   Code,
@@ -34,8 +35,10 @@ import { useState, useEffect, useRef } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
+  NavigationMenuContent,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { HamburgerIcon } from "@/components/ui/hamburger-icon";
 
@@ -306,8 +309,25 @@ const Navbar = () => {
     }, 500); // Match the CSS animation duration (0.5s)
   };
 
+  const serviceLinks = [
+    {
+      href: "/services/creative-marketing",
+      label: "Creative Marketing",
+      description: "Campaigns, landing pages, and ad systems that convert.",
+    },
+    {
+      href: "/services/web-development",
+      label: "Web Development",
+      description: "High-performance sites built to scale and iterate fast.",
+    },
+    {
+      href: "/services/ai-concierge",
+      label: "AI Concierge",
+      description: "Custom AI workflows, automations, and enablement.",
+    },
+  ];
+
   const navigationLinks = [
-    { href: "/services", label: "Services" },
     { href: "/work", label: "Work" },
     { href: "/blog", label: "Blog" },
     { href: "/why-us", label: "Why Us" },
@@ -332,7 +352,7 @@ const Navbar = () => {
         }}
       >
         <div ref={navRef} className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 h-16">
-          <NavigationMenu className="min-w-full">
+          <NavigationMenu className="min-w-full" viewport={false}>
             <div className="flex w-full items-center justify-between gap-4 py-4">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-1 whitespace-nowrap hover:no-underline focus:bg-transparent focus:no-underline active:bg-transparent active:no-underline group text-white">
@@ -345,6 +365,54 @@ const Navbar = () => {
 
               {/* Desktop Navigation */}
               <NavigationMenuList className="hidden lg:flex gap-3">
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className="group !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent data-[state=open]:!bg-transparent px-3 py-2 text-lg lg:text-xl font-medium tracking-tight text-white data-[state=open]:text-white flex flex-col items-center gap-1 !shadow-none !border-0 !rounded-none h-auto appearance-none focus-visible:ring-0 focus-visible:outline-none [&>svg]:hidden"
+                  >
+                    <Asterisk className="size-4 animate-fade-in brightness-150 transition-all duration-300 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] group-hover:brightness-200" />
+                    <span className="inline-flex items-center gap-1 text-white">
+                      <span className="transition-all duration-300 text-white">Services</span>
+                      <ChevronDown className="size-3 transition duration-300 group-data-[state=open]:rotate-180" />
+                    </span>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent
+                    className="w-[360px] md:w-[420px] text-white border border-white/10 rounded-xl p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] md:left-0 md:right-auto"
+                    style={{ backgroundColor: "rgba(11, 61, 145, 0.95)" }}
+                  >
+                    <div className="grid gap-3">
+                      {serviceLinks.map((service) => (
+                        <NavigationMenuLink key={service.href} asChild>
+                          <a
+                            href={service.href}
+                            className="group rounded-lg border border-white/10 bg-white/5 p-3 transition-all duration-300 hover:border-white/30 hover:bg-white/10 focus:outline-none"
+                          >
+                            <div className="flex items-start gap-3">
+                              <div className="mt-1 flex size-7 items-center justify-center rounded-md bg-white/10 text-white/70 group-hover:text-white">
+                                <Asterisk className="size-3" />
+                              </div>
+                              <div className="space-y-1">
+                                <p className="text-sm font-medium text-white">
+                                  {service.label}
+                                </p>
+                                <p className="text-xs text-white/60">
+                                  {service.description}
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                    <div className="mt-3">
+                      <a
+                        href="/services"
+                        className="inline-flex items-center gap-1 text-xs font-medium uppercase tracking-widest text-white/70 hover:text-white transition-colors"
+                      >
+                        View all services →
+                      </a>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
                 {navigationLinks.map((link, index) => (
                   <NavigationMenuItem key={link.href}>
                     <NavigationMenuLink asChild>
@@ -488,6 +556,46 @@ const Navbar = () => {
 
           <div className="px-6 py-8 h-full flex flex-col relative z-10">
             {/* Typography-Focused Navigation Links */}
+            <div className="mb-6">
+              <p className="px-6 text-xs uppercase tracking-[0.3em] text-white/40">
+                Services
+              </p>
+              <div className="mt-3 space-y-1">
+                {serviceLinks.map((service, index) => (
+                  <a
+                    key={service.href}
+                    href={service.href}
+                    onClick={handleLinkClick}
+                    className="block group animate-link-cascade focus:outline-none focus:ring-0"
+                    style={{
+                      animationDelay: `${index * 0.06}s`,
+                      animationFillMode: "both",
+                    }}
+                  >
+                    <div className="relative py-4 px-6 transition-all duration-700 ease-out group-hover:translate-x-2">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 pt-1">
+                          <Asterisk
+                            className="w-6 h-6 text-white/60 group-hover:text-white group-hover:animate-pulse transition-all duration-500"
+                            style={{ filter: "drop-shadow(0 0 8px rgba(255,255,255,0.8))" }}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <span className="block text-xl sm:text-2xl font-light tracking-wide text-white group-hover:text-white/95 transition-all duration-500 leading-tight">
+                            {service.label}
+                          </span>
+                          <span className="block text-xs sm:text-sm text-white/50 mt-1">
+                            {service.description}
+                          </span>
+                          <div className="h-px w-0 bg-gradient-to-r from-white via-white/80 to-transparent group-hover:w-full transition-all duration-1000 ease-out mt-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
             <nav className="flex-1 space-y-1">
               {navigationLinks.map((link, index) => (
                 <a
