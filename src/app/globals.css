@@ -460,6 +460,13 @@
   /* Brand */
   --theme-color: #0B3D91;
   --brand-blue: #0B3D91;
+  --brand-surface: var(--brand-blue);
+  --brand-surface-foreground: var(--primary-foreground);
+  --brand-surface-muted-foreground: color-mix(in oklab, var(--brand-surface-foreground) 64%, transparent);
+  --brand-surface-subtle-foreground: color-mix(in oklab, var(--brand-surface-foreground) 42%, transparent);
+  --brand-surface-panel: color-mix(in oklab, var(--brand-surface-foreground) 6%, transparent);
+  --brand-surface-panel-hover: color-mix(in oklab, var(--brand-surface-foreground) 10%, transparent);
+  --brand-surface-border: color-mix(in oklab, var(--brand-surface-foreground) 14%, transparent);
   
   /* UI Primitives */
   --card: oklch(1 0 0);
@@ -508,6 +515,26 @@
   
   /* Layout */
   --nav-h: 64px;
+}
+
+.brand-surface {
+  --background: var(--brand-surface);
+  --foreground: var(--brand-surface-foreground);
+  --card: var(--brand-surface-panel);
+  --card-foreground: var(--brand-surface-foreground);
+  --popover: var(--brand-surface-panel);
+  --popover-foreground: var(--brand-surface-foreground);
+  --primary: var(--brand-surface-foreground);
+  --primary-foreground: var(--brand-surface);
+  --secondary: var(--brand-surface-panel);
+  --secondary-foreground: var(--brand-surface-foreground);
+  --muted: var(--brand-surface-panel);
+  --muted-foreground: var(--brand-surface-muted-foreground);
+  --accent: var(--brand-surface-panel-hover);
+  --accent-foreground: var(--brand-surface-foreground);
+  --border: var(--brand-surface-border);
+  --input: var(--brand-surface-border);
+  --ring: var(--brand-surface-muted-foreground);
 }
 
 .dark {

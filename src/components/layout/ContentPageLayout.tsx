@@ -20,7 +20,7 @@ export default function ContentPageLayout({
   centerTitle = true,
 }: ContentPageLayoutProps) {
   return (
-    <section className={`overflow-hidden bg-[#0B3D91]`} style={{ backgroundColor: 'var(--brand-blue, #0B3D91)' }}>
+    <section className={`brand-surface overflow-hidden bg-[var(--brand-surface)] text-foreground ${className}`}>
       <ShootingStarBackground numberOfStars={60} />
 
       <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[auto_1fr_auto]">
