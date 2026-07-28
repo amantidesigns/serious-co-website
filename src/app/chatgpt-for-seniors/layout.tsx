@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ChatGPT for Seniors - A Very Serious Company",
-  description: "A specialized 1-day workshop designed to teach seniors how to use ChatGPT for connection, entertainment, and daily assistance. We bring the workshop to your facility.",
+  title: "ChatGPT 101 - A Very Serious Company",
+  description: "A hands-on workshop that teaches teams and communities how to use ChatGPT effectively with real workflows, clear prompts, and responsible practices.",
   openGraph: {
-    title: "ChatGPT for Seniors - A Very Serious Company",
-    description: "A specialized 1-day workshop designed to teach seniors how to use ChatGPT for connection, entertainment, and daily assistance.",
+    title: "ChatGPT 101 - A Very Serious Company",
+    description: "A hands-on workshop that teaches teams and communities how to use ChatGPT effectively with real workflows, clear prompts, and responsible practices.",
     images: [
       {
         url: "/a-very-serious-company.jpeg",
         width: 1200,
         height: 630,
-        alt: "ChatGPT for Seniors - A Very Serious Company",
+        alt: "ChatGPT 101 - A Very Serious Company",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ChatGPT for Seniors - A Very Serious Company",
-    description: "A specialized 1-day workshop designed to teach seniors how to use ChatGPT for connection, entertainment, and daily assistance.",
+    title: "ChatGPT 101 - A Very Serious Company",
+    description: "A hands-on workshop that teaches teams and communities how to use ChatGPT effectively with real workflows, clear prompts, and responsible practices.",
     images: ["/a-very-serious-company.jpeg"],
   },
 };
 
-export default function ChatGPTForSeniorsLayout({
+export default function ChatGPT101RedirectLayout({
   children,
 }: {
   children: React.ReactNode;

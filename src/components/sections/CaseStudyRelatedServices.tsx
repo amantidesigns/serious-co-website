@@ -18,7 +18,7 @@ const servicesList: { [key: string]: string } = {
   "Web Design": "/services/web-design",
   "Web Development": "/services/web-development",
   "Brand Strategy": "/services/brand-strategy",
-  "AI Training": "/services/ai-training",
+  "AI Training": "/services/ai-concierge",
   "UX Design": "/services/ux-design",
   "Content Strategy": "/services/content-strategy",
 };
