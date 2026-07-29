@@ -72,10 +72,10 @@ export default function OurServicesPage() {
                 <div className="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
                   <LightBulbIcon className="w-4 h-4 text-yellow-400" />
                 </div>
-                <h3 className="text-lg font-medium text-white">Creative</h3>
+                <h3 className="text-lg font-medium text-white">Creative Marketing</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Strategic creative solutions that communicate your message clearly and effectively.
+                  Full-funnel creative that aligns campaigns, landing pages, and conversion assets.
                 </p>
               </div>
             <div className="space-y-3">
@@ -83,10 +83,10 @@ export default function OurServicesPage() {
                 <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
                   <SparklesIcon className="w-4 h-4 text-purple-400" />
                 </div>
-                <h3 className="text-lg font-medium text-white">Branding Services</h3>
+                <h3 className="text-lg font-medium text-white">Brand Strategy</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Complete brand identity development from positioning to visual systems.
+                  Positioning, voice, and visual identity that keeps your brand consistent.
                 </p>
               </div>
             <div className="space-y-3">
@@ -94,10 +94,10 @@ export default function OurServicesPage() {
                 <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
                   <CpuChipIcon className="w-4 h-4 text-cyan-400" />
                 </div>
-                <h3 className="text-lg font-medium text-white">AI Consulting & Training</h3>
+                <h3 className="text-lg font-medium text-white">AI Concierge</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Strategic guidance on integrating AI into your creative and business processes.
+                  Custom AI workflows, automations, and enablement with clear guardrails.
                 </p>
                 <div className="pt-2">
                 <a 
@@ -135,10 +135,10 @@ export default function OurServicesPage() {
                 <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                   <GlobeAltIcon className="w-4 h-4 text-blue-400" />
                 </div>
-                <h3 className="text-lg font-medium text-white">Web Design</h3>
+                <h3 className="text-lg font-medium text-white">Web Development</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/70">
-                  Custom websites that serve your audience&apos;s needs with clarity and performance.
+                  High-performance sites built for speed, clarity, and scale.
                 </p>
               </div>
             <div className="space-y-3">
