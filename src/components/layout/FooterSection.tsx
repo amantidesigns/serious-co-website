@@ -4,6 +4,7 @@ import { Asterisk } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import CTAButton from "../ui/CTAButton";
+import { BOOK_CALL_EMAIL_URL, CONTACT_EMAIL_URL } from "@/lib/booking";
 
 export default function FooterSection() {
   return (
@@ -40,9 +41,7 @@ export default function FooterSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
               <CTAButton
-                href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={BOOK_CALL_EMAIL_URL}
                 variant="primary"
                 size="lg"
                 className="hover:scale-105"
@@ -55,7 +54,7 @@ export default function FooterSection() {
                 Book Call
               </CTAButton>
               <CTAButton
-                href="mailto:hello@averyseriouscompany.com"
+                href={CONTACT_EMAIL_URL}
                 variant="secondary"
                 size="lg"
               >

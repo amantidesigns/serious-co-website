@@ -3,6 +3,7 @@ import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AI_TRAINING_EMAIL_URL, CONTACT_EMAIL_URL } from "@/lib/booking";
 import { CheckCircle, Clock, MapPin, Users, DollarSign } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -340,9 +341,7 @@ export default function AITrainingPage() {
                 asChild
               >
                 <a 
-                  href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={AI_TRAINING_EMAIL_URL}
                 >
                   Register Now - $200
                 </a>
@@ -355,7 +354,7 @@ export default function AITrainingPage() {
             <div className="text-center">
               <p className="text-white/70 text-sm">
                 Questions? Contact us at{" "}
-                <a href="mailto:hello@averyseriouscompany.com" className="text-white hover:text-white/80 underline">
+                <a href={CONTACT_EMAIL_URL} className="text-white hover:text-white/80 underline">
                   email us
                 </a>
               </p>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ContentPageLayout from "@/components/layout/ContentPageLayout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CHATGPT_FOR_SENIORS_EMAIL_URL } from "@/lib/booking";
 import { CheckCircle, Clock, MapPin, Users, Heart, Shield, Sparkles } from "lucide-react";
 
 export default function ChatGPTForSeniorsPage() {
@@ -300,7 +301,7 @@ export default function ChatGPTForSeniorsPage() {
                 asChild
               >
                 <a 
-                  href="mailto:hello@averyseriouscompany.com?subject=ChatGPT%20for%20Seniors%20Inquiry"
+                  href={CHATGPT_FOR_SENIORS_EMAIL_URL}
                   className="flex items-center gap-2"
                 >
                   Contact Us to Book

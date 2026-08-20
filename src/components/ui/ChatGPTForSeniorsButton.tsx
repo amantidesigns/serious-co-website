@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { CHATGPT_FOR_SENIORS_EMAIL_URL } from "@/lib/booking";
 
 interface ChatGPTForSeniorsButtonProps {
   className?: string;
@@ -34,7 +34,7 @@ export default function ChatGPTForSeniorsButton({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href="/chatgpt-for-seniors">
+      <a href={CHATGPT_FOR_SENIORS_EMAIL_URL}>
         <div className="relative">
           {/* Main Button */}
           <motion.div
@@ -184,7 +184,7 @@ export default function ChatGPTForSeniorsButton({
             )}
           </AnimatePresence>
         </div>
-      </Link>
+      </a>
     </div>
   );
 }

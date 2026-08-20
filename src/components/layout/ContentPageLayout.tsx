@@ -23,7 +23,7 @@ export default function ContentPageLayout({
     <section className={`brand-surface overflow-hidden bg-[var(--brand-surface)] text-foreground ${className}`}>
       <ShootingStarBackground numberOfStars={60} />
 
-      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-rows-[auto_1fr_auto]">
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 pt-[var(--nav-h,64px)] min-h-[calc(100svh-var(--nav-h,64px))] grid grid-cols-[minmax(0,1fr)] grid-rows-[auto_1fr_auto]">
 
         {title && (
           <motion.h1
@@ -56,7 +56,7 @@ export default function ContentPageLayout({
         )}
 
         <motion.div
-          className="relative z-20 pb-32"
+          className="relative z-20 min-w-0 pb-32"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{

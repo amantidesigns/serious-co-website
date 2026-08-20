@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ContentPageLayout from "@/components/layout/ContentPageLayout";
+import { CHATGPT_FOR_SENIORS_EMAIL_URL } from "@/lib/booking";
 import { 
   LightBulbIcon, 
   SparklesIcon, 
@@ -12,12 +14,16 @@ import {
   PaintBrushIcon,
   FilmIcon,
   DocumentTextIcon,
-  BookOpenIcon
+  BookOpenIcon,
+  MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
   title: "Our Services - A Very Serious Company",
-  description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
+  description: "Brand strategy, web design, creative production, AI consulting, and AI SEO and LLM optimization from A Very Serious Company.",
+  alternates: {
+    canonical: "/services",
+  },
   openGraph: {
     title: "Our Services - A Very Serious Company",
     description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
@@ -30,6 +36,7 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
+    url: "/services",
   },
   twitter: {
     card: "summary_large_image",
@@ -101,7 +108,7 @@ export default function OurServicesPage() {
                 </p>
                 <div className="pt-2">
                 <a 
-                  href="/chatgpt-for-seniors" 
+                  href={CHATGPT_FOR_SENIORS_EMAIL_URL}
                   className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-normal font-mono tracking-tight text-white/70 hover:text-white/90 transition-all duration-500 border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 overflow-hidden"
                 >
                   <div className="h-[120px] w-10 bg-gradient-to-r from-blue-400/20 via-blue-300/50 to-cyan-400/20 absolute blur-sm -rotate-45 -left-16 animate-shimmer-continuous" />
@@ -174,6 +181,23 @@ export default function OurServicesPage() {
                   Leveraging AI tools to enhance creativity and streamline production processes.
                 </p>
               </div>
+            <Link
+              href="/services/ai-seo-llm-optimization"
+              className="group -m-4 space-y-3 rounded-xl border border-transparent p-4 transition-colors hover:border-white/10 hover:bg-white/[0.04]"
+            >
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center flex-shrink-0">
+                  <MagnifyingGlassIcon className="w-4 h-4 text-lime-300" />
+                </div>
+                <h3 className="text-lg font-medium text-white">AI SEO &amp; LLM Optimization</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-white/70">
+                Make your brand easier to find—and easier for Google, Gemini, ChatGPT, and YouTube to understand.
+              </p>
+              <span className="inline-block text-xs font-mono text-lime-200/70 transition-colors group-hover:text-lime-200">
+                See how it works →
+              </span>
+            </Link>
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import CTAButton from "../ui/CTAButton";
+import { BOOK_CALL_EMAIL_URL, CONTACT_EMAIL_URL } from "@/lib/booking";
 
 const DATA = [
   {
@@ -44,9 +45,7 @@ const FeatureSection = () => {
           </div>
           <div className="mt-4 flex flex-col sm:flex-row gap-3">
             <CTAButton
-              href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={BOOK_CALL_EMAIL_URL}
               variant="primary"
               size="md"
               className="hover:scale-105"
@@ -59,7 +58,7 @@ const FeatureSection = () => {
               Book Call
             </CTAButton>
             <CTAButton
-              href="mailto:hello@averyseriouscompany.com"
+              href={CONTACT_EMAIL_URL}
               variant="secondary"
               size="md"
             >

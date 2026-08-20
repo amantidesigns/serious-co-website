@@ -2,6 +2,7 @@
 
 import React from "react";
 import { theme } from "@/lib/theme";
+import { WEBSITE_INQUIRY_EMAIL_URL } from "@/lib/booking";
 
 interface FAQButtonProps {
   className?: string;
@@ -27,7 +28,7 @@ export default function FAQButton({ className = "", variant = 'section-bottom-ri
       }
     >
       <a 
-        href="/faq" 
+        href={WEBSITE_INQUIRY_EMAIL_URL}
         className={baseButtonClass}
         style={{ 
           color: theme.colors.primary.white, 

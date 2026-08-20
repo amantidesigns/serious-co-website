@@ -22,6 +22,7 @@ import { ChevronRight, Check, X, TrendingUp, Clock, Target, Zap, Shield, ArrowRi
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AvatarGroup, AvatarGroupTooltip } from "@/components/ui/avatar-group";
 import { teamMembers } from "@/content/team";
+import { BOOK_CALL_EMAIL_URL, CONTACT_EMAIL_URL } from "@/lib/booking";
 import Link from "next/link";
 
 export default function WhyUsPage() {
@@ -656,9 +657,7 @@ export default function WhyUsPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <motion.a 
-                  href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={BOOK_CALL_EMAIL_URL}
                   className="px-10 py-5 rounded-full bg-white text-blue-900 font-medium text-lg tracking-tight transition-all hover:bg-white/90 active:scale-[0.98] shadow-2xl shadow-white/20"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -666,7 +665,7 @@ export default function WhyUsPage() {
                   Book a Call
                 </motion.a>
                 <motion.a 
-                  href="mailto:hello@averyseriouscompany.com"
+                  href={CONTACT_EMAIL_URL}
                   className="px-10 py-5 rounded-full border-2 border-white/20 text-white font-medium text-lg tracking-tight transition-all hover:bg-white/10 hover:border-white/40 active:scale-[0.98]"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

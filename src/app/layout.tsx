@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import ErrorReporter from "@/components/ui/ErrorReporter";
 import Script from "next/script";
+import { siteConfig } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,17 +23,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://avery-serious-company.com'),
-  title: "A Very Serious Company - Creative Agency",
+  metadataBase: new URL(siteConfig.url),
+  title: "A Very Serious Company | Creative & AI Agency",
   description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
-  keywords: ["creative agency", "web design", "brand development", "AI workflows", "website design", "creative services", "modern creative"],
+  applicationName: siteConfig.name,
+  category: "Creative agency",
   authors: [{ name: "A Very Serious Company" }],
   creator: "A Very Serious Company",
   publisher: "A Very Serious Company",
   openGraph: {
-    title: "A Very Serious Company - Creative Agency",
+    title: "A Very Serious Company | Creative & AI Agency",
     description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
-    url: "https://avery-serious-company.com",
+    url: siteConfig.url,
     siteName: "A Very Serious Company",
     images: [
       {
@@ -47,10 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "A Very Serious Company - Creative Agency",
+    title: "A Very Serious Company | Creative & AI Agency",
     description: "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
     images: ["/a-very-serious-company.jpeg"],
-    creator: "@avery-serious-company",
   },
   robots: {
     index: true,
@@ -62,9 +63,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
 };
 
@@ -108,53 +106,6 @@ export default function RootLayout({
         <main className="min-h-0">
           {children}
         </main>
-        
-        {/* Organization Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "A Very Serious Company",
-              "description": "We build brands, websites, and creative content that actually work. Using modern AI workflows, we deliver high-craft creative at speed. Simple ideas executed properly.",
-              "url": "https://avery-serious-company.com",
-              "logo": "https://avery-serious-company.com/a-very-serious-company.jpeg",
-              "image": "https://avery-serious-company.com/a-very-serious-company.jpeg",
-              "foundingDate": "2024",
-              "founder": {
-                "@type": "Person",
-                "name": "A Very Serious Company Team"
-              },
-              "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "US"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "Business Inquiries",
-                "availableLanguage": "English"
-              },
-              "sameAs": [
-                "https://avery-serious-company.com"
-              ],
-              "knowsAbout": [
-                "Web Design",
-                "Brand Development", 
-                "Digital Marketing",
-                "Creative Services",
-                "Website Development",
-                "Advertising"
-              ],
-              "serviceType": [
-                "Creative Agency",
-                "Web Design Services",
-                "Brand Development",
-                "Digital Marketing"
-              ]
-            })
-          }}
-        />
       </body>
     </html>
   );

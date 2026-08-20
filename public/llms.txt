@@ -1,0 +1,19 @@
+# A Very Serious Company (AVSC)
+
+> A modern creative company for brands, websites, content, and practical AI implementation.
+
+AVSC takes simple ideas seriously. We pair high-craft creative work with pragmatic AI workflows. We do not guarantee search rankings or AI citations.
+
+## Primary pages
+
+- [Home](https://avery-serious-company.com/): Company overview and selected work
+- [Services](https://avery-serious-company.com/services): Creative, web, content, and AI services
+- [AI SEO & LLM Optimization](https://avery-serious-company.com/services/ai-seo-llm-optimization): Technical SEO, structured data, answer-ready content, video discovery, and measurement
+- [Work](https://avery-serious-company.com/work): Selected case studies
+- [About AVSC](https://avery-serious-company.com/why-us): Positioning, process, and team
+- [Blog](https://avery-serious-company.com/blog): Articles and ideas
+- [FAQ](https://avery-serious-company.com/faq): Common questions
+
+## Contact
+
+- Email: hello@averyseriouscompany.com

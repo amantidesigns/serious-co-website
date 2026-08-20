@@ -2,6 +2,7 @@
 
 import React from "react";
 import CTAButton from "../ui/CTAButton";
+import { BOOK_CALL_EMAIL_URL, WEBSITE_INQUIRY_EMAIL_URL } from "@/lib/booking";
 
 interface PageFooterProps {
   className?: string;
@@ -21,9 +22,7 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
         </div>
         <div className="flex flex-row max-[400px]:flex-col gap-3 self-start lg:self-end mt-2">
           <CTAButton
-            href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={BOOK_CALL_EMAIL_URL}
             variant="primary"
             size="md"
             icon={
@@ -35,7 +34,7 @@ export default function PageFooter({ className = "" }: PageFooterProps) {
             Book Call
           </CTAButton>
           <CTAButton
-            href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
+            href={WEBSITE_INQUIRY_EMAIL_URL}
             variant="secondary"
             size="md"
           >

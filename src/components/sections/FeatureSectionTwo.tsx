@@ -3,6 +3,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CTAButton from "../ui/CTAButton";
+import { BOOK_CALL_EMAIL_URL, CONTACT_EMAIL_URL } from "@/lib/booking";
 
 interface list {
   title: string;
@@ -61,9 +62,7 @@ const FeatureSectionTwo = () => {
             <p className="mb-8 text-white">We take simple ideas seriously.</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <CTAButton
-                href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={BOOK_CALL_EMAIL_URL}
                 variant="primary"
                 size="md"
                 className="hover:scale-105"
@@ -76,7 +75,7 @@ const FeatureSectionTwo = () => {
                 Book Call
               </CTAButton>
               <CTAButton
-                href="mailto:hello@averyseriouscompany.com"
+                href={CONTACT_EMAIL_URL}
                 variant="secondary"
                 size="md"
               >

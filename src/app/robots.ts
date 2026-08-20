@@ -1,20 +1,27 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+import { siteConfig } from '@/lib/seo'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://avery-serious-company.com'
+  const disallow = [
+    '/api/',
+    '/admin/',
+    '/private/',
+  ]
   
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: [
-        '/api/',
-        '/_next/',
-        '/admin/',
-        '/private/',
-      ],
-    },
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    rules: [
+      {
+        userAgent: ['OAI-SearchBot', 'Google-Extended'],
+        allow: '/',
+        disallow,
+      },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow,
+      },
+    ],
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   }
 }

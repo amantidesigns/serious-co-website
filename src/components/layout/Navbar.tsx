@@ -38,6 +38,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { HamburgerIcon } from "@/components/ui/hamburger-icon";
+import { BOOK_CALL_EMAIL_URL, WEBSITE_INQUIRY_EMAIL_URL } from "@/lib/booking";
 
 interface Solution {
   title: string;
@@ -523,7 +524,7 @@ const Navbar = () => {
             {/* FAQ CTA on mobile */}
             <div className="mt-8 flex justify-center lg:hidden">
               <a
-                href="/faq"
+                href={WEBSITE_INQUIRY_EMAIL_URL}
                 className="text-sm font-medium rounded-full border px-4 py-2 tracking-normal transition-all duration-200 whitespace-nowrap text-white border-white bg-transparent hover:bg-white/10"
                 onClick={handleLinkClick}
               >
@@ -537,9 +538,7 @@ const Navbar = () => {
                 <div className="space-y-6">
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <a
-                      href="https://calendar.app.google/KKjjEffx5VEeuZ9Z7"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={BOOK_CALL_EMAIL_URL}
                       className="group flex cursor-pointer active:scale-[0.98] items-center justify-center gap-2 font-thin rounded-full border bg-white text-black px-4 py-2 tracking-tight transition-all duration-200 hover:bg-white/90"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -548,7 +547,7 @@ const Navbar = () => {
                       Book Call
                     </a>
                     <a
-                      href="mailto:hello@averyseriouscompany.com?subject=Hello from A Very Serious Company Website&body=Hi there,%0D%0A%0D%0AI'm interested in learning more about your services.%0D%0A%0D%0AThanks!"
+                      href={WEBSITE_INQUIRY_EMAIL_URL}
                       className="group flex cursor-pointer active:scale-[0.98] items-center justify-center gap-2 font-thin rounded-full border bg-transparent px-4 py-2 tracking-tight transition-all duration-200 text-white border-white hover:bg-[#F2F2F2] hover:text-[#0B3D91]"
                     >
                       Email Us

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import CTAButton from "../ui/CTAButton";
+import { BOOK_CALL_EMAIL_URL, CONTACT_EMAIL_URL } from "@/lib/booking";
 
 interface CaseStudyCTAProps {
   title?: string;
@@ -12,10 +13,9 @@ export default function CaseStudyCTA({
   title = "Ready to elevate your brand too?",
   subtitle = "Let's discuss how we can help bring your vision to life."
 }: CaseStudyCTAProps) {
-  const calendarUrl = "https://calendar.app.google/KKjjEffx5VEeuZ9Z7";
-  const phoneNumber = "952-215-7878";
-  const phoneUrl = `tel:${phoneNumber}`;
-  const emailUrl = "mailto:hello@averyseriouscompany.com";
+  const calendarUrl = BOOK_CALL_EMAIL_URL;
+  const phoneUrl = BOOK_CALL_EMAIL_URL;
+  const emailUrl = CONTACT_EMAIL_URL;
 
   return (
     <motion.div
@@ -54,8 +54,6 @@ export default function CaseStudyCTA({
             {/* Primary CTA: Google Calendar */}
             <CTAButton
               href={calendarUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               variant="primary"
               size="lg"
               className="bg-gradient-to-r from-white to-white/90 hover:shadow-2xl hover:shadow-white/20"

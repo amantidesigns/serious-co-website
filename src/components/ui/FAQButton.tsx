@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { WEBSITE_INQUIRY_EMAIL_URL } from "@/lib/booking";
 
 interface FAQButtonProps {
   className?: string;
@@ -26,7 +27,7 @@ export default function FAQButton({ className = "", variant = 'section-bottom-ri
       }
     >
       <a
-        href="/faq"
+        href={WEBSITE_INQUIRY_EMAIL_URL}
         className={`${baseButtonClass} text-white border-white bg-transparent hover:bg-[#F2F2F2] hover:text-[#0B3D91]`}
       >
         <span className="hidden sm:inline">Questions? We have answers.</span>
